@@ -39,7 +39,7 @@ Types
 * Subgraph (부분 그래프)
 * Complete graph (완전 그래프)
 * Dense graph (밀집 그래프) / Sparse graph (희소 그래프)
-* `Spanning tree (신장 트리) <https://oi-test.readthedocs.io/en/latest/algorithms/data_structure/tree/spanning_tree.html>`_
+* `Spanning tree (신장 트리) <https://oi.readthedocs.io/en/latest/algorithms/data_structure/tree/spanning_tree.html>`_
 
 
 ==================
@@ -54,12 +54,12 @@ Expression methods
 Graph search
 ============
 
-* `DFS (Depth first search) <https://oi-test.readthedocs.io/en/latest/algorithms/search/dfs.html>`_
-* `BFS (Breath first search) <https://oi-test.readthedocs.io/en/latest/algorithms/search/bfs.html>`_
+* `DFS (Depth first search) <https://oi.readthedocs.io/en/latest/algorithms/search/dfs.html>`_
+* `BFS (Breath first search) <https://oi.readthedocs.io/en/latest/algorithms/search/bfs.html>`_
 
 
 ============================================================================================================================
-`Shortest path (최단 경로) <https://oi-test.readthedocs.io/en/latest/algorithms/data_structure/graph/shortest_path.html>`_
+`Shortest path (최단 경로) <https://oi.readthedocs.io/en/latest/algorithms/data_structure/graph/shortest_path.html>`_
 ============================================================================================================================
 
 
@@ -67,7 +67,7 @@ Graph search
 Graph sort
 ===========
 
-* `Topological sort (위상 정렬) <https://oi-test.readthedocs.io/en/latest/algorithms/sort/topological_sort.html>`_
+* `Topological sort (위상 정렬) <https://oi.readthedocs.io/en/latest/algorithms/sort/topological_sort.html>`_
 
 
 **References**

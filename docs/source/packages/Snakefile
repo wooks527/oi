@@ -1,0 +1,117 @@
+from itertools import chain, combinations, product
+
+# Base paths and information
+BASE_DIR = '/home/share/hwkim/dti/'
+VALIDATION_OUTPUT_DIR = BASE_DIR + 'results/validation/'
+OUTPUT_DIR = BASE_DIR + "results/performance/"
+workdir: BASE_DIR
+
+# Training file paths
+TRAINING_DIR = BASE_DIR + 'data/training/'
+TRAINING_DTIS = TRAINING_DIR + 'merged_dti.csv'
+TRAINING_DRUGS = TRAINING_DIR + 'merged_compound.csv'
+TRAINING_PROTS = TRAINING_DIR + 'merged_protein.csv'
+
+# Validation file paths
+VALIDATION_NAMES = 'MATADOR'
+VALIDATION_DIR = BASE_DIR + 'data/validation/'
+VALIDATION_DTIS = VALIDATION_DIR + 'validation_dti.csv'
+VALIDATION_DRUGS = VALIDATION_DIR + 'validation_compound.csv'
+VALIDATION_PROTS = VALIDATION_DIR + 'validation_protein.csv'
+	
+# Set hyperparameters
+DRUG_PARAMS = {
+    'maccs': {
+        'drug_type': 'maccs',
+        'drug_length': '167',
+        'drug_layer': ['128', '64', '32', '16']
+    },
+    'pubchem': {
+        'drug_type=': 'pubchem',
+        'drug_length': '881',
+        'drug_layer': ['512', '256', '128', '64', '32']
+    },
+    'ecfp4': {
+        'drug_type=': 'ecfp4',
+        'drug_length': '2048',
+        'drug_layer': ['1024', '512', '256', '128', '64', '32']
+    },
+    'ecfp6': {
+        'drug_type=': 'ecfp6',
+        'drug_length': '2048',
+        'drug_layer': ['1024', '512', '256', '128', '64', '32']
+    },
+    'pharm2': {
+        'drug_type=': 'pharm2',
+        'drug_length': '135',
+        'drug_layer': ['128', '64', '32', '16']
+    },
+    'mol2vec': {
+        'drug_type=': 'mol2vec',
+        'drug_length': '300',
+        'drug_layer': ['256', '128', '64', '32', '16']
+    }
+}
+
+PROTEIN_TYPE = ['Convolution']
+PROTEIN_LENGTH = ['2500']
+WINDOW_SIZE = ['10 15 20 25 30']
+HIDDEN_LAYER = ['128']
+DRUG_TYPE = [config['drug_type']]
+DRUG_LENGTH = [DRUG_PARAMS[config['drug_type']]['drug_length']]
+DRUG_LAYER = [
+    ' '.join(layers)
+    for layers in chain.from_iterable(
+        combinations(DRUG_PARAMS[config['drug_type']]['drug_layer'], n)
+        for n in range(1, len(DRUG_PARAMS[config['drug_type']]['drug_layer'])+1)
+    )
+]
+FC_LAYER = [str(int(HIDDEN_LAYER[0]) + int(layers[-1])) for layers in DRUG_LAYER]
+EPOCH = ['50']
+LEARNING_RATE = ['0.0001']
+DECAY = ['0.0001']
+ACTIVATION = ['elu']
+DROPOUT = ['0.00']
+THRESHHOLD = ['0.2']
+VALIDATION_NAME = ['MATADOR']
+
+# Set parameter set dictionary
+PARAM_KEYS = [
+    'protein_type', 'protein_length', 'window_size', 'hidden_layer',
+    'drug_type', 'drug_length', 'drug_layer', 'fc_layer',
+    'epoch', 'learning_rate', 'decay', 'activation', 'dropout', 'threshold', 'validation_name'
+]
+paramset_dic = {
+    paramset[4] + '_' + '_'.join(paramset[6].split(' ')): {param_key: param for param_key, param in zip(PARAM_KEYS, paramset)}
+    for paramset in product(
+        PROTEIN_TYPE, PROTEIN_LENGTH, WINDOW_SIZE, HIDDEN_LAYER,
+        DRUG_TYPE, DRUG_LENGTH, DRUG_LAYER, FC_LAYER,
+        EPOCH, LEARNING_RATE, DECAY, ACTIVATION, DROPOUT, THRESHHOLD, VALIDATION_NAME
+    )
+}
+
+# Rule for validation
+rule validation:
+    input:
+        training_dtis = TRAINING_DTIS,
+        training_drugs = TRAINING_DRUGS,
+        training_prots = TRAINING_PROTS,
+        validation_dtis = VALIDATION_DTIS,
+        validation_drugs = VALIDATION_DRUGS,
+        validation_prots = VALIDATION_PROTS
+    run:
+        for paramset_key, param_dic in paramset_dic.items():
+            output = VALIDATION_OUTPUT_DIR + paramset_key + '.csv'
+            shell(
+                '''
+                    python DTI_deep.py
+                    {input.training_dtis} {input.training_drugs} {input.training_prots}
+                    -i {input.validation_dtis} -d {input.validation_drugs} -t {input.validation_prots}
+                '''.replace('\n', '') +
+                '''
+                    -V {drug_type} -L {drug_length} -c {drug_layer}
+                    -v {protein_type} -l {protein_length} -w {window_size} -p {hidden_layer} -f {fc_layer} -F 128
+                    -e {epoch} -r {learning_rate} -y {decay} -a {activation} -b 64 -D {dropout}
+                    --validation -n {validation_name}
+                '''.format(**param_dic).replace('\n', '') + '-o ' + output + ' -g ' + str(config['gpu_num'])
+            )

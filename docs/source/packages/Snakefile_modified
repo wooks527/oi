@@ -1,0 +1,272 @@
+import itertools
+
+# Base paths and information
+BASE_DIR = '/home/hwkim/dti/'
+VALIDATION_OUTPUT_DIR = BASE_DIR + 'results/validation/'
+PREDICTION_DIR = BASE_DIR + 'results/prediction/'
+MODEL_DIR = BASE_DIR + 'model/'
+OUTPUT_DIR = BASE_DIR + 'results/performance/'
+workdir: BASE_DIR
+
+# Get arguments
+def get_arg_sets(max_list):
+    for i in range(1, len(max_list)+1):
+        return_var = max_list[0:i]
+        yield ','.join([str(var) for var in return_var])
+
+# Get various window or layer size list
+MAX_WINDOW = [10, 15, 20, 25, 30, 35]
+WINDOW_ARG_SET = list(iter(get_arg_sets(MAX_WINDOW)))
+
+MAX_DRUG_LAYER = [1024, 512, 256]
+DRUG_LAYER_ARG_SET = list(iter(get_arg_sets(MAX_DRUG_LAYER)))
+
+MAX_FC_LAYER = [256, 128, 64]
+FC_LAYER_ARG_SET = list(iter(get_arg_sets(MAX_FC_LAYER)))
+
+# Set hyperparameters
+N_EPOCHS = ['50']
+LEARNING_RATES = [str(0.001)]
+LENGTHS = ['2500']
+TYPES = ['Convolution']
+THRESHOLDS = ['0.15']
+
+# Initialize parameter set dictionary
+PARAM_KEYS = ['window_size', 'drug_layer', 'fc_layer', 'learning_rate', 'type', 'length', 'threshold', 'epoch']
+paramset_dic = {
+    str(i): {param_key: param for param_key, param in zip(PARAM_KEYS, param_set)}
+    for i, param_set in enumerate(itertools.product(
+        WINDOW_ARG_SET, DRUG_LAYER_ARG_SET, FC_LAYER_ARG_SET, LEARNING_RATES, TYPES, LENGTHS, THRESHOLDS, N_EPOCHS
+    ))
+}
+
+# Training file paths
+TRAINING_DIR = BASE_DIR + 'data/training/'
+TRAINING_WILDCARD = '{number}.csv'
+TRAINING_DRUGS = TRAINING_DIR + 'merged_compound.csv'
+TRAINING_PROTS = TRAINING_DIR + 'merged_protein.csv"
+
+# Set training sets
+training_sets, = glob_wildcards(TRAINING_DIR + TRAINING_WILDCARD)
+
+# Validation file paths
+VALIDATION_NAMES = ["MATADOR"]
+VALIDATION_DIR = BASE_DIR + 'data/validation/'
+VALIDATION_DTIS = [VALIDATION_DIR + 'validation_dti.csv']
+VALIDATION_DRUGS = [VALIDATION_DIR + 'validation_compound.csv']
+VALIDATION_PROTS = [VALIDATION_DIR + 'validation_protein.csv']
+
+# Test file paths
+TEST_NAMES = ['PubChem', 'PubChem_unseen_drug', 'PubChem_unseen_target', 'PubChem_unseen_both' ,'KinaseSARfari']
+TEST_DIR = BASE_DIR + 'data/test/'
+TEST_DTIS = [
+    TEST_DIR + 'pubchem/test_dti.csv,
+    TEST_DIR + 'pubchem/test_dti_new_compound.csv',
+    TEST_DIR + 'pubchem/test_dti_new_protein.csv",
+    TEST_DIR + 'pubchem/test_dti_both_new.csv',
+    TEST_DIR + 'kinase_sarfari/test_dti.csv'
+]
+TEST_DRUGS = [
+    TEST_DIR + 'pubchem/test_compound.csv',
+    TEST_DIR + 'pubchem/test_compound.csv',
+    TEST_DIR + 'pubchem/test_compound.csv',
+    TEST_DIR + 'pubchem/test_compound.csv',
+    TEST_DIR + 'kinase_sarfari/test_compound.csv'
+]
+TEST_PROTS = [
+    TEST_DIR + 'pubchem/test_protein.csv',
+    TEST_DIR + 'pubchem/test_protein.csv',
+    TEST_DIR + 'pubchem/test_protein.csv',
+    TEST_DIR + 'pubchem/test_protein.csv',
+    TEST_DIR + 'kinase_sarfari/test_protein.csv'
+]
+	
+# Set parameter set dictionary
+paramset_dic['127_2500_64'] = {
+    'drug_layer': '512 128',
+    'protein_type': 'Convolution',
+    'protein_length': '2500',
+    'window_size': '10 15 20 25 30',
+    'hidden_layer': '128',
+    'fc_layer': '256',
+    'epoch': '20',
+    'learning_rate': '0.0001',
+    'decay': '0.0001',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.2',
+}
+paramset_dic['127_2500_more_decay'] = {
+    'drug_layer': '512 128',
+    'protein_type': 'Convolution',
+    'protein_length': '2500',
+    'window_size': '10 15 20 25 30',
+    'hidden_layer': '128',
+    'fc_layer': '256',
+    'epoch': '25',
+    'learning_rate': '0.0001',
+    'decay': '0.1',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.2',
+}
+paramset_dic['127_2750'] = {
+    'drug_layer': '512 128',
+    'protein_type': 'Convolution',
+    'protein_length': '2750',
+    'window_size': '10 15 20 25 30',
+    'hidden_layer': '128',
+    'fc_layer': '256',
+    'epoch': '25',
+    'learning_rate': '0.0001',
+    'decay': '0.0001',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.2',
+}
+paramset_dic['AAC'] = {
+    'drug_layer': '1024 512',
+    'protein_type': 'AAComposition',
+    'protein_length': '8420',
+    'window_size': '0',
+    'hidden_layer': '1024 512',
+    'fc_layer': '512',
+    'epoch': '10',
+    'learning_rate': '0.0001',
+    'decay': '0.00',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.18',
+}
+paramset_dic['Similarity'] = {
+    'drug_layer': '512 128',
+    'protein_type': 'Similarity',
+    'protein_length': '3675',
+    'window_size': '0',
+    'hidden_layer': '512 128'
+    'fc_layer': '256',
+    'epoch': '15',
+    'learning_rate': '0.0001',
+    'decay': '0.0001',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.12',
+}
+paramset_dic['CTD'] = {
+    'drug_layer': '1024 512',
+    'protein_type': 'CTD',
+    'protein_length': '147',
+    'window_size': '0',
+    'hidden_layer': '64',
+    'fc_layer': '512',
+    'epoch': '20',
+    'learning_rate': '0.0001',
+    'decay': '0.0001',
+    'activation': 'elu',
+    'dropout': '0.00',
+    'threshold': '0.15',
+}
+
+# Print parameter set dictionary
+PARAMSET_LIST = ['127_2500_64', 'Similarity', 'CTD']
+for param_key in PARAMSET_LIST:
+    print(param_key,paramset_dic[param_key])
+
+localrules: evaluate_performance
+
+rule all:
+     input: expand(OUTPUT_DIR + '{paramset_key}_{number}.csv', paramset_key=PARAMSET_LIST, number=training_sets)
+        
+onsuccess:
+    print('Workflow finished, no error')
+
+onerror:
+    print('An error occurred')
+
+# Return param_dic from paramset_dic based on wildcards
+def return_params(wildcards) -> dict:
+    param_dic =  paramset_dic[wildcards.paramset_key]
+    return param_dic
+
+# Rule for validation
+rule validation_DTI_deep:
+    input:
+        training_seq = training_seq,
+        validation_dir = validation_dirs,
+        validation_seq = validation_seqs,
+        training_set = TRAINING_DIR + TRAINING_WILDCARD,
+        training_drug = training_drug,
+        validation_drug = validation_drugs
+    parms:
+        return_params,
+        test_names = validation_names,
+        n_epoch = 40
+    output:
+        VALIDATION_OUTPUT_DIR + '{paramset_key}_{number}.csv'
+    run:         
+        param_dic = params[0]         
+        shell(
+            '''
+                python DTI_deep.py
+                {input.training_set} {input.training_drug} {input.training_seq}
+                --validation -n {params.test_names} -i {input.validation_dir} -d {input.validation_drug} -t {input.validation_seq}
+                -c {drug_layer} -p {hidden_layer} -v {protein_type} -l {protein_length} -f {fc_layer} -F 128
+                -e {params.n_epoch} -b 64 -w {window_size}  -r {learning_rate} -D {dropout} -a {activation} -y {decay} -o {output}
+            '''.format(**param_dic)
+        )
+
+# Rule for predictions
+rule run_dti_deep:
+    input:
+        training_seq=training_seq,
+        test_dtis = test_dirs,
+        test_drugs = test_drugs,
+        test_seqs = test_seqs,
+        training_set = TRAINING_DIR + TRAINING_WILDCARD,
+        training_drug = training_drug
+    params:
+        return_params,
+        test_names = test_names
+    output:
+        prediction = PREDICTION_DIR + '{paramset_key}_{number}.csv',
+        model = MODEL_DIR + '{paramset_key}_{number}.h5'
+    run:
+        param_dic = params[0]
+        cmd = '''
+            python DTI_deep.py
+            {input.training_set} {input.training_drug} {input.training_seq}
+            --predict -n {params.test_names} -i {input.test_dtis} -d {input.test_drugs} -t {input.test_seqs} -m {output.model}
+            -c {drug_layer} -p {hidden_layer} -v {protein_type} -l {protein_length} -f {fc_layer} -F 128
+            -e {epoch} -b 64 -w {window_size} -r {learning_rate} -D {dropout} -a {activation} -y {decay} -o {output.prediction} 
+        '''.format(**param_dic)
+        print(cmd)
+        shell(cmd)
+
+# Rule for evalutation of performances
+rule evaluate_performance:
+    input:
+        prediction = PREDICTION_DIR + '{paramset_key}_{number}.csv'
+    output:
+        performance = OUTPUT_DIR + '{paramset_key}_{number}.csv'
+    params:
+        return_params,
+        test_names = test_names
+    run:
+        param_dic = params[0] 
+        cmd = '
+            python evaluate_performance.py {input.prediction} -o {output.performance} -n {params.test_names} -T {threshold}
+        '.format(**param_dic)
+        print(cmd)
+        shell(cmd)
+
+# Rule for prediction with a model
+rule predict_with_model:
+    input:
+        model = MODEL_DIR + '{paramset_key}_{number}.h5',
+        dti = BASE_DIR + 'dti_for_target/P28223/P28223.csv',
+        drug = training_drug,
+        target = training_seq
+    output:
+        '/DAS_Storage1/dlsrnsi/DTI/Deep_DTI/DTI_for_target/P28223/Prediction/{paramset_key}_{number}.csv'
+    shell:
+        'python2 predict_with_model.py {input.model} {input.dti} {input.drug} {input.target} {output}'

@@ -35,6 +35,7 @@ Types
 .. toctree::
     :maxdepth: 2
 
+
     .. toctree::
         :maxdepth: 2
         :caption: Binary trees
@@ -51,6 +52,7 @@ Types
         avl_tree
         2-3_tree
         2-3-4_tree
+
 
     spanning_tree
         

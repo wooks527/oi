@@ -35,25 +35,8 @@ Types
 .. toctree::
     :maxdepth: 2
 
-
-    .. toctree::
-        :maxdepth: 2
-        :caption: Binary trees
-
-        binary_tree
-        threaded_binary_tree
-        binary_search_tree
-
-
-    .. toctree::
-        :maxdepth: 2
-        :caption: Balanced trees
-
-        avl_tree
-        2-3_tree
-        2-3-4_tree
-
-
+    binary_trees
+    balanced_trees
     spanning_tree
         
 

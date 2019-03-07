@@ -17,15 +17,11 @@ History
 Terminology
 ===========
 
-**Vertex/Node, Edge/Link**
-
-**Adjacent vertex**
-
-**Degree, In-degree, Out-degree**
-
-**Simple path, Cycle**
-
-**Connected component (연결 성분)**
+* Vertex/Node, Edge/Link
+* Adjacent vertex
+* Degree, In-degree, Out-degree
+* Simple path, Cycle
+* Connected component (연결 성분)
     * 연결 성분이란 최대로 연결된 부분 그래프를 의미
 
 

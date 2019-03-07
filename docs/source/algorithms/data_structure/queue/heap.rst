@@ -23,9 +23,16 @@ Types
 Implementation
 ===============
 
+* 힙을 저장하는 표준적인 자료구조는 배열 이다.
+* 구현을 쉽게 하기 위하여 배열의 첫 번째 인덱스인 0은 사용되지 않는다.
+* 힙에서의 부모 노드와 자식 노드의 관계
+    * 왼쪽 자식의 인덱스 = (부모의 인덱스) * 2
+    * 오른쪽 자식의 인덱스 = (부모의 인덱스) * 2 + 1
+    * 부모의 인덱스 = (자식의 인덱스) / 2
+
 .. figure:: img/heap_implementation.png
     :align: center
-    :scale: 40%
+    :scale: 30%
 
 
 Heap::
@@ -37,7 +44,7 @@ Heap::
     typedef struct {
         element heap[MAX_ELEMENT];
         int heap_size;
-    }
+    } HeapType;
 
 
 ============
@@ -46,7 +53,7 @@ Insertion
 
 .. figure:: img/heap_insertion.png
     :align: center
-    :scale: 40%
+    :scale: 30%
 
 
 Insertion::
@@ -67,8 +74,8 @@ Insertion::
 **Time complexity**
 
 Worse case
-* 루트 노드까지 올라가야 하므로 트리의 높이에 해당하는 비교/이동 연산이 필요
-* O(log2n)
+    * 루트 노드까지 올라가야 하므로 트리의 높이에 해당하는 비교/이동 연산이 필요
+    * O(log2n)
 
 
 ===========
@@ -77,7 +84,7 @@ Deletion
 
 .. figure:: img/heap_deletion.png
     :align: center
-    :scale: 40%
+    :scale: 30%
 
 
 **Codes**
@@ -109,8 +116,8 @@ Deletion::
 **Time complexity**
 
 Worse case
-* 가장 아래 레벨까지 내려가야 하므로 트리의 높이 만큼의 시간이 걸림
-* O(log2n)
+    * 가장 아래 레벨까지 내려가야 하므로 트리의 높이 만큼의 시간이 걸림
+    * O(log2n)
 
 
 ===============

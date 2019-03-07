@@ -1,7 +1,7 @@
 Heap sort
 ==========
 
-Max/min heap을 이용하면 정렬할 수 있다.
+Max/Min heap을 이용하면 정렬할 수 있다.
 
 Heap sort는 전체 자료를 정렬하는 것이 아니라 가장 큰 값 몇 개만 필요할 때이다.
 

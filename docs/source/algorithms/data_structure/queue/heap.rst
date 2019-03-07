@@ -64,6 +64,13 @@ Insertion::
     }
 
 
+**Time complexity**
+
+Worse case
+* 루트 노드까지 올라가야 하므로 트리의 높이에 해당하는 비교/이동 연산이 필요
+* O(log2n)
+
+
 ===========
 Deletion
 ===========
@@ -72,6 +79,8 @@ Deletion
     :align: center
     :scale: 40%
 
+
+**Codes**
 
 Deletion::
 
@@ -97,16 +106,18 @@ Deletion::
     }
 
 
-================
-Time complexity
-================
+**Time complexity**
+
+Worse case
+* 가장 아래 레벨까지 내려가야 하므로 트리의 높이 만큼의 시간이 걸림
+* O(log2n)
 
 
 ===============
 Utilization
 ===============
 
-* `Heap_sort <https://oi.readthedocs.io/en/latest/algorithms/sort/heap_sort.html>`_
+* `Heap sort <https://oi.readthedocs.io/en/latest/algorithms/sort/heap_sort.html>`_
 * Simulation
 
 

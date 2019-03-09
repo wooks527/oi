@@ -7,11 +7,20 @@
 표본평균 계산을 통해 모집단평균을 추측해보거나, 모집단 평균에 대한 95% 신뢰구간의 계산 과정을 나타낸다.
 가설검정 (Testing hypothesis)은 모집단 실제값이 얼마나 되는가 하는 주장과 관련해서, 표본이 가지고 있는 정보를 이용해 가설이 올바른지 그렇지 않은지 판정하는 과정을 나타낸다.
 
+또한, 이러한 추정 또는 가설 검정을 하기 위해서는 표본의 `확률 분포 link`_가 어떠한지 파악하는 것이 중요하다.
+그 이유는 표본의 확률분포에 따라 검정하는 방법이 달라지기 때문이다 (단, 표본의 수가 많아지면 정규분포를 따름).
+물론, 확률 분포의 이해를 위해 `확률 link`_에 대한 기본적인 개념은 필요하다.
+
+.. _확률 분포 link: https://oi.readthedocs.io/en/latest/statistics/probability_distribution.html
+.. _확률 link: https://oi.readthedocs.io/en/latest/statistics/probability.html
+
 
 ===============================
 추정 (Estimation)
 ===============================
 
+* Point estimation (점 추정)
+* Interval estimation (구간 추정)
 
 ===============================
 가설 검정 (Testing hypothesis)
@@ -38,7 +47,7 @@
 Performance measures
 ======================
 
-'Link: https://oeiw.blogspot.com/2017/11/performance-measures.html?zx=6bfe8350427806e8'_
+`Link: <https://oeiw.blogspot.com/2017/11/performance-measures.html?zx=6bfe8350427806e8>`_
 
 
 **Reference**

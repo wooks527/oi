@@ -9,9 +9,9 @@ Probability distribution (확률 분포)
 Random variable (확률 변수)
 ============================
 
-*이산 확률 변수
+* 이산 확률 변수
     * 확률 변수 X가 취할 수 있는 값이 유한개이거나 셀 수 있는 무한개 (Countably infinite)인 경우
-*연속 확률 변수
+* 연속 확률 변수
     * 확률변수 X가 셀 수 없는 무한개 (Uncountably infinite)의 실수값을 갖는 경우
 
 

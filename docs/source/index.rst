@@ -30,10 +30,15 @@ Below lists are the contents I organized.
     algorithms/sort/sort
     algorithms/search/search
     algorithms/time_complexity/time_complexity
-    algorithms/machine_learning/machine_learning
     algorithms/deep_learning/deep_learning
     algorithms/ensemble_learning/ensemble_learning
     algorithms/text_mining/text_mining
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Machine learning
+
+    machine_learning/machine_learning
 
 .. toctree::
     :maxdepth: 2

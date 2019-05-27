@@ -1,8 +1,10 @@
 Algorithm
-===========
+==========
+
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
+    :caption: Algorithm
 
     introduction
     asymptotic_analysis
@@ -10,7 +12,6 @@ Algorithm
     data_structure/data_structure
     sort/sort
     search/search
-
 
 ..
     아래 항목들은 추후에 정리될 내용들임

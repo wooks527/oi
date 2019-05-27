@@ -10,31 +10,46 @@ This site is for organizing everything I know and I will update contents continu
 Below lists are the contents I organized.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     :caption: Algorithm
 
-    algorithm/algorithm
+    algorithm/introduction
+    algorithm/asymptotic_analysis
+
+    algorithm/data_structure/data_structure
+    algorithm/sort/sort
+    algorithm/search/search
+
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Artificial intelligence
 
-    artificial_intelligence/artificial_intelligence
+    artificial_intelligence/machine_learning/machine_learning
+    artificial_intelligence/deep_learning/deep_learning
+    artificial_intelligence/text_mining/text_mining
+
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Drug representations
-
-    molecular_fingerprints/molecular_fingerprints
-
-.. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Mathematics
 
     statistics/statistics
 
+
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
+    :caption: Computer science
+
+    algorithm/algorithm
+    artificial_intelligence/artificial_intelligence
+    computer_science/database/database
+    computer_science/hash_function
+    computer_science/workflow
+
+
+.. toctree::
+    :maxdepth: 1
     :caption: Packages
 
     packages/docker
@@ -48,15 +63,10 @@ Below lists are the contents I organized.
     packages/ubuntu
     packages/powershell
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Computer science
-
-    computer_science/computer_science
-
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Biology
 
     biology/biology
+    biology/molecular_fingerprints/molecular_fingerprints

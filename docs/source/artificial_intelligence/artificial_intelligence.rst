@@ -1,8 +1,8 @@
 Artificial intelligence
-========================
+=======================
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 1
     :caption: Artificial intelligence
 
     machine_learning/machine_learning

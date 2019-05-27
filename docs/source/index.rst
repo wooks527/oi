@@ -10,6 +10,18 @@ This site is for organizing everything I know and I will update contents continu
 Below lists are the contents I organized.
 
 .. toctree::
+    :maxdepth: 3
+    :caption: Algorithm
+
+    algorithm/algorithm
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Artificial intelligence
+
+    artificial_intelligence/artificial_intelligence
+
+.. toctree::
     :maxdepth: 2
     :caption: Drug representations
 
@@ -20,25 +32,6 @@ Below lists are the contents I organized.
     :caption: Mathematics
 
     statistics/statistics
-
-.. toctree::
-    :maxdepth: 3
-    :caption: Algorithms
-
-    algorithms/data_structure/data_structure
-    algorithms/dynamic_programming/dynamic_programming
-    algorithms/sort/sort
-    algorithms/search/search
-    algorithms/time_complexity/time_complexity
-    algorithms/deep_learning/deep_learning
-    algorithms/ensemble_learning/ensemble_learning
-    algorithms/text_mining/text_mining
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Machine learning
-
-    machine_learning/machine_learning
 
 .. toctree::
     :maxdepth: 2
@@ -59,9 +52,7 @@ Below lists are the contents I organized.
     :maxdepth: 2
     :caption: Computer science
 
-    computer_science/database/database
-    computer_science/workflow
-    computer_science/hash_function
+    computer_science/computer_science
 
 
 .. toctree::

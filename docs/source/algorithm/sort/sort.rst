@@ -2,7 +2,7 @@ Sort
 =====
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     insertion_sort
     quick_sort

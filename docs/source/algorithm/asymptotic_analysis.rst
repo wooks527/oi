@@ -1,13 +1,44 @@
-Time complexity
-================
+Asymptotic analysis
+===================
 
-시간복잡도 분석은 입력크기를 기준으로 단위연산을 몇 번 실행하는지 구하는 것이다.
+==========
+Motivation
+==========
 
-T(n) = 입력크기 n에 대해서 알고리즘이 단위연산을 실행하는 횟수, 일정 시간복잡도 (= Every-case time complexity)
+* "Sweet spot" for high-level reasoning about algorithms.
+* Coarse enough to suppress architecture/language/compiler-dependent details.
+* Sharp enough to make useful comparisons between different algorithms, especially on large inputs (e.g. sorting or integer multiplication).
+
+
+===================
+Asymptotic analysis
+===================
+
+**High-level idea**
+
+* Suppress constant factors and lower-order terms
+* Constant factors are too system-dependent
+* Lower-order terms are irrelevant for large inputs
+
+**Example**
+
+* Equate 6nlogn + 6 with just nlogn
+* Running time is O(nlogn), where n = input size
+
+**Time complexity**
+
+* Asymptotic analysis의 다른 표현으로 보임
+* 시간복잡도 분석은 입력크기를 기준으로 단위연산을 몇 번 실행하는지 구하는 것이다.
+* T(n) = 입력크기 n에 대해서 알고리즘이 단위연산을 실행하는 횟수, 일정 시간복잡도 (= Every-case time complexity)
 
 =========
-Example
+Examples
 =========
+
+**Two loops**
+* One loops: O(n)
+* Two loops: O(n^2)
+* Two nested loops: O(n^2)
 
 **배열의 원소 모두 더하기**
 T(n) = n
@@ -40,6 +71,30 @@ big-O, big-Ω, big-Θ
     * 학계에서 Ω와 O 둘 다를 의미
     * 알고리즘의 수행시간이 Ω(N)이면서 O(N)이라면, Θ(N)이라고 할 수 있음
 
+**o (little-o)**
+
+    * Definition: T(n) = o(f(n)) if and only if for all constants c > 0, there exists a constant n0 such that T(n) <= cf(n), ∀n >= n0
+
+
+===================
+Examples of claims
+===================
+
+**Example #1**
+
+* Claim: 2^(n+10) = O(2^n)
+* Proof:
+
+**Example #2**
+
+* Claim: 2^(10n) ≠ O(2^n)
+* Proof:
+
+**Example #3**
+
+* Claim: for every pair of (positive) functions f(n), g(n), max{f, g} = Θ(f(n) + g(n))
+* Proof:
+
 
 =================================================================
 최선 (Best-case), 최악 (Worst-case), 평균 (Average-case) 시간복잡도
@@ -71,7 +126,7 @@ Tips
 
 **지배적이지 않은 항은 무시하라**
 
-.. figure:: img/bigo_performances.png
+.. figure:: img/bigo_performances.jpeg
     :align: center
     :scale: 40%
 
@@ -111,6 +166,10 @@ Example::
     }
 
 
-**Reference**
-    * 알고리즘 기초 Foruth Edition (Foundations of algorithms), Richard Neapolitan, Kumarss Naimipour, 도경구 역
-    * 코딩 인터뷰 완전 분석, 게일 라크만 맥도웰 지음, 이창현 옮김
+===========
+References
+===========
+
+* https://www.coursera.org/learn/algorithms-divide-conquer
+* 알고리즘 기초 Foruth Edition (Foundations of algorithms), Richard Neapolitan, Kumarss Naimipour, 도경구 역
+* 코딩 인터뷰 완전 분석, 게일 라크만 맥도웰 지음, 이창현 옮김

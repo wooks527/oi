@@ -2,7 +2,7 @@ Machine learning
 =================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     intro
     naive_bayes_classifier

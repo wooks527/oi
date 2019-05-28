@@ -32,6 +32,13 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Natural language processing
+
+    nlp/intro
+
+
+.. toctree::
+    :maxdepth: 1
     :caption: Mathematics
 
     statistics/statistics
@@ -43,6 +50,7 @@ Below lists are the contents I organized.
 
     algorithm/algorithm
     artificial_intelligence/artificial_intelligence
+    nlp/nlp
     computer_science/database/database
     computer_science/hash_function
     computer_science/workflow

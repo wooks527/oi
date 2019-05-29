@@ -35,6 +35,7 @@ Below lists are the contents I organized.
     :caption: Natural language processing
 
     nlp/intro
+    nlp/text_classification
 
 
 .. toctree::

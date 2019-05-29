@@ -175,13 +175,8 @@ Linguistic knowledge in NLP
 
 
 * Pragmatics (화용론): 언어 사용자와 발화 맥락(context)을 고려하는 양상 연구
-
 * Semantics (의미론): 언어표현과 그 지시체와의 관계를 분석
-
-* Syntax (통사론): 언어표현들 사이의 관계를 기술
-
-    * Dependency trees, Constituency trees, ...
-
+* Syntax (통사론): 언어표현들 사이의 관계를 기술 (e.g. Dependency trees, Constituency trees)
 * Morphology (형태론): 한 언어에서 형태소들이 결합하여 낱말을 형성하는 체계 또는 규칙
 
 .. figure:: img/intro/dependency_trees.png

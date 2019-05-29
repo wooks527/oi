@@ -46,18 +46,6 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Computer science
-
-    algorithm/algorithm
-    artificial_intelligence/artificial_intelligence
-    nlp/nlp
-    computer_science/database/database
-    computer_science/hash_function
-    computer_science/workflow
-
-
-.. toctree::
-    :maxdepth: 1
     :caption: Packages
 
     packages/docker

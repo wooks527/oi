@@ -41,7 +41,7 @@ Semantic slot filling
 
     .. figure:: img/intro/parsing.png
         :align: center
-        :scale: 40%
+        :scale: 30%
 
 * Pros and cons
 
@@ -55,7 +55,7 @@ Semantic slot filling
 
     .. figure:: img/intro/training_corpus.png
         :align: center
-        :scale: 40%
+        :scale: 30%
 
 * Feature engineering:
 
@@ -85,7 +85,7 @@ Semantic slot filling
 
 .. figure:: img/intro/lstm.png
     :align: center
-    :scale: 40%
+    :scale: 30%
 
 
 =================================
@@ -126,41 +126,41 @@ Overview of NLP
 
 **Text classification tasks**
 
-    * Predict some tags or categories
-    * Predict sentiment for a review
-    * Filter spam e-mails
+* Predict some tags or categories
+* Predict sentiment for a review
+* Filter spam e-mails
 
 **How to predict word sequences?**
 
-    * Language models are needed in chat-bots, speech recognition, machine translation, summarization ...
+* Language models are needed in chat-bots, speech recognition, machine translation, summarization ...
 
 **How to predict tags for the word sequences?**
 
-    * Part-of-speech tags
-    * Named entities
-    * Semantic slots
+* Part-of-speech tags
+* Named entities
+* Semantic slots
 
 **How to represent a meaning of word, a sentence, or a text?**
 
-    * Word embeddings
-    * Sentence embeddings
-    * Topic models
+* Word embeddings
+* Sentence embeddings
+* Topic models
 
 **Where do we need that?**
 
-    * Search, question answering, and any ranking
-    * Any label propagation on a word similarity graph
+* Search, question answering, and any ranking
+* Any label propagation on a word similarity graph
 
 **Sequence to sequence tasks**
 
-    * Machine translation
-    * Summarization, Simplification
-    * Conversational chat-bot
+* Machine translation
+* Summarization, Simplification
+* Conversational chat-bot
 
 **Dialogue agents become more and more popular**
 
-    * Goal-oriented (e.g. Help in a call-center)
-    * Conversational (e.g. Entertainment)
+* Goal-oriented (e.g. Help in a call-center)
+* Conversational (e.g. Entertainment)
 
 
 ============================

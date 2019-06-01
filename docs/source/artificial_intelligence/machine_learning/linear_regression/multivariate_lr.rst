@@ -65,23 +65,24 @@ All features have different scale, so we need to make all features are on a simi
 * Before:
 
   * A lots of iterations are needed
-  * :math:`x_{1} = size (0 - 2000}`
+  * :math:`x_{1} = size (0 - 2000)`
   * :math:`x_{2} = # of rooms (1 - 5)`
 
   .. figure:: ../img/multvariate_lr/feature_scaling_before.png
     :align: center
-    :scale: 40%
+    :scale: 70%
 
 
 * After:
 
   * A few interations are nedded
   * :math:`x_{1} = \frac{size}{2000} (0 - 1)`
+  
   * :math:`x_{2} = \frac{# of rooms}{5} (0.2 - 1)`
 
   .. figure:: ../img/multvariate_lr/feature_scaling_after.png
     :align: center
-    :scale: 40%
+    :scale: 70%
 
 
 **Types**
@@ -103,9 +104,10 @@ Normal equation
 * Alternative method to get weight value
 * Don’t need iteration
 
+*For every* :math:`n`, *training data* :math:`m`
+
 .. math::
 
-  For every n, training data m,\\
   \frac{\partial J}{\partial \theta_{n}} = \displaystyle\sum_{i=1}^{m} (\theta_{0} + \theta_{1}x_{i} + \cdots + \theta_{1}x_{i}^{n} - y_{i}\\
   \Rightarrow \theta = (X^{T}X)^{-1}X^{T}Y
 

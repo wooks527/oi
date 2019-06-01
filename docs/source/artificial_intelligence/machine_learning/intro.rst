@@ -18,7 +18,7 @@ A computer program is said to learn from experience E with respect to some class
 Algorithms
 ===========
 
-.. figure:: img/ml_algorithms.png
+.. figure:: img/intro/ml_algorithms.png
     :align: center
     :scale: 40%
 
@@ -40,7 +40,7 @@ Supervised learning
     * Map input variables to some continuous functions
     * Example: Housing price prediction
 
-.. figure:: img/regression_ex.png
+.. figure:: img/intro/regression_ex.png
     :align: center
     :scale: 40%
 
@@ -50,12 +50,12 @@ Supervised learning
     * Map input variables into discrete categories
     * Example: Breast cancer
 
-.. figure:: img/classification_ex1.png
+.. figure:: img/intro/classification_ex1.png
     :align: center
     :scale: 40%
 
 
-.. figure:: img/classification_ex2.png
+.. figure:: img/intro/classification_ex2.png
     :align: center
     :scale: 40%
 
@@ -77,7 +77,7 @@ Unsupervised learning
     * Find groups with patterns being close to each other
     * Example: Google news clustering
 
-.. figure:: img/clustering_ex.png
+.. figure:: img/intro/clustering_ex.png
     :align: center
     :scale: 40%
 
@@ -86,7 +86,7 @@ Unsupervised learning
     * Find the structure in a chaotic environment
     * Example: Cocktail party problem
 
-.. figure:: img/non-clustering_ex.png
+.. figure:: img/intro/non-clustering_ex.png
     :align: center
     :scale: 40%
 

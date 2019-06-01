@@ -5,7 +5,7 @@ Univariate linear regression
 Example: Housing prices
 =======================
 
-.. figure:: img/univariate/univariate_lr_ex.png
+.. figure:: img/univariate_lr/univariate_lr_ex.png
     :align: center
     :scale: 40%
 
@@ -14,7 +14,7 @@ Example: Housing prices
 Process
 =========
 
-.. figure:: img/univariate/univariate_lr_process.png
+.. figure:: img/univariate_lr/univariate_lr_process.png
     :align: center
     :scale: 40%
 
@@ -23,7 +23,7 @@ Process
 Notation of training set
 ==============================
 
-.. figure:: img/univariate/notation_of_training_set.png
+.. figure:: img/univariate_lr/notation_of_training_set.png
     :align: center
     :scale: 40%
 
@@ -39,7 +39,7 @@ Notation of training set
 Hypothesis function
 =======================
 
-.. figure:: img/univariate/hypothesis_function.png
+.. figure:: img/univariate_lr/hypothesis_function.png
     :align: center
     :scale: 40%
 
@@ -54,7 +54,7 @@ Choose 𝜽\ :sub:`0`\, 𝜽\ :sub:`1`\ so that ℎ\ :sub:`𝜃`\ (𝑥) is clos
 
 **Examples**
 
-.. figure:: img/univariate/cost_function_ex.png
+.. figure:: img/univariate_lr/cost_function_ex.png
     :align: center
     :scale: 50%
 
@@ -63,7 +63,7 @@ Choose 𝜽\ :sub:`0`\, 𝜽\ :sub:`1`\ so that ℎ\ :sub:`𝜃`\ (𝑥) is clos
 
 Minimize the squared error function.
 
-.. figure:: img/univariate/cost_function_equation.png
+.. figure:: img/univariate_lr/cost_function_equation.png
     :align: center
     :scale: 40%
 
@@ -88,12 +88,12 @@ Gradient descent
 
 **Algorithm**
 
-.. figure:: img/univariate/gradient_descent_algorithm.png
+.. figure:: img/univariate_lr/gradient_descent_algorithm.png
     :align: center
     :scale: 20%
 
 
-.. figure:: img/univariate/gradient_descent_condition.png
+.. figure:: img/univariate_lr/gradient_descent_condition.png
     :align: center
     :scale: 40%
 
@@ -102,35 +102,35 @@ Should be updated simultaneously!!
 
 **Linear equation movement**
 
-.. figure:: img/univariate/gradient_descent_move.png
+.. figure:: img/univariate_lr/gradient_descent_move.png
     :align: center
     :scale: 40%
 
 
 **Learning rate 𝜶**
 
-.. figure:: img/univariate/gradient_descent_learning_rate.png
+.. figure:: img/univariate_lr/gradient_descent_learning_rate.png
     :align: center
     :scale: 40%
 
 
 **Fixed learning rate 𝜶**
 
-.. figure:: img/univariate/gradient_descent_fixed_learning_rate.png
+.. figure:: img/univariate_lr/gradient_descent_fixed_learning_rate.png
     :align: center
     :scale: 40%
 
 
 **Local minimum problem**
 
-.. figure:: img/univariate/local_minimum_problem.png
+.. figure:: img/univariate_lr/local_minimum_problem.png
     :align: center
     :scale: 40%
 
 
 **Final algorithm for the linear regression**
 
-.. figure:: img/univariate/gradient_descent_algorithm_for_linear_regression.png
+.. figure:: img/univariate_lr/gradient_descent_algorithm_for_linear_regression.png
     :align: center
     :scale: 50%
 

@@ -9,8 +9,7 @@ Machine learning
     linear_regression/multiple_lr
     gbm
 
-...
-
+..
     정리해야 할 내용들
     
     logistic_regression

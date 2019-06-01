@@ -103,7 +103,7 @@ Gradient descent
 
 .. figure:: ../img/univariate_lr/gradient_descent_algorithm.png
   :align: center
-  :scale: 20%
+  :scale: 40%
 
 
 **Linear equation movement**

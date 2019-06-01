@@ -6,7 +6,7 @@ Machine learning
 
     intro
     linear_regression/univariate_lr
-    linear_regression/multiple_lr
+    linear_regression/multivariate_lr
     gbm
 
 ..

@@ -65,36 +65,33 @@ All features have different scale, so we need to make all features are on a simi
 * Before:
 
   * A lots of iterations are needed
-  * :math:`x_{1} = size (0 - 2000)`
-  * :math:`x_{2} = # of rooms (1 - 5)`
+  * :math:`x_{1} = size (0 - 2000)\\ x_{2} = # of rooms (1 - 5)`
 
   .. figure:: ../img/multvariate_lr/feature_scaling_before.png
     :align: center
-    :scale: 70%
+    :scale: 60%
 
 
 * After:
 
   * A few interations are nedded
-  * :math:`x_{1} = \frac{size}{2000} (0 - 1)`
-  
-  * :math:`x_{2} = \frac{# of rooms}{5} (0.2 - 1)`
+  * :math:`x_{1} = \frac{size}{2000} (0 - 1)\\ x_{2} = \frac{# of rooms}{5} (0.2 - 1)`
 
   .. figure:: ../img/multvariate_lr/feature_scaling_after.png
     :align: center
-    :scale: 70%
+    :scale: 60%
 
 
 **Types**
 
 * Mean normalization
 
-  * :math:`x_{i_mean} = \frac{x_{i} - average(x_{i})}{range(x_{i}) (-1 \leq x_{i_mean} \leq 1)`
+  * :math:`x_{i, mean} = \frac{x_{i} - average(x_{i})}{range(x_{i}) (-1 \leq x_{i, mean} \leq 1)`
 
 
 * Standardization
 
-  * :math:`x_{i_std} = \frac{x_{i} - min(x_{i})}{range(x_{i}) (-1 \leq x_{i_std} \leq 1)`
+  * :math:`x_{i, std} = \frac{x_{i} - min(x_{i})}{range(x_{i}) (-1 \leq x_{i, std} \leq 1)`
 
 
 ================

@@ -7,12 +7,12 @@ Machine learning
     intro
     linear_regression/univariate_lr
     linear_regression/multivariate_lr
-    gbm
+    logistic_regression
 
 ..
     정리해야 할 내용들
-    
-    logistic_regression
+
+    gbm
     random_forest
     naive_bayes_classifier
     Regularization

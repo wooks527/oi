@@ -197,5 +197,5 @@ todo_include_todos = True
 
 # Add custom css and js
 def setup(app):
-    app.add_stylesheet('custom.css')
-    app.add_javascript('custom.js')
+    app.add_stylesheet('https://github.com/hwkim89/oi/blob/master/docs/build/html/_static/custom.css')
+    app.add_javascript('https://github.com/hwkim89/oi/blob/master/docs/build/html/_static/custom.js')

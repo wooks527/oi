@@ -48,6 +48,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.contentui',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -193,9 +194,3 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
-
-
-# Add custom css and js
-def setup(app):
-    app.add_stylesheet('https://raw.githubusercontent.com/hwkim89/oi/master/docs/build/html/_static/custom.css')
-    app.add_javascript('https://raw.githubusercontent.com/hwkim89/oi/master/docs/build/html/_static/custom.js')

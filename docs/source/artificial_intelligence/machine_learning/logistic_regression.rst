@@ -42,13 +42,8 @@ Classification
   * Logistic regression is a classification, but people confused that it is a regression because of its name
 
 
-
-.. container:: toggle
-
-  .. container:: header
-
-    **Check**
-
+.. toggle-header::
+  :header: **Check**
 
   Which of the following statements is true?
 
@@ -60,14 +55,10 @@ Classification
 
   \(O\) None of the above statements are true.
 
+|
 
-
-
-.. container:: toggle
-
-  .. container:: header
-
-    **Reading: Classification**
+.. toggle-header::
+  :header: **Reading: Classification**
 
   To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn't work well because classification is not actually a linear function.
 
@@ -111,11 +102,8 @@ Use sigmoid function (=Logistic function) for binary classification
 * :math:`y` has two cases 0 or 1
 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Check**
+.. toggle-header::
+  :header: **Check**
 
   Suppose we want to predict, from data :math:`x` about a tumor, whether it is malignant (:math:`y=1`) or benign (:math:`y=0`). Our logistic regression classifier outputs, for a specific tumor, :math:`h_{\theta}(x)=P(y=1|x;θ)=0.7`, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for :math:`P(y=0|x;θ)`, the probability the tumor is benign?
 
@@ -129,11 +117,8 @@ Use sigmoid function (=Logistic function) for binary classification
 
 | 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Reading:Hypothesis representation**
+.. toggle-header::
+  :header: **Reading:Hypothesis representation**
 
   We could approach the classification problem ignoring the fact that :math:`y` is discrete-valued, and use our old linear regression algorithm to try to predict :math:`y` given :math:`x`. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for :math:`h_\theta (x)` to take values larger than 1 or smaller than 0 when we know that :math:`y \in {0, 1}`. To fix this, let’s change the form for our hypotheses :math:`h_\theta (x)` to satisfy :math:`0 \leq h_\theta (x) \leq 1`. This is accomplished by plugging :math:`\theta^{T}x` into the Logistic Function.
 
@@ -190,11 +175,8 @@ Suppose predict ":math:`y = 1`" if :math:`h_{\theta} \geq 0.5` and predict ":mat
 Predict ":math:`y = 1`" if :math:`-3 + x_1 + x_2 \geq 0`
 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Check**
+.. toggle-header::
+  :header: **Check**
 
   Consider logistic regression with two features :math:`x_1` and :math:`x_2`. Suppose :math:`\theta_0 = 5,\ \theta_1 = -1,\ \theta_2 = 0`, so that :math:`h_\theta(x) = g(5 - x_1)`. Which of these shows the decision boundary of :math:`h_\theta(x)`?
 
@@ -202,7 +184,7 @@ Predict ":math:`y = 1`" if :math:`-3 + x_1 + x_2 \geq 0`
     :align: center
     :scale: 50%
 
-| 
+|
 
 **Non-linear decision boundaries**
 
@@ -219,11 +201,8 @@ We can get more complex non-linear decision boundaries.
 :math:`h_{\theta}(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_03 x_1^2 + \theta_4 x_2^2 + \theta_5 x_1^3 + \theta_6 x_2^3 + ...)`
 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Reading: Decision boudnary**
+.. toggle-header::
+  :header: **Reading: Decision boudnary**
 
   In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
 
@@ -341,11 +320,8 @@ But as :math:`h_\theta (x) \rightarrow 0,\ Cost \rightarrow \infty`
 Captures intuition that if :math:`h_\theta (x) = 0`, (predict :math:`P(y = 1|x;\theta) = 0)`, but :math:`y = 1`, we'll penalize learning algorithm by a very large cost.
 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Check**
+.. toggle-header::
+  :header: **Check**
 
   In logistic regression, the cost function for our hypothesis outputting (predicting) h_\theta(x)h θ​	 (x) on a training example that has label y∈{0,1} is:
 
@@ -364,11 +340,8 @@ Captures intuition that if :math:`h_\theta (x) = 0`, (predict :math:`P(y = 1|x;\
 
 | 
 
-.. container:: toggle
-
-  .. container:: header
-
-    **Reading: Cost function**
+.. toggle-header::
+  :header: **Reading: Cost function**
 
   We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.
 

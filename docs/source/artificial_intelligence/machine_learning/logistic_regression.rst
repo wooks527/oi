@@ -42,25 +42,38 @@ Classification
   * Logistic regression is a classification, but people confused that it is a regression because of its name
 
 
-**Check**
 
-Which of the following statements is true?
+.. container:: toggle
 
-(X) If linear regression doesn't work on a classification task as in the previous example shown in the video, applying feature scaling may help.
+  .. container:: header
 
-(X) If the training set satisfies :math:`0 \leq y^{(i)} \leq 1`  for every training example :math:`(x^{(i)},y^{(i)})`, then linear regression's prediction will also satisfy :math:`0 \leq h_\theta(x) \leq 1` for all values of :math:`x`.
-
-(X) If there is a feature :math:`x` that perfectly predicts :math:`y`, i.e. if :math:`y=1` when :math:`x\geq c` and :math:`y=0` whenever :math:`x < c` (for some constant :math:`c`), then linear regression will obtain zero classification error.
-
-(O) None of the above statements are true.
+    **Check**
 
 
-**Reading: Classification**
+  Which of the following statements is true?
 
-To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn't work well because classification is not actually a linear function.
+  \(X\) If linear regression doesn't work on a classification task as in the previous example shown in the video, applying feature scaling may help.
 
-The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the **binary classification problem** in which :math:`y` can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then :math:`x^{(i)}` may be some features of a piece of email, and :math:`y` may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, :math:`y \in {0,1}`. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given :math:`x^{(i)}`, the corresponding :math:`y^{(i)}` is also called the label for the training example.
+  \(X\) If the training set satisfies :math:`0 \leq y^{(i)} \leq 1`  for every training example :math:`(x^{(i)},y^{(i)})`, then linear regression's prediction will also satisfy :math:`0 \leq h_\theta(x) \leq 1` for all values of :math:`x`.
 
+  \(X\) If there is a feature :math:`x` that perfectly predicts :math:`y`, i.e. if :math:`y=1` when :math:`x\geq c` and :math:`y=0` whenever :math:`x < c` (for some constant :math:`c`), then linear regression will obtain zero classification error.
+
+  \(O\) None of the above statements are true.
+
+
+
+
+.. container:: toggle
+
+  .. container:: header
+
+    **Reading: Classification**
+
+  To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn't work well because classification is not actually a linear function.
+
+  The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the **binary classification problem** in which :math:`y` can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then :math:`x^{(i)}` may be some features of a piece of email, and :math:`y` may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, :math:`y \in {0,1}`. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given :math:`x^{(i)}`, the corresponding :math:`y^{(i)}` is also called the label for the training example.
+
+| 
 
 =========================
 Hypothesis Representation
@@ -98,46 +111,56 @@ Use sigmoid function (=Logistic function) for binary classification
 * :math:`y` has two cases 0 or 1
 
 
-**Check**
+.. container:: toggle
 
-Suppose we want to predict, from data :math:`x` about a tumor, whether it is malignant (:math:`y=1`) or benign (:math:`y=0`). Our logistic regression classifier outputs, for a specific tumor, :math:`h_{\theta}(x)=P(y=1|x;θ)=0.7`, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for :math:`P(y=0|x;θ)`, the probability the tumor is benign?
+  .. container:: header
 
-\(O\) :math:`P(y=0|x;\theta) = 0.3`
+    **Check**
 
-\(X\) :math:`P(y=0|x;\theta) = 0.7`
+  Suppose we want to predict, from data :math:`x` about a tumor, whether it is malignant (:math:`y=1`) or benign (:math:`y=0`). Our logistic regression classifier outputs, for a specific tumor, :math:`h_{\theta}(x)=P(y=1|x;θ)=0.7`, so we estimate that there is a 70% chance of this tumor being malignant. What should be our estimate for :math:`P(y=0|x;θ)`, the probability the tumor is benign?
 
-\(X\) :math:`P(y=0|x;\theta) = 0.7^{2}`
+  \(O\) :math:`P(y=0|x;\theta) = 0.3`
 
-\(X\) :math:`P(y=0|x;\theta) = 0.3 \times 0.7`
+  \(X\) :math:`P(y=0|x;\theta) = 0.7`
+
+  \(X\) :math:`P(y=0|x;\theta) = 0.7^{2}`
+
+  \(X\) :math:`P(y=0|x;\theta) = 0.3 \times 0.7`
+
+| 
+
+.. container:: toggle
+
+  .. container:: header
+
+    **Reading:Hypothesis representation**
+
+  We could approach the classification problem ignoring the fact that :math:`y` is discrete-valued, and use our old linear regression algorithm to try to predict :math:`y` given :math:`x`. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for :math:`h_\theta (x)` to take values larger than 1 or smaller than 0 when we know that :math:`y \in {0, 1}`. To fix this, let’s change the form for our hypotheses :math:`h_\theta (x)` to satisfy :math:`0 \leq h_\theta (x) \leq 1`. This is accomplished by plugging :math:`\theta^{T}x` into the Logistic Function.
+
+  Our new form uses the "Sigmoid Function," also called the "Logistic Function":
+
+  .. math::
+    h_{\theta}(x) = g(\theta^{T}x),\ z = \theta^{T}x\\
+    g(z) = \frac{1}{1 + e^{−z}}
 
 
-**Reading:Hypothesis representation**
+  The following image shows us what the sigmoid function looks like:
 
-We could approach the classification problem ignoring the fact that :math:`y` is discrete-valued, and use our old linear regression algorithm to try to predict :math:`y` given :math:`x`. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for :math:`h_\theta (x)` to take values larger than 1 or smaller than 0 when we know that :math:`y \in {0, 1}`. To fix this, let’s change the form for our hypotheses :math:`h_\theta (x)` to satisfy :math:`0 \leq h_\theta (x) \leq 1`. This is accomplished by plugging :math:`\theta^{T}x` into the Logistic Function.
-
-Our new form uses the "Sigmoid Function," also called the "Logistic Function":
-
-.. math::
-  h_{\theta}(x) = g(\theta^{T}x),\ z = \theta^{T}x\\
-  g(z) = \frac{1}{1 + e^{−z}}
+  .. figure:: img/logistic_regression/sigmoid_function_for_reading.png
+    :align: center
+    :scale: 80%
 
 
-The following image shows us what the sigmoid function looks like:
+  The function :math:`g(z)`, shown here, maps any real number to the (0, 1) interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification.
 
-.. figure:: img/logistic_regression/sigmoid_function_for_reading.png
-  :align: center
-  :scale: 80%
+  :math:`h_\theta(x)` will give us the probability that our output is 1. For example, :math:`h_\theta(x)=0.7` gives us a probability of 70% that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).
 
+  .. math::
 
-The function :math:`g(z)`, shown here, maps any real number to the (0, 1) interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification.
+    h_{\theta}(x) = P(y=1|x;θ) = 1 − P(y=0|x;θ) \\
+    P(y=0|x;θ) + P(y=1|x;θ) = 1
 
-:math:`h_\theta(x)` will give us the probability that our output is 1. For example, :math:`h_\theta(x)=0.7` gives us a probability of 70% that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).
-
-.. math::
-
-  h_{\theta}(x) = P(y=1|x;θ) = 1 − P(y=0|x;θ) \\
-  P(y=0|x;θ) + P(y=1|x;θ) = 1
-
+| 
 
 =================
 Decision Boundary
@@ -167,16 +190,19 @@ Suppose predict ":math:`y = 1`" if :math:`h_{\theta} \geq 0.5` and predict ":mat
 Predict ":math:`y = 1`" if :math:`-3 + x_1 + x_2 \geq 0`
 
 
-**Check**
+.. container:: toggle
 
-Consider logistic regression with two features :math:`x_1` and :math:`x_2`. Suppose :math:`\theta_0 = 5,\ \theta_1 = -1,\ \theta_2 = 0`, so that :math:`h_\theta(x) = g(5 - x_1)`. Which of these shows the decision boundary of :math:`h_\theta(x)`?
+  .. container:: header
 
-+---------------------------------------------------------------------+---------------------------------------------------------------------+
-| .. image:: img/logistic_regression/decision_boundary_check_01.png   | .. image:: img/logistic_regression/decision_boundary_check_02.png   |
-+---------------------------------------------------------------------+---------------------------------------------------------------------+
-| .. image:: img/logistic_regression/decision_boundary_check_03.png   | .. image:: img/logistic_regression/decision_boundary_check_04.png   |
-+---------------------------------------------------------------------+---------------------------------------------------------------------+
+    **Check**
 
+  Consider logistic regression with two features :math:`x_1` and :math:`x_2`. Suppose :math:`\theta_0 = 5,\ \theta_1 = -1,\ \theta_2 = 0`, so that :math:`h_\theta(x) = g(5 - x_1)`. Which of these shows the decision boundary of :math:`h_\theta(x)`?
+
+  .. figure:: img/logistic_regression/decision_boundary_check.png
+    :align: center
+    :scale: 50%
+
+| 
 
 **Non-linear decision boundaries**
 
@@ -193,70 +219,75 @@ We can get more complex non-linear decision boundaries.
 :math:`h_{\theta}(x) = g(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_03 x_1^2 + \theta_4 x_2^2 + \theta_5 x_1^3 + \theta_6 x_2^3 + ...)`
 
 
-**Reading: Decision boudnary**
+.. container:: toggle
 
-In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
+  .. container:: header
 
-.. math::
+    **Reading: Decision boudnary**
 
-  h_{\theta}(x) \geq 0.5 → y = 1 \\
-  h_{\theta}(x) < 0.5 → y = 0
+  In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
 
+  .. math::
 
-The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:
-
-.. math::
-
-  g(z) \geq 0.5 \\
-  when z \geq 0
+    h_{\theta}(x) \geq 0.5 → y = 1 \\
+    h_{\theta}(x) < 0.5 → y = 0
 
 
-Remember.
+  The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:
 
-.. math::
+  .. math::
 
-  z=0,\ e^0 = 1\ ⇒\ g(z) = 1/2 \\
-  z → ∞,\ e^−∞ → 0\ ⇒\ g(z) = 1 \\
-  z → −∞,\ e^∞ → ∞\ ⇒\ g(z) = 0
-
-
-So if our input to g is :math:`\theta^T X`, then that means:
-
-.. math::
-
-  h_{θ}(x) = g(θ^T x) \geq 0.5 \\
-  when θ^T x \geq 0
+    g(z) \geq 0.5 \\
+    when z \geq 0
 
 
-From these statements we can now say:
+  Remember.
 
-.. math::
+  .. math::
 
-  θ^T x \geq 0\ ⇒\ y = 1 \\
-  θ^T x < 0\ ⇒\ y = 0
-
-
-The **decision boundary** is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.
-
-**Example:**
-
-.. math::
-
-  θ = \begin{bmatrix}
-        5 \\[0.3em]
-        −1 \\[0.3em]
-        0
-      \end{bmatrix} \\
-  y = 1\ if\ 5 + (−1) x_1 + 0x_2 \geq 0 \\
-  5 − x+1 \geq 0 \\
-  −x_1 \geq −5 \\
-  x_1 \leq 5
+    z=0,\ e^0 = 1\ ⇒\ g(z) = 1/2 \\
+    z → ∞,\ e^−∞ → 0\ ⇒\ g(z) = 1 \\
+    z → −∞,\ e^∞ → ∞\ ⇒\ g(z) = 0
 
 
-In this case, our decision boundary is a straight vertical line placed on the graph where :math:`x_1 = 5`, and everything to the left of that denotes :math:`y = 1`, while everything to the right denotes :math:`y = 0`.
+  So if our input to g is :math:`\theta^T X`, then that means:
 
-Again, the input to the sigmoid function g(z) (e.g. :math:`\theta^T X`) doesn't need to be linear, and could be a function that describes a circle (e.g. :math:`z = \theta_0 + \theta_1 x_1^2 +\theta_2 x_2^2`) or any shape to fit our data.
+  .. math::
 
+    h_{θ}(x) = g(θ^T x) \geq 0.5 \\
+    when θ^T x \geq 0
+
+
+  From these statements we can now say:
+
+  .. math::
+
+    θ^T x \geq 0\ ⇒\ y = 1 \\
+    θ^T x < 0\ ⇒\ y = 0
+
+
+  The **decision boundary** is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.
+
+  **Example:**
+
+  .. math::
+
+    θ = \begin{bmatrix}
+          5 \\[0.3em]
+          −1 \\[0.3em]
+          0
+        \end{bmatrix} \\
+    y = 1\ if\ 5 + (−1) x_1 + 0x_2 \geq 0 \\
+    5 − x+1 \geq 0 \\
+    −x_1 \geq −5 \\
+    x_1 \leq 5
+
+
+  In this case, our decision boundary is a straight vertical line placed on the graph where :math:`x_1 = 5`, and everything to the left of that denotes :math:`y = 1`, while everything to the right denotes :math:`y = 0`.
+
+  Again, the input to the sigmoid function g(z) (e.g. :math:`\theta^T X`) doesn't need to be linear, and could be a function that describes a circle (e.g. :math:`z = \theta_0 + \theta_1 x_1^2 +\theta_2 x_2^2`) or any shape to fit our data.
+
+| 
 
 =============
 Cost Function
@@ -310,63 +341,73 @@ But as :math:`h_\theta (x) \rightarrow 0,\ Cost \rightarrow \infty`
 Captures intuition that if :math:`h_\theta (x) = 0`, (predict :math:`P(y = 1|x;\theta) = 0)`, but :math:`y = 1`, we'll penalize learning algorithm by a very large cost.
 
 
-**Check**
+.. container:: toggle
 
-In logistic regression, the cost function for our hypothesis outputting (predicting) h_\theta(x)h θ​	 (x) on a training example that has label y∈{0,1} is:
+  .. container:: header
 
-:math:`cost(h_{\theta}(x),y) = −\log h_{\theta}(x) − log(1−h_{\theta}(x))\ if\ y = 1\ if\ y = 0`
+    **Check**
 
-Which of the following are true? Check all that apply.
+  In logistic regression, the cost function for our hypothesis outputting (predicting) h_\theta(x)h θ​	 (x) on a training example that has label y∈{0,1} is:
 
+  :math:`cost(h_{\theta}(x),y) = −\log h_{\theta}(x) − log(1−h_{\theta}(x))\ if\ y = 1\ if\ y = 0`
 
-\(O\) If :math:`h_\theta(x) = y`, then :math:`\text{cost}(h_\theta(x),y) = 0` (for :math:`y=0` and :math:`y=1`).
-
-\(O\) If :math:`y=0`, then :math:`\text{cost}(h_\theta(x),y)\rightarrow\infty` as :math:`h_\theta(x)\rightarrow 1`.
-
-\(X\) If :math:`y=0`, then :math:`\text{cost}(h_\theta(x),y)\rightarrow\infty` as :math:`h_\theta(x)\rightarrow 0`.
-
-\(O\) Regardless of whether :math:`y=0` or :math:`y=1`, if :math:`h_\theta(x)=0.5`, then :math:`\text{cost}(h_\theta(x),y) > 0`.
+  Which of the following are true? Check all that apply.
 
 
-**Reading**
+  \(O\) If :math:`h_\theta(x) = y`, then :math:`\text{cost}(h_\theta(x),y) = 0` (for :math:`y=0` and :math:`y=1`).
 
-We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.
+  \(O\) If :math:`y=0`, then :math:`\text{cost}(h_\theta(x),y)\rightarrow\infty` as :math:`h_\theta(x)\rightarrow 1`.
 
-Instead, our cost function for logistic regression looks like:
+  \(X\) If :math:`y=0`, then :math:`\text{cost}(h_\theta(x),y)\rightarrow\infty` as :math:`h_\theta(x)\rightarrow 0`.
 
-.. math::
+  \(O\) Regardless of whether :math:`y=0` or :math:`y=1`, if :math:`h_\theta(x)=0.5`, then :math:`\text{cost}(h_\theta(x),y) > 0`.
 
-  J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \frac{1}{2} (h_\theta (x^{(i)}) - y^{(i)})^2 \\
-  Cost(h_\theta (x^{(i)}),\ y) = -\log (h_\theta (x)),\ if\ y = 0 \\
-  Cost(h_\theta (x^{(i)}),\ y) = -\log (1 - h_\theta (x)),\ if\ y = 0
+| 
 
+.. container:: toggle
 
-When y = 1, we get the following plot for :math:`J(\theta)` vs :math:`h_\theta (x)`:
+  .. container:: header
 
-.. figure:: img/logistic_regression/logistic_regression_cost_function_for_reading_01.png
-  :align: center
-  :scale: 80%
+    **Reading: Cost function**
 
+  We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.
 
-Similarly, when y = 0, we get the following plot for :math:`J(\theta)` vs :math:`h_\theta (x)`:
+  Instead, our cost function for logistic regression looks like:
 
-.. figure:: img/logistic_regression/logistic_regression_cost_function_for_reading_02.png
-  :align: center
-  :scale: 80%
+  .. math::
 
-.. math::
-  
-  Cost(h_\theta (x),y) = 0\ if\ h_\theta (x) = y \\
-  Cost(h_\theta (x),y) \rightarrow \infty \ if\ y = 0\ and\ h_\theta (x) \rightarrow 1 \\
-  Cost(h_\theta (x),y) \rightarrow \infty \ if\ y = 1\ and\ h_\theta (x) \rightarrow 0
+    J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \frac{1}{2} (h_\theta (x^{(i)}) - y^{(i)})^2 \\
+    Cost(h_\theta (x^{(i)}),\ y) = -\log (h_\theta (x)),\ if\ y = 0 \\
+    Cost(h_\theta (x^{(i)}),\ y) = -\log (1 - h_\theta (x)),\ if\ y = 0
 
 
-If our correct answer 'y' is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.
+  When y = 1, we get the following plot for :math:`J(\theta)` vs :math:`h_\theta (x)`:
 
-If our correct answer 'y' is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity.
+  .. figure:: img/logistic_regression/logistic_regression_cost_function_for_reading_01.png
+    :align: center
+    :scale: 80%
 
-Note that writing the cost function in this way guarantees that J(θ) is convex for logistic regression.
 
+  Similarly, when y = 0, we get the following plot for :math:`J(\theta)` vs :math:`h_\theta (x)`:
+
+  .. figure:: img/logistic_regression/logistic_regression_cost_function_for_reading_02.png
+    :align: center
+    :scale: 80%
+
+  .. math::
+    
+    Cost(h_\theta (x),y) = 0\ if\ h_\theta (x) = y \\
+    Cost(h_\theta (x),y) \rightarrow \infty \ if\ y = 0\ and\ h_\theta (x) \rightarrow 1 \\
+    Cost(h_\theta (x),y) \rightarrow \infty \ if\ y = 1\ and\ h_\theta (x) \rightarrow 0
+
+
+  If our correct answer 'y' is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.
+
+  If our correct answer 'y' is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity.
+
+  Note that writing the cost function in this way guarantees that J(θ) is convex for logistic regression.
+
+| 
 
 ==============================================
 Simplified cost function and gradient descent

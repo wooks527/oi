@@ -36,6 +36,7 @@ Below lists are the contents I organized.
 
     nlp/intro
     nlp/text_classification
+    nlp/lm
 
 
 .. toctree::

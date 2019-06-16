@@ -111,7 +111,7 @@ Example: Martha Ballard's diary
 
 * How topics are developing through time:
 
-  .. figure:: img/topic_models/martha_ballard's_diary.png
+  .. figure:: img/topic_models/martha_ballard's_diary.PNG
     :align: center
     :scale: 40%
 
@@ -147,8 +147,11 @@ EM algorithm
 
 **E-step**
 
+...
+
 **M-step**
 
+...
 
 Extension of LDA
 *****************
@@ -204,7 +207,7 @@ This is a topic model proposed by Thomas Hofmann in 1999 and a very basic model 
   * Draw a certain word from the probability distribution for this topic
   * Go on through the whole text
 
-  .. figure:: img/topic_models/plsa.png
+  .. figure:: img/topic_models/plsa.PNG
     :align: center
     :scale: 60%
 
@@ -217,7 +220,7 @@ This is a topic model proposed by Thomas Hofmann in 1999 and a very basic model 
     
     :math:`where\ \phi_{wt}:\ probability\ of\ word\ \boldsymbol{w}\ in\ topic\ \boldsymbol{t},\ \theta_{td}:\ probability\ of\ topic\ \boldsymbol{t}\ in\ document\ \boldsymbol{d}`
 
-  .. figure:: img/topic_models/plsa_matrix.png
+  .. figure:: img/topic_models/plsa_matrix.PNG
     :align: center
     :scale: 40%
 
@@ -336,7 +339,7 @@ Other topic models
 Bayesian methods and graphical models
 **************************************
 
-.. figure:: img/topic_models/bayesian_methods_and_graphical_models.png
+.. figure:: img/topic_models/bayesian_methods_and_graphical_models.PNG
   :align: center
   :scale: 40%
 
@@ -369,7 +372,7 @@ Dynamic topic models
 Multilingual topic models
 **************************
 
-.. figure:: img/topic_models/multilingual_topic_models.png
+.. figure:: img/topic_models/multilingual_topic_models.PNG
   :align: center
   :scale: 40%
 
@@ -392,21 +395,21 @@ How to combine all those extensions in one model?
 
 .. rst-class:: centered
   
-  :math:`L = 1`
+  :math:`\mathcal{L} = \sum_{d \in D} \sum_{w \in W} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi, \Theta}`
 
 
 * ARTM:
 
 .. rst-class:: centered
   
-  :math:`L + 1`
+  :math:`\mathcal{L} + \sum_{i=1}^{n} \tau_i R_i (\Phi, \Theta) \rightarrow max_{\Phi, \Theta}`
 
 
 * Example of a regularizer - diversity of topics:
 
 .. rst-class:: centered
 
-  :math:`R_i () = -\sum_{ts} \sum_w \phi_{wt} \phi_{ws}`
+  :math:`R_i (\Phi) = -\sum_{ts} \sum_w \phi_{wt} \phi_{ws}`
 
 
 Regularized EM algorithm
@@ -416,16 +419,16 @@ Regularized EM algorithm
 
 .. rst-class:: centered
 
-  :math:`p(t|d, w) = 1`
+  :math:`p(t|d, w) = \frac{p(w|t) p(t|d)}{p(w|d)} = \frac{\phi_{wt} \theta_{td}}{\sum_{s \in T} \phi_{ws} \theta_{sd}}`
 
 
 **M-step:**
 
 .. rst-class:: centered
 
-  :math:`\phi_{wt}`
+  :math:`\phi_{wt} = norm_{w \in W} \big( \sum_{d} n_{dw} p(t|d, w) + \phi_{td} \frac{\partial R}{\partial \phi_{wt}} \big)`
 
-  :math:`\theta_{td}`
+  :math:`\theta_{td} = norm_{w \in W} \big( \sum_{w} n_{dw} p(t|d, w) + \theta_{td} \frac{\partial R}{\partial \theta_{wt}} \big)`
 
 
 Multi-ARTM
@@ -437,14 +440,14 @@ How to incorporate tokens of additional modalities?
 
 .. rst-class:: centered
 
-  :math:`L = 2`
+  :math:`\mathcal{L} = \sum_{d \in D} \sum_{w \in W} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi, \Theta}`
 
 
 * Multi-ARTM:
 
 .. rst-class:: centered
   
-  :math:`\sum_{m \in M}`
+  :math:`\sum_{m \in M} \lambda_m \sum_{d \in D} \sum_{w \in W} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi, \Theta}`
 
 
 * Each topic is characterized by several probability distribution
@@ -453,7 +456,7 @@ How to incorporate tokens of additional modalities?
 
 **Inter-modality similarities**
 
-.. figure:: img/topic_models/inter-modality_similarities.png
+.. figure:: img/topic_models/inter-modality_similarities.PNG
   :align: center
   :scale: 40%
 

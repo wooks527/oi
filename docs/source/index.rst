@@ -23,11 +23,12 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Artificial intelligence
+    :caption: Machine learning
 
-    artificial_intelligence/machine_learning/machine_learning
-    artificial_intelligence/deep_learning/deep_learning
-    artificial_intelligence/text_mining/text_mining
+    machine_learning/intro
+    machine_learning/linear_regression/univariate_lr
+    machine_learning/linear_regression/multivariate_lr
+    machine_learning/logistic_regression
 
 
 .. toctree::
@@ -37,6 +38,15 @@ Below lists are the contents I organized.
     nlp/intro
     nlp/text_classification
     nlp/lm
+    nlp/topic_models
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Language
+
+    language/python
+    language/uml
 
 
 .. toctree::

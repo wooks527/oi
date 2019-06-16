@@ -99,8 +99,6 @@ The probability of "this is the house" is:
 
 In the sentence, "this" is at the first position, so it is better to change :math:`p(w)` to :math:`p(w_1 | start)`
 
-and add :math:`p(end | w_k)` at the end of the euqation.
-
 .. rst-class:: centered
   
   :math:`p(w) = p(w_1 | start)p(w_2 | w_1) ... p(w_k | w_{k-1})`

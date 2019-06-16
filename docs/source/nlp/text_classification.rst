@@ -40,8 +40,8 @@ We can think of text as a sequence of
   * Spaces or punctuation (구두점: . / , / ? / ! / "" / ' / : / ; / ())
   * Example:
 
-  * Input: Friends, Romans, Countrymen, lend me your ears; <- 1 sentence
-  * Output: Friends Romans Countrymen lend me your ears <- 7 words
+    * Input: Friends, Romans, Countrymen, lend me your ears; <- 1 sentence
+    * Output: Friends Romans Countrymen lend me your ears <- 7 words
 
 * In German or Japanese, there are compound words or sentences which are written witout spaces
 
@@ -55,7 +55,7 @@ Tokenization
 
 **Tokenization**
 
-Tokenization is a process that splits an input sequence into so-called tokens**
+* Tokenization is a process that splits an input sequence into so-called tokens
 
 * Token can be a word, sentence, paragraph, and so on
 
@@ -235,8 +235,8 @@ Let's count occurrences of a particular token in our text
 
 * Problems:
 
-    * We loose word order, hence the name "bag of words"
-    * Counters are not normalized
+  * We loose word order, hence the name "bag of words"
+  * Counters are not normalized
 
 
 **N-gram**

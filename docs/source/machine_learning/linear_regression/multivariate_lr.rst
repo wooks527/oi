@@ -106,7 +106,7 @@ Normal equation
 
 *For every* :math:`n`, *training data* :math:`m`
 
-:math:`\frac{\partial J}{\partial \theta_{n}} = \displaystyle\sum_{i=1}^{m} (\theta_{0} + \theta_{1}x_{i} + \cdots + \theta_{1}x_{i}^{n} - y_{i}`
+:math:`\frac{\partial J}{\partial \theta_{n}} = \displaystyle\sum_{i=1}^{m} (\theta_{0} + \theta_{1}x_{i} + \cdots + \theta_{1}x_{i}^{n} - y_{i})`
 
 :math:`\Rightarrow \theta = (X^{T}X)^{-1}X^{T}Y`
 
@@ -129,10 +129,6 @@ Summary
 * There are two method for multivariate liner regression
   
   * Gradient descent
-    
-    * Feature scaling
-    * Learning rate
-  
   * Normal equation
 
 * Each method has its own benefit

@@ -13,7 +13,7 @@ New compounds can be described by summing the substructure vectors retrieved fro
 Generation of Mol2vec
 ======================
 
-.. figure:: img/generation_of_mol2vec.png
+.. figure:: ../img/molecular_fingerprint/generation_of_mol2vec.png
     :scale: 30%
 
 
@@ -34,7 +34,7 @@ Finally, 300-dimensional embeddings were generated for all combinations.
 Application of Mol2vec
 =======================
 
-.. figure:: img/application_of_mol2vec.png
+.. figure:: ../img/molecular_fingerprint/application_of_mol2vec.png
     :scale: 30%
 
 The vector for a molecule is finally obtained by summing all of the vectors of the Morgan substructures of the molecule.
@@ -45,7 +45,7 @@ If an unknown identifier occurs during featurization of the new data, the “UNS
 Prediction of the ESOL solubility
 ==================================
 
-.. figure:: img/prediction_of_esol_solubility.png
+.. figure:: ../img/molecular_fingerprint/prediction_of_esol_solubility.png
     :scale: 50%
 
 

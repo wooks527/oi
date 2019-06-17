@@ -1,3 +1,0 @@
-Naive bayes classifier
-=======================
-

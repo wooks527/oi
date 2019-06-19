@@ -30,6 +30,7 @@ Below lists are the contents I organized.
     machine_learning/linear_regression/multivariate_lr
     machine_learning/logistic_regression
     machine_learning/neural_networks/nn_learning
+    machine_learning/recommender_systems
     machine_learning/large_scale_ml
 
 
@@ -42,6 +43,7 @@ Below lists are the contents I organized.
     nlp/lm
     nlp/word_and_sentence_embeddings.rst
     nlp/topic_models
+    nlp/smt
 
 
 .. toctree::

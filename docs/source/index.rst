@@ -10,7 +10,7 @@ This site is for organizing everything I know and I will update contents continu
 Below lists are the contents I organized.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Algorithm
 
     algorithm/introduction
@@ -22,7 +22,7 @@ Below lists are the contents I organized.
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Machine learning
 
     machine_learning/intro
@@ -35,19 +35,21 @@ Below lists are the contents I organized.
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Natural language processing
 
     nlp/intro
     nlp/text_classification
     nlp/lm
-    nlp/word_and_sentence_embeddings.rst
+    nlp/word_and_sentence_embeddings
     nlp/topic_models
     nlp/smt
+    nlp/encoder-decoder-attention_architecture
+    nlp/summarization_and_simplification_tasks
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Language
 
     language/python
@@ -55,14 +57,14 @@ Below lists are the contents I organized.
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Mathematics
 
     statistics/statistics
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Packages
 
     packages/docker
@@ -78,7 +80,7 @@ Below lists are the contents I organized.
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Biology
 
     biology/biology

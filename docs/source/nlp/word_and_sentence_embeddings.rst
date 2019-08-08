@@ -1,34 +1,35 @@
+============================
 Word and sentence embeddings
 ============================
 
-==============================================================
-Distributional semantics: bee and honey vs. bee and bumblebee
-==============================================================
+Distributional semantics
+========================
 
-Word similarities
-******************
+Word similarity
+****************
+
+Word similarity is a value of a co-occurrence and there are two types.
+
+---------------------------------------------
+Example: bee and honey vs. bee and bumblebee
+---------------------------------------------
 
 .. figure:: img/word_and_sentence_embeddings/word_similarities.png
   :align: center
   :scale: 40%
 
-
 * First-order co-occurrences
 
-  * Syntagmatic associates
-  * Relatedness
-  * bee and honey
-  * In contexts, find the word which is co-occur with bee and it's count is first-order co-occurrences
+    * They are **syntagmatic associates** which are relatedness between bee and honey
+    * In contexts, find the word which is co-occur with bee and it's count is first-order co-occurrences
 
 * Second order co-occurences
 
-  * Paradigmatic parallels
-  * Similarity
-  * bee and bumblebee (호박벌)
+    * They are **paradigmatic parallels** which are similarities between bee and bumblebee (호박벌)
   
-
+--------------------------
 Distributional hypothesis
-**************************
+--------------------------
 
 .. rst-class:: centered
   
@@ -36,15 +37,21 @@ Distributional hypothesis
 
 We can calculate similarities by just counting co-occurences. Simply use a sliding window of a fixed size and compute word co-occurrences :math:`n_{uv}`. But there is a better way for calculate co-occurences called Pointwise Mutual Information (PMI).
 
-**Pointwise Mutual Information (PMI)**
+
+Pointwise Mutual Information (PMI)
+***********************************
 
 .. rst-class:: centered
 
   :math:`PMI = \log{\frac{p(u, v)}{p(u)p(v)}} = \log{\frac{n_{uv}}{n_{u}n_{v}}}`
 
+Advantage:
+
+* PMI is a normalization of co-occurrences to reduce influences of a word length
+
 Problem:
 
-* If words have never co-occured, DMI = :math:`-\infty`
+* If words have never co-occured, :math:`PMI = -\infty`
 
 **Positive PMI**
 
@@ -55,7 +62,7 @@ Problem:
 Problem:
 
 * Anyway, vectors too sparse and long to calculate cosine similarities
-* So, we need to reduce dimensions of vectors
+* So, we need to reduce dimensions o
 
 
 Vector space models of semantics
@@ -70,9 +77,11 @@ Vector space models of semantics
   :align: center
   :scale: 40%
 
+-------
+Context
+-------
 
-What is a context?
-******************
+We use context for vector space models. Then what is a context?
 
 .. rst-class:: centered
 
@@ -90,23 +99,22 @@ In below figure, :math:`C` is a vocabulary of contexts (e.g. word/dependency). B
   :align: center
   :scale: 60%
 
+-------------------------------------------
+Method: Singular Value Decomposition (SVD)
+-------------------------------------------
 
-===========================================
-Explicit and implicit matrix factorization
-===========================================
-
-Singular Value Decomposition (SVD)
-**********************************
-
-In linear algebra, the singular-value decomposition (SVD) is a factorization of a real or complex matrix.
+To get a context we can use singular-value decomposition (SVD). In linear algebra, SVD is a factorization of a real or complex matrix.
 
 .. figure:: img/word_and_sentence_embeddings/svd.png
   :align: center
   :scale: 40%
 
+Problem:
+
+* SVD is too sparse so we need to reduce dimensions
 
 Reduced SVD
-************
+------------
 
 **Thin SVD**
 
@@ -122,30 +130,26 @@ Reduced SVD
 
 * Keep only first k components:
 
-  * :math:`\hat{X_{k}} = U_{k} \sum_{k} V_{k}^{T}`
+    * :math:`\hat{X_{k}} = U_{k} \sum_{k} V_{k}^{T}`
 
-  .. figure:: img/word_and_sentence_embeddings/truncated_svd.png
-    :align: center
-    :scale: 40%
+    .. figure:: img/word_and_sentence_embeddings/truncated_svd.png
+        :align: center
+        :scale: 40%
 
 * It's the best approximation of rank k in terms of Frobenius norm:
 
-  * Frobenius norm: The distance of matrixes
-  * :math:`||X - \hat{X}||_{F} = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{m}(x_{ij} - \hat{x_{ij}})^{2}}`
+    * Frobenius norm: The distance of matrixes
+    * :math:`||X - \hat{X}||_{F} = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{m}(x_{ij} - \hat{x_{ij}})^{2}}`
 
-
-How do we use it?
-******************
-
-**Vector space models of semantics**
-
-* Input: word-word co-occurrences (counts, PMI, ...)
+This is the vector space model of semantics which uses reduced SVD.
 
 .. figure:: img/word_and_sentence_embeddings/truncated_svd_usage.png
   :align: center
   :scale: 40%
 
-**Weighted squared loss: Glove**
+--------------
+Method: Glove
+--------------
 
 Glove is a matrix factorization of log-counts with respect to weighted squared loss. Fill :math:`X` with :math:`\log{n_{uv}}` and try another objectives:
 
@@ -153,47 +157,76 @@ Glove is a matrix factorization of log-counts with respect to weighted squared l
 
   :math:`\sum_{u \in W} \sum_{v \in W} f(n_{uv})(\langle \phi_u, \theta_v \rangle + b_u b'_v - \log{n_uv})^2 \rightarrow \min_{\phi_u, \theta_v, b_u, b'_v}`
 
-This is usful to be overwhelmed with too frequent words.
+This is useful to be overwhelmed with too frequent words.
 
   .. figure:: img/word_and_sentence_embeddings/glove.jpg
     :align: center
     :scale: 25%
 
 
-Word prediction: Skip-gram model
+Word2vec and doc2vec
+=====================
+
+Word2vec (:doc:`Link <word2vec>`)
 *********************************
 
-Predict context words given a focus word and model each probability with a *softmax*. Also the model is trained by log-likelihood maximization. But still two matrices of parameters exist.
+Word2vec is a group of related models that are used to produce word embeddings (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Word2vec>`_). There are two main architecture of Word2vec:
+
+* Continous Bag-of-words (CBOW):
+
+.. rst-class:: centered
+
+  :math:`p(w_i | w_{i-h} \cdots w_{i+h})`
+
+* Skip-gram:
+
+.. rst-class:: centered
+
+  :math:`p(w_{i-h} \cdots w_{i+h} | w_i)`
+
+If you want to know source codes of Word2vec, I recommend this link (https://code.google.com/archive/p/word2vec/).
+
+----------------
+Skip-gram model
+----------------
+
+Skip-gram model predicts context words given a focus word and model each probability with a *softmax*. Also the model is trained by log-likelihood maximization. But still two matrices of parameters exist.
 
 * Probability of context words:
 
-  .. rst-class:: centered
+    .. rst-class:: centered
 
-    :math:`p(w_{i-h}, ..., w_{i+h}|w_{i}) = \prod_{\substack{-h \leq k \leq h, k \neq 0}} p(w_{i+k}|w_{i})`
+        :math:`p(w_{i-h}, ..., w_{i+h}|w_{i}) = \prod_{\substack{-h \leq k \leq h, k \neq 0}} p(w_{i+k}|w_{i})`
 
 * Softmax:
 
-  .. rst-class:: centered
+    .. rst-class:: centered
 
-    :math:`p(u|v) = \frac{exp \langle \phi_{u}, \theta_{v} \rangle }{\sum_{u^{\prime} \in w} exp \langle \phi_{u^{\prime}}, \theta_{v} \rangle}`
+        :math:`p(u|v) = \frac{exp \langle \phi_{u}, \theta_{v} \rangle }{\sum_{u^{\prime} \in w} exp \langle \phi_{u^{\prime}}, \theta_{v} \rangle}`
 
 * Log-likelihood maximization:
 
-  .. rst-class:: centered
+    * Equation:
 
-    :math:`\mathcal{L} = \displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} n_{uv} \log{p(u|v)}\\ where\ n_{uv}:\ word\ co-occurenece`
+        .. rst-class:: centered
 
-  * Method:
+            :math:`\mathcal{L} = \displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} n_{uv} \log{p(u|v)}\\ where\ n_{uv}: \text{ word co-occurenece}`
 
-    * SGD, online by word pairs in the corpus
+    * Method:
 
-  * Problem:
+        * SGD, online by word pairs in the corpus
 
-    * Softmax over vocabulary is slow!!
+    * Problem:
 
+        * Softmax over vocabulary is slow!!
+
+        * There are two ways to avoid softmax:
+
+            * Negative sampling
+            * Hierarchical softmax
 
 Skip-gram Negative Sampling (SGNS)
-***********************************
+-----------------------------------
 
 Instead of predicting a word for another word, predict "yes" or "no" for word pairs:
 
@@ -219,37 +252,9 @@ SGNS objective is maximized when :math:`\langle \phi_u, \theta_v \rangle` is equ
   :align: center
   :scale: 50%
 
-
-======================
-Word2vec and doc2vec
-======================
-
-Word2vec (:doc:`Link <word2vec>`)
-*********************************
-
-**Two architectures:**
-
-* Continous Bag-of-words (CBOW):
-
-.. rst-class:: centered
-
-  :math:`p(w_i | w_{i-h} \cdots w_{i+h})`
-
-* Continuous Skip-gram:
-
-.. rst-class:: centered
-
-  :math:`p(w_{i-h} \cdots w_{i+h} | w_i)`
-
-**Two ways to avoid softmax:**
-
-* Negative sampling
-* Hierarchical softmax
-* Open-source and fast: https://code.google.com/archive/p/word2vec/
-
-
+------------------------------
 Evaluation: Word similarities
-******************************
+------------------------------
 
 How do we test that similar words have similar vectors?
 
@@ -261,63 +266,77 @@ How do we test that similar words have similar vectors?
   :align: center
   :scale: 50%
 
-
 * Performance
 
-  * For word similarity task, count-based methods (PPMI, SVD) perform on par with predictive methods (GloVe, SGNS)
-  * **win** is the width of the window for co-occurrences collection
+    === ====== ============ ============ ================= ====================
+    win Method WordSim |br| WordSim |br| Bruni et al. |br| Radinsky et al. |br|
+               Similarity   Relatedness  MEN               M. Turk
+    === ====== ============ ============ ================= ====================
+    2   PPMI   .732         **.699**     .744              .654
+    2   SVD    .772         .671         **.777**          .647
+    2   SGNS   **.789**     .675         .773              **.661**
+    2   GloVe  .720         .605         .728              .606
+    5   PPMI   .732         **.706**     .738              **.668**
+    5   SVD    .764         .679         **.776**          .639
+    5   SGNS   **.772**     .690         .772              .663
+    5   GloVe  .745         .617         .746              .631
+    === ====== ============ ============ ================= ====================
 
-  .. figure:: img/word_and_sentence_embeddings/word_similarity_evaluation.png
-    :align: center
-    :scale: 50%
+    * For word similarity task, count-based methods (PPMI, SVD) perform on par with predictive methods (GloVe, SGNS)
+    
+    * **win** is the width of the window for co-occurrences collection
 
-
+---------------------------
 Evaluation: Word analogies
-***************************
+---------------------------
 
 * Relational similarity in cognitive science (vs. Attributional similarity)
 
 * :math:`a\ :\ a'` is as :math:`b\ :\ b'` (man : woman is as king : ?)
 
-  .. rst-class:: centered
+    .. rst-class:: centered
 
-    :math:`\cos (b - a + a^{\prime}, x) \rightarrow max_{x}`
+        :math:`\cos (b - a + a^{\prime}, x) \rightarrow max_{x}`
 
-  .. figure:: img/word_and_sentence_embeddings/word_analogy.png
-    :align: center
-    :scale: 50%
+    .. figure:: img/word_and_sentence_embeddings/word_analogy.png
+        :align: center
+        :scale: 50%
 
 * Performance
 
-  * Word analogy task is solved with 70% average accuracy
-  * Add is the way of analogy solving that we discussed
-  * Mull is a modification
+    * Word analogy task is solved with 70% average accuracy
+    * Add is the way of analogy solving that we discussed
+    * Mull is a modification
 
-  .. figure:: img/word_and_sentence_embeddings/word_analogy_evaluation.png
-    :align: center
-    :scale: 50%
+    .. figure:: img/word_and_sentence_embeddings/word_analogy_evaluation.png
+        :align: center
+        :scale: 50%
 
 
-Pharagraph2vec aka doc2vec
-***************************
+Paragraph2vec aka Doc2vec
+**************************
+
+Paragraph2vec (= Doc2vec) which is extension of Word2vec is a group of related models that are used to produce document embeddings.
 
 .. figure:: img/word_and_sentence_embeddings/doc2vec.png
   :align: center
   :scale: 50%
 
-**Distributed Memory (DM):**
+There are two ways of Doc2vec:
 
-* DM stands for providing the probabilities of focus words, given everything we have
-* :math:`p(w_{i}|w_{i-h}, ..., w_{i+h}, d)`
+* Distributed Memory (DM):
 
-**Distributed Bag Of Words (DBOW):**
+    * DM stands for providing the probabilities of focus words, given everything we have
+    * :math:`p(w_{i}|w_{i-h}, ..., w_{i+h}, d)`
 
-* DBOW stands for providing the probability of the context given the documents
-* :math:`p(w_{i-h}, ..., w_{i+h}|d)`
+* Distributed Bag Of Words (DBOW):
 
+    * DBOW stands for providing the probability of the context given the documents
+    * :math:`p(w_{i-h}, ..., w_{i+h}|d)`
 
+----------------------------------
 Evaluation: Document similarities
-**********************************
+----------------------------------
 
 How do we test that similar documents have similar vectors?
 
@@ -334,7 +353,6 @@ Resume
 * Doc2vec: DBOW, DM, ...
 * Python library for both: https://radimrehurek.com/gensim/
 
-
 **Evaluation:**
 
 * Word similarity and analogy
@@ -345,9 +363,8 @@ Resume
 Count-based and predictive approaches are not so different!!
 
 
-===================
-Quiz: topic models
-===================
+Quiz: word and sentence embeddings
+===================================
 
 .. toggle-header::
   :header: **Quiz list**
@@ -435,7 +452,13 @@ Quiz: topic models
 
 |
 
-===========
+
+Project: DuplicateQueationsFinder
+==================================
+
+This project is to create DuplicateQueationsFinder. Detail codes are in GitHub (`Link <https://github.com/hwkim89/nlp/tree/master/DuplicateQueationsFinder>`_)
+
+
 References
 ===========
 

@@ -25,6 +25,14 @@ w2-st
 5. P(O -> V) = 3/8 * (0 + 1) + 1/8 * (1 + 2) = 6/8 = 2/3
    P(O -> ?) = 3/8 * (2 + 2) + 1/8 * (3 + 3) = 9/4
    P(V|O) = 2/3/9/4 = 2/3 -> 0.333
+
+w3-wse
+1. O X X X
+2. O O X O O X
+3. O X X X
+4. O O X O X
+5. O O O X
+
 w4-sas
 1. O X X
 2. copying-recall addition-precision copying-precision

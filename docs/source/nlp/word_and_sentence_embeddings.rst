@@ -382,73 +382,73 @@ Quiz: word and sentence embeddings
 
     Hint: in this question you actually do not need to compute anything... And the answer would be the same for any type of first-order co-occurrence.
 
-    \(O\) 0
+    \[　\] 0
     
-    \(X\) :math:`\frac{\sqrt{3}}{2}`
+    \[　\] :math:`\frac{\sqrt{3}}{2}`
     
-    \(X\) 1
+    \[　\] 1
     
-    \(X\) 2
+    \[　\] 2
     
-    \(X\) :math:`\frac{1}{2}` 
+    \[　\] :math:`\frac{1}{2}` 
 
 
   **Quiz2.**
   
     Choose correct statements about Singular Value Decomposition (SVD), an important notion from the linear algebra. Feel free to consult any additional resource like wiki if needed.
 
-    \(X\) Singular values can be negative.
+    \[　\] Singular values can be negative.
 
-    \(O\) Squares of singular values of a matrix X are eigenvalues of :math:`X^T X (or X X^T)`.
+    \[　\] Squares of singular values of a matrix X are eigenvalues of :math:`X^T X (or X X^T)`.
 
-    \(X\) Singular values decomposition is not unique (for example, the zero matrix can be decomposed in infinitely many ways).
+    \[　\] Singular values decomposition is not unique (for example, the zero matrix can be decomposed in infinitely many ways).
 
-    \(O\) Truncated SVD is the best rank $k$ approximation of the original matrix in terms of Frobenius norm.
+    \[　\] Truncated SVD is the best rank :math:`k` approximation of the original matrix in terms of Frobenius norm.
 
-    \(O\) Any rectangular matrix with real entries has a singular value decomposition.
+    \[　\] Any rectangular matrix with real entries has a singular value decomposition.
 
-    \(X\) Singular values of a rectangular matrix are its eigenvalues.
+    \[　\] Singular values of a rectangular matrix are its eigenvalues.
 
 
   **Quiz3.**
   
     Find the objective function of the skip-gram negative sampling (SGNS) model.
 
-    \(O\) 0
+    \[　\] :math:`\displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} n_{uv} \log{\sigma (\langle \phi_{u}, \theta_{v} \rangle)} + k \mathbb{E}_{\bar{v}} \log{\sigma (-\langle \phi_{u}, \theta_{\bar{v}} \rangle)}`
 
-    \(X\) :math:`\frac{\sqrt{3}}{2}`
+    \[　\] :math:`\displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} n_{uv} \langle \phi_{u}, \theta_{v} \rangle - k \mathbb{E}_{\bar{v}} \langle \phi_{u}, \theta_{\bar{v}} \rangle)`
 
-    \(X\) 1
+    \[　\] :math:`\displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} f(n_{uv}) (\langle \phi_{u}, \theta_{v} \rangle + b_u + b'_v - \log{n_{uv}})^2`
 
-    \(X\) 2
+    \[　\] :math:`\displaystyle\sum_{u \in W} \displaystyle\sum_{V \in W} n_{uv} \frac{exp \langle \phi_{u}, \theta_{v} \rangle }{\sum_{u^{\prime} \in w} exp \langle \phi_{u^{\prime}}, \theta_{v} \rangle}`
 
 
   **Quiz4.**
   
     How are word embeddings usually evaluated (qualitatively or quantitively)?
 
-    \( \) By Spearman's correlation (or similar rank correlation measure) with human judgements on word similarity task.
+    \[　\] By Spearman's correlation (or similar rank correlation measure) with human judgements on word similarity task.
 
-    \( \) By the accuracy of analogy prediction (using some pre-defined dataset of 4-word analogies).
+    \[　\] By the accuracy of analogy prediction (using some pre-defined dataset of 4-word analogies).
 
-    \( \) By the amount of positive components of word vectors.
+    \[　\] By the amount of positive components of word vectors.
 
-    \( \) By the interpretability of the components of the vectors.
+    \[　\] By the interpretability of the components of the vectors.
 
-    \( \) By comparing maximal lengths of word vectors (the more is the length, the better is the model).
+    \[　\] By comparing maximal lengths of word vectors (the more is the length, the better is the model).
 
 
   **Quiz5.**
   
     Choose the correct statements.
 
-    \( \) For word similarity tasks, count-based methods perform on par with predictive methods.
+    \[　\] For word similarity tasks, count-based methods perform on par with predictive methods.
 
-    \( \) Word2vec works fine for word analogies, but there are many concerns with word similarities.
+    \[　\] Word2vec works fine for word analogies, but there are many concerns with word similarities.
 
-    \( \) Representations of word or character n-grams may improve the quality of the model.
+    \[　\] Representations of word or character n-grams may improve the quality of the model.
 
-    \( \) Skip-gram negative sampling (SGNS) model is too hard to train, and it is often approximated with softmax.
+    \[　\] Skip-gram negative sampling (SGNS) model is too hard to train, and it is often approximated with softmax.
 
 |
 

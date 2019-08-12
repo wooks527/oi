@@ -48,6 +48,12 @@ Below lists are the contents I organized.
     nlp/encoder-decoder-attention_architecture
     nlp/summarization_and_simplification_tasks
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Personal research
+
+    deepcombdti/deepcombdti
+
 
 .. toctree::
     :maxdepth: 1

@@ -20,7 +20,6 @@ Below lists are the contents I organized.
     algorithm/sort/sort
     algorithm/search/search
 
-
 .. toctree::
     :maxdepth: 1
     :caption: Machine learning
@@ -29,11 +28,11 @@ Below lists are the contents I organized.
     machine_learning/linear_regression/univariate_lr
     machine_learning/linear_regression/multivariate_lr
     machine_learning/logistic_regression
+    machine_learning/regularization
     machine_learning/neural_networks/nn_learning
     machine_learning/recommender_systems
     machine_learning/large_scale_ml
     machine_learning/optimization
-
 
 .. toctree::
     :maxdepth: 1
@@ -51,10 +50,15 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Deep learning
+
+    deep_learning/cnn/cnn
+
+.. toctree::
+    :maxdepth: 1
     :caption: Personal research
 
     deepcombdti/deepcombdti
-
 
 .. toctree::
     :maxdepth: 1
@@ -63,13 +67,11 @@ Below lists are the contents I organized.
     language/python
     language/uml
 
-
 .. toctree::
     :maxdepth: 1
     :caption: Mathematics
 
     statistics/statistics
-
 
 .. toctree::
     :maxdepth: 1
@@ -85,7 +87,6 @@ Below lists are the contents I organized.
     packages/snakemake
     packages/ubuntu
     packages/powershell
-
 
 .. toctree::
     :maxdepth: 1

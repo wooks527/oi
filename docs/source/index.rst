@@ -32,6 +32,7 @@ Below lists are the contents I organized.
     machine_learning/neural_networks/nn_learning
     machine_learning/recommender_systems
     machine_learning/large_scale_ml
+    machine_learning/optimization
 
 
 .. toctree::

@@ -8,7 +8,7 @@ Optimization이라는 단어는 수학적으로 많이 사용되는 단어입니
 
 .. figure:: img/optimization/optimization_overview.png
   :align: center
-  :scale: 45%
+  :scale: 40%
 
 .. figure:: img/optimization/optimization_eq.png
   :align: center
@@ -20,44 +20,68 @@ Types of optimizations
 
 * :doc:`Gradient descent <linear_regression/univariate_lr>`
 * :doc:`Stochastic Gradient Descent (SGD) <large_scale_ml>`
-* `Momentum <#momentum>`_
-* `AdaGrad <#adamgrad>`_
-* `RMSProp <#rmsprop>`_
-* `Adam <#adam>`_
+* `Momentum`_
+* `AdaGrad`_
+* `RMSProp`_
+* `Adam`_
 
-.. _momentum:
 
 Momentum
 ========
 
-모멘텀은 '운동량'을 의미한다. 기울기에서 속도의 개념이 추가된 것으로 고등학교 물리 시간을 떠올려보면 자세히는 아니지만 지상의 마찰력 때문에 물체의 이동속도가 점점 감소한다고 배웠던 기억이 어렴풋이 기억이 난다. 속도가 크게 나올수록 기울기가 크게 업데이트 되어 확률적 경사하강법이 가지는 단점을 보완할 수 있다.
+Momentum 방식은 말 그대로 Gradient Descent를 통해 이동하는 과정에 일종의 ‘관성’을 주는 것이다. 현재 Gradient를 통해 이동하는 방향과는 별개로, 과거에 이동했던 방식을 기억하면서 그 방향으로 일정 정도를 추가적으로 이동하는 방식이다.
 
-Momentum은 마찰력/공기저항 같은 것에 해당하며 기울기 업데이트 시 이 폭을 조절하는 역할을 한다. 이에 따라 속도 velocity가 변화한다.
+.. rst-class:: centered
+
+    :math:`v_t = \gamma v_{t-1} + \eta \nabla_{\theta}J(\theta)`
 
 
 AdaGrad 
 =======
 
-신경망 학습에서의 학습률 Learning rate의 값은 일종의 보폭으로 생각할 수 있는데 한 번 갱신하는 가중치의 값을 양을 결정한다. 학습률을 너무 작게하면 보폭이 너무 작아서 많은 걸음을 걸어야 하므로 학습 시간을 아주 길게 해야 한다. 반대로 너무 크게 하면 최적의 점을 계속 지나치게 된다.
+AdaGrad(Adaptive Gradient)는 변수들을 Update할 때 각각의 변수마다 Step size를 다르게 설정해서 이동하는 방식이다. 이 알고리즘의 기본적인 아이디어는
 
-AdaGrad는 과거의 기울기 값을 제곱해서 계속 더하는 식으로 학습률을 낮추는데 학습이 진행될수록 제곱의 값으로 학습의 정도가 크게 떨어진다. 하지만 학습이 계속되면서 학습률이 0에 가까워져서 학습이 진행이 안되는 문제가 발생한다.
+.. rst-class:: centered
+
+    *‘지금까지 많이 변화하지 않은 변수들은 Step size를 크게 하고, 지금까지 많이 변화했던 변수들은 Step size를 작게 하자’*
+
+라는 것이다. 자주 등장하거나 변화를 많이 한 변수들의 경우 optimum에 가까이 있을 확률이 높기 때문에 작은 크기로 이동하면서 세밀한 값을 조정하고, 적게 변화한 변수들은 optimum 값에 도달하기 위해서는 많이 이동해야할 확률이 높기 때문에 먼저 빠르게 loss 값을 줄이는 방향으로 이동하려는 방식이라고 생각할 수 있겠다.
+
+.. rst-class:: centered
+
+    :math:`G_{t} = G_{t-1} + (\nabla_{\theta}J(\theta_t))^2`
+
+    :math:`\theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot \nabla_{\theta}J(\theta_t)`
 
 
-RMSPropab
-=========
+RMSProp
+=======
 
-RMSProp은 이러한 문제를 보완하기 위해서 Exponential moving average를 사용한다. Exponential moving average는 과거의 정보에 가중치를 작게 부여하고 최근 값에 가장 민감하도록 가중치를 높게 부여하는 형태이다.
+RMSProp은 딥러닝의 대가 제프리 힌톤이 제안한 방법으로서, AdaGrad의 단점을 해결하기 위한 방법이다. AdaGrad의 식에서 Gradient의 제곱값을 더해나가면서 구한 :math:`G_t` 부분을 합이 아니라 지수평균으로 바꾸어서 대체한 방법이다. 이렇게 대체를 할 경우 AdaGrad처럼 :math:`G_t`가 무한정 커지지는 않으면서 최근 변화량의 변수간 상대적인 크기 차이는 유지할 수 있다.
+
+
+.. rst-class:: centered
+
+    :math:`G = \gamma G + (1-\gamma)(\nabla_{\theta}J(\theta_t))^2`
+
+    :math:`\theta = \theta - \frac{\eta}{\sqrt{G + \epsilon}} \cdot \nabla_{\theta}J(\theta_t)`
 
 
 Adam
 =====
 
-잘 모르겠으면 일단 Adam을 사용하라는 말이 있다. 앞에서 언급했던 Momentum과 AdaGrad를 섞은 기법이라고 보면 된다.
+Adam (Adaptive Moment Estimation)은 RMSProp과 Momentum 방식을 합친 것 같은 알고리즘이다. 이 방식에서는 Momentum 방식과 유사하게 지금까지 계산해온 기울기의 지수평균을 저장하며, RMSProp과 유사하게 기울기의 제곱값의 지수평균을 저장한다.
+
+.. rst-class:: centered
+
+    :math:`m_t = \beta_1 m_{t-1} + (1-\beta_1)\nabla_\theta J(\theta)`
+
+    :math:`v_t = \beta_2 v_{t-1} + (1-\beta_2)(\nabla_\theta J(\theta))^2`
 
 
 Reference
 ==========
 
 * https://gomguard.tistory.com/187
-* https://sacko.tistory.com/42
 * http://ruder.io/optimizing-gradient-descent/index.html
+* `BEOMSU KIM's BLOG <http://shuuki4.github.io/deep%20learning/2016/05/20/Gradient-Descent-Algorithm-Overview.html>`_

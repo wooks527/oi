@@ -328,3 +328,7 @@ div.sphinxsidebar a {
 th p {
     margin-bottom: 0px;
 }
+
+.wy-nav-content {
+    max-width: none;
+}

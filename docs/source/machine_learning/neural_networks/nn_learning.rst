@@ -1,7 +1,7 @@
+==========================
 Neural networks: Learning
 ==========================
 
-==============
 Cost function
 ==============
 
@@ -22,7 +22,7 @@ Recall that in neural networks, we may have many output nodes. We denote :math:`
 .. rst-class:: centered
   
   :math:`J(\theta) = - \frac{1}{m} \sum_{i=1}^m [ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2`
-​	 
+
 For neural networks, it is going to be slightly more complicated:
 
 .. rst-class:: centered
@@ -42,7 +42,67 @@ Note:
 * The i in the triple sum does not refer to training example :math:`i`
 
 
-===========
+Backpropagation
+===============
+
+"Backpropagation" is neural-network terminology for minimizing our cost function, just like what we were doing with gradient descent in logistic and linear regression. Our goal is to compute:
+
+.. rst-class:: centered
+
+    :math:`min_{\theta} J(\theta)`
+
+That is, we want to minimize our cost function :math:`J` using an optimal set of parameters in theta. In this section we'll look at the equations we use to compute the partial derivative of :math:`J(\theta)`:
+
+.. rst-class:: centered
+    
+    :math:`\frac{\delta}{\delta \theta_{i, j}^{(l)}} J(\theta)`
+
+
+Back propagation algorithm
+**************************
+
+To do so, we use the following algorithm:
+
+.. figure:: ../img/neural_networks/nn_learning/backpropagation_algo.png
+  :align: center
+  :scale: 70%
+
+Given training set :math:`{(x(1),y(1)) \cdots (x(m),y(m))}` and set :math:`\Delta^{(l)}_{i,j} := 0` for all :math:`(l,i,j),` (hence you end up having a matrix full of zeros).
+
+For training example :math:`t` = 1 to :math:`m`:
+
+1. Set :math:`a^{(1)} := x^{(t)}`
+ 
+2. Perform forward propagation to compute :math:`a^{(l)}\ for\ l=2,3,\cdots,L`
+
+.. figure:: ../img/neural_networks/nn_learning/propagation_computation.png
+  :align: center
+  :scale: 100%
+
+3. Using :math:`y^{(t)},` compute :math:`\delta^{(L)} = a^{(L)} - y^{(t)}`
+
+Where :math:`L` is our total number of layers and :math:`a^{(L)}` is the vector of outputs of the activation units for the last layer. So our "error values" for the last layer are simply the differences of our actual results in the last layer and the correct outputs in y. To get the delta values of the layers before the last layer, we can use an equation that steps us back from right to left:
+
+4. Compute :math:`\delta^{(L-1)}, \delta^{(L-2)},\dots,\delta^{(2)}` using :math:`\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) ∗ a^{(l)} ∗ (1 − a^{(l)})`
+
+The delta values of layer :math:`l` are calculated by multiplying the delta values in the next layer with the theta matrix of layer :math:`l.` We then element-wise multiply that with a function called :math:`g',` or :math:`g`-prime, which is the derivative of the activation function :math:`g` evaluated with the input values given by :math:`z^{(l)}.`
+
+The :math:`g`-prime derivative terms can also be written out as:
+
+.. rst-class:: centered
+
+    :math:`g'(z^{(l)}) = a^{(l)}\ *\ (1 - a^{(l)})`
+    
+5. :math:`\Delta^{(l)}_{i,j} := \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}` or with vectorization, :math:`\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T`
+
+Hence we update our new :math:`\Delta` matrix.
+
+* :math:`D_{i,j}^{(l)} := \frac{1}{m} (\Delta_{i,j}^{(l)} + \lambda \Theta_{i,j}^{(l)}),\ if\ j \neq 0`
+* :math:`D^{(l)}_{i,j} := \frac{1}{m} \Delta^{(l)}_{i,j},\ if\ j = 0`
+
+The capital-delta matrix :math:`D` is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get :math:`\frac{\delta}{\delta \theta_{i, j}^{(l)}} J(\theta) = D_{ij}^{(l)}.`
+
+
 Reference
 ===========
 

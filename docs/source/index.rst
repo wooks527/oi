@@ -53,6 +53,7 @@ Below lists are the contents I organized.
     :caption: Deep learning
 
     deep_learning/cnn/cnn
+    deep_learning/sm/rnn
 
 .. toctree::
     :maxdepth: 1

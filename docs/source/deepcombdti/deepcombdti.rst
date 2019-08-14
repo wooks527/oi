@@ -2,7 +2,7 @@
 DeepCombDTI
 ============
 
-DeepCombDTI is a model for drug-target interaction prediction using deep learning and various molecular fingerprints. Drugs can be represented by a molecular fingerprint like :doc:`ECFP <ecfp>` and Protein can be represented a feature vector like CTD.
+DeepCombDTI is a model for **drug-target interaction prediction** using deep learning and various `molecular fingerprints <#molecular-fingerprint>`_. Drugs can be represented by a molecular fingerprint like :doc:`ECFP <ecfp>` and Protein can be represented a feature vector like CTD.
 
 .. figure:: img/deepcombdti/deepcombdti.png
   :align: center
@@ -40,6 +40,9 @@ Molecular fingerprint는 약물을 표현하는 Feature이고, 예로는 ECFP, M
     mol2vec
     neural_fp
     seq2seq_fp
+    maccs
+    pubchem_fp
+    daylight_fp
 
 Protvec
 ********

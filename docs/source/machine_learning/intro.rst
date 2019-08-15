@@ -1,95 +1,113 @@
+=============
 Introduction
 =============
 
-===========
-Definition
-===========
+**Machine learning (ML)** is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Machine_learning>`_).
 
-**Arthur Samuel (1959)**
+There are two main definitions of machine learning:
 
-The field of study that gives computers the ability to learn without being explicitly programmed
+* Arthur Samuel (1959)
 
-**Tom Mitchel (1998)**
+    * **The field of study that gives computers the ability to learn without being explicitly programmed**
 
-A computer program is said to learn from experience E with respect to some class of task T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.
+* Tom Mitchel (1998)
 
+    * A computer program is said to learn from experience E with respect to some class of task T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E
 
-===========
-Algorithms
-===========
+In ML, there are three algorithms:
 
 .. figure:: img/intro/ml_algorithms.png
     :align: center
     :scale: 40%
 
 
-====================
 Supervised learning
-====================
+===================
 
 **Point**
 
-    * “Right answers” are given
+* "Right answers" are given
 
 **Types**
-    * Regression
-    * Classification
 
-**Regression**
-    * Predict results within a continuous output
-    * Map input variables to some continuous functions
-    * Example: Housing price prediction
+* Regression
+* Classification.
+
+
+Regression
+***********
+
+* Map input variables to some continuous functions to predict results within a continuous output
+* Example: Housing price prediction
 
 .. figure:: img/intro/regression_ex.png
     :align: center
     :scale: 40%
 
 
-**Classification**
-    * Predict results within a discrete output
-    * Map input variables into discrete categories
-    * Example: Breast cancer
+Classification
+**************
+
+* Map input variables into discrete categories to predict results within a discrete output
+* Example: Breast cancer
 
 .. figure:: img/intro/classification_ex1.png
     :align: center
     :scale: 40%
-
 
 .. figure:: img/intro/classification_ex2.png
     :align: center
     :scale: 40%
 
 
-======================
 Unsupervised learning
-======================
+=====================
 
 **Point**
-    * Allow us to approach problems with little or no idea what our results should look like
-    * Derive the structure from data where we don't necessarily know the effect of the variables
-    * No feedback based on the prediction results
+
+* Allow us to approach problems with little or no idea what our results should look like
+* Derive the structure from data where we don't necessarily know the effect of the variables
+* No feedback based on the prediction results
 
 **Types**
-    * Clustering
-    * Non-clustering
 
-**Clustering**
-    * Find groups with patterns being close to each other
-    * Example: Google news clustering
+* Clustering
+* Non-clustering
+
+
+Clustering
+**********
+
+* Find groups with patterns being close to each other
+* Example: Google news clustering
 
 .. figure:: img/intro/clustering_ex.png
     :align: center
     :scale: 40%
 
 
-**Non-clustering**
-    * Find the structure in a chaotic environment
-    * Example: Cocktail party problem
+Non-clustering
+**************
+
+* Find the structure in a chaotic environment
+* Example: Cocktail party problem
 
 .. figure:: img/intro/non-clustering_ex.png
     :align: center
     :scale: 40%
 
 
-**Reference**
-    * https://www.coursera.org/learn/machine-learning
+Reinforcement learning
+======================
+
+Reinforcement learning (RL) is an area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Reinforcement_learning>`_).
+
+.. figure:: img/intro/reinforcement_learning.png
+    :align: center
+    :scale: 40%
+
+
+Reference
+==========
+
+* https://www.coursera.org/learn/machine-learning

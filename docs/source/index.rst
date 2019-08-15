@@ -25,8 +25,7 @@ Below lists are the contents I organized.
     :caption: Machine learning
 
     machine_learning/intro
-    machine_learning/linear_regression/univariate_lr
-    machine_learning/linear_regression/multivariate_lr
+    machine_learning/linear_regression
     machine_learning/logistic_regression
     machine_learning/regularization
     machine_learning/neural_networks/nn_learning

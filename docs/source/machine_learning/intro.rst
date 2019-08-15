@@ -30,7 +30,7 @@ Supervised learning
 
 **Types**
 
-* Regression
+* Regression (:doc:`Link <linear_regression>`)
 * Classification.
 
 
@@ -105,6 +105,18 @@ Reinforcement learning (RL) is an area of machine learning concerned with how so
 .. figure:: img/intro/reinforcement_learning.png
     :align: center
     :scale: 40%
+
+
+Summary
+=======
+
+* Machine learning is a method of learning based on experience acquired by repeating and evaluating specific tasks
+
+* There are three primary learning in machine learning
+
+    * Supervised learning
+    * Unsupervised learning
+    * Reinforcement learning
 
 
 Reference

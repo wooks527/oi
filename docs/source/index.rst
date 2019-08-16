@@ -12,7 +12,8 @@ Below lists are the contents I organized.
 .. toctree::
     :maxdepth: 1
     :caption: Algorithm
-
+    
+    algorithm/ds&algo/ds&algo
     algorithm/introduction
     algorithm/asymptotic_analysis
 

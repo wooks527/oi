@@ -60,6 +60,7 @@ Below lists are the contents I organized.
     :caption: Tensorflow
 
     tensorflow/intro
+    tensorflow/computer_vision
 
 .. toctree::
     :maxdepth: 1

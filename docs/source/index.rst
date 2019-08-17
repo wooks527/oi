@@ -57,6 +57,12 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Tensorflow
+
+    tensorflow/intro
+
+.. toctree::
+    :maxdepth: 1
     :caption: Personal research
 
     deepcombdti/deepcombdti

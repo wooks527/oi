@@ -43,7 +43,7 @@ Below lists are the contents I organized.
     nlp/lm
     nlp/sequence_tagging
     nlp/word_and_sentence_embeddings
-    nlp/topic_models
+    nlp/topic_model
     nlp/smt
     nlp/encoder-decoder-attention_architecture
     nlp/summarization_and_simplification_tasks

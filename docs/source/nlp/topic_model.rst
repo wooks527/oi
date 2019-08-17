@@ -357,7 +357,7 @@ Other topic models
 Bayesian methods and graphical models
 **************************************
 
-.. figure:: img/topic_models/bayesian_methods_and_graphical_models.png
+.. figure:: img/topic_models/bayesian&graphical_models.png
   :align: center
   :scale: 40%
 
@@ -390,7 +390,7 @@ Dynamic topic models
 Multilingual topic models
 **************************
 
-.. figure:: img/topic_models/multilingual_topic_models.png
+.. figure:: img/topic_models/multilingual_tm.png
   :align: center
   :scale: 40%
 
@@ -473,7 +473,7 @@ How to incorporate tokens of additional modalities?
 
 **Inter-modality similarities**
 
-.. figure:: img/topic_models/inter-modality_similarities.png
+.. figure:: img/topic_models/inter-modality.png
   :align: center
   :scale: 40%
 

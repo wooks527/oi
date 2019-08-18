@@ -100,7 +100,7 @@ Latent Dirichlet Allocation (LDA)란 주어진 문서에 대하여 각 문서에
     :align: center
     :scale: 50%
 
-우선 LDA는 특정 토픽에 특정 단어가 나타날 확률을 계산하고, 이러한 단어들로부터 토픽들을 추출해 낼 수 있다. 그리고 문서 관점에서 각 토픽의 확률로 특정 문서의 토픽이 뭔지 알 수 있다. 이 과정은 기본적인 토픽 모델링과 동일하고, LDA는 이 과정을 기반으로 토픽의 단어분포, 문서의 토픽분포를 추정할 수 있고 그 구조는 아래와 같다.
+우선 LDA는 특정 토픽에 특정 단어가 나타날 확률을 계산하고, 이러한 단어들로부터 토픽들을 추출해 낼 수 있다. 그리고 문서 관점에서 각 토픽의 확률로 특정 문서의 토픽이 뭔지 알 수 있다. 즉, LDA는 관찰되는 단어들을 기반으로 **토픽의 단어분포, 문서의 토픽분포를 추정** 할 수 있고 그 구조는 아래와 같다.
 
 
 모델 아키텍처
@@ -146,6 +146,10 @@ LDA는 토픽의 단어분포와 문서의 토픽분포의 결합으로 문서 �
 
 여기에서 LDA가 가정하는 문서생성과정이 합리적이라면 해당 확률과정이 우리가 갖고 있는 말뭉치를 제대로 설명할 수 있을 것이다. 즉, 토픽의 단어분포와 문서의 토픽분포의 결합확률이 커지도록 해야 한다.
 
+.. figure:: img/topic_models/tm_inference.png
+    :align: center
+    :scale: 35%
+
 .. rst-class:: centered
 
     :math:`\begin{align*} p(&{ \phi  }_{ 1:K },{ \theta  }_{ 1:D },{ z }_{ 1:D },{ w }_{ 1:D })=\\ &\prod _{ i=1 }^{ K }{ p({ \phi  }_{ i }|\beta ) } \prod _{ d=1 }^{ D }{ p({ \theta  }_{ d }|\alpha ) } \left\{ \prod _{ n=1 }^{ N }{ p({ z }_{ d,n }|{ \theta  }_{ d })p(w_{ d,n }|{ \phi  }_{ 1:K },{ z }_{ d,n }) }  \right\} \end{align*}`
@@ -154,7 +158,7 @@ LDA는 토픽의 단어분포와 문서의 토픽분포의 결합으로 문서 �
 
 그런데 사후확률을 계산하려면 분모에 해당하는 :math:`p(w)` 를 반드시 구해야 한다. 이는 베이즈 정리에서 Evidence로 불리는 것으로, :math:`p(w)` 는 잠재변수 :math:`z, \phi, \theta` 의 모든 경우의 수를 고려한 각 단어 (:math:`w`)의 등장 확률을 가리킨다.
 
-그러나 :math:`z, \phi, \theta` 는 우리가 직접 관찰하는 게 불가능할 뿐더러, :math:`p(w)`를 구할 때 :math:`z, \phi, \theta` 의 모든 경우를 감안해야 하기 때문에, 결과적으로 p(w)를 단번에 계산하는 것이 어렵다. 이 때문에 `깁스 샘플링 <https://ratsgo.github.io/statistics/2017/05/31/gibbs/>`_ 같은 기법을 사용하게 된다.
+그러나 :math:`z, \phi, \theta` 는 우리가 직접 관찰하는 게 불가능할 뿐더러, :math:`p(w)`를 구할 때 :math:`z, \phi, \theta` 의 모든 경우를 감안해야 하기 때문에, 결과적으로 :math:`p(w)` 를 단번에 계산하는 것이 어렵다. 이 때문에 `깁스 샘플링 <https://ratsgo.github.io/statistics/2017/05/31/gibbs/>`_ 같은 기법을 사용하게 된다.
 
 ------------------------
 Collapsed gibbs sampling
@@ -167,6 +171,12 @@ LDA에서는 나머지 변수는 고정시킨 채 한 변수만을 변화시키�
     :math:`p({ z }_{ i }=j|{ z }_{ -i },w)`
 
 말뭉치가 주어졌기 때문에 :math:`w` 는 우리가 이미 알고 있는 값이고, :math:`z` 는 각 단어가 어떤 토픽에 할당돼 있는지를 나타내는 변수이다. :math:`z_{−i}` 는 :math:`i` 번째 단어의 토픽 정보를 제외한 모든 단어의 토픽 정보를 가리킨다. 즉, :math:`w` 와 :math:`z_{−i}` 가 주어졌을 때 문서의 :math:`i` 번째 단어의 토픽이 :math:`j` 일 확률을 의미한다.
+
+깁스 샘플링으로 구한 :math:`\phi, \theta` 를 활용해 전체 문서, 모든 단어의 발생 확률 :math:`p(w)` 를 식으로 쓰면 다음과 같습니다.
+
+.. rst-class:: centered
+
+    :math:`\log { \left\{ p(w) \right\}  } =\sum\limits _{ d=1 }^{ D }{ \sum\limits_{ j=1 }^{ V }{ { n }^{ jd }\log { \left[ \sum\limits_{ k=1 }^{ K }{ { \theta  }_{ k }^{ d }{ \phi  }_{ k }^{ j } }  \right]  }  }  }`
 
 -------
 Example
@@ -182,66 +192,58 @@ Example
 Probabilistic Latent Semantic Analysis
 ======================================
 
+Probabilistic Latent Semantic Analysis (PLSA)는 단어와 문서 사이를 잇는, 우리 눈에 보이지 않는 잠재구조가 있다는 가정 하에 단어와 문서 출현 확률을 모델링한 확률모형이다. 아래 그림처럼 Latent concepts가 존재하고 이것이 문서와 단어를 연결한다고 가정한다.
+
+.. figure:: img/topic_models/plsa_latent_concept.png
+    :align: center
+    :scale: 40%
+
+PLSA를 이해하기 앞서, Latent Semantic Analysis (LSA)에 대해 설명하고자 한다. LSA는 Matrix factorization (행렬 인수분해)이고 PLSA는 확률모형이라는 점에서 확연히 다르지만, 전체 흐름상 개념적으로 유사한 부분이 있기 때문에 LSA에 대해 먼저 설명하려고 한다.
+
+
 Latent Semantic Analysis (LSA)
 ******************************
 
-말뭉치 행렬 math:`A` 를 다음과 같이 분해하는 걸 말합니다.
+Latent Semantic Analysis (LSA)는 말뭉치 행렬 :math:`A` 를 다음과 같이 분해하는 걸 말하고, 이를 통해 토픽에 대한 문서분포, 토픽에 대한 단어분포, 말뭉치에 대한 토픽의 가중치분포를 알 수 있다.
 
 .. figure:: img/topic_models/lsa.png
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
 
+LSA 수행 결과로 :math:`n` 개 문서가 원래 단어 개수보다 훨씬 작은 :math:`q` 차원의 벡터로 표현된 걸 확인할 수 있다. 마찬가지로 :math:`m` 개 단어는 원래 문서 수보다 훨씬 작은 :math:`q` 차원 벡터로 변환됐다. :math:`q` 가 3이라면 전체 말뭉치가 3개의 토픽으로 분석됐다고도 말할 수 있다.
 
-LSA 수행 결과로 :math:`n` 개 문서가 원래 단어 개수보다 훨씬 작은 :math:`q` 차원의 벡터로 표현된 걸 확인할 수 있습니다. 마찬가지로 :math:`m` 개 단어는 원래 문서 수보다 훨씬 작은 :math:`q` 차원 벡터로 변환됐습니다. :math:`q` 가 3이라면 전체 말뭉치가 3개의 토픽으로 분석됐다고도 말할 수 있을 것입니다.
-
-위 그림에서 행렬 :math:`L` 의 열벡터는 각각 해당 토픽에 대한 문서들의 분포 정보를 나타냅니다. :math:`R` 의 행벡터는 각각 해당 토픽에 대한 단어들의 분포 정보를 나타냅니다. 중간에 대각행렬은 :math:`q` 개 토픽 각각이 전체 말뭉치 내에서 얼마나 중요한지 나타내는 가중치가 될 겁니다.
+위 그림에서 행렬 :math:`L` 의 열벡터는 각각 해당 토픽에 대한 문서들의 분포 정보를 나타낸다. :math:`R` 의 행벡터는 각각 해당 토픽에 대한 단어들의 분포 정보를 나타낸다. 중간에 대각행렬은 :math:`q` 개 토픽 각각이 전체 말뭉치 내에서 얼마나 중요한지 나타내는 가중치가 된다.
 
 
 Probabilistic Latent Semantic Analysis (PLSA)
 *********************************************
 
-This is a topic model proposed by Thomas Hofmann in 1999 and a very basic model that tries to predict words in documents and it does so by a mixture of topics
+This is a topic model proposed by Thomas Hofmann in 1999 and a very basic model that tries to predict words in documents. It does so by a mixture of topics given word :math:`w`, document :math:`d` and topic :math:`t`:
 
 .. rst-class:: centered
-  
-  :math:`p(w|d) = \sum_{t \in T} p(w|t, d) p(t|d) = \sum_{t \in T} p(w|t) p(t|d)`
+    
+    :math:`p(w|d) = \sum_{t \in T} p(w|t, d) p(t|d) = \sum_{t \in T} p(w|t) p(t|d),\ p(w|t, d) = p(w|t)`
 
+Last equation is a case that you don't care about the document based on assumtion of conditional independence.
 
-* Law of total probability:
+This is the way of how to PLSA is working:
 
-  * If you don't care about the document, :math:`p(w) = \sum_{t \in T} p(w|t) p(t)`
+* Decide what would be the topic for the next word
+* Draw a certain word from the probability distribution for this topic
+* Go on through the whole text
 
-* Assumtion of conditional independence:
+Also, it is represented by matrices:
 
-  * :math:`p(w|t, d) = p(w|t)`
-
-* Notations:
-  
-  * :math:`w\ -\ word,\ d\ -\ document,\ t\ -\ topic`
-
-
-* Procedure:
-
-  * Decide what would be the topic for the next word
-  * Draw a certain word from the probability distribution for this topic
-  * Go on through the whole text
-
-  .. figure:: img/topic_models/plsa.PNG
+.. figure:: img/topic_models/plsa_matrix.PNG
     :align: center
-    :scale: 60%
-
-
-* Matrix way of thinking:
+    :scale: 40%
   
-  .. rst-class:: centered
+.. rst-class:: centered
 
     :math:`p(w|d) = \sum_{t \in T} p(w|t) p(t|d) = \sum_{t \in T} \phi_{wt} \theta_{td}`
     
-    :math:`where\ \phi_{wt}:\ probability\ of\ word\ \boldsymbol{w}\ in\ topic\ \boldsymbol{t},\ \theta_{td}:\ probability\ of\ topic\ \boldsymbol{t}\ in\ document\ \boldsymbol{d}`
-
-  .. figure:: img/topic_models/plsa_matrix.PNG
-    :align: center
-    :scale: 40%
+* :math:`\phi_{wt}`: probability of word :math:`w` in topic :math:`t`
+* :math:`\theta_{td}`: probability of topic :math:`t` in document :math:`d`
 
 
 How to train PLSA?
@@ -251,56 +253,58 @@ How to train PLSA?
 Log-likelihood optimization
 ----------------------------
 
-.. rst-class:: centered
-
-  :math:`\log \prod_{d \in D} p(d) \prod_{w \in d} p(w|d)^{n_{dw}} \rightarrow \max_{\Phi,\Theta} \iff \sum_{d \in D} \sum_{w \in d} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi,\Theta}`
-
-
-**Given non-negativity and normalization constraints:**
+PLSA is trained by log-lieklihood optimization based on certain constrains:
 
 .. rst-class:: centered
 
-  :math:`\sum_{w \in W} \theta_{wt} = 1,\ \theta_{wt} \geq 0`
-  :math:`\sum_{t \in T} \theta_{td} = 1,\ \theta_{td} \geq 0`
+  :math:`\log \prod_{d \in D} p(d) \prod_{w \in d} p(w|d)^{n_{dw}} \rightarrow \max_{\Phi,\Theta}`
+
+  ↕
+  
+  :math:`\sum_{d \in D} \sum_{w \in d} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi,\Theta}`
+
+* Non-negativity contrains: :math:`\sum_{w \in W} \theta_{wt} = 1,\ \theta_{wt} \geq 0`
+* Normalization constraints: :math:`\sum_{t \in T} \theta_{td} = 1,\ \theta_{td} \geq 0`
 
 
 Example
 -------
 
-:math:`{\color{orange}{\text{Pooh}}}` rubbed his nose again, and :math:`{\color{blue}{\text{said that he hadn't thought of that}}}`. And then he brightened again, and :math:`{\color{blue}{\text{said that}}}`, if it were :math:`{\color{red}{\text{raining}}}` already, the :math:`{\color{orange}{\text{Heffalump}}}` would be looking at the :math:`{\color{red}{\text{sky}}}` :math:`{\color{blue}{\text{wondering}}}` if it would :math:`{\color{red}{\text{clear up}}}`, and so he wouldn't see the :math:`{\color{orange}{\text{Very Deep Pit}}}` until he was half-way down…
+:orange:`Pooh` rubbed his nose again, and :blue:`said that he hadn't thought of that`. And then he brightened again, and :blue:`said that`, if it were :red:`raining` already, the :orange:`Heffalump` would be looking at the :red:`sky` :blue:`wondering` if it would :red:`clear up`, and so he wouldn't see the :orange:`Very Deep Pit` until he was half-way down …
+
+If we want to get a probability of a topic:
+
+* Just count:
+
+    * :math:`p(w = sky|t') = \frac{n_{wt'}}{\sum_{w} n_{wt'}} = \frac{1}{4}`
+    * :math:`p(t = t'|d) = \frac{n_{t'd}}{\sum_{t} n_{td}} = \frac{4}{54}`
 
 
-**Just count:**
+* Estimate the topic assignment probabilities based on Bayes rule and Product rule:
 
-* :math:`p(w = sky|t) = \frac{n_wt}{\sum_{w} n_wt} = \frac{1}{4}`
-
-* :math:`p(t = t|d) = \frac{n_td}{\sum_{t} n_td} = \frac{4}{54}`
-
-
-**Idea: estimate the topic assignment probabilities**
-
-.. rst-class:: centered
-  
-  :math:`p(t|d,w) = \frac{p(w, t|d)}{p(w|d)} = \frac{p(w|t) p(t|d)}{p(w|d)} \text{ by Bayes rule and Product rule}`
+    .. rst-class:: centered
+    
+    :math:`p(t|d,w) = \frac{p(w, t|d)}{p(w|d)} = \frac{p(w|t) p(t|d)}{p(w|d)}`
 
 -------------
 EM-algorithm
 -------------
 
-**E-step:**
+We can update probabilities by EM-algorithm.
 
-.. rst-class:: centered
+* E-step:
 
-  :math:`p(t|d, w) = \frac{p(w|t) p(t|d)}{p(w|d)} = \frac{\phi_{wt} \theta_{td}}{\sum_{s \in T} \phi_{ws} \theta_{sd}}`
+    .. rst-class:: centered
 
+        :math:`p(t|d, w) = \frac{p(w|t) p(t|d)}{p(w|d)} = \frac{\phi_{wt} \theta_{td}}{\sum_{s \in T} \phi_{ws} \theta_{sd}}`
 
-**M-step:**
+* M-step:
 
-.. rst-class:: centered
+    .. rst-class:: centered
 
-  :math:`\phi_{wt} = \frac{n_{wt}}{\sum_{w} n_{wt}},\ n_{wt} = \sum_{d} n_{dw} p(t|d, w)`
+        :math:`\phi_{wt} = \frac{n_{wt}}{\sum_{w} n_{wt}},\ n_{wt} = \sum_{d} n_{dw} p(t|d, w)`
 
-  :math:`\theta_{td} = \frac{n_{td}}{\sum_{t} n_{td}},\ n_{td} = \sum_{w} n_{dw} p(t|d, w)`
+        :math:`\theta_{td} = \frac{n_{td}}{\sum_{t} n_{td}},\ n_{td} = \sum_{w} n_{dw} p(t|d, w)`
 
 
 .. toggle-header::
@@ -358,53 +362,61 @@ Bayesian methods and graphical models
 **************************************
 
 .. figure:: img/topic_models/bayesian&graphical_models.png
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
+
+    `Knowledge discovery through directed probabilistic topic models: a survey, <https://link.springer.com/article/10.1007/s11704-009-0062-y>`_
+    
 
 
 Hierarchical topic models
 **************************
 
 .. figure:: img/topic_models/hierarchical_topic_models.jpg
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
+
+    `Hierarchical Topic Models and the Nested Chinese Restaurant Process <https://papers.nips.cc/paper/2466-hierarchical-topic-models-and-the-nested-chinese-restaurant-process.pdf>`_
 
 
 Dynamic topic models
 *********************
 
-* David Blei, Probabilistic Topic Models, 2012:
+* `David Blei, Probabilistic Topic Models, 2012 <http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf>`_:
 
-.. figure:: img/topic_models/dynamic_topic_models_01.jpg
-  :align: center
-  :scale: 70%
+    .. figure:: img/topic_models/dynamic_topic_models_01.jpg
+        :align: center
+        :scale: 70%
 
+* `Topic detection and analysis of news flows <https://dl.acm.org/citation.cfm?id=1835940>`_:
 
-* Topic detection and analysis of news flows:
-
-.. figure:: img/topic_models/dynamic_topic_models_02.jpg
-  :align: center
-  :scale: 40%
+    .. figure:: img/topic_models/dynamic_topic_models_02.jpg
+        :align: center
+        :scale: 40%
 
 
 Multilingual topic models
 **************************
 
 .. figure:: img/topic_models/multilingual_tm.png
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
+
+    `Probabilistic topic modeling in multilingual settings: a short overview of its methodology with applications <https://km.aifb.kit.edu/ws/xlite/xLiTe-Poster-IvanVulic.pdf>`_
 
 
 Multimodal topic models
 ************************
 
 .. figure:: img/topic_models/multimodal_topic_models.jpg
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
+
+    `BigARTM: Open Source Library for Regularized Multimodal Topic Modeling of Large Collections <http://www.machinelearning.ru/wiki/images/e/ea/Voron15aist.pdf>`_
 
 
 Addictive Regularization for Topic Models (ARTM)
-=================================================
+************************************************
 
 How to combine all those extensions in one model?
 
@@ -428,28 +440,27 @@ How to combine all those extensions in one model?
 
   :math:`R_i (\Phi) = -\sum_{ts} \sum_w \phi_{wt} \phi_{ws}`
 
-
+-------------------------
 Regularized EM algorithm
-*************************
+-------------------------
 
-**E-step:**
+* E-step:
 
-.. rst-class:: centered
+    .. rst-class:: centered
 
-  :math:`p(t|d, w) = \frac{p(w|t) p(t|d)}{p(w|d)} = \frac{\phi_{wt} \theta_{td}}{\sum_{s \in T} \phi_{ws} \theta_{sd}}`
+        :math:`p(t|d, w) = \frac{p(w|t) p(t|d)}{p(w|d)} = \frac{\phi_{wt} \theta_{td}}{\sum_{s \in T} \phi_{ws} \theta_{sd}}`
 
+* M-step:
 
-**M-step:**
+    .. rst-class:: centered
 
-.. rst-class:: centered
+        :math:`\phi_{wt} = norm_{w \in W} \big( \sum_{d} n_{dw} p(t|d, w) + \phi_{td} \frac{\partial R}{\partial \phi_{wt}} \big)`
 
-  :math:`\phi_{wt} = norm_{w \in W} \big( \sum_{d} n_{dw} p(t|d, w) + \phi_{td} \frac{\partial R}{\partial \phi_{wt}} \big)`
+        :math:`\theta_{td} = norm_{w \in W} \big( \sum_{w} n_{dw} p(t|d, w) + \theta_{td} \frac{\partial R}{\partial \theta_{wt}} \big)`
 
-  :math:`\theta_{td} = norm_{w \in W} \big( \sum_{w} n_{dw} p(t|d, w) + \theta_{td} \frac{\partial R}{\partial \theta_{wt}} \big)`
-
-
+----------
 Multi-ARTM
-***********
+----------
 
 How to incorporate tokens of additional modalities?
 
@@ -459,23 +470,23 @@ How to incorporate tokens of additional modalities?
 
   :math:`\mathcal{L} = \sum_{d \in D} \sum_{w \in W} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi, \Theta}`
 
-
 * Multi-ARTM:
 
 .. rst-class:: centered
   
   :math:`\sum_{m \in M} \lambda_m \sum_{d \in D} \sum_{w \in W} n_{dw} \log \sum_{t \in T} \phi_{wt} \theta_{td} \rightarrow \max_{\Phi, \Theta}`
 
-
 * Each topic is characterized by several probability distribution
+
 * More parameters, still trained with EM-algorithm
 
 
-**Inter-modality similarities**
+Inter-modality similarities
+---------------------------
 
 .. figure:: img/topic_models/inter-modality.png
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
 
 
 Libraries 
@@ -499,118 +510,113 @@ Visualization
 * A few words about visualization:
 
 .. figure:: img/topic_models/tm_visualization.jpg
-  :align: center
-  :scale: 70%
+    :align: center
+    :scale: 70%
 
 
 * 380 ways to visualize: textvis.lnu.se
 
 .. figure:: img/topic_models/textvis.lnu.se.jpg
-  :align: center
-  :scale: 60%
+    :align: center
+    :scale: 60%
 
 
 Quiz: topic models
 ===================
 
 .. toggle-header::
-  :header: **Quiz list**
+    :header: **Quiz list**
 
-  **Quiz 1.**
+    |
+    **Quiz 1.**
 
-    How many parameters does PLSA topic model have?
+        How many parameters does PLSA topic model have?
 
-    Let us denote the vocabulary size by :math:`|W|`, the number of documents by :math:`|D|`, the length of the corpus by :math:`|N|`, and the number of topics by :math:`|T|`.
+        Let us denote the vocabulary size by :math:`|W|`, the number of documents by :math:`|D|`, the length of the corpus by :math:`|N|`, and the number of topics by :math:`|T|`.
 
-    \(X\) :math:`|T| \cdot |N|`
+        \[　\] :math:`|T| \cdot |N|`
 
-    \(O\) :math:`|T| \cdot |W| + |T| \cdot |D|`
+        \[　\] :math:`|T| \cdot |W| + |T| \cdot |D|`
 
-    \(X\) :math:`|W| \cdot |D|`
-
-
-  **Quiz 2.**
-
-    Which assumptions are made in PLSA topic model?
-
-    \(O\) Bag of words assumption
-
-    \(X\) Topic distributions are sparse and diverse
-
-    \(X\) Conditional independence: :math:`p(t∣w,d)=p(t∣d)`
-
-    \(X\) Distributions of words in topics have Dirichlet prior
-
-    \(O\) Conditional independence: :math:`p(w∣t,d)=p(w∣t)`
+        \[　\] :math:`|W| \cdot |D|`
 
 
-  **Quiz 3.**
-  
-    Let's see how EM-algorithm for PLSA works.
+    **Quiz 2.**
 
-    Consider the following tiny document: **One fly flies, two flies fly**.
+        Which assumptions are made in PLSA topic model?
 
-    Before building a topic model, one would usually apply lemmatization and obtain the following: **One fly fly, two fly fly**. So let us use this version of the text below.
+        \[　\] Bag of words assumption
 
-    Consider :math:`\Phi` matrix from the latest M-step:
+        \[　\] Topic distributions are sparse and diverse
 
-    ======= ======= ======= =======
-    word    topic 1 topic 2 topic 3
-    ======= ======= ======= =======
-    fly     0.1     0.8     0.2
-    one     0.4     0.1     0.3
-    two     0.5     0.1     0.5
-    ======= ======= ======= =======
+        \[　\] Conditional independence: :math:`p(t∣w,d)=p(t∣d)`
 
-    And :math:`\Theta` column for the document:
+        \[　\] Distributions of words in topics have Dirichlet prior
 
-    ======== ========
-    topic    document
-    ======== ========
-    topic 1	 0.2
-    topic 2	 0.7
-    topic 3	 0.1
-    ======== ========
-
-    1) Compute posterior topic probabilities of E-step for the word **fly**.
-
-    2) Compute :math:`n_{wt}` count for the word **fly** and **topic 2**. (Assume there are no other documents in the corpus).
-
-    Enter :math:`n_{wt}` value with 2 digits after the decimal point.
-
-    If you have difficulties with this question, get back to the last in-video question in the corresponding video. There is a full explanation of the solution there.
+        \[　\] Conditional independence: :math:`p(w∣t,d)=p(w∣t)`
 
 
-    **Answer:**
-
-    1) :math:`p(t |\, d, w) = \frac{0.8 \cdot 0.7}{0.1 \cdot 0.2 + 0.8 \cdot 0.7 + 0.2 \cdot 0.1} = \frac{14}{15}`
+    **Quiz 3.**
     
-    2) :math:`n_{wt} = \sum_d n_{dw} p(t|\, d,w) = 4 \cdot \frac{14}{15} = 3.7 \dot{3}`
+        Let's see how EM-algorithm for PLSA works.
+
+        Consider the following tiny document: **One fly flies, two flies fly**.
+
+        Before building a topic model, one would usually apply lemmatization and obtain the following: **One fly fly, two fly fly**. So let us use this version of the text below.
+
+        Consider :math:`\Phi` matrix from the latest M-step:
+
+        ======= ======= ======= =======
+        word    topic 1 topic 2 topic 3
+        ======= ======= ======= =======
+        fly     0.1     0.8     0.2
+        one     0.4     0.1     0.3
+        two     0.5     0.1     0.5
+        ======= ======= ======= =======
+
+        And :math:`\Theta` column for the document:
+
+        ======== ========
+        topic    document
+        ======== ========
+        topic 1	 0.2
+        topic 2	 0.7
+        topic 3	 0.1
+        ======== ========
+
+        1) Compute posterior topic probabilities of E-step for the word **fly**.
+
+        2) Compute :math:`n_{wt}` count for the word **fly** and **topic 2**. (Assume there are no other documents in the corpus).
+
+        Enter :math:`n_{wt}` value with 2 digits after the decimal point.
+
+        If you have difficulties with this question, get back to the last in-video question in the corresponding video. There is a full explanation of the solution there.
+
+        **Answer:**
 
 
-  **Quiz 4.**
-  
-    Imagine you are analysing news flow for a company. You want to know what topics are being mentioned when people discuss the company, and how they change over time.
+    **Quiz 4.**
+    
+        Imagine you are analysing news flow for a company. You want to know what topics are being mentioned when people discuss the company, and how they change over time.
 
-    For each news article there are several modalities that you want to use: English text, time, author and category. Your final goal is to track, how topics change over time.
+        For each news article there are several modalities that you want to use: English text, time, author and category. Your final goal is to track, how topics change over time.
 
-    Which additive regularizers would you add to your topic model?
+        Which additive regularizers would you add to your topic model?
 
-    \(O\) Multilingual
+        \[　\] Multilingual
 
-    \(O\) Dynamic
+        \[　\] Dynamic
 
-    \(X\) Visualizable
+        \[　\] Visualizable
 
-    \(O\) Multimodal
+        \[　\] Multimodal
 
-    \(X\) Hierarchical
+        \[　\] Hierarchical
 
 |
 
 References
 ===========
 
-* https://www.coursera.org/learn/language-processing
-* https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/06/01/LDA/
-* https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/05/25/plsa/
+* `Coursera, Natural Language Processing <https://www.coursera.org/learn/language-processing>`_
+* ratsgo's blog (`LDA <https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/06/01/LDA/>`_, `PLSA <https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/05/25/plsa/>`_)

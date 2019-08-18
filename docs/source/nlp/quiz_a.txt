@@ -33,6 +33,13 @@ w3-wse
 4. O O X O X
 5. O O O X
 
+w3-tm
+1. X O X
+2. O X X X O
+3. :math:`p(t |\, d, w) = \frac{0.8 \cdot 0.7}{0.1 \cdot 0.2 + 0.8 \cdot 0.7 + 0.2 \cdot 0.1} = \frac{14}{15}`
+   :math:`n_{wt} = \sum_d n_{dw} p(t|\, d,w) = 4 \cdot \frac{14}{15} = 3.7 \dot{3}`
+4. O O X O X
+
 w4-sas
 1. O X X
 2. copying-recall addition-precision copying-precision

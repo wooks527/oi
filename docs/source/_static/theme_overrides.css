@@ -332,3 +332,8 @@ th p {
 .wy-nav-content {
     max-width: none;
 }
+
+.rst-content img {
+    height: auto !important;
+    max-height: 100% !important;
+}

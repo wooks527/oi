@@ -212,6 +212,7 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     def setup(app):
         #app.add_javascript("custom.js")
         app.add_stylesheet('theme_overrides.css')
+        app.add_javascript('oi.js')
 else:
     # Override default css to get a larger width for ReadTheDoc build
     html_context = {
@@ -219,5 +220,8 @@ else:
             # 'https://media.readthedocs.org/css/sphinx_rtd_theme.css',
             # 'https://media.readthedocs.org/css/readthedocs-doc-embed.css',
             '_static/theme_overrides.css',
+        ],
+        'js_files': [
+            '_static/oi.js',
         ],
     }

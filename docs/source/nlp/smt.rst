@@ -1,19 +1,19 @@
+======================================
 Statistical Machine Translation (SMT)
 ======================================
 
-==============
-Introduction
-==============
-
-Machine translation help you understanding other languages by producing a sequence of words in some other language as an output when you have a sequence of words in one language as an input. Also, it can help summarization because it is also a sequence to sequence task.
+Machine translation help you understanding other languages by producing a sequence of words in some **other language** as an output when you have a sequence of words in **one language** as an input. Also, it can help summarization because it is also a sequence to sequence task.
 
 In real-life, some NLP problems can be solved by good data. So, data is very important and there are some data for machine translation.
 
 
+Problems
+========
+
 Parallel data
 **************
 
-**Parallel corpora:**
+For machine translation, we need to parallel data (corpora) for training:
 
 * Europarl
 * Movie subtitles
@@ -21,7 +21,7 @@ Parallel data
 * Wikipedia (comparable, not parallel)
 * http://opus.lingfil.uu.se/
 
-**Problems:**
+However, parallel corpora has some problems:
 
 * Noisy
 * Specific domain (e.g. movie subtitles → scientific papers, not working)
@@ -30,23 +30,15 @@ Parallel data
 
 
 Evaluation
-***********
+**********
 
-**How to compare two arbitrary translation?**
+Also, we have low agreement rate even between reviewers so it is hard to compare two arbitrary translation. To solve this problem, we need to compare the system with multiple references or use BLUE score which is a popular automatic technique.
 
-Problem:
+----------
+BLUE score
+----------
 
-* Low agreement rate even between reviewers
-
-Solution:
-
-* Compare the system with multiple references
-
-* BLUE score
-
-  * A popular automatic technique
-
-**Example: blue score**
+This is an example of BLUE score:
 
 * Reference: E-mail was sent on Tuesday.
 * System output: The letter was sent on Tuesday.
@@ -58,29 +50,23 @@ We can calculate the precision by n-grams:
 * 3-grams: :math:`2/4`
 * 4-grams: :math:`1/3`
 
-Then we can use the mean of 4 precision values as a precision between the reference and the system output.
+Then we can use the mean of 4 precision values as a precision between the reference and the system output. But there is a problem that short sentences got higher precision values. To solve this problem, we can use power roots:
 
-Problem:
+.. rst-class:: centered
 
-* Short sentences got higher precision values
-
-Solution:
-
-* :math:`\text{BLEU} = 1 \cdot \sqrt[4]{\frac{4}{6} \cdot \frac{3}{5} \cdot \frac{2}{4} \cdot \frac{1}{3}}`
+    :math:`\text{BLEU} = 1 \cdot \sqrt[4]{\frac{4}{6} \cdot \frac{3}{5} \cdot \frac{2}{4} \cdot \frac{1}{3}}`
 
 
-Machine translation system
-***************************
+Machine translation (ML)
+========================
+
+Before explaing ML, it is helpful to understand machine tranlation system (framework) because it is a basis of ML.
 
 .. figure:: img/smt/mt_system.png
   :align: center
   :scale: 40%
 
-
-Two main paradigms
-******************
-
-Machine translation has roller-coaster history.
+Anyway, ML experienced roller-coaster history:
 
 * 1954 Georgetown IBM experiment Russian to English:
 
@@ -90,38 +76,35 @@ Machine translation has roller-coaster history.
 
   * Concluded that MT was too expensive and ineffective
 
-After silent period, two main paradigms are appeared.
+After silent period, two main paradigms are appeared:
 
-**Statistical Machine Translation (SMT):**
+* Statistical Machine Translation (SMT)
 
-* 1988 –Word-based models (IBM models)
-* 2003 – Phrase-based models (Philip Koehn)
-* 2006 – Google Translate (and Moses, next year)
+    * 1988 – Word-based models (IBM models)
+    * 2003 – Phrase-based models (Philip Koehn)
+    * 2006 – Google Translate (and Moses, next year)
 
-**Neural Machine Translation (NMT):**
+* Neural Machine Translation (NMT)
 
-* 2013 – First papers on pure NMT
-* 2015 – NMT enters shared tasks (WMT, IWSLT)
-* 2016 – Launched in production in companies
+    * 2013 – First papers on pure NMT
+    * 2015 – NMT enters shared tasks (WMT, IWSLT)
+    * 2016 – Launched in production in companies
 
-Example: Zero-shot translation
-*******************************
+This is an example of NMT (Zero-shot translation):
 
 .. figure:: img/smt/zero-shot_translation.png
   :align: center
   :scale: 40%
 
 
-================================
-Noisy channel: english → french
-================================
-
-How to translate english to french
-***********************************
-
-**Equation**
+Translation: French → English
+=============================
 
 If we want to translate french (foreign) sentence :math:`f` to english translation :math:`e,`
+
+.. figure:: img/smt/noisy_channel.png
+  :align: center
+  :scale: 60%
 
 .. rst-class:: centered
 
@@ -131,32 +114,34 @@ If we want to translate french (foreign) sentence :math:`f` to english translati
 * :math:`p(f|e)` (Translation model) : Models the *adequacy* of the translation
 * :math:`argmax` : The search problem implemented by a *decoder*
 
-Also we can get rid of the denominator :math:`p(f)` because it does not depend on :math:`e.` .
+Also we can get rid of the denominator :math:`p(f)` because it does not depend on :math:`e:`
 
 .. rst-class:: centered
 
   :math:`e^* = \operatorname*{arg\,max}_{e \in E} p(e|f) = \operatorname*{arg\,max}_{e \in E} \frac{p(f|e)p(e)}{p(f)} = \operatorname*{arg\,max}_{e \in E} p(e)p(f|e)`
 
+Language model
+***************
 
-**Noisy channel**
+We can use Markov assuption with n-gram models or neural networks for :doc:`language model <lm>` :math:`p(e)`:
 
-.. figure:: img/smt/noisy_channel.png
-  :align: center
-  :scale: 60%
-
-
-How to model two probabilities: :math:`p(e),\ p(f|e)`
-*******************************************************
-
-**Language model:** :math:`p(e)`
+**N-gram model:**
 
 .. rst-class:: centered
 
   :math:`p(e) = p(e_1) p(e_2 | e_1) \cdots p(e_k | e_1 \cdots e_{k-1})`
 
-We can use Markov assuption with n-gram models or neural networks for language model (:doc:`Language modeling <lm>`).
+**Neural network:**
 
-**Translation model:** :math:`p(f|e)`
+.. figure:: img/smt/nn_for_lm.png
+  :align: center
+  :scale: 40%
+
+
+Translation model
+*****************
+
+This is a translation model to translate French :math:`f` to English :math:`e:`
 
 .. rst-class:: centered
 
@@ -177,7 +162,7 @@ But how to build the probability for the whole sentences?
 
   :math:`p(f|e) = \text{Some Magic Factorization} \Big[ p(f_j | e_i) \Big]`
 
-**Reorderings: Word alignment**
+We can use word alignment for reordering and these are examples of word alignments:
 
 * One-to-many and many-to-one:
 
@@ -192,39 +177,27 @@ But how to build the probability for the whole sentences?
   :scale: 50%
 
 
-===============
 Word alignment
 ===============
+
+As I said, we can calculate the probability for the whole sentences using word alignment
 
 **Given a corpus of** :math:`(e, f)` **sentence pairs:**
 
 * English, soruce: :math:`e = (e_1, e_2, \cdots , e_I)`
 * Foreign, target: :math:`f = (f_1, f_2, \cdots , f_J)`
 
-**Predict:**
-
-* Alignments a between :math:`e` and :math:`f` :
+We can predict a sentence using alignments between :math:`e` and :math:`f` based on word alignment matrix:
 
 .. figure:: img/smt/word_alignment_task.png
   :align: center
   :scale: 50%
 
 
-**Recap: Bayes' rule →** `How to translate english to french`_
-
-.. rst-class:: centered
-
-  :math:`e^* = \operatorname*{arg\,max}_{e \in E} p(e|f) = \operatorname*{arg\,max}_{e \in E} \frac{p(f|e)p(e)}{p(f)} = \operatorname*{arg\,max}_{e \in E} p(e)p(f|e)`
-
-* :math:`p(e)` (Language model) : Models the *fluency* of the translation
-* :math:`p(f|e)` **(Translation model) : Models the adequacy of the translation**
-* :math:`argmax` : The search problem implemented by a *decoder*
-
-
 Word alignment matrix
 **********************
 
-To build the system that translates from f to e, we need to model the probability of f given e and the matrix of word alignments is one nice way to represent the probability. There are too many cases, so each target word is allowed to have only one source!!
+To build the system that translates from :math:`f` to :math:`e,` we need to model the probability of :math:`f` given :math:`e` and the matrix of word alignments is one nice way to represent the probability. There are too many cases, so each target word is allowed to have only one source!!
 
 .. figure:: img/smt/word_alignment_matrix.png
   :align: center
@@ -400,9 +373,8 @@ Resume
   * Phrase-based machine translation
 
 
-===================
-Quiz: topic models
-===================
+Quiz: Statistical Machine Translation
+=====================================
 
 .. toggle-header::
   :header: **Quiz list**
@@ -456,7 +428,6 @@ Quiz: topic models
     \(X\) Option 3: :math:`p(f, a|e, \Theta) = p(J|e) \prod_{j=1}^J p(a_j | a_{j-1}, I, J) \times p(f_j | a_j, e)`
 
 
-===========
 References
 ===========
 

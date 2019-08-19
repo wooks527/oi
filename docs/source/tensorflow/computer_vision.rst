@@ -4,8 +4,11 @@ Computer vision
 
 Computer vision is the field of having a computer understand and label what is present in an image.
 
+Deep neural network
+===================
+
 Example: classify fashion images
-================================
+********************************
 
 We can construct a fashion image classification model using `Fashion MNIST <https://github.com/zalandoresearch/fashion-mnist>`_ dataset which can be loaded by Tensorflow API and this is a description of Fashion MNIST dataset:
 
@@ -15,8 +18,9 @@ We can construct a fashion image classification model using `Fashion MNIST <http
 
 We classify categories as numbers (0 to 9) to avoid bias -- instead of labelling it with words in a specific language and excluding people who don’t speak that language! You can learn more about bias and techniques to avoid it `here <https://developers.google.com/machine-learning/fairness-overview/>`_.
 
+-------------------------------
 Classfication of fashion images
-*******************************
+-------------------------------
 
 Classification is working like this:
 
@@ -26,7 +30,6 @@ Classification is working like this:
 
 If you want to know neural network and deep learning more detaily, then you can see these videos (`Link <https://www.youtube.com/watch?v=CS4cs9xVecg&list=PLkDaE6sCZn6Ec-XTbcX1uRg2_u4xOEky0>`_).
 
-----
 Code
 ----
 
@@ -61,8 +64,7 @@ This is a whole `code <https://colab.research.google.com/github/lmoroney/dlaicou
 
     model.evaluate(test_images, test_labels)
 
-Callback function
------------------
+**Callback function**
 
 We can stop training using callback function. Callback function is called the end of each epoch and this code is the method for how to use callback function:
 
@@ -97,7 +99,7 @@ We can stop training using callback function. Callback function is called the en
 
 
 Example: classify 9 digit images
-================================
+********************************
 
 This is another exmaple of the image classification example. We can use MNIST which has items of handwriting -- the digits 0 through 9 and this is a code:
 
@@ -135,7 +137,7 @@ This is another exmaple of the image classification example. We can use MNIST wh
 
 
 Quiz: Introduction to computer vision
-=====================================
+**************************************
 
 .. toggle-header::
     :header: **Quiz list**
@@ -236,6 +238,340 @@ Quiz: Introduction to computer vision
         \[　\] callbacks=
 
         \[　\] oncallbacks=
+
+|
+
+Convolution and pooling
+=======================
+
+We can improving computer vision accuracy using convolutions and poolings.
+
+
+Convolution
+***********
+
+.. figure:: img/computer_vision/convolution.png
+  :align: center
+  :scale: 50%
+
+---------------
+Vertical filter
+---------------
+
+.. figure:: img/computer_vision/v_filter.png
+  :align: center
+  :scale: 50%
+
+
+Pooling
+*******
+
+.. figure:: img/computer_vision/pooling.png
+  :align: center
+  :scale: 50%
+
+Code
+****
+
+.. code-block:: python
+
+    import tensorflow as tf
+    print(tf.__version__)
+
+    mnist = tf.keras.datasets.fashion_mnist
+    (training_images, training_labels), (test_images, test_labels) = mnist.load_data()
+    training_images = training_images.reshape(60000, 28, 28, 1)
+    training_images = training_images / 255.0
+    test_images = test_images.reshape(10000, 28, 28, 1)
+    test_images = test_images/255.0
+    
+    model = tf.keras.models.Sequential([
+        tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(28, 28, 1)),
+        tf.keras.layers.MaxPooling2D(2, 2),
+        tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+        tf.keras.layers.MaxPooling2D(2,2),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(10, activation='softmax')
+    ])
+    
+    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    
+    model.summary()
+    
+    model.fit(training_images, training_labels, epochs=5)
+    
+    test_loss = model.evaluate(test_images, test_labels)
+
+If you want to know more about Convolutional Neural Network (CNN), you can see `videos <https://bit.ly/2UGa7uH>`_ on Youtube.
+
+This is a model summary:
+
+.. figure:: img/computer_vision/model_summary.png
+  :align: center
+  :scale: 50%
+
+Here, we can see that the output shape is 26 x 26 x 64. The reason is that we can't do covolution with edge pixels of an image.
+
+.. figure:: img/computer_vision/edge_of_image_01.png
+  :align: center
+  :scale: 50%
+
+.. figure:: img/computer_vision/edge_of_image_02.png
+  :align: center
+  :scale: 50%
+
+
+Visualizing convolutions and pooling
+*************************************
+
+.. code-block:: python
+
+    import matplotlib.pyplot as plt
+    f, axarr = plt.subplots(3,4)
+
+    FIRST_IMAGE=0
+    SECOND_IMAGE=7
+    THIRD_IMAGE=26
+    CONVOLUTION_NUMBER = 1
+    
+    from tensorflow.keras import models
+    layer_outputs = [layer.output for layer in model.layers]
+    activation_model = tf.keras.models.Model(inputs = model.input, outputs = layer_outputs)
+    
+    for x in range(0,4):
+        f1 = activation_model.predict(test_images[FIRST_IMAGE].reshape(1, 28, 28, 1))[x]
+        axarr[0,x].imshow(f1[0, : , :, CONVOLUTION_NUMBER], cmap='inferno')
+        axarr[0,x].grid(False)
+        f2 = activation_model.predict(test_images[SECOND_IMAGE].reshape(1, 28, 28, 1))[x]
+        axarr[1,x].imshow(f2[0, : , :, CONVOLUTION_NUMBER], cmap='inferno')
+        axarr[1,x].grid(False)
+        f3 = activation_model.predict(test_images[THIRD_IMAGE].reshape(1, 28, 28, 1))[x]
+        axarr[2,x].imshow(f3[0, : , :, CONVOLUTION_NUMBER], cmap='inferno')
+        axarr[2,x].grid(False)
+
+
+Manual convolution and pooling
+******************************
+
+We can do convolution and pooling in person using numpy.
+
+---------
+Load data
+---------
+
+.. code-block:: python
+
+    import cv2
+    import numpy as np
+    from scipy import misc
+    i = misc.ascent()
+
+    import matplotlib.pyplot as plt
+    plt.grid(False)
+    plt.gray()
+    plt.axis('off')
+    plt.imshow(i)
+    plt.show()
+
+-----------
+Convolution
+-----------
+
+.. code-block:: python
+
+    i_transformed = np.copy(i)
+    size_x = i_transformed.shape[0]
+    size_y = i_transformed.shape[1]
+
+    # This filter detects edges nicely
+    # It creates a convolution that only passes through sharp edges and straight
+    # lines.
+
+    #Experiment with different values for fun effects.
+    #filter = [ [0, 1, 0], [1, -4, 1], [0, 1, 0]]
+
+    # A couple more filters to try for fun!
+    filter = [ [-1, -2, -1], [0, 0, 0], [1, 2, 1]]
+    #filter = [ [-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
+
+    # If all the digits in the filter don't add up to 0 or 1, you 
+    # should probably do a weight to get it to do so
+    # so, for example, if your weights are 1,1,1 1,2,1 1,1,1
+    # They add up to 10, so you would set a weight of .1 if you want to normalize them
+    weight  = 1
+
+    for x in range(1,size_x-1):
+        for y in range(1,size_y-1):
+            convolution = 0.0
+            convolution = convolution + (i[x - 1, y-1] * filter[0][0])
+            convolution = convolution + (i[x, y-1] * filter[0][1])
+            convolution = convolution + (i[x + 1, y-1] * filter[0][2])
+            convolution = convolution + (i[x-1, y] * filter[1][0])
+            convolution = convolution + (i[x, y] * filter[1][1])
+            convolution = convolution + (i[x+1, y] * filter[1][2])
+            convolution = convolution + (i[x-1, y+1] * filter[2][0])
+            convolution = convolution + (i[x, y+1] * filter[2][1])
+            convolution = convolution + (i[x+1, y+1] * filter[2][2])
+            convolution = convolution * weight
+            if(convolution<0):
+                convolution=0
+            if(convolution>255):
+                convolution=255
+            i_transformed[x, y] = convolution
+
+    # Plot the image. Note the size of the axes -- they are 512 by 512
+    plt.gray()
+    plt.grid(False)
+    plt.imshow(i_transformed)
+    #plt.axis('off')
+    plt.show()
+
+-------
+Pooling
+-------
+
+.. code-block:: python
+
+    new_x = int(size_x/2)
+    new_y = int(size_y/2)
+    newImage = np.zeros((new_x, new_y))
+    for x in range(0, size_x, 2):
+        for y in range(0, size_y, 2):
+            pixels = []
+            pixels.append(i_transformed[x, y])
+            pixels.append(i_transformed[x+1, y])
+            pixels.append(i_transformed[x, y+1])
+            pixels.append(i_transformed[x+1, y+1])
+            newImage[int(x/2),int(y/2)] = max(pixels)
+
+    # Plot the image. Note the size of the axes -- now 256 pixels instead of 512
+    plt.gray()
+    plt.grid(False)
+    plt.imshow(newImage)
+    #plt.axis('off')
+    plt.show()
+
+Here, we used different filters for various purposes. Also, there are many other filters and this is a `link <https://lodev.org/cgtutor/filtering.html>`_.
+
+
+Example: classify 9 digit images
+********************************
+
+.. code-block:: python
+
+    import tensorflow as tf
+
+    class myCallback(tf.keras.callbacks.Callback):
+        def on_epoch_end(self, epoch, logs={}):
+            if(logs.get('acc') > 0.998):
+                print("\nReached 99.8% accuracy so cancelling training!")
+                self.model.stop_training = True
+
+    # GRADED FUNCTION: train_mnist_conv
+    def train_mnist_conv():
+        mnist = tf.keras.datasets.mnist
+        (training_images, training_labels), _ = mnist.load_data()
+        training_images = training_images.reshape(60000, 28, 28, 1)
+        training_images = training_images / 255.0
+
+        model = tf.keras.models.Sequential([
+            tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(28, 28, 1)),
+            tf.keras.layers.MaxPooling2D(2, 2),
+            tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+            tf.keras.layers.MaxPooling2D(2,2),
+            tf.keras.layers.Flatten(),
+            tf.keras.layers.Dense(128, activation='relu'),
+            tf.keras.layers.Dense(10, activation='softmax')
+        ])
+
+        model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+        # model fitting
+        history = model.fit(training_images, training_labels, epochs=20, callbacks=[myCallback()])
+        # model fitting
+        return history.epoch, history.history['acc'][-1]
+
+    _, _ = train_mnist_conv()
+
+
+Quiz: Introduction to computer vision
+*************************************
+
+.. toggle-header::
+    :header: **Quiz list**
+
+    |
+    **Question 1**
+
+        What is a Convolution?
+
+        \[　\] A technique to filter out unwanted images
+
+        \[　\] A technique to make images smaller
+
+        \[　\] A technique to isolate features in images
+
+        \[　\] A technique to make images bigger
+
+    **Question 2**
+
+        What is a Pooling?
+
+        \[　\] A technique to combine pictures
+
+        \[　\] A technique to isolate features in images
+
+        \[　\] A technique to reduce the information in an image while maintaining features
+
+        \[　\] A technique to make images sharper
+
+    **Question 3**
+
+        How do Convolutions improve image recognition?
+
+        \[　\] They make the image clearer
+
+        \[　\] They isolate features in images
+
+        \[　\] They make processing of images faster
+
+        \[　\] They make the image smaller
+
+    **Question 4**
+
+        After passing a 3x3 filter over a 28x28 image, how big will the output be?
+
+        \[　\] 26x26
+
+        \[　\] 31x31
+
+        \[　\] 28x28
+
+        \[　\] 25x25
+
+    **Question 5**
+
+        After max pooling a 26x26 image with a 2x2 filter, how big will the output be?
+
+        \[　\] 26x26
+
+        \[　\] 28x28
+
+        \[　\] 56x56
+
+        \[　\] 13x13
+
+    **Question 6**
+
+        Applying Convolutions on top of our Deep neural network will make training:
+
+        \[　\] Stay the same
+
+        \[　\] Faster
+
+        \[　\] Slower
+
+        \[　\] It depends on many factors. It might make your training faster or slower, and a poorly designed Convolutional layer may even be less efficient than a plain DNN!
 
 |
 

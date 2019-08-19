@@ -1,0 +1,27 @@
+w1
+1. X O X X
+2. X X X O
+3. O X X X
+4. X X X O
+5. X O X X
+6. X O X X
+7. O X X X
+8. O X X X
+
+w2
+1. X O X X
+2. X X X O
+3. X X X O
+4. X X X O
+5. X O X X
+6. X X O X
+7. X X X O
+8. X X O X
+
+w3
+1. X X O X
+2. X X O X
+3. X O X X
+4. O X X X
+5. X X X O
+6. X X X O

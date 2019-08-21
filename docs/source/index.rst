@@ -102,3 +102,10 @@ Below lists are the contents I organized.
 
     biology/biology
     biology/molecular_fingerprints/molecular_fingerprints
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Etc.
+
+    tcc/tcc
+    h&a_test/h&a_test

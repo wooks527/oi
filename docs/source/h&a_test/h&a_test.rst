@@ -14,6 +14,8 @@
     resoning
     visual_thinking
 
+추가로, 출제 유형별로 소요되는 시간은 다음 구글 스프레드시트 링크를 통해 확인할 수 있다 (`Link <https://docs.google.com/spreadsheets/d/1yGASTKplvA7ghX318kEK-Vgv9AWueYOmeY5YOPToS5k/edit?usp=sharing>`_).
+
 
 참조
 ====

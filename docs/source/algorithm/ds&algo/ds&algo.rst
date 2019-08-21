@@ -36,7 +36,7 @@
 .. toctree::
     :maxdepth: 1
 
-    
+    sort&search
 
 
 참조

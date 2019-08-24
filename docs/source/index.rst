@@ -11,69 +11,26 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Algorithm
+    :caption: Computer science
+
+    language/python
+    ds&algo/ds&algo
     
-    algorithm/ds&algo/ds&algo
-    algorithm/introduction
-    algorithm/asymptotic_analysis
+    dalgorithm/introduction
+    dalgorithm/asymptotic_analysis
 
-    algorithm/data_structure/data_structure
-    algorithm/sort/sort
-    algorithm/search/search
+    dalgorithm/data_structure/data_structure
+    dalgorithm/sort/sort
+    dalgorithm/search/search
 
-.. toctree::
-    :maxdepth: 1
-    :caption: Machine learning
-
-    machine_learning/intro
-    machine_learning/linear_regression
-    machine_learning/logistic_regression
-    machine_learning/regularization
-    machine_learning/neural_networks/nn_learning
-    machine_learning/recommender_systems
-    machine_learning/large_scale_ml
-    machine_learning/optimization
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Natural language processing
-
-    nlp/intro
-    nlp/text_classification
-    nlp/lm
-    nlp/sequence_tagging
-    nlp/word_and_sentence_embeddings
-    nlp/topic_model
-    nlp/smt
-    nlp/encoder-decoder-attention_architecture
-    nlp/summarization_and_simplification_tasks
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Deep learning
-
-    deep_learning/cnn/cnn
-    deep_learning/sm/rnn
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Tensorflow
-
-    tensorflow/intro
-    tensorflow/computer_vision
+    ai/ai
+    nlp/nlp
 
 .. toctree::
     :maxdepth: 1
     :caption: Personal research
 
     deepcombdti/deepcombdti
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Language
-
-    language/python
-    language/uml
 
 .. toctree::
     :maxdepth: 1
@@ -107,5 +64,6 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: Etc.
 
+    language/uml
     tcc/tcc
     h&a_test/h&a_test

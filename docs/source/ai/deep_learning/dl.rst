@@ -13,6 +13,7 @@ Table of contents
     :maxdepth: 1
 
     cnn/cnn
+    sm/rnn
 
 
 Reference

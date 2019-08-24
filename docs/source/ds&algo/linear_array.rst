@@ -7,7 +7,7 @@
 
 배열은 원소들을 순서대로 늘어놓은 것이다. Python에서 배열은 타입과 관계없이 모든 값들을 저장할 수 있다.
 
-.. figure:: ../img/ds&algo/list.png
+.. figure:: img/list/list.png
     :align: center
     :scale: 40%
 

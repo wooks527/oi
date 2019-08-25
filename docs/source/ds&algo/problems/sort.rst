@@ -33,10 +33,6 @@ Sort
                         * 34 뒤에 올 수 있는 수들 중 가장 큰 조합은 34343434...
                         * 343 뒤에 올 수 있는 수들 중 가장 큰 조합은 343343343...
 
-                .. figure:: ../img/problems/sort/basis_of_bigger_numberz.png
-                    :align: center
-                    :scale: 40%
-
         * 목록에서 하나씩 꺼내어 현재 수에 이어 붙인다.
         
         * 모든 수를 다 사용할 때까지 반복한다.

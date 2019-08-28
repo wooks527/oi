@@ -7,7 +7,7 @@ Sort
 
 * 문제
 
-    * https://programmers.co.kr/learn/courses/30/lessons/42746
+    * `Programmers > 코딩테스트 연습 > 정렬 (Sort) > 가장 큰 수 <https://programmers.co.kr/learn/courses/30/lessons/42746>`_
 
 * 해결법
 
@@ -45,5 +45,5 @@ Sort
 
 * 코드
 
-    * `가장 큰 수 <https://github.com/hwkim89/programmers/blob/master/sort/the_biggest_number.ipynb>`_
+    * `Github <https://github.com/hwkim89/programmers/blob/master/sort/the_biggest_number.ipynb>`_
 

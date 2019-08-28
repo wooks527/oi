@@ -12,7 +12,7 @@ Greedy algorithm
 
 * 문제
 
-    * https://programmers.co.kr/learn/courses/30/lessons/42862
+    * `Programmers > 코딩테스트 연습 > 탐욕법 (Greedy) > 체육복 <https://programmers.co.kr/learn/courses/30/lessons/42862>`_
 
 * 빌려준 학생들을 "정해진 순서로"로 살펴야 하고, 이 "정해진 순서에"에 따라 우선하여 빌려줄 방향을 정해야 함
 
@@ -31,7 +31,7 @@ Greedy algorithm
 
 * 코드
 
-    * `체육복 <https://github.com/hwkim89/programmers/blob/master/greedy/gym_suit.ipynb>`_
+    * `Github <https://github.com/hwkim89/programmers/blob/master/greedy/gym_suit.ipynb>`_
 
 
 큰 수 만들기
@@ -39,7 +39,7 @@ Greedy algorithm
 
 * 문제
 
-    * https://programmers.co.kr/learn/courses/30/lessons/42883
+    * `Programmers > 코딩테스트 연습 > 탐욕법 (Greedy) > 큰 수 만들기 <https://programmers.co.kr/learn/courses/30/lessons/42883>`_
 
 * 원칙
 
@@ -68,4 +68,4 @@ Greedy algorithm
 
 * 코드
 
-    * `체육복 <https://github.com/hwkim89/programmers/blob/master/greedy/creating_big_number.ipynb>`_
+    * `Github <https://github.com/hwkim89/programmers/blob/master/greedy/creating_big_number.ipynb>`_

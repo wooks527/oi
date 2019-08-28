@@ -54,6 +54,9 @@
     problems/hash
     problems/greedy
     problems/sort
+    problems/heap
+    problems/dynamic_pr
+    problems/bfs_dfs
 
 
 문제를 풀 때 유의사항

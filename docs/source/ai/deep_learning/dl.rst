@@ -6,14 +6,13 @@ Deep learning (also known as deep structured learning or hierarchical learning) 
 
 Here, I will introduce foundations of Deep Learning to understand how to build neural networks, and how to lead successful machine learning projects. Also, I will explain about Convolutional networks, RNNs, LSTM, Adam, Dropout, BatchNorm, Xavier/He initialization, and more. Furthermore, I will show case studies from healthcare, autonomous driving, sign language reading, music generation, and natural language processing.
 
-Table of contents
-=================
-
 .. toctree::
     :maxdepth: 1
 
     cnn/cnn
     sm/rnn
+    sm/lstm
+    sm/attention
 
 
 Reference

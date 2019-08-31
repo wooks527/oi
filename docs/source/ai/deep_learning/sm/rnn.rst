@@ -12,5 +12,5 @@ A recurrent neural network (RNN) is a class of artificial neural networks where 
 Reference
 =========
 
-* https://www.coursera.org/learn/nlp-sequence-models
-* https://ratsgo.github.io/natural%20language%20processing/2017/03/09/rnnlstm/
+* `Coursera <https://www.coursera.org/learn/nlp-sequence-models>`_
+* `ratsgo's blog <https://ratsgo.github.io/natural%20language%20processing/2017/03/09/rnnlstm/>`_

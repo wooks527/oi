@@ -21,6 +21,8 @@
     :maxdepth: 1
 
     linear_array
+    queue
+    heap
 
 
 알고리즘

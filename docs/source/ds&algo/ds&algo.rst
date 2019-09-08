@@ -53,12 +53,15 @@
 .. toctree::
     :maxdepth: 1
 
+    problems/queue
+    problems/heap
+    problems/stack
     problems/hash
     problems/greedy
     problems/sort
-    problems/heap
     problems/dynamic_pr
     problems/bfs_dfs
+    problems/others
 
 
 문제를 풀 때 유의사항

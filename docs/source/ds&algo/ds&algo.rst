@@ -23,6 +23,9 @@
     linear_array
     queue
     heap
+    hash
+    set
+    stack
 
 
 알고리즘
@@ -55,8 +58,8 @@
 
     problems/queue
     problems/heap
-    problems/stack
     problems/hash
+    problems/stack
     problems/greedy
     problems/sort
     problems/dynamic_pr
@@ -64,15 +67,40 @@
     problems/others
 
 
-문제를 풀 때 유의사항
-*****************
+문제를 풀이 요령
+**************
 
-* 제한사항에 유의하기
+-----
+Tip
+-----
+
+* 런타임 에러가 나는 경우, try-except 문으로 어디서 나는지 확인할 수 있다.
+
+* 범위를 제한해야 하는 경우 일반적으로 생각하는 부등식으로 표현할 수 있다.
+
+    * -1 < i < 10
+
+* 시간복잡도를 계산하면서 문제를 풀면, 시간초과 문제를 해결할 수 있다.
+
+* 새로운 변수를 새로 만들어서 하기보다 기존 변수를 변경해서 문제를 해결하고자 하면 시간초과를 막을 수 있다.
+
+
+-------
+주의사항
+-------
+
+* 제한사항을 항상 잘 읽고 유의하기
 * 문제를 이해하고 한 번에 푸는 것이 아니라 문제 해결에 필요한 하나하나의 단계로 해법을 표현해야 한다.
+
+-----
+의문점
+-----
+
+* 추가 테스트 케이스를 사용하여 문제를 해결하는 경우가 있는지 여부
 
 
 참조
 ====
 
-* https://programmers.co.kr/learn/courses/57
-* `Programmers <https://programmers.co.kr/learn/challenges>`_
+* `어서와! 자료구조와 알고리즘은 처음이지? <https://programmers.co.kr/learn/courses/57>`_
+* `Programmers challenges <https://programmers.co.kr/learn/challenges>`_

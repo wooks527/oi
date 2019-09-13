@@ -122,4 +122,5 @@ Summary
 Reference
 ==========
 
-* https://www.coursera.org/learn/machine-learning
+* `One page summary <https://docs.google.com/document/d/1xXpvTas6hPVzixJcUIlihBr3DQet8KhHcFrkZ2SX9yE/edit?usp=sharing>`_
+* `Coursera, Machine Learning <https://www.coursera.org/learn/machine-learning>`_

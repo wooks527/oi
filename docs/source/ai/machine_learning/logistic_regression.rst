@@ -411,4 +411,5 @@ The following image shows how one could classify 3 classes:
 Reference
 ==========
 
-* https://www.coursera.org/learn/machine-learning
+* `One page summary <https://docs.google.com/document/d/1h7mUOpjHSMGnawOXZAkBeb0Zv2iTHO7E1JRUD126qDE/edit?usp=sharing>`_
+* `Coursera, Machine Learning <https://www.coursera.org/learn/machine-learning>`_

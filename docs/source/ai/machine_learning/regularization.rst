@@ -21,7 +21,7 @@ Without formally defining what these terms mean, we’ll say the figure on the l
 Underfitting
 ************
 
-Underfitting, or high bias, is when the form of our hypothesis function :math:`h` maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features.
+Underfitting, or high bias, is when the form of our hypothesis function :math:`h` maps poorly to the trend of the data. It is usually caused by a function that is **too simple** or uses **too few features**.
 
 
 Overfitting
@@ -123,8 +123,8 @@ Regularized Logistic Regression
 We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:
 
 .. figure:: img/regularization/regularized_lr.png
-  :align: center
-  :scale: 100%
+    :align: center
+    :scale: 100%
 
 
 Cost Function
@@ -153,7 +153,152 @@ Repeat {
 }
 
 
+Bias vs. Variance
+==================
+
+In this section we examine the relationship between the degree of the polynomial :math:`d` and the underfitting or overfitting of our hypothesis.
+
+* We need to distinguish whether **bias** or **variance** is the problem contributing to bad predictions.
+* :blue:`High bias` is :blue:`underfitting` and :red:`high variance` is :red:`overfitting`. Ideally, we need to find a **golden mean** between these two.
+
+The training error will tend to decrease as we increase the degree :math:`d` of the polynomial.
+
+At the same time, the cross validation error will tend to decrease as we increase :math:`d` up to a point, and then it will increase as :math:`d` is increased, forming a convex curve.
+
+* High bias (underfitting)
+    
+    * Both :math:`J_{train}(\theta)` and :math:`J_{CV}(\theta)` will be high.
+    * :math:`J_{CV}(\theta) \approx J_{train}(\theta).`
+
+* High variance (overfitting)
+
+    * :math:`J_{train}(\theta)` will be low.
+    * :math:`J_{CV}(\theta)` will be much greater than :math:`J_{train}(\theta).`
+
+The is summarized in the figure below:
+
+.. figure:: img/regularization/bias_vs_variance.png
+    :align: center
+    :scale: 100%
+
+
+Regularization and bias/variance
+*********************************
+
+In the below figure, we see that as :math:`\lambda` increases, our fit becomes more rigid. On the other hand, as :math:`\lambda` approaches 0, we tend to over overfit the data.
+
+.. figure:: img/regularization/regularization_and_bias_variance.png
+    :align: center
+    :scale: 80%
+
+So how do we choose our parameter :math:`\lambda` to get it 'just right'? In order to choose the model and the regularization term :math:`\lambda`, we need to:
+
+* Initialization
+
+    * Create a list of :math:`\lambda s`  (i.e. :math:`\lambda \in {0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24}).`
+    * Create a set of models with different degrees or any other variants.
+
+* Search the best :math:`\lambda` and :math:`\theta`
+
+    * Iterate through the :math:`\lambda s` and for each :math:`\lambda s` go through all the models to learn some :math:`\theta`.
+    * Compute the cross validation error using the learned :math:`\theta` (computed with :math:`\lambda`) on the :math:`J_{CV}(\theta)` without regularization or :math:`\lambda` = 0.
+    * Select the best combo that produces the lowest error on the cross validation set.
+
+* Apply to the  test set
+    
+    * Using the best combo :math:`\theta` and :math:`\lambda`, apply it on :math:`J_{test}(\theta)` to see if it has a good generalization of the problem.
+
+
+Learning Curves
+****************
+
+Training an algorithm on a very few number of data points (such as 1, 2 or 3) will easily have 0 errors because we can always find a quadratic curve that touches exactly those number of points. Hence:
+
+* As the training set gets larger, the error for a quadratic function increases.
+* The error value will plateau out after a certain :math:`m`, or training set size.
+
+----------
+High bias
+----------
+
+* Low training set size
+
+    * :math:`J_{train}(\theta)` will be low and :math:`J_{CV}(\theta)` will be high.
+
+* Large training set size
+
+    * Both :math:`J_{train}(\theta)` and :math:`J_{CV}(\theta)` will be high with :math:`J_{train}(\theta) \approx J_{CV}(\theta)`.
+
+If a learning algorithm is suffering from **high bias**, getting :strike:`more training data` will not (by itself) help much.
+
+.. figure:: img/regularization/learning_curve_high_bias.png
+    :align: center
+    :scale: 100%
+
+--------------
+High variance
+--------------
+
+* Low training set size
+
+    * :math:`J_{train}(\theta)` will be low and :math:`J_{CV}(\theta)` will be high.
+
+* Large training set size
+
+    * :math:`J_{train}(\theta)` increases with training set size and :math:`J_{CV}(\theta)` continues to decrease without leveling off.
+    * :math:`J_{train}(\theta) < J_{CV}(\theta)` but the difference between them remains significant.
+
+If a learning algorithm is suffering from **high variance**, getting **more training data** is likely to help.
+
+.. figure:: img/regularization/learning_curve_high_variance.png
+    :align: center
+    :scale: 100%
+
+
+Deciding What to Do Next Revisited
+***********************************
+
+A decision process can be broken down as follows:
+
+===============================  =============  ==================
+Decision                         Fix high bias  Fix high variance
+===============================  =============  ==================
+Getting more training examples   X              O
+Trying smaller sets of features  X              O
+Adding features                  O              X
+Adding polynomial features       O              X
+Decreasing λ                     O              X
+Increasing λ                     X              O
+===============================  =============  ==================
+
+---------------------------
+Diagnosing Neural Networks
+---------------------------
+
+* A neural network with fewer parameters is prone to underfitting. It is also computationally cheaper.
+* A large neural network with more parameters is prone to overfitting. It is also computationally expensive. In this case you can use regularization (increase λ) to address the overfitting.
+
+Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using your cross validation set. You can then select the one that performs best.
+
+-------------------------
+Model Complexity Effects
+-------------------------
+
+* Lower-order polynomials (low model complexity)
+
+    * Have high bias and low variance.
+    * The model fits poorly consistently.
+
+* Higher-order polynomials (high model complexity)
+
+    * Fit the training data extremely well and the test data extremely poorly.
+    * These have low bias on the training data, but very high variance.
+
+In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.
+
+
 Reference
 ===========
 
-* https://www.coursera.org/learn/machine-learning
+* `One page summary <https://docs.google.com/document/d/14wRFf7DJXR2zhh5L8VH4Jyfr4Pw2ry80YvhuoQlYrrM/edit?usp=sharing>`_
+* `Coursera, Machine Learning <https://www.coursera.org/learn/machine-learning>`_

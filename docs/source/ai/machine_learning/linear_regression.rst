@@ -71,6 +71,17 @@ This is one of the methods for the cost function and the goal is to minimize the
 Gradient descent
 ----------------
 
+Gradient descent is a first-order iterative optimization algorithm for finding the minimum of a function. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or approximate gradient) of the function at the current point (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Gradient_descent>`_).
+
+This is how to update weights using gradient descent for all training dataset:
+
+.. rst-class:: centered
+
+    :math:`\displaystyle w:=w-\eta \nabla Q(w)=w-\eta \sum _{i=1}^{n}\nabla Q_{i}(w)/n,`
+
+Anyway, we talk about all from now step by step.
+
+
 **Idea:**
 
 * Make arbitrary function :math:`J(\theta_0, \theta_1)`
@@ -273,4 +284,5 @@ Summary
 Reference
 ==========
 
-* https://www.coursera.org/learn/machine-learning
+* `One page summary <https://docs.google.com/document/d/1ny6PDoaOVNjn6BzjRoBFeowanWeAUlJaj8yVXDStpDI/edit?usp=sharing>`_
+* `Coursera, Machine Learning <https://www.coursera.org/learn/machine-learning>`_

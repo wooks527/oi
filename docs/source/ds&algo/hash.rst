@@ -234,6 +234,37 @@ Hash
     5 loops, best of 3: 266 ns per loop
 
 
+defaultdict
+============
+
+dict를 이용하는 경우, 기존에 존재하지 않는 key를 사용할 때는 항상 초기화를 해줘야 한다. 이럴 때, 유용한 방법이 defaultdict를 활용하는 방법이다. defaultdict는 collections 모듈에 구현되어 있는 Dictionary로, 각 타입에 대한 default 값을 미리 지정해줄 수 있다.
+
+* dict 사용:
+
+.. code-block:: python
+
+    >> n_chars = {}
+    >> n_chars['a'] += 1
+    ---------------------------------------------------------------------------
+    KeyError                                  Traceback (most recent call last)
+    <ipython-input-4-89f8752cb078> in <module>
+        1 d = {}
+    ----> 2 d['a'] += 1
+
+    KeyError: 'a'
+
+
+* defaultdict 사용:
+
+.. code-block:: python
+
+    >> from collections import defaultdict
+    >> n_chars = defaultdict(int)
+    >> n_chars['a'] += 1
+    >> n_chars
+    defaultdict(int, {'a': 1})
+
+
 참조
 ====
 

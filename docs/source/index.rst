@@ -28,7 +28,7 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Personal research
+    :caption: Research
 
     deepcombdti/deepcombdti
 
@@ -67,3 +67,4 @@ Below lists are the contents I organized.
     language/uml
     tcc/tcc
     h&a_test/h&a_test
+    history/kor_hist

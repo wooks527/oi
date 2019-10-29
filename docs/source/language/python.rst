@@ -7,9 +7,11 @@ Python is an interpreted, high-level, general-purpose programming language. Crea
 .. toctree::
     :maxdepth: 1
 
+    python/pros_and_cons
     python/coding_convention
     python/time_complexity
     python/packages
+    python/special_tips
 
 
 Reference

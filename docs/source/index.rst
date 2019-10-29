@@ -13,7 +13,7 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: Computer science
 
-    language/python
+    language/language
     ds&algo/ds&algo
     
     dalgorithm/introduction

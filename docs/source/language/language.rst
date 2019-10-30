@@ -11,3 +11,5 @@ There are many kinds of languages:
 
     python
     java
+    c
+    vb

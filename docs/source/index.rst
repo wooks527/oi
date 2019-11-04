@@ -26,11 +26,14 @@ Below lists are the contents I organized.
     ai/ai
     nlp/nlp
 
+    bioinfo/bioinfo
+
 .. toctree::
     :maxdepth: 1
     :caption: Research
 
     deepcombdti/deepcombdti
+    trend/trend
 
 .. toctree::
     :maxdepth: 1
@@ -52,13 +55,6 @@ Below lists are the contents I organized.
     packages/snakemake
     packages/ubuntu
     packages/powershell
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Biology
-
-    biology/biology
-    biology/molecular_fingerprints/molecular_fingerprints
 
 .. toctree::
     :maxdepth: 1

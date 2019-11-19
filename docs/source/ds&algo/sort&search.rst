@@ -53,6 +53,10 @@
 * L.sort(key=lambda x: x['name']) → 레코드를 이름 순서대로 결정
 * L.sort(key=lambda x: x['score'], reverse=True) → 레코드를 점수 높은 순서대로 결정
 
+그 외에도 다양한 정렬 알고리즘이 있다.
+
+* :doc:`Quick sort <sort/quick_sort>`
+
 
 탐색 (Search)
 =============

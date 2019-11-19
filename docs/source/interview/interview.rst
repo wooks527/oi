@@ -14,6 +14,7 @@
 Computer science
 *****************
 
+* :doc:`Stack <../ds&algo/stack>`
 * :doc:`Quick sort <../ds&algo/sort/quick_sort>`
 * :doc:`Process vs. Thread </language/python/parallel_processing>`
 

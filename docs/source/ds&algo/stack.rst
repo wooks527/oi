@@ -2,9 +2,26 @@
 Stack
 ======
 
-Python에서는 list를 Stack과 유사하게 사용할 수 있다.
+Stack은 가장 나중에 들어온 자료가 가장 먼저 처리되는 LIFO(Last-In-First-Out) 자료구조이다.
 
-Stack은 가장 나중에 들어온 자료가 가장 먼저 처리되는 LIFO(Last-In-First-Out) 자료구조이고, Python에서는 다음과 같은 Operation을 사용할 수 있다.
+다음은 Python list로 구현한 스택이다.
+
+.. code-block:: python
+
+    class Stack(list):
+        push = list.append
+        
+        def is_empty(self):
+            if not self:
+                return True
+            else:
+                return False
+
+        def peek(self):
+            return self[-1]
+
+
+Python에서는 list를 Stack과 유사하게 사용할 수 있고, 다음과 같은 Operation을 사용할 수 있다.
 
 ==========  ===============  ===============================
 Operation   구현              Time Complexity - Average Case

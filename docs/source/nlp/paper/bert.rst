@@ -8,6 +8,28 @@ BERT (Bidirectional Encoder Representations from Transformer)의 아키텍처는
 Pre-training
 =============
 
+MLM
+****
+
+MLM (Masked Language Model)은 input에서 무작위하게 몇개의 token을 mask 시킵니다. 그리고 이를 Transformer 구조에 넣어서 주변 단어의 context만을 보고 mask된 단어를 예측하는 모델입니다. 
+
+.. figure:: ../img/paper/bert/mlm.png
+    :align: center
+    :scale: 70%
+
+
+Next sentence prediction
+*************************
+
+BERT에서는 corpus에서 두 문장을 이어 붙여 이것이 원래의 corpus에서 바로 이어 붙여져 있던 문장인지를 맞추는 Binarized next sentence prediction task를 수행한다. 이러한 작업을 하는 이유는 NLP task중에 Question Answering (QA)나 Natural Language Inference (NLI)와 같이 두 문장 사이의 관계를 이해하는 것이 중요한 것들이기 때문이다.
+
+
+Fine-tuning
+============
+
+.. figure:: ../img/paper/bert/fine-tuning.png
+    :align: center
+    :scale: 50%
 
 
 

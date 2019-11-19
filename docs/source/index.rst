@@ -33,6 +33,7 @@ Below lists are the contents I organized.
     :caption: Research
 
     deepcombdti/deepcombdti
+    nlp/paper/paper
     trend/trend
 
 .. toctree::
@@ -63,4 +64,5 @@ Below lists are the contents I organized.
     language/uml
     tcc/tcc
     h&a_test/h&a_test
+    interview/interview
     history/kor_hist

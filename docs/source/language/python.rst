@@ -10,6 +10,7 @@ Python is an interpreted, high-level, general-purpose programming language. Crea
     python/pros_and_cons
     python/coding_convention
     python/time_complexity
+    python/parallel_processing
     python/packages
     python/special_tips
 

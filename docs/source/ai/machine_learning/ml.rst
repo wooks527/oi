@@ -12,6 +12,7 @@ This is a table of contents for ML:
     intro
     linear_regression
     logistic_regression
+    loss_func
     regularization
     optimization
     neural_networks/nn_learning

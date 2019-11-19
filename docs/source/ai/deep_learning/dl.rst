@@ -9,7 +9,10 @@ Here, I will introduce foundations of Deep Learning to understand how to build n
 .. toctree::
     :maxdepth: 1
 
+    ml_vs_dl
+    batch_norm
     cnn/cnn
+    cnn/img_clf
     sm/rnn
     sm/lstm
     sm/attention
@@ -18,4 +21,4 @@ Here, I will introduce foundations of Deep Learning to understand how to build n
 Reference
 =========
 
-* https://www.coursera.org/specializations/deep-learning
+* `Coursera <https://www.coursera.org/specializations/deep-learning>`_

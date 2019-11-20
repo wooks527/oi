@@ -18,9 +18,10 @@ This is a table of contents in NLP:
     smt
     encoder-decoder-attention_architecture
     summarization_and_simplification_tasks
+    dm
 
 
-References
-===========
+Reference
+==========
 
-* https://www.coursera.org/learn/language-processing
+* `Coursera, Natural Language Processing (NLP) <https://www.coursera.org/learn/language-processing>`_

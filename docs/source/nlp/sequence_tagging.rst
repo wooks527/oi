@@ -68,6 +68,10 @@ There are some approaches for tagging:
         * Any real-word object which may have a proper name: persons, organizations, locations, ...
         * Also named entities usually include: dates and times, units, amounts, ...
 
+    * Utilization
+
+        * It is helpful to search related contents using extracted named entities
+
 * Semantic role labelling
 
 .. _bio-notation:

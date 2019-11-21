@@ -2,7 +2,14 @@
 Transformer
 ============
 
-Transformer는 "Attention Is All You Need"라는 논문에서 제안한 모델이고, 이 모델은 기존 Translation 문제를 Attention만 이용하여 해결했다.
+Transformer는 "Attention Is All You Need"라는 논문에서 제안한 모델이고, 이 모델은 기존 Translation 문제를 RNN, CNN을 활용하지 않고 Attention만 이용하여 해결했다.
+
+Previous model: Seq2seq + Attention
+====================================
+
+이전 Translation 문제를 해결하는데 사용한 대표적인 모델은 Seq2seq 이다. 그 내용은 :doc:`링크 <../encoder-decoder-attention_architecture>` 에서 확인할 수 있다.
+
+위 링크를 통해 알 수 있듯이 Seq2seq 모델은 RNN을 활용했고, 추후에 Attention 개념을 도입하더라도 그 연산량이 많다. 그래서 Transformer 모델에서는 RNN, CNN을 활용하지 않았고, 가벼우면서도 성능이 좋은 모델임을 여러가지 실험으로 밝혔다.
 
 
 Model architecture
@@ -27,8 +34,8 @@ Inputs and outputs
 Input과 Output은 모두 각 Sequence를 Word 기반으로 One-hot encoding한 Vector이다.
 
 
-Embedding
-**********
+Input and output embedding
+***************************
 
 One-hot encoding vector들을 Embedding vector로 변경한다 (차원 축소).
 
@@ -69,7 +76,6 @@ Masked multi-head attention
     :scale: 25%
 
 
-
 Position-wise feed forward
 ***************************
 
@@ -79,7 +85,7 @@ Position-wise feed forward
 Add & Norm
 ***********
 
-Feed forward 결과와 Feed forward 이전을 더하고 Normalization 한다.
+Feed forward 결과와 Feed forward 이전을 더하고 Normalization 한다. 이 때 Layer normalization을 이용한다 (추후 정리 예정).
 
 
 Linear and softmax

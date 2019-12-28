@@ -40,6 +40,7 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: Mathematics
 
+    math/math
     statistics/statistics
 
 .. toctree::
@@ -66,3 +67,4 @@ Below lists are the contents I organized.
     h&a_test/h&a_test
     interview/interview
     history/kor_hist
+    d_works/d_works

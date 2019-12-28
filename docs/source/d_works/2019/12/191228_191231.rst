@@ -1,0 +1,15 @@
+==============
+12월 마지막 4일
+==============
+
+Saturday, December 28
+======================
+
+* 라온 피플 Neural Networks, CNN 훑어보기 (`Link <https://laonple.blog.me/220643128255>`_)
+
+    * Part I. Machine Learning
+    * Part II. Neural Networks
+    * Part III. Neural Networks
+    * Part IV. CNN
+    * Part V. Best CNN Architecture 부분 (1 ~ 7)
+

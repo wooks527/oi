@@ -13,3 +13,20 @@ Saturday, December 28
     * Part IV. CNN
     * Part V. Best CNN Architecture 부분 (1 ~ 7)
 
+
+Sunday, December 29
+====================
+
+* 라온 피플 CNN 훑어보기 (`Link <https://laonple.blog.me/220643128255>`_)
+
+    * Part V. Best CNN Architecture 부분 (8)
+    * Part VI. CNN 핵심 요소 기술
+    
+* "Understanding CNNs" 훑어보기
+
+    * Introduction to CNN (`Link <https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/>`_)
+    * Specifics of CNN (`Link <https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/>`_)
+
+* Fast campus, 올인원 패키지: 딥러닝/인공지능
+
+    * 합성곱 신경망 (CNN), Step 1 → 강의 듣고 일부 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/cnn.html>`_)

@@ -30,3 +30,16 @@ Sunday, December 29
 * Fast campus, 올인원 패키지: 딥러닝/인공지능
 
     * 합성곱 신경망 (CNN), Step 1 → 강의 듣고 일부 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/cnn.html>`_)
+
+
+Monday, December 30
+====================
+ 
+* "Understanding CNNs" 훑어보기
+
+    * CNN papers (`Link <https://adeshpande3.github.io/adeshpande3.github.io/The-9-Deep-Learning-Papers-You-Need-To-Know-About.html>`_)
+
+* CNN 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/cnn.html>`_)
+
+    * Introduction
+    * CNN 구조 (일부)

@@ -11,7 +11,6 @@ Here, I will introduce foundations of Deep Learning to understand how to build n
 
     ml_vs_dl
     batch_norm
-    cnn/cnn
     cnn/img_clf
     sm/rnn
     sm/lstm

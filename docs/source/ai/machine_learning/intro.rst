@@ -2,9 +2,21 @@
 Introduction
 =============
 
-**Machine learning (ML)** is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Machine_learning>`_).
+In spam filter or automatic drivng, we need a criterion to decide. But we can't make all rules for them which were programmed.
 
-There are two main definitions of machine learning:
+.. figure:: img/intro/ml_needs.png
+    :align: center
+    :scale: 60%
+
+.. rst-class:: centered
+
+    Source: `HOT FOR SECURITY <https://hotforsecurity.bitdefender.com/wp-content/uploads/2013/04/google-translate-tricks-spam-filters.jpg>`_, `Australian 4WD <https://australian4wd.com.au/wp-content/uploads/2015/03/automatic-driving.png>`_
+
+So we need to a method without fixed rules like exisiting programs in the past. Machine learning is one of solution for this situation and ML is defined like below in Wikipedia (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Machine_learning>`_):
+
+    **Machine learning (ML)** is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead.
+
+Also, there are two main definitions of machine learning defined by famous researchers:
 
 * Arthur Samuel (1959)
 
@@ -49,7 +61,7 @@ Classification
 **************
 
 * Map input variables into discrete categories to predict results within a discrete output
-* Example: Breast cancer
+* Example: Breast cancer or Test grade (A, B, C, D, F)
 
 .. figure:: img/intro/classification_ex1.png
     :align: center
@@ -124,3 +136,4 @@ Reference
 
 * `One page summary <https://docs.google.com/document/d/1xXpvTas6hPVzixJcUIlihBr3DQet8KhHcFrkZ2SX9yE/edit?usp=sharing>`_
 * `Coursera, Machine Learning <https://www.coursera.org/learn/machine-learning>`_
+* `모두를 위한 머신러닝/딥러닝 강의 <http://hunkim.github.io/ml/>`_

@@ -4,12 +4,16 @@ Linear regression
 
 Linear regression is a **linear approach** to modeling the relationship between a scalar response (or dependent variable) which is **continuous** and one or more explanatory variables (or independent variables) (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Linear_regression>`_).
 
+쉽게 설명하면 주어진 데이터를 가장 잘 설명하는 직선 하나를 찾는 것이 Linear regression이다.
+
 I will explain linear regression using a **housing price prediction** example.
 
 Univariate linear regression
 ============================
 
-Univariate linear regression is the linear regression with **one variable**. A below figure describes housing price prediction with univariate linear regression.
+Univariate linear regression is the linear regression with **one variable**. → 즉, 하나의 설명 변수로 선을 찾는 것이 Univariate linear regression이다.
+
+A below figure describes housing price prediction with univariate linear regression.
 
 .. figure:: img/lr/univariate_lr_ex.png
   :align: center
@@ -19,13 +23,13 @@ Univariate linear regression is the linear regression with **one variable**. A b
 Process
 *******
 
-.. figure:: img/lr/univariate_lr_process.png
-  :align: center
-  :scale: 40%
+A hypothesis function is a prediction model trained by a cost function using training set.
 
-------------
-Training set
-------------
+.. figure:: img/lr/uni_lr_proc.png
+  :align: center
+  :scale: 60%
+
+This is a training set example.
 
 .. figure:: img/lr/notation_of_training_set.png
   :align: center
@@ -37,19 +41,21 @@ Training set
 * :math:`(x, y) = \text{One training example}`
 * :math:`(x_i, y_i) = i_{th} \text{training example}`
 
--------------------
-Hypothesis function
--------------------
-
-.. figure:: img/lr/hypothesis_function.png
-  :align: center
-  :scale: 40%
+결론적으로 주어진 데이터로 :math:`\theta_0` 와 :math:`\theta_1` 을 찾는 것이다.
 
 
 Cost function
 *************
 
 To find the best parameters, we should minimize costs for training examples. So, we need a cost function to calculate losses between predictions and answers.
+
+.. figure:: img/lr/cost_ex.png
+    :align: center
+    :scale: 40%
+
+.. rst-class:: centered
+
+    Source: `towards data science <https://miro.medium.com/max/1664/1*F4JzgiTIUfFePLBj4A_JPw.jpeg>`_
 
 **Idea:**
 
@@ -61,17 +67,23 @@ To find the best parameters, we should minimize costs for training examples. So,
         :align: center
         :scale: 50%
 
-This is one of the methods for the cost function and the goal is to minimize the squared error function.
+This is one of the methods called Mean Suqared Error (MSE or L2 loss) for the cost function and the goal is to minimize the squared error function.
 
 .. figure:: img/lr/cost_function_equation.png
-  :align: center
-  :scale: 40%
+    :align: center
+    :scale: 40%
+
+Besides the MSE function, there are many cost functions (:doc:`Link <loss_func>`).
+
+결국, 우리의 목적은 이러한 MSE가 최소화가 되도록 :math:`\theta_0,\ \theta_1` 을 구하는 것이고, 단순히 최적의 :math:`\theta_1` 을 구하는 방법은 :math:`\theta_1 = (x^T x)^{-1} x^T y` (수식 이해 안감)를 푸는 것이다. 하지만 데이터가 커짐에 따라 시간 복잡도가 :math:`O(n^3)` 로 증가하여 비효율적이다. 그래서 이러한 문제를 해결하는 방법이 Gradient descent이다.
 
 ----------------
 Gradient descent
 ----------------
 
 Gradient descent is a first-order iterative optimization algorithm for finding the minimum of a function. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or approximate gradient) of the function at the current point (Ref.: `Wikipedia <https://en.wikipedia.org/wiki/Gradient_descent>`_).
+
+즉, Gradient descent는 기존 Weight에 Error function의 미분값을 빼주면서 Weight를 업데이트하는 방법이다.
 
 This is how to update weights using gradient descent for all training dataset:
 

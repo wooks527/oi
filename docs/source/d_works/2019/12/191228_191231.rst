@@ -43,3 +43,22 @@ Monday, December 30
 
     * Introduction
     * CNN 구조 (일부)
+
+
+Monday, December 30
+====================
+
+* CNN 정리
+
+    * CNN 구조 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/intro.html>`_)
+    * LeNet (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/lenet.html>`_)
+
+* 모두를 위한 딥러닝 강좌 시즌 1 (`Link <https://www.youtube.com/playlist?list=PLlMkM4tgfjnLSOjrEJN31gZATbcj_MpUm>`_)
+
+    * ML lec 01 ~ ML lab 03
+
+* ML 정리
+
+    * Introduction (`Link <https://oi.readthedocs.io/en/latest/ai/machine_learning/intro.html>`_)
+    * Linear regression 일부 (`Link <https://oi.readthedocs.io/en/latest/ai/machine_learning/linear_regression.html>`_)
+

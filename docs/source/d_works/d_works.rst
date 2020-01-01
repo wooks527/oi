@@ -19,3 +19,4 @@ Daily works
 .. toctree::
     :maxdepth: 1
 
+    2020/1/1

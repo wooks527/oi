@@ -50,6 +50,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinxcontrib.contentui',
     'nbsphinx',
+    'sphinxemoji.sphinxemoji',
 ]
 
 # Options for extensions.

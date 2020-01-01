@@ -11,6 +11,12 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Life
+
+    d_works/d_works
+
+.. toctree::
+    :maxdepth: 1
     :caption: Computer science
 
     language/language
@@ -60,6 +66,12 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: English
+
+    english/grammar/grammar
+
+.. toctree::
+    :maxdepth: 1
     :caption: Etc.
 
     language/uml
@@ -67,4 +79,3 @@ Below lists are the contents I organized.
     h&a_test/h&a_test
     interview/interview
     history/kor_hist
-    d_works/d_works

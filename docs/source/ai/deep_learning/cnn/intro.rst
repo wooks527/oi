@@ -164,13 +164,37 @@ Filter의 크기는 여러 논문에서 다양한 형태로 나타나는데, 이
 Stride
 -------
 
+Stride는 Convolution 시 건너 뛸 픽셀 수를 의미한다. 아래의 이미지는 Stride가 1인 경우다.
 
+.. figure:: ../img/cnn/intro/stride.jpg
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `TAEWAN.KIM 블로그 <http://taewan.kim/post/cnn/>`_
+
+
+
+그렇다면 Stride 값이 커지면 어떻게 될까? Stride 값이 커지면 중복되는 부분이 줄어들고 Convolution이 시도되는 범위가 줄어, Local feature의 특성을 다 고려하지 못한 Global feature가 만들어질 수도 있다.
+
+그래서 통상적으로 Stride를 1로 두고 Subsampling 작업을 하지만, 입력 영상 크기가 큰 경우 연산량을 줄이기 위한 목적으로 입력 Layer 가까운 쪽에서 적용하기도 한다 (AlexNet).
 
 -------------
 Zero padding
 -------------
 
+Zero padding은 Convolution 후 Feature map의 크기가 입력 크기보다 작아지는 것을 막기 위해 사용하는 방법이다. 말 그대로 입력 이미지의 경계에 0을 추가해 Convolution 하더라도 크기가 유지되게 만드는 방법이다.
 
+.. figure:: ../img/cnn/intro/zero_padding.gif
+    :align: center
+    :scale: 80%
+
+.. rst-class:: centered
+
+    출처: `PyImageSearch <https://s3-us-west-2.amazonaws.com/static.pyimagesearch.com/keras-conv2d/keras_conv2d_padding.gif>`_
+
+위 그림에서 보는 것처럼 Zero padding을 추가하면, Convolution을 하더라도 기존 이미지와 크기가 동일한 Feature map이 만들어지는 것을 볼 수 있다. 그리고 Zero padding을 하는 이유는 Convolution 후 Feature map 크기를 입력 이미지 크기로 유지하는 것도 있지만, 경계면의 정보 획득할 수 있다는 점도 있다.
 
 
 Subsampling

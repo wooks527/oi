@@ -10,4 +10,5 @@ Convolutional Neural Network (CNN)은 이미지를 다룰 때 많이 쓰는 Neur
 
     intro
     lenet
+    alexnet
 

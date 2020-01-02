@@ -242,7 +242,7 @@ CNN architectures
 
 CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것이 좋다. 특히, 이미지넷 이미지 인식 대회인 ILSVRC (ImageNet Large Scale Visual Recognition Challenge)에서 수상했던 CNN architecture를 중심으로 언급하려고 한다.
 
-* LeNet
+* :doc:`lenet`
 
     * Yann LeCun이 1989년에 발표한 구조로 처음으로 CNN을 성공적으로 도입함
     * Zip code 인식 프로젝트를 통해 개발됨

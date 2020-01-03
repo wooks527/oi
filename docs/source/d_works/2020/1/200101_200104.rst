@@ -32,3 +32,17 @@ Thursday, January 2
 * 영단어 공부 (강성태 영단어 어문편)
 
     * Day 1 완료
+
+
+Friday, January 3
+==================
+
+* CNN 정리
+
+    * Locality, Shared weights 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/intro.html>`_)
+    * LeNet 수정 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/lenet.html>`_)
+
+* 백준 문제 풀기 (Hash)
+
+    * 4195, 친구 네트워크
+

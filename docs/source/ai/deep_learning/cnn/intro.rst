@@ -55,7 +55,7 @@ Daum 백과에 따르면 Receptive field의 의미는
 Convolution
 ============
 
-Convolution은 이미지에서 특정 Feature를 추출하기 위한 Filter를 구현할 때 사용된다.
+Convolution은 이미지에서 Filter로 특정 Feature를 추출할 때 필요한 연산이다.
 
 .. figure:: ../img/cnn/intro/convolution.png
     :align: center
@@ -65,7 +65,7 @@ Convolution은 이미지에서 특정 Feature를 추출하기 위한 Filter를 �
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220594258301>`_
 
-위 이미지에서 빨간색으로 표기된 Filter를 적용하여 이미지의 값과 Filter의 값을 곱하고 더하여 왼쪽 상단 부분에 대한 Feature를 추출한다. 이 작업을 한 칸씩 이동하면서 이미지의 마지막 부분에 도착할 때까지 반복하면 Filter에 해당하는 Feature를 추출해 낼 수 있게 된다 (즉, Filter를 이용하여 Image의 특징이 나타나는 위치를 찾아내는 것이 핵심!!).
+위 이미지에서 빨간색으로 표기된 Filter를 적용하여 이미지의 값과 Filter의 값을 곱하고 더하여 왼쪽 상단 부분에 대한 Feature를 추출한다. 이 작업을 한 칸씩 이동하면서 이미지의 마지막 부분에 도착할 때까지 반복하면, 주어진 이미지에서 Filter에 해당하는 Feature를 추출해 낼 수 있게 된다 (즉, Filter를 이용하여 Image의 특징이 나타나는 위치를 찾아내는 것이 핵심!!).
 
 어떤 Filter를 적용하느냐에 따라 다양한 특징을 가진 이미지를 추출할 수 있다.
 
@@ -83,11 +83,27 @@ CNN은 설명한 내용과 같이 Convolution을 사용하게 되면서 다음�
 
     * CNN은 Receptive field와 유사하게 Filter를 이용하여 Local 정보를 활용함
     * 다양한 Filter를 여러 개 사용 → 다양한 Local feature 추출
-    * Convolution과 Subsampling 과정을 반복 → 더 넓은 이미지의 특징 추출 → Global feature 획득
+
+    .. figure:: ../img/cnn/intro/cnn_locality.png
+        :align: center
+        :scale: 40%
+
+    .. rst-class:: centered
+
+        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_locality.png>`_
 
 * Shared weights
 
-    * :red:`동일한 가중치를 가지는 Filter를 이미지에 반복 적용 → 변수 수 감소 + Topology 변화에 무관한 항상성 획득 (이해X)`
+    * 이미지에서 Local 정보를 추출할 때 가중치가 동일한 Filter를 반복 적용함 → Parameter 수 감소
+    * 위 과정을 통해 Topology 변화에 무관한 항상성 획득 (:red:`부분적으로 이해됨`)
+
+    .. figure:: ../img/cnn/intro/cnn_shared_weights.png
+        :align: center
+        :scale: 40%
+
+    .. rst-class:: centered
+
+        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_invariance.png>`_
 
 지금까지 Convolution에 대해 알아봤다. 이를 기반으로 전체적인 CNN의 구조를 살펴보자.
 
@@ -234,7 +250,11 @@ Subsampling
 
     **Global feature를 Fully connected layer를 통해 학습하여 분류 실시**
 
-지금까지 CNN의 전체적인 구조를 살펴봤다. 그렇다면 이러한 CNN을 실제로 어떻게 구현했는지 지금부터 알아보려고 한다.
+
+Code
+=====
+
+지금까지 CNN의 전체적인 구조를 살펴봤다. 이해한 내용을 실제로 구현해보면 더 이해가 잘 될 것 같아 CNN의 각 개념을 구현했고, `여기 <#>`_ 에서 확인할 수 있다.
 
 
 CNN architectures

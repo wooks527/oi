@@ -219,10 +219,5 @@ Code
 Reference
 ==========
 
-* 라온피플, Machine learning academy, Part IV. CNN
-
-    * `3. CNN의 구조 <https://laonple.blog.me/220608018546>`_
-    * `4. Convolutional layer [1] <https://laonple.blog.me/220623406512>`_
-    * `4. Convolutional layer [2] <https://laonple.blog.me/220624485850>`_
-
+* 라온피플 - `CNN의 구조 <https://laonple.blog.me/220608018546>`_, `Convolutional layer [1] <https://laonple.blog.me/220623406512>`_, `Convolutional layer [2] <https://laonple.blog.me/220624485850>`_
 * `engMRK, LeNet-5 – A Classic CNN Architecture <https://engmrk.com/lenet-5-a-classic-cnn-architecture/>`_

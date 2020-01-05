@@ -296,12 +296,4 @@ ILSVRC
 Reference
 ==========
 
-* 라온피플, Machine learning academy, Part IV. CNN
-
-    * `1. CNN 개요 <https://laonple.blog.me/220594258301>`_
-    * `2. Why CNN? <https://laonple.blog.me/220594258301>`_
-    * `3. CNN의 구조 <https://laonple.blog.me/220608018546>`_
-
-* 라온피플, Machine learning academy, Part V. Best CNN Architecture
-
-    * `1. Overview <https://laonple.blog.me/220643128255>`_
+* 라온피플 - `CNN 개요 <https://laonple.blog.me/220594258301>`_, `Why CNN? <https://laonple.blog.me/220594258301>`_, `CNN의 구조 <https://laonple.blog.me/220608018546>`_, `Overview <https://laonple.blog.me/220643128255>`_

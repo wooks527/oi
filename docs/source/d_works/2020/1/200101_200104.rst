@@ -46,3 +46,12 @@ Friday, January 3
 
     * 4195, 친구 네트워크
 
+
+Saturday, January 4
+====================
+
+* CNN 정리
+
+    * AlexNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/lenet.html>`_)
+
+* 영어회화 스터디

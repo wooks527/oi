@@ -1,0 +1,16 @@
+==========
+1월 첫째 주
+==========
+
+Sunday, January 5
+==================
+
+* CNN 정리
+
+    * AlexNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/lenet.html>`_)
+
+* CNN 이해 경과 및 질의사항 전달
+
+* 영단어 공부 (강성태 영단어 어문편)
+
+    * Day 2 일부

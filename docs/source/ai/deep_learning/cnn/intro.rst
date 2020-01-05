@@ -152,7 +152,7 @@ CNN은 Feature extraction이 내부적으로 진행되기 때문에 특별한 �
 Filter
 *******
 
-이전 Introduction에서 이미지에서 특징을 추출하기 위해 여러 가지 값이 `정해진 Filter <#convolution>`_ 를 사용했었다. 마찬가지로 CNN에서도 Filter를 사용하는데, 이전처럼 고정된 Filter가 아니라 학습을 통해 만들어지는 Filter를 사용한다는 점에서 다르다.
+이전 Introduction에서 이미지에서 특징을 추출하기 위해 여러 가지 값이 `정해진 Filter <#convolution>`_ 를 사용했었다. 마찬가지로 CNN에서도 Filter를 사용하는데, 이전처럼 고정된 Filter가 아니라 학습을 통해 만들어지는 Filter를 사용한다는 점에서 다르다. 그래서 CNN을 적용하고자 하는 문제에 따라 Filter 값이 달라질 수 있다.
 
 또한, 위에서 확인해 본 것처럼 하나의 이미지에도 다양한 Filter를 사용하면 다양한 특징들이 추출된다. 그렇다면 CNN에서는 몇 개의 Filter를 사용하는게 적절할까? 그리고 각 Filter의 크기는 어떤 것이 적절할까?
 
@@ -268,7 +268,8 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
     * Zip code 인식 프로젝트를 통해 개발됨
     * CNN 역사의 고전
 
-* AlexNet
+* :doc:`alexnet`
+
 * ZF Net
 * GoogLeNet
 * VGGNet

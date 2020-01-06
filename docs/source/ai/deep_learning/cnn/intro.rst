@@ -260,7 +260,9 @@ Code
 CNN architectures
 ==================
 
-CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것이 좋다. 특히, 이미지넷 이미지 인식 대회인 ILSVRC (ImageNet Large Scale Visual Recognition Challenge)에서 수상했던 CNN architecture를 중심으로 언급하려고 한다.
+CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것이 좋다. 특히, 이미지넷 이미지 인식 대회인 ILSVRC (ImageNet Large Scale Visual Recognition Challenge)에서 수상했던 CNN architecture를 중심으로 언급하려고 한다. 추가로 CNN 이전의 대표적인 Feature extraction 방법인 SIFT (Scale Invariant Feature Transform)도 정리했다.
+
+* :doc:`sift`
 
 * :doc:`lenet`
 
@@ -270,7 +272,8 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
 
 * :doc:`alexnet`
 
-* ZF Net
+* :doc:`zfnet`
+
 * GoogLeNet
 * VGGNet
 * ResNet

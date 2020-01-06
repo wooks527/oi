@@ -2,7 +2,7 @@
 AlexNet
 ========
 
-AlexNet은 Krizhevsky의 논문 "ImageNet classification with deep convolution neural network"에서 제안한 모델이다. 여기서 ImageNet ILVRC-2010 120만 개의 이미지를 1000개의 Class로 분류하는데 CNN을 사용했고 압도적인 성과를 얻었다. 아래 그림에서 SuperVision이 AlexNet이다.
+AlexNet은 Krizhevsky의 논문 "ImageNet classification with deep convolution neural network"에서 제안한 모델이다. AlexNet은 ImageNet ILVRC-2010의 120만 개 이미지를 1000개의 Class로 분류하는데 CNN을 사용했고 압도적인 성과를 얻었다. 아래 좌측 그림에서 SuperVision이 AlexNet이다.
 
 .. figure:: ../img/cnn/alexnet/ilsvrc-2012.png
     :align: center
@@ -10,9 +10,11 @@ AlexNet은 Krizhevsky의 논문 "ImageNet classification with deep convolution n
 
 .. rst-class:: centered
 
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220654387455>`_
+    출처: 라온피플 (Laon People) - `좌측 <https://laonple.blog.me/220654387455>`_, `우측 <https://laonple.blog.me/220667260878>`_
 
-AlexNet은 LeNet-5와 크게 다르지 않지만 성능 개선을 위한 다양한 고려가 있었고, GPU 사용과 소스 코드 공개로 다른 연구자들에게 많은 영향을 끼쳤다. 이 후 많은 연구자들이 GPU를 사용하기 시작했다 (예: 알파고 → CPU 1,920개 / GPU 280개). 지금부터 하나씩 살펴보자.
+AlexNet은 LeNet-5와 크게 다르지 않지만 성능 개선을 위한 다양한 고려가 있었고 (Stride, 연속적인 Convolution), GPU 사용과 소스 코드 공개로 다른 연구자들에게 많은 영향을 끼쳤다. 이 후 많은 연구자들이 GPU를 사용하기 시작했다 (예: 알파고 → CPU 1,920개 / GPU 280개). 실제로 위의 우측 그래프처럼 GPU를 사용한 ILSVRC 참가자들이 증가하게 된다.
+
+지금부터 이렇게 다른 연구자들에게 많은 영향을 끼친 AlexNet을 지금부터 하나씩 살펴보자.
 
 
 Architecture
@@ -165,19 +167,27 @@ AlexNet에서는 데이터 양을 늘리기 위해 Data augmentation을 사용�
 방법 2
 ------
 
-(작성 예정)
+또 다른 방법은 이미지 RGB 채널의 값을 변경시키는 방법이다. 그 방법은 **원래 픽셀 값** + **이미지의 RGB 픽셀에 대한 주성분 분석 (PCA)한 값** X **랜덤 변수 (평균: 0, 표준편차: 0.1)** 이고, 아래 내용이 실제 수식이다.
 
----------
-Drop out
----------
+.. rst-class:: centered
+    
+    :math:`I_{xy} = [I_{xy}^R, I_{xy}^G, I_{xy}^B]^T + [p_1, p_2, p_3][\alpha_1 \lambda_1, \alpha_2 \lambda_2, \alpha_3 \lambda_3]^T,\ where\ \alpha_i \sim N(0, 0.1)`
 
-(작성 예정)
+이러한 2가지 방법을 이용해서 AlexNet에서는 Data augmentation을 진행했고, 실제로 Top-1 에러율을 1% 이상 줄였다고 한다.
+
+--------
+Dropout
+--------
+
+Dropout은 Voting 효과로 인한 Overfitting 문제를 개선할 수 있고, Co-adaptation을 피해 특정 Neuron의 영향력을 낮춤으로써 학습이 안되거나 학습 속도가 느려지는 문제를 개선할 수 있다. AlexNet에서는 처음 2개의 Fully connected layer에 Dropout (Rate = 50%)을 적용했다. 조금 더 자세한 내용은 2012년에 Hinton이 발표한 "Improving neural networks by preventing co-adaption of feature detectors"를 살펴보면 좋을 것 같다.
 
 
 GPU 사용
 ********
 
-AlexNet의 구조는 위/아래로 구분되어 있는데 이는 GPU를 적용하기 위함이다. 아래 그림은 첫 번째 Convolution layer에 대한 그림이다. GPU-1에서는 주로 컬러와 상관없는 정보를 추출하는 Filter를 학습시키고, GPU-2에서는 주로 Color와 관련된 Filter를 학습시킨다.
+AlexNet의 구조는 위/아래로 구분되어 있는데 이는 2개의 GPU를 사용하기 위함이다. 그렇다면 GPU를 왜 사용한 것일까? 그 이유는 :doc:`"GPU를 사용한 이유" <reason_of_gpu_usage>` 에서 확인할 수 있다.
+
+GPU로 GTX580 (메모리 3GB)를 사용했기 때문에 모델 구조에 제약이 있었다. 지금은 더 많은 GPU를 사용하고 있고, AlexNet처럼 모델의 구조를 사용하지 않는다. 아래 그림은 첫 번째 Convolution layer에 대한 그림이다.
 
 .. figure:: ../img/cnn/alexnet/alexnet_gpu.png
     :align: center
@@ -187,8 +197,23 @@ AlexNet의 구조는 위/아래로 구분되어 있는데 이는 GPU를 적용�
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220654387455>`_
 
+첫 번째 Convolution layer에서 GPU-1은 주로 컬러와 상관없는 48개의 Filter를 학습시키고, GPU-2에서는 주로 Color와 관련된 48개의 Filter를 학습시킨다. AlexNet 연구자들은 GPU 2개를 사용하여 Top-1과 Top-5 에러율을 각각 1.7%, 1.2% 줄일 수 있었다고 한다.
 
-그리고 이 논문에서 Stride라는 개념을 적용했고, LeNet-5와 다르게 Subsampling 없이 Convolution을 하기도 한다. 또한, Convolution도 기존과 다르게 5단계로 이루어져 있다.
+
+결과
+====
+
+지금까지 AlexNet의 특징들에 대해 살펴봤는데, 실제로 이미지 분류를 잘 할 수 있는지 한 번 확인해보자. 다음은 실제 이미지를 분류한 결과이고, Mite (진드기)가 한 쪽에 치우처져 있는 것도 잘 구별하는 것을 알 수 있다. 추정이 틀린 경우에도 보기에 따라 추정이 가능한 답변을 반환했다고 볼 수 있다.
+
+.. figure:: ../img/cnn/alexnet/alexnet_results.png
+    :align: center
+    :scale: 60%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220667260878>`_
+
+이런 결과가 SIFT (Scale Invariant Feature Transform)과 같은 Feature extractor를 사용하지 않고 나왔다는 것이 의미있는 부분이다. 실제로 당시 SIFT를 사용한 참가자의 모델은 성능이 더 낮게 나왔다. 결론적으로 데이터 양이 충분하고 좋은 CNN 구조를 가지면 좋은 결과를 낼 수 있다는 가능성을 보인 점에서 AlexNet의 의미는 크다고 할 수 있다.
 
 
 해야 할 일

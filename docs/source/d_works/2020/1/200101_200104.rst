@@ -52,6 +52,6 @@ Saturday, January 4
 
 * CNN 정리
 
-    * AlexNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/lenet.html>`_)
+    * AlexNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/alexnet.html>`_)
 
 * 영어회화 스터디

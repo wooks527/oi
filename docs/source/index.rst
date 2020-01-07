@@ -48,6 +48,7 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: Mathematics
 
+    math_highschool/math_highschool
     math/math
     statistics/statistics
 

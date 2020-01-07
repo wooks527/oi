@@ -192,9 +192,70 @@ Feature visualization으로 알게된 추가사항
 =====================================
 
 * Layer 별로 Feature를 습득하는 시간이 다름
+
+    * 앞쪽 Layer들은 몇 번의 Epoch만에 Feature들이 수렴함
+    * 뒷쪽 Layer들은 40 ~ 50 Epoch 이상에서 Feature들이 수렴함 (ZFNet: 70 epochs)
+
+.. figure:: ../img/cnn/zfnet/feature_train_time.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_
+
 * 이미지 크기, 위치, 회전 변화에 따른 Invariance 확보
 
-(상세 내용은 작성 예정)
+    * 앞쪽 Layer에서는 작은 변화에도 눈에 띌 변화 존재
+    * 뒷쪽으로 갈수록 Invariance를 얻을 수 있었음
+    * 위치 이동과 크기 변화에 대해서는 Linear한 특성을 지님
+    * 위 변화에 따라 각 Layer에서 Euclidean distance를 그래프 그려보면 뒷쪽으로 갈수록 Invariance한 성질 존재
+
+.. figure:: ../img/cnn/zfnet/image_changes.png
+    :align: center
+    :scale: 60%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_ 
+
+.. figure:: ../img/cnn/zfnet/invariance.png
+    :align: center
+    :scale: 60%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_  
+
+* Object 위치 파악
+
+    * 그림 (a)
+    
+        * 이미지에서 특정 부분을 제거함
+
+    * 그림 (b), (c)
+        
+        * Layer 5 에서 가장 강한 Activity에 대한 Feature map
+        * 그림 (b): 가리는 부분에 따른 Activation 차이 확인 (개 얼굴 가리면 Activation **↓**)
+        * 그림 (c): 검정 사각형 부분이 가장 강한 Activation 결과
+
+    * 그림 (d), (e)
+    
+        * Classifier 출력
+        * 그림 (d): 특정 위치를 가렸을 때 검출 성능 파악 (이미지 가운데 가리면 검출 능력 **↓**)
+        * 그림 (e): ZFNet 분류 변동 사항 파악 (대부분 잘 분류함)
+
+    * 결론
+
+        * CNN은 분류/인식을 원하는 개체의 위치에 따라 반응이 달라짐
+
+.. figure:: ../img/cnn/zfnet/object_detection.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_  
 
 
 결론

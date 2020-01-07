@@ -27,3 +27,21 @@ Monday, January 6
 * 영단어 공부 (강성태 영단어 어문편)
 
     * Day 2 완료
+
+
+Tuesday, January 7
+===================
+
+* CNN 정리
+
+    * ZFNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/zfnet.html>`_)
+    * GoogLeNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/googlent.html>`_)
+
+* 영어
+
+    * 단어: Day 3 - fer (`Link <https://oi.readthedocs.io/en/latest/english/words/words.html>`_)
+    * 말하기: "귀찮게 하지 마" (`Link <https://oi.readthedocs.io/en/latest/english/speaking/cake.html>`_)
+
+* 수학
+
+    * 확률과 통계, 경우의 수 (`Link <https://oi.readthedocs.io/en/latest/math_highschool/prob_and_stats/num_of_cases/num_of_cases.html>`_)

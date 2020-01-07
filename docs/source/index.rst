@@ -34,6 +34,8 @@ Below lists are the contents I organized.
 
     bioinfo/bioinfo
 
+    ai/references
+
 .. toctree::
     :maxdepth: 1
     :caption: Research
@@ -68,7 +70,9 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: English
 
+    english/words/words
     english/grammar/grammar
+    english/speaking/speaking
 
 .. toctree::
     :maxdepth: 1

@@ -1,3 +1,5 @@
+.. role:: h2
+
 .. role:: black
 .. role:: gray
 .. role:: grey
@@ -36,5 +38,6 @@
 .. role:: left
 .. role:: right
 
+.. |br| raw:: html
 
-.. (c) Lilian Besson, 2011-2016, https://bitbucket.org/lbesson/web-sphinx/
+    <br>

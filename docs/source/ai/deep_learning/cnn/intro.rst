@@ -274,7 +274,8 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
 
 * :doc:`zfnet`
 
-* GoogLeNet
+* :doc:`googlenet`
+
 * VGGNet
 * ResNet
 

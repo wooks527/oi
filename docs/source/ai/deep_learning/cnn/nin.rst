@@ -14,19 +14,55 @@ CNN의 Convolution layer가 Local receptive field에서 Feature를 추출할 때
 
 .. rst-class:: centered
 
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220686328027>`_
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220692793375>`_
 
-기존 CNN에서는 Filter를 이용하여 Stride만큼 이동하면서 Convolution으로 Feature를 추출했다. NIN에서도 유사하게 진행되는데 Filter 대신에 MLP를 쓰는 부분만 다르다고 할 수 있다. :red:`조금 더 구체적인 내용은 검색 후 추가 정리할 예정이다.`
+기존 CNN에서는 Filter를 이용하여 Stride만큼 이동하면서 Convolution으로 Feature를 추출했다. NIN에서도 유사하게 진행되는데 Filter 대신에 MLP를 쓰는 부분만 다르다고 할 수 있고, 이를 Mlpconv layer라고 부른다. :red:`조금 더 구체적인 내용은 검색 후 추가 정리할 예정이다.`
 
 MLP를 이용했을 때 장점은 Filter를 사용할 때보다 Non-linear한 성질을 잘 활용할 수 있어 더 좋은 Feature를 추출할 수 있다는 점이다. 또한, 1x1 Convolution을 통해 Feature map을 줄일 수 있게 했다 (아래에서 설명).
 
-(추가 작성 예정)
+NIN에서는 이러한 Mlpconv layer를 여러 개 쌓아서 사용했고, 그래서 네트워크 안에 네트워크가 있다는 개념으로 NIN이라는 이름이 만들어졌다 (GoogLeNet도 Inception 모듈 9개 → NIN과 흐름이 유사). 아래 그림이 Mlpconv layer 3개를 사용한 NIN 구조이다.
+
+.. figure:: ../img/cnn/nin/nin.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220692793375>`_
+
+NIN과 기존 CNN의 또 다른 점은 Fully connected layer가 없다는 점이다. NIN에서는 Fully connected layer 대신에 Global average pooling을 사용했다. Lin은 앞에서 충분히 효과적인 Feature를 추출했고, Average pooling만으로 Classifier 역할을 할 수 있다고 주장했다. 또한 이를 통해 Overfitting과 연산량을 줄이는 효과가 있다.
+
+실제로 Fully connected layer의 Parameter 수는 전체의 90%에 가깝기 때문에 Overfitting 문제가 발생하기 쉽다. 그래서 보통 Dropout을 사용하는데, NIN에서는 Average pooling 결과로 Classification을 할 수 있기 때문에 이러한 문제를 해결할 수 있게 된다 (GoogLeNet도 Global average pooling).
 
 
 1x1 Convolution
 ================
 
-(작성 예정)
+지금부터는 위에서 잠깐 언급했던 1x1 Convolution에 대해 설명하려고 한다. 1x1 Convolution을 사용하는 가장 큰 이유는 차원을 줄이는 것이다. GoogLeNet 논문에 나오는 것처럼 Hebbian principle (Neurons that fire together, wire together)에 의해 차원을 줄일 수 있다.
+
+1x1 Convolution을 사용하면 여러 개의 Feature map에서 비슷한 성질을 추출하여 Feature map 크기를 줄일 수 있다. Feature map 크기가 줄어들면 연산량이 줄어 Network를 더 깊게 만들 수 있다. 아래 그림으로 1x1 Convolution이 어떻게 동작하는지 알 수 있다.
+
+.. figure:: ../img/cnn/nin/1x1_conv.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220692793375>`_
+
+위 그림처럼 "c2 > c3"의 관계를 만들면 함축적인 의미를 가지는 더 작은 Feature map을 얻을 수 있고, 이는 차원의 감소로 이어진다.
+
+1x1 Convolution을 조금 더 직관적으로 이해해보자. 1x1 Convolution은 1-layer fully connected neural network라고도 하는데 그 이유는 같은 원리로 동작하기 때문이다. 아래에 예를 통해 살펴보자.
+
+.. figure:: ../img/cnn/nin/1x1_conv_detail.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220692793375>`_
+
+위 그림은 A1, A2, A3, A4 Feature map을 B1, B2 Feature map으로 1x1 Convolution한 예시이다. 이는 마치 4개의 Neuron을 2개의 Neuron으로 Fully connected한 경우와 유사한 형태를 띈다. NIN에서는 이러한 과정을 통해 차원을 감소시키고 연산량을 줄일 수 있었다. 여기에 활성함수 (예: ReLU)를 추가하면 Non-linear한 성질도 추가로 얻을 수 있다.
 
 
 Reference

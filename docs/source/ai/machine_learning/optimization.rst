@@ -165,6 +165,20 @@ Adam (Adaptive Moment Estimation)은 RMSProp과 Momentum 방식을 합친 것 �
     :math:`v_t = \beta_2 v_{t-1} + (1-\beta_2)(\nabla_\theta J(\theta))^2`
 
 
+Gradient vanishing
+===================
+
+Gradient vanishing은 Deep Neural Network의 Layer가 깊어질수록 학습 속도가 느려지거나 Overfitting 되는 현상이다.
+
+일반적으로 Neural network에서 학습은 Back propagation을 통해 Parameter 값을 갱신하면서 진행된다. 하지만 Gradient 값이 0 근처로 가면 학습 속도가 매우 느려지거나 Parameter 값 변화가 거의 없어 학습 결과가 나빠질 수 있다.
+
+예를 들어 활성함수로 Sigmoid 함수를 사용하는 경우 그 특성상 일부 구간 외에서는 Gradient 값이 거의 0에 수렴하여 Error 크기와 상관없이 학습 속도가 느려질 수 있다. Cross entropy를 사용하면 개선할 수 있지만 본질적인 해결은 아니다.
+
+그래서 최근에는 활성함수로 ReLU를 사용하여 이를 개선하고자 했지만, 결국 여러 Layer를 거치면 작은 값을 계속 곱하게 되고 0 근처로 수렴되어 Gradient vanishing 문제가 생길 수 있다.
+
+이를 해결하는 방법은 추후에 작성할 예정이다.
+
+
 Reference
 ==========
 

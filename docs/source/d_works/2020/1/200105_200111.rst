@@ -45,3 +45,15 @@ Tuesday, January 7
 * 수학
 
     * 확률과 통계, 경우의 수 (`Link <https://oi.readthedocs.io/en/latest/math_highschool/prob_and_stats/num_of_cases/num_of_cases.html>`_)
+
+
+Wednesday, January 8
+=====================
+
+* CNN 정리
+
+    * NIN 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/nin.html>`_)
+
+* 영어
+
+    * 단어: Day 1 - cap (1) (`Link <https://oi.readthedocs.io/en/latest/english/words/words.html>`_)

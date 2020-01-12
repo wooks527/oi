@@ -1,0 +1,15 @@
+==========
+1월 셋째 주
+==========
+
+Sunday, January 12
+===================
+
+* CNN 정리
+
+    * GoogLeNet 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/googlent.html>`_)
+
+* 프로그래밍
+
+    * 백준 문제 풀기 (`블랙잭 <https://github.com/hwkim89/programming/blob/master/baekjoon/brute_force/2798_black_jack.ipynb>`_, `분해합 <https://github.com/hwkim89/programming/blob/master/baekjoon/brute_force/2231_sum_of_decomposition.ipynb>`_)
+    * 코딩 스터디

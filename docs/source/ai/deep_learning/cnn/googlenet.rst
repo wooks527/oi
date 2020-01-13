@@ -136,7 +136,7 @@ softmax        -                    14x14x480    0      -     -            -    
 * #3x3 reduce
 
     * 3x3 Convolution 앞에 있는 1x1 Convolution을 의미하고 이를 통해 Feature map의 차원을 축소시킴
-    * 예) inception (3a)의 96은 이전 Max pool layer의 192개를 1x1x192 Filter 96개를 이용해서 만든 Feature map 수를 의미
+    * 예) inception (3a)의 96은 이전 Max pool layer의 Feature map 192개를 1x1x192 Filter 96개로 Convolution해서 만든 Feature map 수를 의미
 
 * #3x3
 
@@ -146,12 +146,12 @@ softmax        -                    14x14x480    0      -     -            -    
 * #5x5 reduce
 
     * 5x5 Convolution 앞에 있는 1x1 Convolution을 의미하고 이를 통해 Feature map의 차원을 축소시킴 (#3x3 reduce와 같은 원리)
-    * 예) inception (3a)의 16은 이전 Max pool layer의 192개를 1x1x192 Filter 16개를 이용해서 만든 Feature map 수를 의미
+    * 예) inception (3a)의 16은 이전 Max pool layer의 Feature map 192개를 1x1x192 Filter 16개로 Convolution해서 만든 Feature map 수를 의미
 
 * #5x5
 
     * 위의 1x1 Convolution을 통해 줄어든 Feature map에 5x5 Convolution을 적용함 (#3x3과 동일한 원리)
-    * 예) Feature map 96개에 3x3 Convolution을 적용해 128개의 Feature map을 생성함
+    * 예) Feature map 96개에 5x5 Convolution을 적용해 128개의 Feature map을 생성함
 
 * Pool / Proj
 
@@ -174,13 +174,13 @@ softmax        -                    14x14x480    0      -     -            -    
     * 마찬가지로 입출력 Feature map 수에 비례
     * :red:`예) inception (3a)에서는 128M의 연산 수행 (?)`
 
-inception (3a)를 통해 전체 흐름을 정리해보자.
+inception (3a)를 통해 Inception 전체 흐름을 정리해보자.
 
 이전 Max pooling의 결과로 28x28 Feature map의 192개가 만들어졌다. 이를 1x1 Convolution으로 64개, 1x1 and 3x3 Convolution으로 128개, 1x1 and 5x5 Convolution으로 32개, Max pooling and 1x1 Convolution으로 32개의 Feature map을 만들 수 있다. 그리고 그 결과를 Concatenate 해 총 256개의 Feature map을 만든다고 이해하면 된다.
 
 Inception 모듈에서 사용되는 1x1 Convolution은 실제로 연산량을 크게 줄여준다. inception (3a)의 1x1 and 3x3 Convolution 부분에서 보면, 1x1 Convolution으로 Feature map이 192개에서 96개로 줄어 약 50% 정도의 연산량 감소를 가져온다. 1x1 and 5x5 Convolution의 경우, 192개에서 16개로 줄어 약 91.7%의 연산량을 줄일 수 있다.
 
-추가로 3x3보다 5x5 Convolution의 결과로 얻는 Feature map 수가 작은 이유는 기본적으로 3x3이 크기가 작아 얻을 수 있는 정보가 더 많기 때문이다. 또한, 3x3보다 5x5에서 필요로 하는 연산량이 훨씬 많기 때문에 3x3 Convolution 결과의 Feature map 수가 더 작다.
+:red:`추가로 3x3보다 5x5 Convolution의 결과로 얻는 Feature map 수가 작은 이유는 기본적으로 3x3이 크기가 작아 얻을 수 있는 정보가 더 많기 때문이다. 또한, 3x3보다 5x5에서 필요로 하는 연산량이 훨씬 많기 때문에 3x3 Convolution 결과의 Feature map 수가 더 작다 (이해 X).`
 
 
 Auxiliary classifier
@@ -233,7 +233,7 @@ GoogLeNet에서 AuxClf의 정확한 위치를 언급하지는 않았지만, 10 ~
 Advanced GoogLeNet
 ===================
 
-2014년 ILSVRC에서는 GoogLeNet이 ZFNet보다 성능이 2배 이상 좋았지만, 1년 후 2015년에 Microsoft가 GoogLeNet 성능보다 2배 좋은 ResNet으로 우승한다. 그 이후 기존 GoogLeNet을 개선한 Inception-V2, Inception-V3이 나왔고, 이 모델들은 3x3 Convolution만 사용하는 VGGNet에서 많은 힌트를 얻은 것으로 보인다. 자세한 내용은 :doc:`여기 <inception-v2,v3>` 에서 확인할 수 있다.
+2014년 ILSVRC에서는 GoogLeNet이 ZFNet보다 성능이 2배 이상 좋았지만, 1년 후 2015년에 Microsoft가 GoogLeNet 성능보다 2배 좋은 ResNet으로 우승한다. 그 이후 기존 GoogLeNet을 개선한 Inception-V2, Inception-V3이 나왔고, 이 모델들은 3x3 Convolution만 사용하는 VGGNet에서 많은 힌트를 얻은 것으로 보인다. 자세한 내용은 :doc:`여기 (Inception-V2 and V3) <inception-v2,v3>` 에서 확인할 수 있다.
 
 
 Reference

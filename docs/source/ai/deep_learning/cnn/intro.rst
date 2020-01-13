@@ -128,7 +128,7 @@ CNN은 Feature extraction이 내부적으로 진행되기 때문에 특별한 �
 2. Shift and distortion invariance
 
     * Topology에 영향 (Shift and distortion) 받지 않게 하는 단계
-    * Subsampling과 Feature extraction 과정의 반복으로 이동/변형에 무관한 Global한 특징을 추출할 수 있음
+    * Feature extraction 과정의 반복으로 이동/변형에 무관한 Global한 특징을 추출할 수 있음
 
 3. Classification
 
@@ -216,7 +216,7 @@ Zero padding은 Convolution 후 Feature map의 크기가 입력 크기보다 작
 Subsampling
 ************
 
-일반적인 Subsampling은 고정된 위치의 픽셀을 고르거나 Filter 내 픽셀의 평균을 계산하는 방식으로 진행된다. CNN에서도 유사한데, 크게 2가지 방법이 있다.
+일반적인 Subsampling은 고정된 위치의 픽셀을 고르거나 Window 내 픽셀의 평균을 계산하는 방식으로 진행된다. CNN에서도 유사한데, 크게 2가지 방법이 있다.
 
 .. figure:: ../img/cnn/intro/pooling.png
     :align: center

@@ -44,7 +44,7 @@ AlexNet의 구조를 이해하기 위해서는 우선 블록에 대한 이해가
 
 위와 같은 방법으로 AlexNet은 224x224x3 크기 이미지에 대해 5단계의 Convolution 또는 Subsampling을 적용시켰다.
 
-    224x224x3 이미지 → **1단계 [11x11x3 Filter, Stride 4]** → 55x55 Feature map 96개 → **2단계 [Normalization and 5x5x48 max-pooling]** → 27x27 Feature map 256개 → **3단계 [3x3x128 Filter]** → 13x13 Feature map 384개 → **4단계 [3x3x192 Filter]** → 13x13 Feature map 384개 → **5단계 [3x3x192 Filter]** → 13x13 Feature map 256개
+    224x224x3 이미지 → **1단계 [11x11x3 Filter, Stride 4]** → 55x55 Feature map 96개 → **2단계 [Normalization and 5x5x48 Max pooling]** → 27x27 Feature map 256개 → **3단계 [3x3x128 Max pooling]** → 13x13 Feature map 384개 → **4단계 [3x3x192 Filter]** → 13x13 Feature map 384개 → **5단계 [3x3x192 Filter]** → 13x13 Feature map 256개
 
 
 5단계 이후의 과정은 LeNet과 유사하다. 지금부터 이 내용을 각 Layer에 따라 조금 더 자세히 설명하려고 한다.
@@ -179,7 +179,7 @@ AlexNet에서는 데이터 양을 늘리기 위해 Data augmentation을 사용�
 Dropout
 --------
 
-Dropout은 Voting 효과로 인한 Overfitting 문제를 개선할 수 있고, Co-adaptation을 피해 특정 Neuron의 영향력을 낮춤으로써 학습이 안되거나 학습 속도가 느려지는 문제를 개선할 수 있다. AlexNet에서는 처음 2개의 Fully connected layer에 Dropout (Rate = 50%)을 적용했다. 조금 더 자세한 내용은 2012년에 Hinton이 발표한 "Improving neural networks by preventing co-adaption of feature detectors"를 살펴보면 좋을 것 같다.
+Dropout은 Voting 효과로 인한 Overfitting 문제를 개선할 수 있고, Co-adaptation (동조화)을 피해 특정 Neuron의 영향력을 낮춤으로써 학습이 안되거나 학습 속도가 느려지는 문제를 개선할 수 있다. AlexNet에서는 처음 2개의 Fully connected layer에 Dropout (Rate = 50%)을 적용했다. 조금 더 자세한 내용은 2012년에 Hinton이 발표한 "Improving neural networks by preventing co-adaption of feature detectors"를 살펴보면 좋을 것 같다.
 
 
 GPU 사용

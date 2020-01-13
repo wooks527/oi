@@ -19,7 +19,7 @@ LeCun 연구팀은 기존 DNN의 문제점을 해결하기 위해 Local receptiv
 
 먼저, LeNet-1은 입력 이미지에서 Filter를 활용한 Convolution으로 Feature map을 만든다. 여기서 여러 다른 특징을 추출하기 위해 다양한 Filter를 사용하여 여러 개의 Feature map을 만들 수 있다. 그리고 각 Filter는 모든 이미지에 대해 동일하게 사용하여 Shared weights 개념도 반영되었다.
 
-다음으로 Subsampling으로 가장 큰 자극만 추출하여 Feature map을 만들어, Feature의 크기를 줄이면서 동시에 Topological invariance를 얻을 수 있다. 또한, 하나의 Feature map에서 Subsampling을 통해 하나의 Local feature를 얻고, 그 Local feature에서 다시 Convolution과 Subsampling으로 Feature를 얻는 과정을 통해 Global feature를 얻을 수 있다. 결국, 전체를 대표할 수 있는 강한 특징들만 남게 된다.
+다음으로 Subsampling으로 Feature map에서 특정 Window 크기의 값들의 평균들만 추출하여 Feature map을 만들 수 있다. 그 결과, Feature의 크기를 줄이면서 동시에 Topological invariance를 얻을 수 있다. 또한, 하나의 Feature map에서 Subsampling을 통해 하나의 Local feature를 얻고, 그 Local feature에서 다시 Convolution과 Subsampling으로 Feature를 얻는 과정을 통해 Global feature를 얻을 수 있다. 결국, 전체를 대표할 수 있는 강한 특징들만 남게 된다.
 
 마지막으로 전체를 대표할 수 잇는 Global feature를 10개의 Class로 Convolution하여 Classification이 가능하게 만든다. 정리하면, LeNet-1은 크게 Convolutional layer, Subsampling layer로 구성되어 있다고 할 수 있다.
 
@@ -52,7 +52,7 @@ LeNet-5는 Convolution layer 3개, Subsampling layer 2개, Fully connected layer
 
 **C1, S2 (Convolution and subsampling)**
 
-LeNet-5는 입력으로 32x32 크기 이미지를 받고, 5x5 Filter로 Convolution하여 28x28 Feature map 6개를 생성한다 (Zero padding X). 그리고 이를 2x2 Subsampling (Average pooling 사용)으로 14x14 Feature map 6개를 만든다.
+LeNet-5는 입력으로 32x32 크기 이미지를 받고, 5x5 Filter로 Convolution하여 28x28 Feature map 6개를 생성한다. 그리고 이를 2x2 Subsampling (Average pooling 사용)으로 14x14 Feature map 6개를 만든다.
 
 **C3, S4 (Convolution and subsampling)**
 

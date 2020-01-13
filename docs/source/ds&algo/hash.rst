@@ -9,10 +9,6 @@ Python은 dict 클래스로 구성된 Dictionary로 해시 자료구조를 제�
     * 리스트는 숫자 인덱스로 원소에 접근한다 (예: my_list[1])
     * 숫자 인덱스가 아닌 다른 값 (문자열, 튜플 등)인 경우 dict 활용 (예: my_list['abc'])
 
-    .. figure:: img/hash/hash_ex.png
-        :align: center
-        :scale: 40%
-
 * 빠른 접근/탐색이 필요
 
     * 대부분 딕셔너리는 함수의 시간 복잡도: O(1)
@@ -28,6 +24,15 @@ Python은 dict 클래스로 구성된 Dictionary로 해시 자료구조를 제�
     Delete Item O(1)       O(1) ~ O(N)
     Search Item O(1)       O(N)
     =========== ========== =====
+
+* Dictionary의 탐색이 상수 시간 걸리는 이유
+
+    .. figure:: img/hash/hash_ex.png
+        :align: center
+        :scale: 40%
+
+    * Key 값을 Hash function을 이용하여 산술 계산으로 값이 있는 위치를 바로 알 수 있음
+    * 만약 Hash function의 결과가 같은 경우 Collision이 생
 
 * 집계
 
@@ -270,3 +275,4 @@ dict를 이용하는 경우, 기존에 존재하지 않는 key를 사용할 때�
 
 * `[온라인 스터디][4기] 프로그래머스가 직접 이끌어주는 코딩테스트 대비반(Python반) <https://programmers.co.kr/learn/courses/10090>`_
 * `Wikipedia <https://wiki.python.org/moin/TimeComplexity>`_
+* `YouTube, [자료구조 알고리즘] 해쉬테이블(Hash Table)에 대해 알아보고 구현하기 <https://www.youtube.com/watch?v=Vi0hauJemxA>`_

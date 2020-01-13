@@ -34,8 +34,6 @@ Below lists are the contents I organized.
 
     bioinfo/bioinfo
 
-    ai/references
-
 .. toctree::
     :maxdepth: 1
     :caption: Research
@@ -43,6 +41,7 @@ Below lists are the contents I organized.
     deepcombdti/deepcombdti
     nlp/paper/paper
     trend/trend
+    ai/references
 
 .. toctree::
     :maxdepth: 1

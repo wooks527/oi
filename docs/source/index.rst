@@ -30,6 +30,7 @@ Below lists are the contents I organized.
     dalgorithm/search/search
 
     ai/ai
+    computer_vision/computer_vision
     nlp/nlp
 
     bioinfo/bioinfo

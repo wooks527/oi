@@ -17,7 +17,6 @@ This is a table of contents in AI:
 
     machine_learning/ml
     deep_learning/dl
-    deep_learning/cnn/cnn
     tensorflow/tf
     pytorch/pytorch
 

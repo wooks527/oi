@@ -13,5 +13,6 @@ Convolutional Neural Network (CNN)은 이미지를 다룰 때 많이 쓰는 Neur
     alexnet
     zfnet
     googlenet
+    inception-v2
 
 추가로 개인적으로 각 내용을 반복할 때마다 그 횟수를 기록했다. 이 그래프를 채움으로써 학습에 대한 동기를 끌어올리려고 한다 (`Link <https://docs.google.com/spreadsheets/d/1MN5tVsfBb1DUhPXOyUX7ob_-9J0-zrMRjvrPdd-3fc4/edit#gid=0>`_).

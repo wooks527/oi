@@ -13,3 +13,12 @@ Sunday, January 12
 
     * 백준 문제 풀기 (`블랙잭 <https://github.com/hwkim89/programming/blob/master/baekjoon/brute_force/2798_black_jack.ipynb>`_, `분해합 <https://github.com/hwkim89/programming/blob/master/baekjoon/brute_force/2231_sum_of_decomposition.ipynb>`_)
     * 코딩 스터디
+
+
+Monday, January 13
+===================
+
+* CNN 복습 및 정리
+
+    * CNN ~ GoogLeNet 복습
+    * Inception-V2 정리 (`Link <https://oi.readthedocs.io/en/latest/ai/deep_learning/cnn/inception-v2.html>`_)

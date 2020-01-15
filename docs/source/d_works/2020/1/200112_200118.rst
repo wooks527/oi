@@ -21,7 +21,7 @@ Monday, January 13
 * CNN 복습 및 정리
 
     * CNN ~ GoogLeNet 복습
-    * Inception-V2 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/inception-v2.html>`_)
+    * Inception-V2 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/inception-v2,v3.html>`_)
 
 
 Tuesday, January 14
@@ -30,3 +30,12 @@ Tuesday, January 14
 * CNN 복습 및 정리
 
     * VGGNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
+
+
+Wednesday, January 15
+======================
+
+* CNN 복습 및 정리
+
+    * VGGNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
+    * ResNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/resnet.html>`_)

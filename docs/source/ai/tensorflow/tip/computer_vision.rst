@@ -24,7 +24,7 @@ Classfication of fashion images
 
 Classification is working like this:
 
-.. figure:: img/computer_vision/how_to_work.png
+.. figure:: ../img/tip/computer_vision/how_to_work.png
     :align: center
     :scale: 40%
 
@@ -252,19 +252,19 @@ Convolution and pooling
 
 We can do convlutions using filters such as 3x3 and then we can extract highlighted features from an image.
 
-.. figure:: img/computer_vision/convolution.png
+.. figure:: ../img/tip/computer_vision/convolution.png
   :align: center
   :scale: 30%
 
 There are many filters and this is one of example called vertical filter:
 
-.. figure:: img/computer_vision/v_filter.png
+.. figure:: ../img/tip/computer_vision/v_filter.png
   :align: center
   :scale: 30%
 
 Also, we can select max values from convolution results to compress the data by pooling.
 
-.. figure:: img/computer_vision/pooling.png
+.. figure:: ../img/tip/computer_vision/pooling.png
   :align: center
   :scale: 30%
 
@@ -338,17 +338,17 @@ Without going into too much detail here, the idea is that it creates a 2x2 array
 
 You can call model.summary() to see the size and shape of the network, and you'll notice that after every MaxPooling layer, the image size is reduced in this way.
 
-.. figure:: img/computer_vision/model_summary.png
+.. figure:: ../img/tip/computer_vision/model_summary.png
   :align: center
   :scale: 50%
 
 Here, we can see that the output shape is 26 x 26 x 64. The reason is that we can't do covolution with edge pixels of an image.
 
-.. figure:: img/computer_vision/edge_of_image_01.png
+.. figure:: ../img/tip/computer_vision/edge_of_image_01.png
   :align: center
   :scale: 50%
 
-.. figure:: img/computer_vision/edge_of_image_02.png
+.. figure:: ../img/tip/computer_vision/edge_of_image_02.png
   :align: center
   :scale: 50%
 
@@ -453,7 +453,7 @@ Experiments
 
     * Result
 
-        .. figure:: img/computer_vision/experiments_callback.png
+        .. figure:: ../img/tip/computer_vision/experiments_callback.png
             :align: center
             :scale: 70%
 
@@ -492,7 +492,7 @@ Let's take a look at the result of running the convolution on each, and you'll b
 
 This is first convolution results for shoes images and we can detect common features of shoes:
 
-.. figure:: img/computer_vision/conv_results_shoes.png
+.. figure:: ../img/tip/computer_vision/conv_results_shoes.png
     :align: center
     :scale: 100%
 
@@ -523,7 +523,7 @@ If we change the images (SECOND_IMAGE = 1 (Hand bag), THIRD_IMAGE = 2 (Trouser))
         axarr[2,x].imshow(f3[0, : , :, CONVOLUTION_NUMBER], cmap='inferno')
         axarr[2,x].grid(False)
 
-.. figure:: img/computer_vision/conv_results_diff.png
+.. figure:: ../img/tip/computer_vision/conv_results_diff.png
     :align: center
     :scale: 100%
 
@@ -554,7 +554,7 @@ If I change CONVOLUTION_NUMBER to 4 for trouser images, we can detect simplified
         axarr[2,x].imshow(f3[0, : , :, CONVOLUTION_NUMBER], cmap='inferno')
         axarr[2,x].grid(False)
 
-.. figure:: img/computer_vision/conv_results_trousers.png
+.. figure:: ../img/tip/computer_vision/conv_results_trousers.png
     :align: center
     :scale: 100%
 
@@ -650,19 +650,19 @@ These are results using each filter:
 
 * filter = [[0, 1, 0], [1, -4, 1], [0, 1, 0]]
 
-.. figure:: img/computer_vision/filtered_result_01.png
+.. figure:: ../img/tip/computer_vision/filtered_result_01.png
     :align: center
     :scale: 100%
 
 * Vertical filter
 
-.. figure:: img/computer_vision/filtered_result_02.png
+.. figure:: ../img/tip/computer_vision/filtered_result_02.png
     :align: center
     :scale: 100%
 
 * Horizontal filter
 
-.. figure:: img/computer_vision/filtered_result_03.png
+.. figure:: ../img/tip/computer_vision/filtered_result_03.png
     :align: center
     :scale: 100%
 
@@ -715,31 +715,31 @@ These are filtered results:
 
 * Original
 
-.. figure:: img/computer_vision/filter_ori.png
+.. figure:: ../img/tip/computer_vision/filter_ori.png
     :align: center
     :scale: 100%
 
 * Blur
 
-.. figure:: img/computer_vision/filter_blur.png
+.. figure:: ../img/tip/computer_vision/filter_blur.png
     :align: center
     :scale: 100%
 
 * Edge
 
-.. figure:: img/computer_vision/filter_edge.png
+.. figure:: ../img/tip/computer_vision/filter_edge.png
     :align: center
     :scale: 100%
 
 * Sharpen
 
-.. figure:: img/computer_vision/filter_sharpen.png
+.. figure:: ../img/tip/computer_vision/filter_sharpen.png
     :align: center
     :scale: 100%
 
 * Emboss
 
-.. figure:: img/computer_vision/filter_emboss.png
+.. figure:: ../img/tip/computer_vision/filter_emboss.png
     :align: center
     :scale: 100%
 
@@ -772,7 +772,7 @@ This code will show a (2, 2) pooling. The idea here is to iterate over the image
 
 This is a result of pooling with the vertical filter:
 
-.. figure:: img/computer_vision/pooling_result.png
+.. figure:: ../img/tip/computer_vision/pooling_result.png
     :align: center
     :scale: 100%
 

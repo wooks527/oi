@@ -7,7 +7,7 @@ Traditional programmming vs. Machine learning
 
 This is a difference between traditional programming and machine learning.
 
-.. figure:: img/intro/programming_paradigm.png
+.. figure:: ../img/tip/intro/programming_paradigm.png
     :align: center
     :scale: 40%
 
@@ -20,7 +20,7 @@ Traditional programmming
 
 In traditional programming, we should make a rule for all situations. So, if we meet unknown situations, we can't handle the situation.
 
-.. figure:: img/intro/traditional_programming.png
+.. figure:: ../img/tip/intro/traditional_programming.png
     :align: center
     :scale: 40%
 
@@ -30,7 +30,7 @@ Machine learning
 
 However, in machine learning, we make a rule about data so we can handle unknown situations.
 
-.. figure:: img/intro/machine_learning.png
+.. figure:: ../img/tip/intro/machine_learning.png
     :align: center
     :scale: 40%
 

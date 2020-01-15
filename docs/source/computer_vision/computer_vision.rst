@@ -9,3 +9,4 @@ Computer vision
     :maxdepth: 1
 
     cnn/cnn
+    object_detection/object_detection

@@ -64,8 +64,8 @@ Like below left figure, when m is big, the algorithm has high variance. But when
 
 |
 
-Various optimization methods
-*****************************
+Optimization methods
+=====================
 
 이러한 Large dataset을 이용하여 Optimization하는 방법은 다양하고 그 관계는 아래 그림과 같다.
 
@@ -86,7 +86,7 @@ Various optimization methods
 
 
 Stochastic Gradient Descent (SGD)
-=================================
+**********************************
 
 Gradient Descent로 Loss Function을 계산할 때 전체 Train set을 사용하는 것을 **Batch Gradient Descent** 라고 한다. 그러나 이렇게 계산을 할 경우 한번 step을 내딛을 때 전체 데이터에 대해 Loss Function을 계산해야 하므로 너무 많은 계산량이 필요하다. 이를 방지하기 위해 보통은 **Stochastic Gradient Descent (SGD)** 라는 방법을 사용한다.
 
@@ -113,7 +113,7 @@ Gradient Descent로 Loss Function을 계산할 때 전체 Train set을 사용하
 |
 
 Momentum
-========
+*********
 
 Momentum 방식은 말 그대로 Gradient Descent를 통해 이동하는 과정에 일종의 ‘관성’을 주는 것이다. 현재 Gradient를 통해 이동하는 방향과는 별개로, 과거에 이동했던 방식을 기억하면서 그 방향으로 일정 정도를 추가적으로 이동하는 방식이다.
 
@@ -123,7 +123,7 @@ Momentum 방식은 말 그대로 Gradient Descent를 통해 이동하는 과정�
 
 
 AdaGrad 
-=======
+********
 
 AdaGrad(Adaptive Gradient)는 변수들을 Update할 때 각각의 변수마다 Step size를 다르게 설정해서 이동하는 방식이다. 이 알고리즘의 기본적인 아이디어는
 
@@ -141,7 +141,7 @@ AdaGrad(Adaptive Gradient)는 변수들을 Update할 때 각각의 변수마다 
 
 
 RMSProp
-=======
+********
 
 RMSProp은 딥러닝의 대가 제프리 힌톤이 제안한 방법으로서, AdaGrad의 단점을 해결하기 위한 방법이다. AdaGrad의 식에서 Gradient의 제곱값을 더해나가면서 구한 :math:`G_t` 부분을 합이 아니라 지수평균으로 바꾸어서 대체한 방법이다. 이렇게 대체를 할 경우 AdaGrad처럼 :math:`G_t` 가 무한정 커지지는 않으면서 최근 변화량의 변수간 상대적인 크기 차이는 유지할 수 있다.
 
@@ -154,7 +154,7 @@ RMSProp은 딥러닝의 대가 제프리 힌톤이 제안한 방법으로서, Ad
 
 
 Adam
-=====
+*****
 
 Adam (Adaptive Moment Estimation)은 RMSProp과 Momentum 방식을 합친 것 같은 알고리즘이다. 이 방식에서는 Momentum 방식과 유사하게 지금까지 계산해온 기울기의 지수평균을 저장하며, RMSProp과 유사하게 기울기의 제곱값의 지수평균을 저장한다.
 
@@ -165,8 +165,17 @@ Adam (Adaptive Moment Estimation)은 RMSProp과 Momentum 방식을 합친 것 �
     :math:`v_t = \beta_2 v_{t-1} + (1-\beta_2)(\nabla_\theta J(\theta))^2`
 
 
+Deep network problems
+======================
+
+Training 시 Network의 깊이가 깊어지면 Vanishing/Exploding gradient 문제나 Overfitting 문제가 발생할 수 있다. Network가 더 깊어지면 Overfitting이 아니라도 Error 자체가 커질 수 있다.
+
+Gradient vanishing/exploding
+*****************************
+
+-------------------
 Gradient vanishing
-===================
+-------------------
 
 Gradient vanishing은 Deep Neural Network의 Layer가 깊어질수록 학습 속도가 느려지거나 Overfitting 되는 현상이다.
 
@@ -174,9 +183,14 @@ Gradient vanishing은 Deep Neural Network의 Layer가 깊어질수록 학습 속
 
 예를 들어 활성함수로 Sigmoid 함수를 사용하는 경우 그 특성상 일부 구간 외에서는 Gradient 값이 거의 0에 수렴하여 Error 크기와 상관없이 학습 속도가 느려질 수 있다. Cross entropy를 사용하면 개선할 수 있지만 본질적인 해결은 아니다.
 
-그래서 최근에는 활성함수로 ReLU를 사용하여 이를 개선하고자 했지만, 결국 여러 Layer를 거치면 작은 값을 계속 곱하게 되고 0 근처로 수렴되어 Gradient vanishing 문제가 생길 수 있다.
+-------------------
+Gradient exploding
+-------------------
 
-이를 해결하는 방법은 추후에 작성할 예정이다.
+Gradient vansihing과 유사하게, Gradient exploding은 Gradient 값이 너무 큰 값으로 포화되어 더 이상 움직이지 않아 학습이 느려지는 문제이다.
+
+
+위 두가지 문제를 해결하기 위해 최근에는 활성함수로 ReLU 사용, Batch normalization, Parameter 초기값 설정 방법 개선 등을 적용했지만, 결국 여러 Layer를 거치면 작은 값을 계속 곱하게 되고 0 근처로 수렴되어 Gradient vanishing/exploding 문제가 생길 수 있다.
 
 
 Reference

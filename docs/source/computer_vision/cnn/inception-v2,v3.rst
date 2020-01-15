@@ -1,6 +1,6 @@
-=============
-Inception-V2
-=============
+====================
+Inception-V2 and V3
+====================
 
 이전에 언급한 것처럼 Inception-V2, Inception-V3는 3x3 Convolution만 사용하는 VGGNet에서 많은 힌트를 얻은 것으로 보인다. 여기서는 Inception-V2가 기존과 어떤 부분을 변경하여 어떤 성과를 냈는지 알아보려고 한다.
 
@@ -10,7 +10,7 @@ Inception-V2
 
 기존에 해상도 (Grid size)를 줄이는 방법은 Convolution 시 Stride를 1보다 큰 값으로 두거나 Pooling을 사용하는 것이었다. 그렇다면 다음 두 가지 방법 중 어떤 방법이 더 효과적인 방법일까? Inception을 Convolution으로 생각해도 상관없다.
 
-.. figure:: ../img/cnn/inception-v2/inception_and_pooling.png
+.. figure:: ../img/cnn/inception-v2,v3/inception_and_pooling.png
     :align: center
     :scale: 70%
 
@@ -35,7 +35,7 @@ Factorizing convolution
 
 아래 그림은 5x5 Convolution을 2개의 3x3 Convolution으로 구현한 예시이다. 이를 통해 Parameter 수를 줄일 수 있는데, 실제로 25개에서 9+9=18개로 약 28% 줄어든다.
 
-.. figure:: ../img/cnn/inception-v2/5x5_to_two_3x3.png
+.. figure:: ../img/cnn/inception-v2,v3/5x5_to_two_3x3.png
     :align: center
     :scale: 70%
 
@@ -49,7 +49,7 @@ Factorizing inception
 
 Inception 모듈도 위 방법을 이용하여 Parameter 수를 줄일 수 있다.
 
-.. figure:: ../img/cnn/inception-v2/factorizing_inception_5x5_7x7.png
+.. figure:: ../img/cnn/inception-v2,v3/factorizing_inception_5x5_7x7.png
     :align: center
     :scale: 70%
 
@@ -61,7 +61,7 @@ Inception 모듈도 위 방법을 이용하여 Parameter 수를 줄일 수 있�
 
 지금까지는 5x5 또는 7x7 Convolution을 Symmetry가 유지된 2개 또는 3개의 3x3 Convolution으로 인수분해했다. 하지만 반드시 그렇게 해야 되는 것은 아니다. 아래 그림처럼 3x3 Convolution을 1x3 그리고 3x1 Convolution으로 분해할 수 있다. 그 결과 Paramter 수를 9개에서 3+3=6개로 약 33% 줄일 수 있게 된다.
 
-.. figure:: ../img/cnn/inception-v2/3x3_to_1x3_and_3x1.png
+.. figure:: ../img/cnn/inception-v2,v3/3x3_to_1x3_and_3x1.png
     :align: center
     :scale: 70%
 
@@ -73,7 +73,7 @@ Inception 모듈도 위 방법을 이용하여 Parameter 수를 줄일 수 있�
 
 지금까지 분해한 방법을 모두 사용하여 Inception 모듈을 개선하면 다음과 같다.
 
-.. figure:: ../img/cnn/inception-v2/factorizing_inception_3x3.png
+.. figure:: ../img/cnn/inception-v2,v3/factorizing_inception_3x3.png
     :align: center
     :scale: 70%
 
@@ -89,7 +89,7 @@ Inception-V2
 
 지금까지 이야기한 방법들을 고려하여 Szegedy (GoogLeNet 설계자)는 "Rethinking the inception architecture for computer vision"에서 다음과 같은 구조를 제안했다.
 
-.. figure:: ../img/cnn/inception-v2/inception-v2_module.png
+.. figure:: ../img/cnn/inception-v2,v3/inception-v2_module.png
     :align: center
     :scale: 70%
 

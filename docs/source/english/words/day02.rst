@@ -5,7 +5,7 @@ Day 2
 duc
 ====
 
-이끌다 (lead)라는 의미를 가지고 있다.
+**이끌다 (lead)** 라는 의미를 가지고 있다 (단어 테스트: `강성태 영단어 어원편 Day 2 - duc <https://quizlet.com/_7ruyil?x=1qqt&i=2kminc>`_).
 
 * educate :white:`[동] 교육하다`
 
@@ -57,13 +57,11 @@ duc
     * de + duc(t) :white:`떨어져 + 이끌다`
     * Tax has been deducted from their salaries.
 
-단어 테스트는 `강성태 영단어 어원편 Day 2 - duc <https://quizlet.com/_7ruyil?x=1qqt&i=2kminc>`_ 에서 할 수 있다.
-
 
 fac
 ====
 
-변화형으로 fec, fic, fit이 있고, 만들다 (make), 행하다 (do)의 의미를 가지고 있다.
+변화형으로 **fec, fic, fit** 이 있고, **만들다 (make), 행하다 (do)** 의 의미를 가지고 있다 (단어 테스트: `강성태 영단어 어원편 Day 2 - fac <https://quizlet.com/_7ryk67?x=1qqt&i=2kminc>`_).
 
 * facility :white:`[명] 편의시설, 쉬움, 기능`
 
@@ -156,10 +154,9 @@ fac
     * de + feat :white:`아래로 + 만들다`
     * be defeated by exhaustion
 
-단어 테스트는 `강성태 영단어 어원편 Day 2 - fac <https://quizlet.com/_7ryk67?x=1qqt&i=2kminc>`_ 에서 할 수 있다.
-
     
 Reference
 ==========
 
 * 강성태 영단어 어원편, 강성태, 2017
+* `YouTube, [강성태 영단어] 오늘의 어원 duc(공신닷컴 강의영상) ★ 공신 강성태 <https://youtu.be/gl_Iw7DDoB8>`_

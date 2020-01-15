@@ -2,15 +2,29 @@
 어근
 ====
 
+A
+===
+
+* ab: 떨어져
+* able: 할 수 있는
+* ate: 동접
+
 C
 ===
 
-* con, com: 함께
+* cap, ceive, cept, cip: 잡다 (hold), (생각을) 취하다 (take)
+* con, com: 함께, 완전히
 
 D
 ===
 
-* de, di(f), dis: 떨어져
+* duc, duce, duct: 이끌다 (lead)
+* de, di(f), dis: 떨어져, 나쁜
+
+E
+===
+
+* e, ex: 밖으로
 
 F
 ===
@@ -20,8 +34,9 @@ F
 I
 ===
 
-* in: 안으로
 * ile: 할 수 있는
+* in: 안으로
+* intro: 안으로
 
 O
 ===
@@ -31,22 +46,27 @@ O
 P
 ===
 
+* part(i): 부분
+* per: 완전히
 * pre: 미리
+* pro: 앞으로
 
 R
 ===
 
-* re: 다시
+* re: 다시, 뒤로
 
 S
 ===
 
+* se: 멀리
 * suf, sub: 아래에
 
 T
 ===
 
 * trans: 가로질러
+* ture: 명접
 
 
 Reference

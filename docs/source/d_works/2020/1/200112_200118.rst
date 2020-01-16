@@ -39,3 +39,13 @@ Wednesday, January 15
 
     * VGGNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
     * ResNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/resnet.html>`_)
+
+
+Thursday, January 16
+=====================
+
+* CNN 복습 및 정리
+
+    * Introudction 복습 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/intro.html>`_)
+
+        * 이미지 인식에서 DNN을 사용하면 발생하는 문제점 (차원의 저주, Overfitting)

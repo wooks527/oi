@@ -25,7 +25,7 @@ VGGNet은 "Very deep convolutional networks for large-scale image recognition"�
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220738560542>`_
 
-위 그림에서 볼 수 있듯이 VGGNet도 GoogLeNet처럼 이전보다 Network 깊이가 훨씬 깊은 19개의 Layer를 가진다. 아래 그림에서도 확인할 수 있듯이 VGGNet은 LeNet-5, AlexNet과 구조적으로 유사한데 Network의 깊이가 다르다.
+위 그림에서 볼 수 있듯이 VGGNet도 GoogLeNet처럼 이전보다 Network (AlexNet: 8-layers) 깊이가 훨씬 깊은 19개의 Layer를 가진다. 아래 그림에서도 확인할 수 있듯이 VGGNet은 LeNet-5, AlexNet과 구조적으로 유사한데 Network의 깊이가 다르다.
 
 .. figure:: ../img/cnn/vggnet/alexnet_vs_vggnet.png
     :align: center
@@ -35,15 +35,15 @@ VGGNet은 "Very deep convolutional networks for large-scale image recognition"�
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220738560542>`_
 
-실제로 오직 깊이가 주는 영향력을 밝히기 위해, Filter의 크기는 3x3으로 정하고 6개의 구조로 테스트했다. GoogLeNet에서 언급했던 것처럼 3x3 Filter 사용하면 5x5 또는 7x7 Filter를 인수분해하여 Network는 깊어지면서 Parameter 수는 줄일 수 있다. 6개의 구조는 아래의 표로 확인할 수 있다.
+실제로 오직 깊이가 주는 영향력을 밝히기 위해 **3x3 Filter (Stride, Pad: 1)와 2x2 Max pooling (Stride: 2)만 사용** 하여 6개의 구조로 테스트했다. GoogLeNet에서 언급했던 것처럼 3x3 Filter 사용하면 5x5 또는 7x7 Filter를 인수분해하여 Network는 깊어지면서 Parameter 수는 줄일 수 있다 (:math:`3 \times (3^2 C^2)` vs. :math:`7^2 C^2` for :math:`C` channels). 6개의 구조는 아래의 그림과 표로 확인할 수 있다.
 
 .. figure:: ../img/cnn/vggnet/vggnet_architecture.png
     :align: center
-    :scale: 70%
+    :scale: 60%
 
 .. rst-class:: centered
 
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220738560542>`_
+    출처: `Medium, Review: VGGNet <https://medium.com/coinmonks/paper-review-of-vggnet-1st-runner-up-of-ilsvlc-2014-image-classification-d02355543a11>`_, `라온피플 (Laon People) <https://laonple.blog.me/220738560542>`_
 
 위 표에서 보는 것처럼 VGGNet은 기존 AlexNet, ZFNet처럼 224x224x3 이미지를 입력받아 Convolution, Max pooling의 반복 후 마지막에 Fully connected layer가 오는 구조를 가지고 있다.
 
@@ -197,7 +197,7 @@ Multi-crop and dense evaluation
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220749876381>`_
 
-Multi-crop과 Dense evaluation을 각각 적용한 경우에는 Multi-crop이 약간 성능이 더 좋다 (Grid 크기 문제). 그리고 같이 적용하는 경우에 성능이 조금 더 개선됨을 위 표에서 확인할 수 있다.
+Multi-crop과 Dense evaluation을 각각 적용한 경우에는 Multi-crop이 약간 성능이 더 좋고 (Grid 크기 문제), 같이 적용하는 경우에 성능이 조금 더 개선됨을 위 표에서 확인할 수 있다. 실제 Test 데이터로 검증한 경우에는 Top-5 error가 7.3%가 나왔고, 이는 ZFNet (11.7%)에 비해 에러율이 4.4%나 낮다.
 
 
 결론

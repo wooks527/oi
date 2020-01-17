@@ -164,7 +164,7 @@ ZFNet은 AlexNet과 달리 하나의 GPU를 사용했고, 70 epoch으로 12일 �
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_
 
-하지만, 첫 번째와 두 번째 Layer는 조금 다르다. 아래 그림이 Layer 1, 2를 확대한 그림이다.
+하지만, 구조적으로 다른 부분이 있다. 먼저, Layer 1과 Layer 2의 차이를 먼저 설명하려고 한다.
 
 .. figure:: ../img/cnn/zfnet/alexnet_vs_zfnet_layer_1_2.png
     :align: center
@@ -183,9 +183,25 @@ AlexNet 11x11 Filter, Stride 4  5x5 Window, Stride 1
 ZFNet   7x7 Filter, Stride 2    3x3 Window, Stride 2
 ======= ======================= =====================
 
-요즘 추세에 따르면 Filter와 Stride의 크기가 큰 경우 성능이 좋지 못하다. Zeiler는 Feature visualization을 통해 이를 밝혔고, 이를 통해 AlexNet의 구조를 변형시켰다. 나머지 과정은 AlexNet과 유사하다.
+요즘 추세에 따르면 Filter와 Stride의 크기가 큰 경우 성능이 좋지 못하다. Zeiler는 Feature visualization을 통해 이를 밝혔고, 이를 통해 AlexNet의 구조를 변형시켰다.
+
+다음으로 Layer 3, 4, 5를 살펴보자. 다음 이미지는 Layer 3, 4, 5와 Layer 6, 7의 Parameter를 변경하며 테스트한 결과이다.
+
+.. figure:: ../img/cnn/zfnet/alexnet_vs_zfnet_layer_1_2.png
+    :align: center
+    :scale: 70%
+
+    ImageNet 2012 classification error rates with various architectural changes to the model of Krizhevsky et al.
+
+.. rst-class:: centered
+
+    출처: `Visualizing and UnderstandingConvolutional Networks <https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf>`_
+
+여기서 Our Model은 Layer 1, 2가 변경된 것을 설명할 때 사용한 이미지의 Model을 말한다. Layer 3, 4, 5의 Size를 각각 384, 384, 356에서 512, 1024, 512로 변경했을 때 결과가 더 좋게 나옴을 확인할 수 있다. 하지만 Layer 3, 4, 5와 Layer 6, 7 (FC layer)를 동시에 크게 했을 때는 Overfitting이 발생해 성능이 더 낮게 나옴을 볼 수 있다.
 
 추가로 변경한 부분은 2개의 GPU를 사용하기 위해 인위적으로 만든 구조를 제거하고 하나의 GPU로 학습시켰다. 그 결과 Layer 2의 Visualization 결과처럼 ZFNet이 성능이 더 좋은 것을 확인했다. 이후에 GPU 2개에서 다른 처리를 시도하는 사례는 나오지 않았다.
+
+최종적으로 ImageNet으로 테스트 했을 때, Top-5 error가 16.4% (수정 전)에서 11.7% (수정 후)로 줄었음을 확인할 수 있다.
 
 
 Feature visualization으로 알게된 추가사항
@@ -269,3 +285,4 @@ Reference
 
 * 라온피플 - `ZFNet [1] <https://laonple.blog.me/220673615573>`_, `ZFNet [2] <https://laonple.blog.me/220676812642>`_, `ZFNet [3] <https://laonple.blog.me/220680023908>`_
 * `YouTube, 최희정 - CNN Localization (ZFNet & Deep Taylor Decomposition) <https://www.youtube.com/watch?v=46TlWpZgKRE>`_
+* `Visualizing and UnderstandingConvolutional Networks, Matthew D. Zeiler and Rob Fergus, 2014 <https://cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf>`_

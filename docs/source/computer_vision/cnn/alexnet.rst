@@ -79,6 +79,40 @@ Fully connected layer
 
 위 과정을 거친 결과는 Pooling 과정으로 4096개의 Neuron을 가지는 Fully connected layer에 연결시키고, 마지막 Layer에서 1000개의 Class를 구별할 수 있도록 만든다.
 
+All parameters
+***************
+
+============ ========== ====================================
+Size         Layer      Detail
+============ ========== ====================================
+[227x227x3]  INPUT      -
+[55x55x96]   CONV1      96 11x11 filters at stride 4, pad 0
+[27x27x96]   MAX POOL1  3x3 filters at stride 2
+[27x27x96]   NORM1      Normalization layer
+[27x27x256]  CONV2      256 5x5 filters at stride 1, pad 2
+[13x13x256]  MAX POOL2  3x3 filters at stride 2
+[13x13x256]  NORM2      Normalization layer
+[13x13x384]  CONV3      384 3x3 filters at stride 1, pad 1
+[13x13x384]  CONV4      384 3x3 filters at stride 1, pad 1
+[13x13x256]  CONV5      256 3x3 filters at stride 1, pad 1
+[6x6x256]    MAX POOL3  3x3 filters at stride 1, pad 1
+[4096]       FC6        4096 neurons
+[4096]       FC7        4096 neurons
+[1000]       FC8        1000 neurons (class scores)
+============ ========== ====================================
+
+These are more details:
+
+* first use of ReLU
+* used Norm layers (not common anymore)
+* heavy data augmentation
+* dropout 0.5
+* batch size 128
+* SGD Momentum 0.9
+* Learning rate 1e-2, reduced by 10 mannualy when val accuracy palteaus
+* L2 weight decay 5e-4
+* 7 CNN ensemble: 18.2% → 15.4%
+
 
 AlexNet의 특징
 ==============

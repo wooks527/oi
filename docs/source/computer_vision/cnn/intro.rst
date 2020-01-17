@@ -26,7 +26,11 @@ DNN의 문제점
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220587920012>`_
 
-DNN은 이미지 정보를 1차원 Vector로 표현하여 실제 위치 정보를 잃어버린다. 그러다보니, 글자 이미지의 위치를 조금만 이동시켜도 새롭게 학습이 필요하게 된다. 또한, 학습을 위한 Parameter의 수가 굉장히 많다. 그에 따라 학습 시간도 많이 걸린다. 그래서 이러한 문제점을 해결하기 위해 연구자들은 Visual cortex (`위키피디아 <https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%81%ED%94%BC%EC%A7%88>`_)의 Receptive field와 유사한 신경망을 만들고 싶어했고, 그것이 바로 CNN이다.
+첫 번째 문제는 DNN은 이미지 정보를 입력으로 받을 때 그 위치의 중요도는 모두 동일하다고 간주하고 1차원 Vector로 표현하여 실제 위치 정보를 잃어버리는 것이다. 그러다보니, 글자 이미지의 위치를 조금만 이동시키거나 크기가 달라지거나 회전 또는 변형 (Distortion)이 조금만 생겨도 모델이 다른 이미지라고 판단할 수 있기 때문에 변형된 이미지로 새롭게 학습해야 한다. 이처럼 많은 데이터로 학습시켜야 하기 때문에 그 시간이 오래 걸린다.
+
+두 번째 문제는 위처럼 간단한 모델에서도 학습을 위한 Parameter의 수가 약 3만개다. 글자 크기가 커지거나 Hindden layer가 2단 이상인 경우에 필요한 Parameter 수가 많아질 수 있고, 그에 따라 학습 시간도 많이 걸린다. 또한, Parameter 수가 많아짐에 따라 :doc:`차원의 저주 </ai/machine_learning/curse_of_dimensionality>` 가 발생하여 :doc:`Overfitting </ai/machine_learning/regularization>` 문제가 생길 수 있다.
+
+그래서 이러한 문제점을 해결하기 위해 연구자들은 Visual cortex (`위키피디아 <https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%81%ED%94%BC%EC%A7%88>`_)의 Receptive field와 유사한 신경망을 만들고 싶어했고, 그것이 바로 CNN이다.
 
 
 Receptive field
@@ -280,7 +284,9 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
 
 * :doc:`resnet`
 
-추가적으로 :doc:`../dataset`과 ILSVRC는 각각 링크를 통해 설명하려고 한다.
+* :doc:`densenet`
+
+추가적으로 `ImageNet <../dataset.html#imagenet>`_ 과 ILSVRC는 각각 링크를 통해 설명하려고 한다.
 
 지금까지 CNN의 기본적인 내용과 대표 Architecture에 대해 간단히 알아보았다. 지금부터는 각각의 CNN architecture를 조금 더 자세히 알아보려고 한다.
 
@@ -288,4 +294,4 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
 Reference
 ==========
 
-* 라온피플 - `CNN 개요 <https://laonple.blog.me/220594258301>`_, `Why CNN? <https://laonple.blog.me/220594258301>`_, `CNN의 구조 <https://laonple.blog.me/220608018546>`_, `Overview <https://laonple.blog.me/220643128255>`_
+* 라온피플 - `CNN 개요 <https://laonple.blog.me/220587920012>`_, `Why CNN? <https://laonple.blog.me/220594258301>`_, `CNN의 구조 <https://laonple.blog.me/220608018546>`_, `Overview <https://laonple.blog.me/220643128255>`_

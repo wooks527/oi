@@ -9,7 +9,7 @@ Consider the problem of predicting :math:`y` from :math:`x \in R.` The leftmost 
 
 Instead, if we had added an extra feature :math:`x^2,` and fit :math:`y = \theta_0 + \theta_1x + \theta_2x^2,` then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better.
 
-However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a :math:`5^{th}` order polynomial :math:`y = \sum_{j=0} ^5 \theta_j x^j.` We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (:math:`y`) for different living areas (:math:`x`).
+However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a :math:`5^{th}` order polynomial :math:`y = \sum_{j=0} ^5 \theta_j x^j.` We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (:math:`y`) for different living areas (:math:`x`). If we add more features, and then we met a "Curse of dimensionality" problem (Explain later).
 
 .. figure:: img/regularization/overfitting.png
   :align: center
@@ -17,6 +17,12 @@ However, there is also a danger in adding too many features: The rightmost figur
 
 Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of **underfitting**—in which the data clearly shows structure not captured by the model—and the figure on the right is an example of **overfitting**.
 
+Before explaining underfitting and overfitting, I'm trying to talk about ":doc:`curse_of_dimensionality`".
+
+.. toctree::
+    :hidden:
+
+    curse_of_dimensionality
 
 Underfitting
 ************

@@ -23,6 +23,7 @@
 .. toctree::
     :maxdepth: 1
 
+    visual_thinking
     office_work
     common_sense
     k_history

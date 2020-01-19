@@ -10,7 +10,7 @@ Overfitting
 
 Machine learning에서 언급한 것처럼 모델이 Training dataset에 과도하게 적합되어 새로운 Data에 대해 제대로 추론하지 못하는 경우를 말한다. 이를 해결하는 방법은 다음과 같다.
 
-* Machine learning에서 언급한 방법들 (`Link <../ai/machine_learning/regularization.html#overfitting>`_)
+* Machine learning에서 언급한 방법들 (`Link <../ai/ml/regularization.html#overfitting>`_)
 
 * Early stopping
 

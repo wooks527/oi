@@ -15,7 +15,7 @@ This is a table of contents in AI:
 .. toctree::
     :maxdepth: 1
 
-    machine_learning/ml
+    ml/ml
     deep_learning/dl
     tensorflow/tf
     pytorch/pytorch

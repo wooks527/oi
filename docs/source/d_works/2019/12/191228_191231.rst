@@ -61,6 +61,6 @@ Tuesday, December 31
 
 * ML 정리
 
-    * Introduction (`Link <https://oi.readthedocs.io/en/latest/ai/machine_learning/intro.html>`_)
-    * Linear regression 일부 (`Link <https://oi.readthedocs.io/en/latest/ai/machine_learning/linear_regression.html>`_)
+    * Introduction (`Link <https://oi.readthedocs.io/en/latest/ai/ml/intro.html>`_)
+    * Linear regression 일부 (`Link <https://oi.readthedocs.io/en/latest/ai/ml/linear_regression.html>`_)
 

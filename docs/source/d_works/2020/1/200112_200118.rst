@@ -49,3 +49,25 @@ Thursday, January 16
     * Introudction 복습 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/intro.html>`_)
 
         * 이미지 인식에서 DNN을 사용하면 발생하는 문제점 (차원의 저주, Overfitting)
+
+
+Friday, January 17
+===================
+
+* ML 정리
+
+    * Overfitting
+
+* CNN 복습 및 정리
+
+    * VGGNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
+
+
+Saturday, January 18
+=====================
+
+* ML 정리
+
+    * Introduction (`Link <https://oi.readthedocs.io/en/latest/ai/ml/intro.html>`_)
+    * Linear regression (`Link <https://oi.readthedocs.io/en/latest/ai/ml/linear_regression.html>`_)
+    * Overfitting (`Link <https://oi.readthedocs.io/en/latest/ai/ml/regularization.html>`_)

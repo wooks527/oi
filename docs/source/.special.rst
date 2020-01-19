@@ -1,4 +1,6 @@
 .. role:: h2
+.. role:: h3
+.. role:: h4
 
 .. role:: black
 .. role:: gray

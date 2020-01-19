@@ -5,6 +5,20 @@
     font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
 }
 
+.h3 {
+    font-size: 140%;
+    margin-top: 0;
+    font-weight: 700;
+    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
+.h4 {
+    font-size: 125%;
+    margin-top: 0;
+    font-weight: 700;
+    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
 h5 {
     font-size: 100%;
 }

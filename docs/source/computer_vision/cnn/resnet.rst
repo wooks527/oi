@@ -17,7 +17,7 @@ ResNet은 Classification에서 152 Layer를 사용하여 Top-5 Error가 3.57%가
 Motivation
 ===========
 
-이전 CNN architecture들에서도 언급했지만, Network가 깊어지면 `Gradient vanishing/exploding <../../ai/machine_learning/optimization.html#gradient-vanishing-exploding>`_, Overfitting 등의 문제가 생긴다. ResNet 팀은 VGGNet의 Layer 수를 19보다 더 크게 하여 실험했고, 예상대로 학습 결과가 더 나빠졌다.
+이전 CNN architecture들에서도 언급했지만, Network가 깊어지면 `Gradient vanishing/exploding <../../ai/ml/optimization.html#gradient-vanishing-exploding>`_, Overfitting 등의 문제가 생긴다. ResNet 팀은 VGGNet의 Layer 수를 19보다 더 크게 하여 실험했고, 예상대로 학습 결과가 더 나빠졌다.
 
 .. figure:: ../img/cnn/resnet/vggnet_19+_layer_test.png
     :align: center

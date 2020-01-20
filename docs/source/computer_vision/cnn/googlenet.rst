@@ -196,7 +196,7 @@ GoogLeNet에 기존 CNN에서 사용하지 않았던 새로운 구조가 더 있
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220710707354>`_
 
-이는 `Gradient vanishing <../../machine_learning/optimization.html#gradient-vanishing>`_ 문제를 해결하기 위해 만들어진 구조이다. 조금 더 자세한 내용은 아래 논문에서 확인할 수 있다. 특히 두 번째 논문이 조금 더 체계적으로 참고하고 있으므로 확인하면 좋을 것 같다.
+이는 `Gradient vanishing <../../ml/optimization.html#gradient-vanishing>`_ 문제를 해결하기 위해 만들어진 구조이다. 조금 더 자세한 내용은 아래 논문에서 확인할 수 있다. 특히 두 번째 논문이 조금 더 체계적으로 참고하고 있으므로 확인하면 좋을 것 같다.
 
 * `Deeply supervised nets, C. Y. Lee et al. <https://arxiv.org/abs/1409.5185>`_
 * `Training Deeper Convolutional Networks with Deep SuperVision, Liwei Wang et al. <https://arxiv.org/abs/1505.02496>`_

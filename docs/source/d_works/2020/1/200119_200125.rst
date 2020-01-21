@@ -12,3 +12,20 @@ Sunday, January 19
 * 프로그래밍
 
     * 백준 문제 풀기 (수 정렬하기 3)
+
+
+Monday, January 20
+===================
+
+* CNN 복습
+
+    * Introduction (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/intro.html>`_)
+
+
+Tuesday, January 21
+====================
+
+* 논문 이해
+
+    * AlexNet
+    

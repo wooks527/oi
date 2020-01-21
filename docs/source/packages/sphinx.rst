@@ -48,6 +48,41 @@ Windows에 Sphinx를 설치하는 경우 sphinxemoji에서 encoding 에러가 �
 이다. 그러면 에러가 나지 않고 Build 할 수 있을 것이다.
 
 
+Configuration 설정
+===================
+
+Read the Docs supports configuring your documentation builds with a YAML file. The Read the Docs file must be in the root directory of your project.
+
+Below is an example YAML file which may require some changes for your project’s configuration:
+
+.. code-block::
+
+    # .readthedocs.yml
+    # Read the Docs configuration file
+    # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+    # Required
+    version: 2
+
+    # Build documentation in the docs/ directory with Sphinx
+    sphinx:
+    configuration: docs/conf.py
+
+    # Build documentation with MkDocs
+    #mkdocs:
+    #  configuration: mkdocs.yml
+
+    # Optionally build your docs in additional formats such as PDF and ePub
+    formats: all
+
+    # Optionally set the version of Python and requirements required to build your docs
+    python:
+    version: 3.7
+    install:
+        - requirements: docs/requirements.txt
+
+
 :h2:`출처`
 
 * `Sphinx documentation <https://www.sphinx-doc.org/>`_
+* `ReadtheDocs documentation, Configuration File <https://docs.readthedocs.io/en/stable/config-file/v2.html>`_

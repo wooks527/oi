@@ -10,3 +10,4 @@ Computer vision
 
     cnn/cnn
     object_detection/object_detection
+    terms

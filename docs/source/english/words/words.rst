@@ -26,6 +26,17 @@ Day 3 ~ 10
 * Day 3: `fer <https://quizlet.com/_7s5kts?x=1qqt&i=2kminc>`_
 
 
+Words in paper
+===============
+
+강성태 영단어 이외에 논문을 읽다가 나오는 모르는 단어들을 정리했다.
+
+.. toctree::
+    :maxdepth: 1
+
+    words_in_paper
+
+
 Reference
 ==========
 

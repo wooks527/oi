@@ -21,17 +21,9 @@ Below lists are the contents I organized.
 
     language/language
     ds&algo/ds&algo
-    
-    dalgorithm/introduction
-    dalgorithm/asymptotic_analysis
-
-    dalgorithm/data_structure/data_structure
-    dalgorithm/sort/sort
-    dalgorithm/search/search
 
     ai/ai
     computer_vision/computer_vision
-    nlp/nlp
 
     bioinfo/bioinfo
 
@@ -40,7 +32,6 @@ Below lists are the contents I organized.
     :caption: Research
 
     deepcombdti/deepcombdti
-    nlp/paper/paper
     trend/trend
     ai/references
     research/paper_reading
@@ -51,7 +42,6 @@ Below lists are the contents I organized.
 
     math_highschool/math_highschool
     math/math
-    statistics/statistics
 
 .. toctree::
     :maxdepth: 1

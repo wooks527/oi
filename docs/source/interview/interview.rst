@@ -26,12 +26,3 @@ Machine learning
 * `Overfitting <../ai/machine_learning/regularization.html#the-problem-of-overfitting>`_
 * :doc:`Batch normalization </ai/deep_learning/batch_norm>`
 * `Performance measure <https://oeiw.blogspot.com/2017/11/performance-measures.html>`_
-
-NLP
-****
-
-* `TF-IDF <../nlp/text_classification.html#tf-idf>`_
-* :doc:`Transformer </nlp/paper/transformer>`
-* :doc:`Bert </nlp/paper/bert>`
-* :doc:`XLNet </nlp/paper/xlnet>`
-* :doc:`BiDAF </nlp/paper/bidaf>`

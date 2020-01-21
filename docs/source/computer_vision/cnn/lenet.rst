@@ -28,9 +28,9 @@ LeNet-5
 
 그 이후로 계속 개선하여 최종적으로 1998년에 LeNet-5를 발표했다. LeNet-5에서는 입력 이미지의 크기가 커졌고, Fully connected layer가 추가되었다. 
 
-LeNet-1에서는 16x16로 이미지를 줄이고 28x28 중앙에 위치시켰다. :red:`하지만 LeNet-5에서는 28x28 이미지를 32x32의 중앙에 위치시켰다 (이해 X)`. LeNet-5에서 LeNet-1 보다 더 큰 이미지를 사용하기 때문에 이미지의 Detail한 부분까지 고려하여 성능이 더 높아진 부분도 있다.
+LeNet-1에서는 16x16로 이미지를 줄이고 28x28 중앙에 위치시켰지만, LeNet-5에서는 28x28 이미지를 32x32의 중앙에 위치시켰다. 이처럼 LeNet-5에서 LeNet-1 보다 더 큰 이미지를 사용했기 때문에 이미지의 Detail한 부분까지 고려하여 성능이 더 높아진 부분도 있다.
 
-또한, LeNet-5는 이렇게 망이 크기 때문에 Parameter 수는 6만개에 달한다 (DNN: 약 12만개, LeNet-1: 약 3천개). Parameter에 대한 자세한 내용은 :ref:`trainable-parameters` 에서 다룰 예정이다.
+또한, LeNet-5는 Network가 크기 때문에 Parameter 수는 6만개에 달한다 (DNN: 약 12만개, LeNet-1: 약 3천개). Parameter에 대한 자세한 내용은 :ref:`trainable-parameters` 에서 다룰 예정이다.
 
 
 Architecture

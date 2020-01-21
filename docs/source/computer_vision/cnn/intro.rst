@@ -10,7 +10,7 @@ Introduction
 
 실제로 합성곱 신경망 (Convolutional Neural Network, CNN)은 1989년 LeCun의 논문 "Backpropagation applied to handwritten zip code recognition"에서 제안한 모델이다. CNN은 Zip code 인식을 위한 프로젝트로 개발되었다.
 
-그렇다면 왜 기존 DNN을 사용하지 않고 CNN을 새로 개발했을까? DNN의 문제점을 살펴보면 다음과 같다.
+그렇다면 이미지를 인식할 때 왜 기존 DNN을 사용하지 않고 CNN을 새로 개발했을까? DNN의 문제점을 살펴보면 다음과 같다.
 
 
 DNN의 문제점
@@ -26,121 +26,51 @@ DNN의 문제점
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220587920012>`_
 
+위치 정보 손실
+**************
+
 첫 번째 문제는 DNN은 이미지 정보를 입력으로 받을 때 그 위치의 중요도는 모두 동일하다고 간주하고 1차원 Vector로 표현하여 실제 위치 정보를 잃어버리는 것이다. 그러다보니, 글자 이미지의 위치를 조금만 이동시키거나 크기가 달라지거나 회전 또는 변형 (Distortion)이 조금만 생겨도 모델이 다른 이미지라고 판단할 수 있기 때문에 변형된 이미지로 새롭게 학습해야 한다. 이처럼 많은 데이터로 학습시켜야 하기 때문에 그 시간이 오래 걸린다.
 
-두 번째 문제는 위처럼 간단한 모델에서도 학습을 위한 Parameter의 수가 약 3만개다. 글자 크기가 커지거나 Hindden layer가 2단 이상인 경우에 필요한 Parameter 수가 많아질 수 있고, 그에 따라 학습 시간도 많이 걸린다. 또한, Parameter 수가 많아짐에 따라 :doc:`차원의 저주 </ai/ml/curse_of_dimensionality>` 가 발생하여 :doc:`Overfitting </ai/ml/regularization>` 문제가 생길 수 있다.
+Parameter 수 ↑
+***************
 
-그래서 이러한 문제점을 해결하기 위해 연구자들은 Visual cortex (`위키피디아 <https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%81%ED%94%BC%EC%A7%88>`_)의 Receptive field와 유사한 신경망을 만들고 싶어했고, 그것이 바로 CNN이다.
+두 번째 문제는 위처럼 간단한 모델에서도 학습을 위한 Parameter의 수가 약 3만개다. 만약, Image 크기가 커지고 Hidden layer 개수가 많아지면 Parameter 수는 급격하게 늘어날 수 있다. 예를 들어 Image 크기가 224x224로 커지고 Hidden layer 수가 늘어난 아래와 같은 DNN이 있다고 했을 때, Input image와 첫 번째 Hidden layer 사이의 Parameter 수만 약 2 billion개이다 (152 layer ResNet: 3.6 billion). 이처럼 Parameter 수가 많아짐에 따라, 학습 시간도 오래 걸리고 :doc:`과적합 </ai/ml/intro>` 문제도 발생할 수도 있다.
 
-
-Receptive field
-================
-
-Daum 백과에 따르면 Receptive field의 의미는
-    
-    **시각이나 체성감각 등 정보처리에 관계되는 세포의 감각수용 표면의 감각자극이 감각신경에 반응하여 충격을 일으키는 영역**
-    
-이다 (출처: `Daum 백과 <https://100.daum.net/encyclopedia/view/46XXX8912884>`_).
-
-.. figure:: ../img/cnn/intro/visual_cortex.gif
+.. figure:: ../img/cnn/intro/dnn_params.png
     :align: center
-    :scale: 70%
+    :scale: 55%
 
-    Nobel laureates David Hubel & Thorsten Wiesel discovered that there were cortical receptive fields that respond best when the stimulus was of a certain shape, had a given orientation and or moved in a given direction. For example, one receptive field might respond best when a vertical rectangle moves to the right, but not when it moves in other directions.
+그래서 이러한 문제점을 해결하기 위해 연구자들은 사람이 사물을 인식할 때 활용되는 수용 영역 (Receptive field)의 원리를 반영한 신경망을 만들었고, 그것이 바로 CNN이다. 그렇다면 수용 영역에 대해 먼저 이해해보자.
+
+
+수용 영역
+==========
+
+생명과학 대백과사전에 따르면 수용 영역 (Receptive field)의 의미는 다음과 같다.
+    
+    정보처리와 관계되는 세포에 대해 응답을 일으키는 자극의 영역. 감각기의 수용 표면에서 감각자극이 단일 감각신경에 반응, 즉 충격발생을 일으키는 영역이다. 특히 눈의 망막면 광자극에 관계되는 것을 말하며, 개구리 망막에서 미세조사법을 이용한 연구결과에 의해 명명된 용어이다. 넓이는 자극광 강도에 의존하고 역자극은 가장 민감한 중앙의 작은 부분에 한정되지만, 그 10^2 ~ 10^3배 강도에서는 2배 면적 (1mm)으로 확대된다.
+    
+요약하면, 수용 영역은 전체 자극 중 일부 자극에만 반응하는 영역을 의미한다. 수용 영역이 전체 중 일부 자극에만 반응하게 만들어진 이유는 무엇일까? 실제 이미지에서 특정 위치의 픽셀들은 주변에 있는 픽셀과 관련있고 멀어질수록 그 영향력이 낮아지기 때문에 수용 영역처럼 전체 중 일부 자극만 받아들여 처리하는게 사물 인식 시 더 효과적이다.
+
+.. figure:: ../img/cnn/intro/visual_cortex.png
+    :align: center
+    :scale: 50%
 
 .. rst-class:: centered
 
     출처: `York university <http://www.yorku.ca/eye/cortfld.htm>`_
 
 
-그림에서도 볼 수 있듯이, 외부 자극 전체 중 Receptive field는 특정 영역의 자극을 수용하는 것으로 보인다. 실제로 우리가 어떤 사물을 인식할 때도 중요한 특징들을 기반으로 인식한다. 이러한 특징을 기반으로 이미지를 인식할 때 전체가 아닌 특정 범위를 기준으로 처리하면 훨씬 더 효과적일 것이라고 추론할 수 있다. 그 결과물이 바로 CNN이고, 이를 이해하기 위해 먼저 Convolution에 대한 이해가 필요하다.
-
-
-Convolution
-============
-
-Convolution은 이미지에서 Filter로 특정 Feature를 추출할 때 필요한 연산이다.
-
-.. figure:: ../img/cnn/intro/convolution.png
-    :align: center
-    :scale: 70%
-
-.. rst-class:: centered
-
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220594258301>`_
-
-위 이미지에서 빨간색으로 표기된 Filter를 적용하여 이미지의 값과 Filter의 값을 곱하고 더하여 왼쪽 상단 부분에 대한 Feature를 추출한다. 이 작업을 한 칸씩 이동하면서 이미지의 마지막 부분에 도착할 때까지 반복하면, 주어진 이미지에서 Filter에 해당하는 Feature를 추출해 낼 수 있게 된다 (즉, Filter를 이용하여 Image의 특징이 나타나는 위치를 찾아내는 것이 핵심!!).
-
-어떤 Filter를 적용하느냐에 따라 다양한 특징을 가진 이미지를 추출할 수 있다.
-
-.. figure:: ../img/cnn/intro/filtered_images.png
-    :align: center
-    :scale: 70%
-
-.. rst-class:: centered
-
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220594258301>`_
-
-CNN은 설명한 내용과 같이 Convolution을 사용하게 되면서 다음과 같은 특징을 가지게 된다.
-
-* Locality
-
-    * CNN은 Receptive field와 유사하게 Filter를 이용하여 Local 정보를 활용함
-    * 다양한 Filter를 여러 개 사용 → 다양한 Local feature 추출
-
-    .. figure:: ../img/cnn/intro/cnn_locality.png
-        :align: center
-        :scale: 40%
-
-    .. rst-class:: centered
-
-        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_locality.png>`_
-
-* Shared weights
-
-    * 이미지에서 Local 정보를 추출할 때 가중치가 동일한 Filter를 반복 적용함 → Parameter 수 감소
-    * 위 과정을 통해 Topology 변화에 무관한 항상성 획득 (:red:`부분적으로 이해됨`)
-
-    .. figure:: ../img/cnn/intro/cnn_shared_weights.png
-        :align: center
-        :scale: 40%
-
-    .. rst-class:: centered
-
-        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_invariance.png>`_
-
-지금까지 Convolution에 대해 알아봤다. 이를 기반으로 전체적인 CNN의 구조를 살펴보자.
-
+그림에서도 볼 수 있듯이, 사람은 먼저 외부 자극 **전체 중 일부분** 에 대한 정보를 받아들이고, 이를 수용 영역을 이용해 중요한 **특징을 기반으로 필터링** 한다. 그리고 그 결과들을 시각 피질로 전달하여 사람이나 사물을 인식한다. 마찬가지로 컴퓨터가 이미지를 인식할 때도 전체가 아닌 특정 범위에 대해 여러 가지 특징 정보를 필터링하고, 그 결과를 기반으로 이미지를 인식하는 프로세스로 모델을 만들 수 있다. 이러한 모델이 CNN이고, 지금부터 CNN에 대해 하나씩 알아보려고 한다.
 
 CNN 구조
-========
+=========
 
 .. figure:: ../img/cnn/intro/cnn_structure.png
     :align: center
-    :scale: 60%
+    :scale: 50%
 
-.. rst-class:: centered
-
-    출처: `라온피플 (Laon People) <https://laonple.blog.me/220608018546>`_
-
-CNN은 Feature extraction이 내부적으로 진행되기 때문에 특별한 전처리가 필요없고, 크게 3가지 단계로 구성된다.
-
-1. Feature extraction
-
-    * Filter와 Subsampling으로 통해 특징을 추출하는 단계
-
-2. Shift and distortion invariance
-
-    * Topology에 영향 (Shift and distortion) 받지 않게 하는 단계
-    * Feature extraction 과정의 반복으로 이동/변형에 무관한 Global한 특징을 추출할 수 있음
-
-3. Classification
-
-    * 분류기 단계
-    * Global feature를 이용하여 원하는 목적을 이룰 수 있게 하는 부분
-    * Neural network와 유사하고 기본적으로 Fully connected layer 사용
-
-실제로 CNN은 아래 그림처럼 Convolution과 Subsampling Layer, Fully connected layer로 구성된다.
+CNN은 먼저 Filter로 Convolution하는 과정과 Subsampling을 통해 특징을 추출하고, 추출한 특징을 기반으로 기존 Fully connected layer로 이미지를 분류한다. 이 과정을 조금 더 자세하게 표현하면 아래 그림과 같다.
 
 .. figure:: ../img/cnn/intro/lenet-5.png
     :align: center
@@ -150,13 +80,42 @@ CNN은 Feature extraction이 내부적으로 진행되기 때문에 특별한 �
 
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220608018546>`_
 
-간단하게 각 과정에 대해 언급했는데, Filter와 Subsampling에 대해 조금 더 자세히 알아보자.
 
+자, 그러면 지금부터 CNN의 각 구조에 대해서 알아보자.
+
+Convolution
+************
+
+Convolution은 이미지에서 Filter로 원하는 특징을 추출할 때 사용되는 연산 방법이다. 그리고 Filter는 말 그대로 Image에서 내가 얻고자 하는 특징들만 걸러낼 수 있게 하는 거름망 같은 역할을 한다. 아래의 이미지로 조금 더 자세히 알아보자.
+
+.. figure:: ../img/cnn/intro/convolution.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220594258301>`_
+
+위 첫 번째 그림은 Image의 좌측 상단에서 3x3 Filter로 원하는 특징만 추출하는 과정을 나타낸 것이다 (Filter의 값은 빨간색으로 표기됨). 우리는 여기서 Filter에 해당하는 특징을 추출하기 위해, 각 픽셀 값과 Filter의 값을 곱하고 곱한 모든 값을 더한다. 그 결과값이 왼쪽 상단 부분에서 Filter의 특징을 가지는 정보를 추출한 것이다. 이 때, **각 값들을 곱하고 그 모든 값을 더하는 연산이 바로 Convolution** 이다.
+
+그리고 이러한 Convolution을 한 칸씩 이동하면서 이미지의 마지막 부분에 도착할 때까지 반복하면, 주어진 Image에서 Filter에 해당하는 특징들을 모두 추출할 수 있게 된다 (:strike:`이는 결국 Filter를 이용하여 Image의 특징이 나타나는 위치를 찾아내는 것과 같은 효과를 가진다 (아직 이해 X).`). 이 때 Convolution하고 이동하는 거리를 **Stride** 라고 하고, 일정한 간격으로 Convolution하여 새롭게 얻어낸 결과를 **Feature map** 이라고 부른다.
+
+따라서 어떤 Filter를 적용하느냐에 따라 이미지에서 다양한 특징을 가진 이미지를 추출할 수 있다.
+
+.. figure:: ../img/cnn/intro/filtered_images.png
+    :align: center
+    :scale: 70%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220594258301>`_
+
+지금까지 Convolution을 설명했고, 이를 설명하면서 Filter에 대해서 간단하게 이야기 했는데 조금 더 자세히 알아보자.
 
 Filter
 *******
 
-이전 Introduction에서 이미지에서 특징을 추출하기 위해 여러 가지 값이 `정해진 Filter <#convolution>`_ 를 사용했었다. 마찬가지로 CNN에서도 Filter를 사용하는데, 이전처럼 고정된 Filter가 아니라 학습을 통해 만들어지는 Filter를 사용한다는 점에서 다르다. 그래서 CNN을 적용하고자 하는 문제에 따라 Filter 값이 달라질 수 있다.
+위에서 Convolution을 설명할 때 이미지에서 특징을 추출하기 위해 여러 가지 값이 `정해진 Filter <#convolution>`_ 를 사용했었다. 마찬가지로 CNN에서도 Filter를 사용하는데, 이전처럼 고정된 Filter가 아니라 학습을 통해 만들어지는 Filter를 사용한다는 점에서 다르다. 그래서 CNN을 적용하고자 하는 문제에 따라 Filter 값이 달라질 수 있다.
 
 또한, 위에서 확인해 본 것처럼 하나의 이미지에도 다양한 Filter를 사용하면 다양한 특징들이 추출된다. 그렇다면 CNN에서는 몇 개의 Filter를 사용하는게 적절할까? 그리고 각 Filter의 크기는 어떤 것이 적절할까?
 
@@ -176,7 +135,7 @@ Filter의 크기
 
 Filter의 크기는 여러 논문에서 다양한 형태로 나타나는데, 이미지의 크기가 클수록 더 큰 Filter를 사용한다. 그렇다면 큰 크기의 Filter를 하나 사용하는 것과 작은 크기의 Filter를 여러 개 사용하는 것 중에 뭐가 더 좋을까?
 
-정답은 작은 크기의 Filter를 여러 개 사용하는 것이다. 여러 개를 사용하면 중간에 :red:`비선형화 과정을 통해 특징을 더 돋보이게 만들 수 있다 (?).` 또한, 연산량도 더 줄일 수 있다. 조금 더 자세한 내용은 추후에 다룰 예정이니 우선 결론을 알고 있자.
+정답은 작은 크기의 Filter를 여러 개 사용하는 것이다. 여러 개를 사용하면 중간에 :strike:`비선형화 과정을 통해 특징을 더 돋보이게 만들 수 있다 (이해 X).` 또한, 연산량도 더 줄일 수 있다. 조금 더 자세한 내용은 추후에 다룰 예정이니 우선 결론을 알고 있자.
 
 이 외에도 Filter로 Convolution 시 고려할 수 있는 Hyperparameter로 Stride와 Zero padding이 있다.
 
@@ -220,7 +179,9 @@ Zero padding은 Convolution 후 Feature map의 크기가 입력 크기보다 작
 Subsampling
 ************
 
-일반적인 Subsampling은 고정된 위치의 픽셀을 고르거나 Window 내 픽셀의 평균을 계산하는 방식으로 진행된다. CNN에서도 유사한데, 크게 2가지 방법이 있다.
+Feature를 추출할 때 Convolution 후에 Subsampling이라는 과정을 거친다. Subsampling은 Convolution으로 특징이 어느 정도 추출되었으면, 모든 특징을 다 사용하지 않고 중요한 부분만 사용하는 방법이다. 우리가 고해상도 이미지를 보고 사물을 판단할 수 있지만, 저해상도 사진으로도 사물을 구분할 수 있는 경우를 생각하면 이해에 도움이 된다.
+
+그리고 Subsampling을 하면 Feature map의 크기가 줄어들어 연산량을 감소시켜주는 효과도 있다.원리와 유사하게 생각하면 된다. 또한, Subsampling을 하면 중요한 정보만 추출해내기 때문에 Feature map의 크기를 줄여주는 효과도 있다. 지금까지 설명한 Subsampling에는 크게 2가지 방법이 있다.
 
 .. figure:: ../img/cnn/intro/pooling.png
     :align: center
@@ -240,22 +201,77 @@ Subsampling
 
     * Window의 평균을 계산하는 방법
 
+Fully connected layer
+**********************
+
+Fully connected layer는 Convolution과 Subsampling으로 추출한 특징으로 분류하는 부분이다. 크게 Feature map을 Flatten화 하는 부분, Fully connected layer, 최종 분류하는 Softmax layer로 구성된다.
+
+.. figure:: ../img/cnn/intro/lenet-5.png
+    :align: center
+    :scale: 60%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People) <https://laonple.blog.me/220608018546>`_
+
+위 이미지에서 S4 → C5로 전달되는 과정이 Feature map을 Flatten화 하는 부분이다. 여기서는 5x5 Convolution 작업을 120번 반복해서 Faltten화 한다. F6 부분은 기존 DNN처럼 C5의 모든 노드와 연결시키는 Fully connected layer이다.
+
+그리고 마지막 Layer가 Softmax layer인데 이전 Fully connected layer의 값을 0과 1 사이의 값으로 변환해 주는 부분이다. 이 때 모든 노드의 합은 1이 되게한다. 그래서 가장 높은 값을 가지는 Class로 분류가 된다.
+
+요약
+*****
+
 지금까지 CNN의 각 구조에 대해서 이해를 해봤다. 언급된 내용을 간단히 정리하면 다음과 같다.
 
 .. rst-class:: centered
 
-    **Filter를 이용한 Convolution 작업과 Subsampling과정을 반복적으로 진행**
-
-    **↓**
-
-    **Local feature로부터 Global feature 생성**
+    **Filter를 이용한 Convolution 작업과 Subsampling과정을 반복적으로 진행하여 Feature 추출**
     
     **↓**
 
-    **Global feature를 Fully connected layer를 통해 학습하여 분류 실시**
+    **추출한 Feature를 Fully connected layer를 이용해 분류**
 
 
-Code
+CNN을 사용해야 하는 이유
+========================
+
+지금까지 CNN의 구조에 대해 설명했는데, 그렇다면 왜 이미지 인식 문제에서 DNN을 사용하지 않고 CNN을 사용하는 걸까? 이전에 언급했던 내용을 다시 리마인드 해보면, 이미지를 인식할 때 DNN을 사용하면 크게 2가지 문제가 있었다.
+
+* 위치 정보를 상실하여 약간의 변형에도 다시 학습해야 되는 문제
+* Parameter 수가 많음 → 학습 속도가 느려지고 과적합 발생 가능성이 높아짐
+
+CNN은 구조적인 특징으로 위 2가지 문제를 해결했다.
+
+* Locality
+
+    * CNN은 수용 영역과 유사하게 Filter를 이용하여 Local 정보를 활용함
+    * 다양한 Filter를 여러 개 사용 → 다양한 Local feature 추출
+
+    .. figure:: ../img/cnn/intro/cnn_locality.png
+        :align: center
+        :scale: 40%
+
+    .. rst-class:: centered
+
+        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_locality.png>`_
+
+* Shared weights
+
+    * 이미지에서 Local 정보를 추출할 때 가중치가 동일한 Filter를 반복 적용함 → Parameter 수 감소
+    * :strike:`위 과정을 통해 위상 변화에 무관한 항상성 획득 (이해 X)`
+
+    .. figure:: ../img/cnn/intro/cnn_shared_weights.png
+        :align: center
+        :scale: 40%
+
+    .. rst-class:: centered
+
+        출처: `Convolutional Neural Networks (CNN) By Prof. Seungchul Lee in Industrial AI Lab <http://i-systems.github.io/HSE545/machine%20learning%20all/Workshop/180208_COSEIK/image_files/cnn_invariance.png>`_
+
+정리하면, 이미지 인식할 때 CNN을 사용하면 Local 정보를 추출하기 때문에 이미지가 약간 변형돼도 적절한 특징을 추출할 수 있고, 동일한 Filter를 사용하여 Parameter 수를 줄일 수 있다. 그래서 이미지 인식할 때는 DNN보다 CNN을 사용하는 것이 더 좋다.
+
+
+코드
 =====
 
 지금까지 CNN의 전체적인 구조를 살펴봤다. 이해한 내용을 실제로 구현해보면 더 이해가 잘 될 것 같아 CNN의 각 개념을 구현했고, `여기 <#>`_ 에서 확인할 수 있다.
@@ -295,3 +311,4 @@ Reference
 ==========
 
 * 라온피플 - `CNN 개요 <https://laonple.blog.me/220587920012>`_, `Why CNN? <https://laonple.blog.me/220594258301>`_, `CNN의 구조 <https://laonple.blog.me/220608018546>`_, `Overview <https://laonple.blog.me/220643128255>`_
+* `조대협의 블록, 딥러닝 - 초보자를 위한 컨볼루셔널 네트워크를 이용한 이미지 인식의 이해 <https://bcho.tistory.com/1149>`_

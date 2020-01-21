@@ -1,7 +1,7 @@
+=======
 Docker
 =======
 
-===================
 서버 관리 시 문제점
 ===================
 
@@ -24,10 +24,10 @@ Docker
     :scale: 40%
 
 **관련 링크**
-    * https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
+
+* https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
 
 
-=======
 WSGI
 =======
 
@@ -38,7 +38,6 @@ WSGI
 uWSGI는 웹 클라이언트가 웹 서버에게 요청한 HTTP 프로토콜 요청을 Python Call로 변환하기 위한 매핑관계를 WSGI 표준으로 구현한 것이다.
 
 
-=======================
 Docker 포트 추가 및 변경
 =======================
 
@@ -82,9 +81,8 @@ Docker 포트 추가 및 변경
     .....
 
 
-=============
 Commands
-=============
+=========
 
 **Host -> Container**
 
@@ -95,9 +93,9 @@ docker cp [container name]:[container 내부 경로] [host 파일경로]
 docker cp [host 파일경로] [container name]:[container 내부 경로]
 
 
+:h2:`출처`
 
-**Reference**
-    * https://mybrainimage.wordpress.com/2017/02/05/docker-change-port-mapping-for-an-existing-container/
-    * http://www.leafcats.com/163
-    * https://ko.wikipedia.org/wiki/%EC%9B%B9_%EC%84%9C%EB%B2%84_%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4
-    * https://blog.appdynamics.com/engineering/an-introduction-to-python-wsgi-servers-part-1/
+* https://mybrainimage.wordpress.com/2017/02/05/docker-change-port-mapping-for-an-existing-container/
+* http://www.leafcats.com/163
+* `위키피디아 <https://ko.wikipedia.org/wiki/%EC%9B%B9_%EC%84%9C%EB%B2%84_%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4`_
+* https://blog.appdynamics.com/engineering/an-introduction-to-python-wsgi-servers-part-1/

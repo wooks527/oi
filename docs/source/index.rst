@@ -43,6 +43,7 @@ Below lists are the contents I organized.
     nlp/paper/paper
     trend/trend
     ai/references
+    research/paper_reading
 
 .. toctree::
     :maxdepth: 1
@@ -62,6 +63,7 @@ Below lists are the contents I organized.
     packages/lxml
     packages/pandas
     packages/python
+    packages/sphinx
     packages/rdkit
     packages/snakemake
     packages/ubuntu
@@ -84,3 +86,4 @@ Below lists are the contents I organized.
     h&a_test/h&a_test
     interview/interview
     history/kor_hist
+    common_sense/common_sense

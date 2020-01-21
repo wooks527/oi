@@ -1,17 +1,15 @@
+=======
 Django
 =======
 
-=======================
 웹 프로그래밍
-=======================
+==============
 
 HTTP (HyperText Transfer Protocol) 프로토콜로 통신하는 클라이언트와 서버를 개발하는 작업
 
 .. figure:: img/web_server_architecture.png
     :scale: 70%
 
-
-========
 Django
 ========
 
@@ -39,7 +37,6 @@ Model이라는 객체를 이용하여 관계 테이블을 생성 또는 조작�
 DB를 SQL문을 작성하여 직접 접근할 필요가 없음
 
 
-=======
 Model
 =======
 
@@ -70,7 +67,6 @@ Table을 Class로 정의할 수 있고, 각 필드는 변수로 선언하고 파
     * Model을 활용한 C.R.U.D 관련 설명 (https://docs.djangoproject.com/ko/2.1/topics/db/queries/)
 
 
-========
 Template
 ========
 
@@ -154,18 +150,19 @@ View에서 Template에 변수를 전달하여 사용할 수 있고, 사용자 �
     <td id="{{ field }}">{{ element|process_longer_list|safe }}</td>
 
 **관련 링크**
-    * 사전 정의된 Template 용 함수 (https://docs.djangoproject.com/en/2.1/ref/templates/builtins/)
-    * 사용자 정의 함수 관련 설명 (https://docs.djangoproject.com/en/2.1/ref/templates/builtins/)
+
+* 사전 정의된 Template 용 함수 (https://docs.djangoproject.com/en/2.1/ref/templates/builtins/)
+* 사용자 정의 함수 관련 설명 (https://docs.djangoproject.com/en/2.1/ref/templates/builtins/)
 
 
-========
 View
-========
+======
 
 **뷰의 3가지 역할**
-    * 웹 요청을 받아서 데이터베이스 접속 등 해당 애플리케이션의 로직에 맞는 처리
-    * 결과 데이터를 HTML로 변환하기 위하여 템플릿 처리
-    * 최종 HTML로 응답 데이터를 웹클라이언트로 반환하는 역할
+
+* 웹 요청을 받아서 데이터베이스 접속 등 해당 애플리케이션의 로직에 맞는 처리
+* 결과 데이터를 HTML로 변환하기 위하여 템플릿 처리
+* 최종 HTML로 응답 데이터를 웹클라이언트로 반환하는 역할
 
 **함수형 뷰**
 
@@ -214,7 +211,6 @@ View
             return HttpResponse('result')
 
 
-=======
 URLconf
 =======
 
@@ -230,7 +226,6 @@ URLconf
     )
 
 
-========
 Database
 ========
 
@@ -252,7 +247,6 @@ Database와의 연동을 위해 settings.py에 연결정보를 입력하고 Mode
     }
 
 
-=======
 Form
 =======
 
@@ -273,13 +267,13 @@ Form에 Model 정보를 포함하여 Form으로 전달된 데이터를 Model을 
 
 추가적으로 GenericEditVIew도 있다 (P.188).
 
-**관련 링크**
-    * Form 관련 내용 (https://docs.djangoproject.com/en/2.1/topics/forms/)
+:h3:`출처:`
+
+* Form 관련 내용 (https://docs.djangoproject.com/en/2.1/topics/forms/)
 
 
-===========================
 프로젝트의 디렉토리 구성
-===========================
+========================
 
 ::
 
@@ -492,9 +486,7 @@ Model을 이용한 Database의 Table 구조 변경 시 적용된 결과 History�
 그래서 과거의 Table 구조로 되돌리는 기능도 있다.
 
 
-===============
-Reference
-===============
+:h2:`출처`
 
 * [Django로 배우는 쉽고 빠른 웹개발] 파이썬 웹 프로그래밍, 김석훈, 2015
 * https://wayhome25.github.io/django/2018/03/03/django-deploy-02-nginx-wsgi/

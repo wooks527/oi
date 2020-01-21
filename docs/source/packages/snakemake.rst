@@ -11,5 +11,6 @@ This example is validation to select the best hyperparameters.
 
 
 
-**Reference**
-    * `Snakemake Tutorial <https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html>`_
+:h2:`출처`
+
+* `Snakemake Tutorial <https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html>`_

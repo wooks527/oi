@@ -44,6 +44,7 @@ Pandas
 
 
 
-**Reference**
-    * https://datascienceschool.net/view-notebook/c5ccddd6716042ee8be3e5436081778b/
-    * https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
+:h2:`출처`
+
+* https://datascienceschool.net/view-notebook/c5ccddd6716042ee8be3e5436081778b/
+* https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html

@@ -23,6 +23,6 @@ lxml 버전 업그레이드 필요
     sudo pip install lxml --upgrade
 
 
+:h2:`출처`
 
-**Reference**
-    * https://lxml.de/installation.html
+* https://lxml.de/installation.html

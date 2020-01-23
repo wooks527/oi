@@ -29,3 +29,9 @@ Tuesday, January 21
 
     * AlexNet
     
+
+Wednesday, January 22
+=======================
+
+* AlexNet 정리
+    

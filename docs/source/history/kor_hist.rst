@@ -8,11 +8,11 @@
     :caption: 목록
     :maxdepth: 1
 
+    balhae
     chosun
     rok
 
 
-참조
-====
+:h2:`참조`
 
 * `위키피디아, 한국사 연표 <https://ko.wikipedia.org/wiki/%ED%95%9C%EA%B5%AD%EC%82%AC_%EC%97%B0%ED%91%9C>`_

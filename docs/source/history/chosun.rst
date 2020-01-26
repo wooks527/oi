@@ -26,8 +26,7 @@
 * 이들은 평상시에는 군포(軍布)를 바치고 유사시에만 소집되었다.
 
 
-참조
-====
+:h2:`참조`
 
 * `위키피디아, 진관 체제 <https://ko.wikipedia.org/wiki/%EC%A7%84%EA%B4%80_%EC%B2%B4%EC%A0%9C>`_
 * `위키피디아, 제승방략 체제 <https://ko.wikipedia.org/wiki/%EC%A0%9C%EC%8A%B9%EB%B0%A9%EB%9E%B5>`_

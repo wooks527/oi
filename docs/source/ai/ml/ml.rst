@@ -30,7 +30,7 @@ Machine learning
     loss_func
     regularization
     optimization
-    neural_networks/nn_learning
+    nn
     recommender_systems
 
 

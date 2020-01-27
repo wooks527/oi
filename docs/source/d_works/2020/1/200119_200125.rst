@@ -34,4 +34,10 @@ Wednesday, January 22
 =======================
 
 * AlexNet 정리
+
+
+Thursday, January 23
+=====================
+
+* AlexNet 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/alexnet.html>`_)
     

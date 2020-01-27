@@ -12,3 +12,9 @@ Sunday, January 26
 * 프로그래밍
 
     * 백준 문제 풀기 (N-Queen)
+
+
+Monday, January 27
+===================
+
+* VGGNet 이해 및 정리

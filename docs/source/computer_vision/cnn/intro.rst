@@ -302,9 +302,14 @@ CNN에 대해 더 이해하기 위해서는 대표적인 CNN을 살펴보는 것
 
 * :doc:`densenet`
 
-추가적으로 `ImageNet <../dataset.html#imagenet>`_ 과 ILSVRC는 각각 링크를 통해 설명하려고 한다.
+위와 같은 다양한 CNN architecture들은 ILSVRC 같은 대회에서 ImageNet과 같은 Dataset로 학습 및 테스트 후, Top-1, Top-5 에러율을 측정하여 각 Architecture의 성능을 비교했다. 조금 더 자세한 사항은 `여기 <../conf&dataset.html>`_ 에서 확인할 수 있다.
 
 지금까지 CNN의 기본적인 내용과 대표 Architecture에 대해 간단히 알아보았다. 지금부터는 각각의 CNN architecture를 조금 더 자세히 알아보려고 한다.
+
+.. toctree::
+    :hidden:
+
+    ../conf&dataset
 
 
 Reference

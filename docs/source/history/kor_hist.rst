@@ -9,6 +9,7 @@
     :maxdepth: 1
 
     balhae
+    goryeo
     chosun
     rok
 

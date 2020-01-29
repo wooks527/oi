@@ -18,3 +18,9 @@ Monday, January 27
 ===================
 
 * VGGNet 이해 및 정리
+
+
+Tuesday, January 28
+====================
+
+* VGGNet 이해 및 정리

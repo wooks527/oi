@@ -468,7 +468,16 @@ Concolusion
 VGGNet은 Network depth의 영향력을 확인하기 위해 3x3 Convolution을 활용한 단순한 구조의 모델이고, 구조가 단순하여 이해나 변경이 용이하여 GoogLeNet보다 더 많이 활용됐다. 물론, Fully connected layer로 인해 Parameter 수가 많아 학습 시간이 오래 걸리는 문제점이 있지만, 다양한 Test를 통해 Deep CNN 이해에 많은 기여를 했다.
 
 
-Reference
-==========
+Abstract
+=========
+
+.. figure:: ../img/cnn/vggnet/abstract_vggnet.jpg
+    :align: center
+    :scale: 20%
+
+
+:h2:`Reference`
 
 * 라온피플 (Laon People) - `VGGNet [1] <https://laonple.blog.me/220738560542>`_, `VGGNet [2] <https://laonple.blog.me/220749876381>`_
+* `Time Traveler, VGGNet <https://89douner.tistory.com/61?category=873854>`_
+* Very deep convolutional networks for large-scale image recognition, K Simonyan et al., 2014

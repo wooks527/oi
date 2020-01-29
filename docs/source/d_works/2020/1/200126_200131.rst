@@ -24,3 +24,10 @@ Tuesday, January 28
 ====================
 
 * VGGNet 이해 및 정리
+
+
+Wednesday, January 29
+======================
+
+* VGGNet 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
+* GoogLeNet 이해 및 정리

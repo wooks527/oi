@@ -13,8 +13,8 @@ Convolutional Neural Network (CNN)은 이미지를 다룰 때 많이 쓰는 Neur
     alexnet
     zfnet
     googlenet
-    inception-v2
     vggnet
+    inception-v2,v3
     resnet
     pre-activated_resnet
     inception-v4,resnet

@@ -327,9 +327,9 @@ VGGNet에서는 첫 번째 FC layer를 7x7 Conv. layer로, 나머지 2개의 FC 
 
 FC layer가 바뀌는 부분만 얘기해보면, Max pooling 결과로 생성된 7x7x512 Feature map을 7x7x512 Filter 4096개로 Convolution 하면 1x1x4096 Feature map을 생성할 수 있다. 마찬가지로 1x1x4096 Feature map에 1x1x4096 Filter 4096개로 Convolution 하여 1x1x4096 Feature map을 생성할 수 있다. 마지막으로 1x1x4096 Filter 1000개로 Convolution 하여 1x1x1000 Feature map을 만들 수 있고, 여기서 각 Feature map은 하나의 Class에 해당한다고 보면 된다.
 
-지금까지 FC layer를 Conv. layer로 변환한 부분에 대해 알아봤다. 이 작업이 가능한 이유는 FC layer와 1x1 Conv. filter가 연산하는 구조가 유사하기 때문이다. 아래 그림을 통해 살펴보자.
+지금까지 FC layer를 Conv. layer로 변환한 부분에 대해 알아봤다. 이 작업이 가능한 이유는 FC layer와 1x1 Conv. filter가 연산하는 구조가 유사하기 때문이다. 아래 그림으로 이해해보자.
 
-.. figure:: ../img/cnn/vggnet/convert_fc_to_conv.png
+.. figure:: ../img/cnn/vggnet/convert_fc_to_conv_in_vggnet.png
     :align: center
     :scale: 80%
 
@@ -337,7 +337,7 @@ FC layer가 바뀌는 부분만 얘기해보면, Max pooling 결과로 생성된
 
     출처: `Time Traveler, VGGNet <https://89douner.tistory.com/61?category=873854>`_
 
-(설명 작성 예정)
+위 그림에서 보는 것처럼 ... (작성 예정). 조금 더 자세한 내용은 :doc:`nin` 에서 확인할 수 있다.
 
 Parameters
 ***********

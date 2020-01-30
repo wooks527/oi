@@ -8,6 +8,7 @@ A
 * address (문제·상황 등에 대해) 고심하다[다루다]
 * affiliation 입회, 가입; 합병, 합동, 제휴
 * aforementioned 앞서 언급한
+* aggregation 집단, 집합[집성]체
 * agnostic 관용적인
 * approximate (성격양자질 등이) 비슷하다[가깝다]
 * attain 〔목적·희망 따위〕를 달성하다, 이루다
@@ -157,6 +158,7 @@ S
 * saturate 포화시키다, 포화 상태를 만들다
 * secure (특히 힘들게) 얻어 내다, 획득[확보]하다
 * shallow 얕은 (↔deep)
+* shrink (규모양이[을]) 줄어들다[줄어들게 하다]
 * somewhat 어느 정도, 약간, 다소(=rather)
 * sophisticated 정교한, 복잡한
 * stationarity 정상성 (일정하여 늘 한곁같은 성질)

@@ -376,8 +376,8 @@ These are more details:
 * 7 CNN ensemble: 18.2% → 15.4%
 
 
-결과
-====
+Results
+========
 
 지금까지 AlexNet의 특징들에 대해 살펴봤는데, 실제로 이미지 분류를 잘 할 수 있는지 한 번 확인해보자. 다음은 실제 이미지를 분류한 결과이고, Mite (진드기)가 한 쪽에 치우처져 있는 것도 잘 구별하는 것을 알 수 있다. 추정이 틀린 경우에도 보기에 따라 추정이 가능한 답변을 반환했다고 볼 수 있다.
 
@@ -402,8 +402,8 @@ These are more details:
 결론적으로 데이터 양이 충분하고 좋은 CNN 구조를 가지면 좋은 결과를 낼 수 있다는 가능성을 보인 점에서 AlexNet의 의미는 크다고 할 수 있다.
 
 
-요약
-=====
+Abstract
+=========
 
 .. figure:: ../img/cnn/alexnet/abstract_alexnet.jpg
     :align: center

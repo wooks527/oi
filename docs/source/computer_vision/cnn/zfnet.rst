@@ -248,22 +248,21 @@ Feature visualization으로 알게된 추가사항
     출처: `라온피플 (Laon People) <https://laonple.blog.me/220680023908>`_
 
 
-결론
-====
+Concolusion
+============
 
 이처럼 Visualizing을 하면 각 Layer의 Feature map들의 분포 (고름 또는 편향됨)를 알 수 있고, 개체의 위치, 자세 등을 파악할 수 있기 때문에 적절한 Hyperparameter로 학습되었는지 판단할 수 있다.
 
 
-요약
-=====
+Abstract
+=========
 
 .. figure:: ../img/cnn/zfnet/abstract_zfnet.jpg
     :align: center
     :scale: 30%
 
 
-Reference
-==========
+:h2:`Reference`
 
 * 라온피플 - `ZFNet [1] <https://laonple.blog.me/220673615573>`_, `ZFNet [2] <https://laonple.blog.me/220676812642>`_, `ZFNet [3] <https://laonple.blog.me/220680023908>`_
 * `YouTube, 최희정 - CNN Localization (ZFNet & Deep Taylor Decomposition) <https://www.youtube.com/watch?v=46TlWpZgKRE>`_

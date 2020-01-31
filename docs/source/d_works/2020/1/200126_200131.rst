@@ -1,33 +1,31 @@
-==============
-1월 다섯째 주
-==============
+======
+5주차
+======
 
-Sunday, January 26
-===================
+* Sunday, January 26
 
-* AlexNet, ZFNet 정리
+    * AlexNet, ZFNet 정리
 
-* VGGNet 이해
+    * VGGNet 이해
 
-* 프로그래밍
+    * 프로그래밍
 
-    * 백준 문제 풀기 (N-Queen)
+        * 백준 문제 풀기 (N-Queen)
 
+* Monday, January 27
 
-Monday, January 27
-===================
+    * VGGNet 이해 및 정리
 
-* VGGNet 이해 및 정리
+* Tuesday, January 28
 
+    * VGGNet 이해 및 정리
 
-Tuesday, January 28
-====================
+* Wednesday, January 29
 
-* VGGNet 이해 및 정리
+    * VGGNet 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
+    * GoogLeNet 이해 및 정리
 
+* Thursday, January 30
 
-Wednesday, January 29
-======================
-
-* VGGNet 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/vggnet.html>`_)
-* GoogLeNet 이해 및 정리
+    * GoogLeNet 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/googlenet.html>`_)
+    * Inception-V2 and V3 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/inception-v2,v3.html>`_)

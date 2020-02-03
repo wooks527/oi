@@ -1,0 +1,7 @@
+======
+1주차
+======
+
+* Saturday, Feburary 1
+
+    * ResNet 이해 및 정리

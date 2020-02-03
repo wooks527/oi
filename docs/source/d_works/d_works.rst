@@ -20,3 +20,4 @@ Daily works
     :maxdepth: 1
 
     2020/1/1
+    2020/2/2

@@ -1,0 +1,15 @@
+======
+2주차
+======
+
+* Sunday, Feburary 2
+
+    * GPU 환경 설정 관련 조사
+
+    * 프로그래밍
+
+        * 백준 문제 풀기 (Dynamic programming)
+
+* Monday, Feburary 27
+
+    * Object detection 이해 및 정리

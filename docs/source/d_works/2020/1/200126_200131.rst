@@ -29,3 +29,7 @@
 
     * GoogLeNet 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/googlenet.html>`_)
     * Inception-V2 and V3 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/cnn/inception-v2,v3.html>`_)
+
+* Friday, January 31
+
+    * ResNet 이해 및 정리

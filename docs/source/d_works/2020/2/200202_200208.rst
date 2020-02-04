@@ -10,6 +10,10 @@
 
         * 백준 문제 풀기 (Dynamic programming)
 
-* Monday, Feburary 27
+* Monday, Feburary 3
 
     * Object detection 이해 및 정리
+
+* Tuesday, Feburary 4
+
+    * YOLO 이해 및 정리

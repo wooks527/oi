@@ -11,6 +11,9 @@ A
 * aggregation 집단, 집합[집성]체
 * agnostic 관용적인
 * approximate (성격양자질 등이) 비슷하다[가깝다]
+* assistive 돕는, 도움이 되는(helpful)
+* astound 경악시키다, 큰 충격을 주다 (=astonish)
+* astounding 경악스러운, 믿기 어려운 (=astonishing) 
 * attain 〔목적·희망 따위〕를 달성하다, 이루다
 * augment 늘리다, 증가시키다
 
@@ -18,12 +21,14 @@ B
 ===
 
 * blob (작은) 색깔 부분
+* breakdown (통계적) 분석; 분류; 내역, 명세
 * by a factor of (증감 규모가) …(배(倍)) 만큼
 
 C
 ===
 
 * circumvent (어려움이나 법 등을) 피하다[면하다]
+* coarse (품질이) 조악(粗惡)한, 조잡한, 열등한, 하등의
 * columnar 원주의; 원주 모양의, 둥근 기둥 모양의
 * come up with …을 생산하다, 제시[제안]하다. (=produce; supply.) 
 * commodity (유용한) 것
@@ -31,13 +36,16 @@ C
 * configuration 배열, 배치; 배열[배치] 형태
 * conjecture 추측하다 (=guess)
 * conjunction (특별한 결과를 초래하는 사건 등의) 결합
+* conscious (행동·감정 등이) 의식적인, 의도적인 
 * constitute …이 되는 것으로 여겨지다, …이 되다
 * contrast normalization 대비 표준화
+* convey (생각·감정 등을) 전달하다[전하다] (=communicate) 
 
 D
 ===
 
 * decent (수준·질이) 괜찮은[제대로 된]
+* deformable 변형할 수 있는
 * degrade (특히 질적으로) 저하시키다
 * delineation 묘사, 도형; 설계, 도해
 * denote 의미[뜻]하다, 표시하다, 나타내다(=represent) (→connote (어떤 의미를) 함축하다)
@@ -45,23 +53,29 @@ D
 * derivative [수학] 미분 계수; 도함수
 * discriminative 식별하는; 식별[판별]력이 있는; 예민한.
 * discrepancy (같아야 할 것들 사이의) 차이[불일치]
+* disjoint <두 집합이> 공통 원소를 갖지 않은
+* diverge (예상·계획 등에서) 벗어나다
 
 E
 ===
 
 * ebullient [격식]패기만만한, 사기가 충천한
 * employ (기술·방법 등을) 쓰다[이용하다]
+* engage (작동될 수 있도록 기계 부품이[을]) 맞물리다[맞물리게 하다]
 * essentially 근본[기본/본질]적으로(=basically, fundamentally)
 * exhibit 보이다, 드러내다(=display)
 * explicitly 명백하게
 * exploit (최대한 잘) 활용하다, (사업산업용으로) 개발하다
+* extant 현존[잔존]하는
 
 F
 ===
 
 * fairly 상당히, 꽤
 * feasible 실현 가능한 (↔unfeasible), (=practicable)
+* flark (양염소새의) 떼 (→herd)
 * for completeness 완성도를 위해
+* frame (…에 대해/…하도록) …을 만들다((for/to do)); (목적에) …을 맞추다((to, into))
 
 G
 ===
@@ -96,6 +110,7 @@ I
 * interchangeably 교대로, 구별없이
 * interdependent 상호의존적인
 * intervene (두 가지 사건·장소) 사이에 있다[존재하다]
+* intuitive 직감[직관]에 의한, 직감하는, 직관력 있는, 직관적인
 * instability 불안정
 * isotropic 등방성의
 * isotropy 등방성 (공간이 방향에 따라 다르지 아니하고 같은 성질)
@@ -119,6 +134,8 @@ M
 * magnitude 정도
 * merely 한낱, 그저, 단지
 * mite 진드기
+* mitigate 완화[경감]시키다 (=alleviate)
+* model 〔물건〕을 (…에 맞추어/…으로)만들다((after, on, upon/in))
 * multinomial [수학] 다항(多項)의
 
 N
@@ -146,7 +163,10 @@ P
 R
 ===
 
+* reason (논리적인 근거에 따라) 판단하다, 추리[추론]하다
+* reasoning 추리, 추론
 * relevant (논의 중인 주제·생각하는 상황과 밀접하게) 관련 있는, 적절한
+* remedy 처리 방안, 해결[개선]책 (=solution), 바로잡다, 개선[교정]하다 (=put right)
 * reside (물건·성질 따위가) 갖추어져 있다, 존재하다(in)
 * responsibility 책임진 일, 임무, 할 일, 짐(duty, charge)
 * resultant (앞에 언급한) 그 결과로 생긴[그에 따른]
@@ -180,4 +200,5 @@ T
 U
 ===
 
+* unified 통합된
 * utilize (=utilise) 활용[이용]하다 (=make use of)

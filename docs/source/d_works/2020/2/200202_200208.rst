@@ -21,3 +21,7 @@
 * Wednesday, Feburary 5
 
     * YOLO 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/object_detection/yolo.html>`_)
+
+* Thursday, Feburary 6
+
+    * R-CNN 이해 및 정리

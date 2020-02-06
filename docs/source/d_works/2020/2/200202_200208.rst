@@ -17,3 +17,7 @@
 * Tuesday, Feburary 4
 
     * YOLO 이해 및 정리
+
+* Wednesday, Feburary 5
+
+    * YOLO 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/object_detection/yolo.html>`_)

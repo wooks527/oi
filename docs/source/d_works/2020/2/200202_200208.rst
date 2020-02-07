@@ -25,3 +25,14 @@
 * Thursday, Feburary 6
 
     * R-CNN 이해 및 정리
+
+* Friday, Feburary 7
+
+    * R-CNN 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/object_detection/r-cnn.html>`_)
+
+    * Fast R-CNN 이해 및 정리
+    
+    * English
+
+        * Speaking: "잘 알아, 빠삭해" 관련 표현들
+        * Words: Day 01 → cap (1)

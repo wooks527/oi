@@ -5,17 +5,20 @@ Words in paper
 A
 ===
 
+* ablation 제거; 절개 수술, 절제
 * address (문제·상황 등에 대해) 고심하다[다루다]
 * affiliation 입회, 가입; 합병, 합동, 제휴
 * aforementioned 앞서 언급한
 * aggregation 집단, 집합[집성]체
-* agnostic 관용적인
+* agnostic 관용적인, 독단적 의견에 사로잡히지[얽매이지] 않는
+* amortize〔자산·비용 따위〕를 점진 상각하다
 * approximate (성격양자질 등이) 비슷하다[가깝다]
 * assistive 돕는, 도움이 되는(helpful)
 * astound 경악시키다, 큰 충격을 주다 (=astonish)
 * astounding 경악스러운, 믿기 어려운 (=astonishing) 
 * attain 〔목적·희망 따위〕를 달성하다, 이루다
 * augment 늘리다, 증가시키다
+* auxiliary 보조의 (=ancillary)
 
 B
 ===
@@ -27,6 +30,7 @@ B
 C
 ===
 
+* canonical (수학에서) 표준[기준]이 되는
 * circumvent (어려움이나 법 등을) 피하다[면하다]
 * coarse (품질이) 조악(粗惡)한, 조잡한, 열등한, 하등의
 * columnar 원주의; 원주 모양의, 둥근 기둥 모양의
@@ -38,8 +42,10 @@ C
 * conjunction (특별한 결과를 초래하는 사건 등의) 결합
 * conscious (행동·감정 등이) 의식적인, 의도적인 
 * constitute …이 되는 것으로 여겨지다, …이 되다
+* contemporaneous 동시에 발생[존재]하는 (=contemporary)
 * contrast normalization 대비 표준화
-* convey (생각·감정 등을) 전달하다[전하다] (=communicate) 
+* convey (생각·감정 등을) 전달하다[전하다] (=communicate)
+* cortical [해부] 피층의; 피질의, 외피의; [생리] 대뇌 피질성의
 
 D
 ===
@@ -54,7 +60,10 @@ D
 * discriminative 식별하는; 식별[판별]력이 있는; 예민한.
 * discrepancy (같아야 할 것들 사이의) 차이[불일치]
 * disjoint <두 집합이> 공통 원소를 갖지 않은
+* distill 추출하다(extract)
 * diverge (예상·계획 등에서) 벗어나다
+* dominant 우세한, 지배적인
+* dub 별명을 붙이다
 
 E
 ===
@@ -63,10 +72,12 @@ E
 * employ (기술·방법 등을) 쓰다[이용하다]
 * engage (작동될 수 있도록 기계 부품이[을]) 맞물리다[맞물리게 하다]
 * essentially 근본[기본/본질]적으로(=basically, fundamentally)
+* exhaustively 철저하게, 남김없이, 속속들이
 * exhibit 보이다, 드러내다(=display)
 * explicitly 명백하게
 * exploit (최대한 잘) 활용하다, (사업산업용으로) 개발하다
 * extant 현존[잔존]하는
+* extent (크기·중요성·심각성 등의) 정도[규모]
 
 F
 ===
@@ -87,6 +98,7 @@ H
 
 * halve 반으로 줄다[줄이다]
 * holdout 제공된 것
+* homogeneous 동종[동질]의 (↔heterogeneous)
 
 I
 ===
@@ -141,12 +153,14 @@ M
 N
 ===
 
-nontrivial, non-trivial 적지 않은, 사소하지 않은, 심상치 않은, 중대한.
+* nuance (의미·소리·색상·감정상의) 미묘한 차이, 뉘앙스
+* nontrivial, non-trivial 적지 않은, 사소하지 않은, 심상치 않은, 중대한.
 
 O
 ===
 
 * off-the-shelf 재고품의, 출하 대기의, 기성품인
+* oppose (계획·정책 등에) 반대하다 (→propose)
 * oscillation (두 가지 사이의 규칙적인) 진동
 * order of magnitude 대규모; (수량의) 어느 단위에서 그 10배까지의 범위
 
@@ -154,8 +168,10 @@ P
 ===
 
 * pathway [생화학] 경로
+* plateau 안정 수준[상태]에 달하다; ((특히)) 상승[진보]이 멈추다
 * plausible 그럴듯한(↔implausible)
 * posterior 경험적인 확률, 사후확률
+* preliminary 예비적인, 준비의; 서문의; 임시의; 시초의
 * premise [격식](주장의) 전제
 * prior-art prior art 선행 기술
 * prohibitively 엄청나게
@@ -168,6 +184,7 @@ R
 * relevant (논의 중인 주제·생각하는 상황과 밀접하게) 관련 있는, 적절한
 * remedy 처리 방안, 해결[개선]책 (=solution), 바로잡다, 개선[교정]하다 (=put right)
 * reside (물건·성질 따위가) 갖추어져 있다, 존재하다(in)
+* resort to something (다른 대안이 없어서, 특히 좋지 못한 것에) 기대다[의지하다] (=have recourse to)
 * responsibility 책임진 일, 임무, 할 일, 짐(duty, charge)
 * resultant (앞에 언급한) 그 결과로 생긴[그에 따른]
 * retrieve 검색하다
@@ -176,14 +193,17 @@ S
 ===
 
 * saturate 포화시키다, 포화 상태를 만들다
+* scarce 부족한, 드문
 * secure (특히 힘들게) 얻어 내다, 획득[확보]하다
 * shallow 얕은 (↔deep)
 * shrink (규모양이[을]) 줄어들다[줄어들게 하다]
 * somewhat 어느 정도, 약간, 다소(=rather)
 * sophisticated 정교한, 복잡한
-* stationarity 정상성 (일정하여 늘 한곁같은 성질)
+* stagnate 침체되다, 부진해지다
 * stall 교착 상태에 빠뜨리다, 지연시키다; 교착 상태에 빠지다, 지연되다
+* stationarity 정상성 (일정하여 늘 한곁같은 성질)
 * stellar [비격식]뛰어난
+* subsequent 그[이] 다음의, 차후의 (↔previous)
 * such that 그런 것
 * synchronous 동시 발생[존재]하는 
 
@@ -202,3 +222,14 @@ U
 
 * unified 통합된
 * utilize (=utilise) 활용[이용]하다 (=make use of)
+
+V
+===
+
+* vigorously 발랄하게, 힘차게
+
+W
+===
+
+* warp (원래의 모습을 잃고) 휘다[틀어지다]; 휘게[틀어지게] 만들다 
+* whiskers Box plot에서 min과 max를 연결한 선

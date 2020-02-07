@@ -64,7 +64,7 @@ R-CNN은 Input image로 약 2,000개의 Region proposals를 만들기 위해 Sel
 
     출처: Fast campus, 올인원 패키지: 딥러닝/인공지능
 
-Image가 입력되면 관심있는 영역인 Region of interest를 Proposal하고 이는 Selective search를 이용해서 진행할 수 있다. 그렇게 생성된 Image를 Warping 하여 CNN에 입력하여 Feature vector를 추출한다. 그리고 이를 Linear SVM을 이용해서 Class를 구분하고, Bbox regressor로 Bounding box의 위치를 예측한다.
+Image가 입력되면 관심있는 영역인 Region of Interest (RoI)를 Proposal하고 이는 Selective search를 이용해서 진행할 수 있다. 그렇게 생성된 Image를 Warping 하여 CNN에 입력하여 Feature vector를 추출한다. 그리고 이를 Linear SVM을 이용해서 Class를 구분하고, Bbox regressor로 Bounding box의 위치를 예측한다.
 
 Selective search
 *****************
@@ -191,17 +191,30 @@ Problems
 * Object detection 시간이 오래 걸림
 
     * Selective search로 추출한 약 2,000개의 Region proposal들에 대해 각각 CNN과 SVM, Regression 작업을 해야되기 때문에 시간이 오래 걸림
-    * Training time: 84시간
-    * Test time: 13초 (GPU K40), 53초 (CPU)
+    
+    * Training
+    
+        * 모듈이 다 따로 학습됨
+
+            * Fine-tune CNN with softmax: Log loss
+            * Linear SVM: Hinge loss
+            * Bbox regressor: Least square
+
+        * 84 hours
+
+        * 많은 Disk 공간을 필요로함 (Feature를 모두 Disk에 저장했음)
+    
+    * Test time
+    
+        * 하나의 Image에 수천 개의 Forward propagation을 해야해서 오래 걸림
+        * GPU K40: 13s per image
+        * CPU: 53s per image
 
 * 모델이 복잡함
 
     * 2-stage detector이고, CNN, SVM, Bbox regressor 모델 필요
-    
-    * 위 3개 모델이 모두 분리되어 있음
-    
-        * 학습되는 Loss가 연결되어 있지 않은데 한꺼번에 다뤄야 해서 복잡함
-        * Backpropagation 안됨 → SVM, Bbox regressor에서 학습한 결과를 CNN에 반영할 수 없음
+    * 위 3개 모델이 모두 분리되어 학습되는 Loss가 연결되어 있지 않은데 한꺼번에 다뤄야 해서 복잡함
+    * Backpropagation 안됨 → SVM, Bbox regressor에서 학습한 결과를 CNN에 반영할 수 없음
 
 * Warping으로 인한 성능 저하
 
@@ -219,6 +232,26 @@ Conclusion
 R-CNN은 Selective search를 통해 Region proposal로 Object 위치의 후보군 정보를 추출하고, 이를 Pre-train 된 CNN을 이용하여 Feature vector를 추출한 뒤, Linear SVM을 통해 Class를 예측하거나 Bounding box regressor를 통해 Bounding box의 위치를 예측했다. Pre-train된 CNN을 Domain-speicific한 데이터로 Fine-tunning하는 방법으로 Object detection 성능을 많이 향상시켰다.
 
 하지만 여전히 실행 시간이 긴 문제점이 있다. 이러한 문제를 해결하기 위해서 나온 것이 SPPNet (Spatial Pyramid Pooling in Deep Convolutional Neural Network for Visual Recognition)이고 다음 페이지에서 다룰 예정이다.
+
+
+Q&A
+====
+
+* RoI가 Rectangle일 이유가 있는지 여부
+
+    * Non-region인 것들을 감싸는게 어려움
+    * Segmentation에서 Rectangle이 아닌 RoI를 얻을 수 있음
+
+* Regression으로 예측된 Offset이 항상 RoI 안에 존재하는지 여부
+
+    * 그렇지 않음
+    * 예를 들어 사람에 대한 Region proposal이 머리를 제외한 Region으로 선택된 경우, Offset을 통해 Bbox를 약간 위로 이동시킬 수 있음
+    * 그래서 최종적인 Bbox가 RoI 밖에 있을 수 있음
+
+* 실제 Object와 매칭되지 않는 RoI가 많은 경우 문제 여부
+
+    * Background class가 따로 있고, 이를 이용하여 RoI가 Object가 아니라고 예측함
+    * 관련 내용 보충 필요
 
 
 Abstract

@@ -6,6 +6,7 @@ A
 ===
 
 * ablation 제거; 절개 수술, 절제
+* ad hoc 특정한 문제나 일을 위해 만들어진 관습적인 해결책, 일반화할 수 없는 해결책, 어떤 다른 목적에 적응시킬 수 없는 해결책
 * address (문제·상황 등에 대해) 고심하다[다루다]
 * affiliation 입회, 가입; 합병, 합동, 제휴
 * aforementioned 앞서 언급한
@@ -170,6 +171,7 @@ P
 * pathway [생화학] 경로
 * plateau 안정 수준[상태]에 달하다; ((특히)) 상승[진보]이 멈추다
 * plausible 그럴듯한(↔implausible)
+* post-hoc 다음번에, 이후에
 * posterior 경험적인 확률, 사후확률
 * preliminary 예비적인, 준비의; 서문의; 임시의; 시초의
 * premise [격식](주장의) 전제

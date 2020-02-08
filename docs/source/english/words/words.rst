@@ -16,7 +16,7 @@ Words
 
 :h2:`Day 1 ~ 2`
 
-* Day 1: `cap (1) <day01.html#cap-1>`_
+* Day 1: :doc:`cap (1), cap (2), cede <day01>`
 * Day 2: `duc <day02.html#duc>`_, `fac <day02.html#fac>`_
 
 Day 3 ~ 10

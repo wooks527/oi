@@ -8,6 +8,7 @@ A
 * ablation 제거; 절개 수술, 절제
 * ad hoc 특정한 문제나 일을 위해 만들어진 관습적인 해결책, 일반화할 수 없는 해결책, 어떤 다른 목적에 적응시킬 수 없는 해결책
 * address (문제·상황 등에 대해) 고심하다[다루다]
+* advocate (공개적으로) 지지하다[옹호하다]
 * affiliation 입회, 가입; 합병, 합동, 제휴
 * aforementioned 앞서 언급한
 * aggregation 집단, 집합[집성]체
@@ -70,6 +71,7 @@ E
 ===
 
 * ebullient [격식]패기만만한, 사기가 충천한
+* elucidate (더 자세히) 설명하다 (=explain)
 * employ (기술·방법 등을) 쓰다[이용하다]
 * engage (작동될 수 있도록 기계 부품이[을]) 맞물리다[맞물리게 하다]
 * essentially 근본[기본/본질]적으로(=basically, fundamentally)
@@ -154,8 +156,9 @@ M
 N
 ===
 
-* nuance (의미·소리·색상·감정상의) 미묘한 차이, 뉘앙스
 * nontrivial, non-trivial 적지 않은, 사소하지 않은, 심상치 않은, 중대한.
+* notion 개념, 관념, 생각
+* nuance (의미·소리·색상·감정상의) 미묘한 차이, 뉘앙스
 
 O
 ===
@@ -173,6 +176,7 @@ P
 * plausible 그럴듯한(↔implausible)
 * post-hoc 다음번에, 이후에
 * posterior 경험적인 확률, 사후확률
+* pragmatic 실용적인 (=realistic)
 * preliminary 예비적인, 준비의; 서문의; 임시의; 시초의
 * premise [격식](주장의) 전제
 * prior-art prior art 선행 기술
@@ -205,6 +209,7 @@ S
 * stall 교착 상태에 빠뜨리다, 지연시키다; 교착 상태에 빠지다, 지연되다
 * stationarity 정상성 (일정하여 늘 한곁같은 성질)
 * stellar [비격식]뛰어난
+* streamline (시스템·조직 등을) 간소화[능률화]하다
 * subsequent 그[이] 다음의, 차후의 (↔previous)
 * such that 그런 것
 * synchronous 동시 발생[존재]하는 
@@ -228,6 +233,7 @@ U
 V
 ===
 
+* vast (범위·크기·양 등이) 어마어마한[방대한/막대한] (=huge)
 * vigorously 발랄하게, 힘차게
 
 W

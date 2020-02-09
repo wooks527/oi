@@ -77,7 +77,7 @@ Selective search
 
     출처: Fast campus, 올인원 패키지: 딥러닝/인공지능
 
-먼저, 객체와 주변 간의 색감 (Color), 질감 (Texture) 차이, 다른 물체에 에워싸여 있는지 (Enclosed) 등을 파악해서 경향성이 같은 것들끼리 Grouping을 한다. 그리고 유사한 Group끼리 조금씩 Merge 해 가면서 Object의 위치를 파악할 수 있고, 이러한 방법이 Selective search 방법이다.
+먼저, 객체와 주변 간의 색감 (Color), 질감 (Texture) 차이, 다른 물체에 에워싸여 있는지 (Enclosed) 등을 파악해서 경향성이 같은 것들끼리 Grouping을 한다. 그리고 유사한 Group끼리 특정 개수의 Group이 나올 때까지 Merge한다. 최종적으로 얻어지는 Group의 Boundary를 따라서 Object에 대한 Bounding box를 추출해낼 수 있고, 이러한 방법이 Selective search 방법이다.
 
 위 그림에서 볼 수 있듯이 Selective search를 통해 굉장히 많은 Bounding box를 만들어내어 정확한 Bounding box를 찾을 수 있다. 하지만 이렇게 많은 Bounding box를 Search 하는데 시간이 오래 걸리는 문제가 있다. 그래서 보통 Detection 보다는 Segmentation에서 많이 쓴다고 한다.
 
@@ -105,6 +105,18 @@ Warping을 통해 Fixed 된 이미지들은 CNN을 통해 Feature extraction을 
 
     출처: Fast campus, 올인원 패키지: 딥러닝/인공지능
 
+Object detection을 위한 PASCAL VOC는 ILSVRC에 비해 데이터 수가 적었기 때문에, 먼저 CNN을 ILSVRC의 ImageNet 데이터를 이용하여 Pre-training 시켰다. 그리고 나서 Object detection을 위한 Dataset인 PASCAL VOC을 이용하여 Fine-tunning 시키는데, 이 때 Dataset의 Class가 총 20개이기 때문에 AlexNet의 마지막 FC layer의 Neuron 수를 1000개에서 20개로 변경하여 Fine-tuning한다 (Softmax + Log loss).
+
+.. figure:: ../img/od/r-cnn/r-cnn_training_process.png
+    :align: center
+    :scale: 80%
+
+.. rst-class:: centered
+
+    출처: `라온피플 (Laon People), GoogLeNet [6] <https://blog.naver.com/laonple/220731472214>`_
+
+그리고 나서 마지막 이전의 FC layer의 Feature를 Disk에 모두 Dumping 한고, 다시 읽어와서 Linear SVM (Hinge loss)과 Bounding box regressor (Neural network, Squared loss)를 학습시킨다. 따라서 SVM과 Bounding box regression 학습 시 CNN까지 Backpropagation을 할 수 없기 때문에 학습 결과가 CNN에 반영되지 않는 문제점이 있다. 추가로 Linear SVM의 성능을 개선하기 위해 Hard negative mining 방법을 적용시켰다고 한다.
+
 Classification and regression
 ******************************
 
@@ -126,15 +138,27 @@ CNN에서 추출된 Feature vector를 Linaer SVM을 이용하여 Class를 분류
 Bounding box regression
 -------------------------
 
-Selective search로 찾은 Bounding box는 정확하지 않을 수 있기 때문에 더 정확하게 Object를 감쌀 수 있게 사용하는 것이 Bounding box regression이다. Bounding box regression을 하면 아래와 같은 결과를 얻게 된다.
+Selective search로 찾은 Bounding box는 정확하지 않을 수 있기 때문에 더 정확하게 Object를 감쌀 수 있게 사용하는 것이 Bounding box regression이다. Bounding box regression은 Neural network로 구성되어 있고 이를 진행하면 아래와 같은 결과를 얻게 된다.
 
 .. rst-class:: centered
 
     :math:`{(P^i, G^i)}_{i=1, \cdots, N},\ where\ P^i = (P^i_x, P^i_y, P^i_w, P^i_h)`
 
-여기서 :math:`x,\ y,\ w,\ h` 는 각각 Bounding box의 중심점 (:math:`x,\ y`), Width, Height에 해당한다. 그리고 :math:`P`는 선택된 Bounding box이고, :math:`G` 는 Ground truth인 실제 Bounding box를 의미한다. 따라서 예측한 Bounding box 정보와 Ground truth의 Bounding box 정보의 차가 최소한이 되도록 학습된다.
+여기서 :math:`x,\ y,\ w,\ h` 는 각각 Bounding box의 중심점 (:math:`x,\ y`), Width, Height에 해당한다. 그리고 :math:`P` 는 선택된 Bounding box이고, :math:`G` 는 Ground truth인 실제 Bounding box를 의미한다. 따라서 예측한 Bounding box 정보와 Ground truth의 Bounding box 정보의 차가 최소한이 되도록 학습된다.
 
-실제로 정확한 Bounding box의 위치와 크기를 학습하기 위해서 각 값들을 약간 조정해서 예측한 값이 Ground truth와 가까워 질 수 있게 학습시킨다. 조정하는 식과 Loss function은 아래와 같다.
+.. rst-class:: centered
+
+    :math:`\hat{G_x} = P_w d_x(P) + P_x\ ↔\ G_x = P_w t_x + P_x`
+
+    :math:`\hat{G_y} = P_h d_y(P) + P_y\ ↔\ G_y = P_h t_y + P_y`
+
+    :math:`\hat{G_w} = P_w exp(d_w(P))\ ↔\ G_w = P_w exp(d_w(P))`
+
+    :math:`\hat{G_h} = P_h exp(d_h(P))\ ↔\ G_h = P_h exp(d_h(P))`
+
+조금 더 자세히 살펴보면, 예측한 Bounding box 정보인 :math:`P` 를 적절히 변경하여 만든 :math:`\hat{G}` 과 Ground turth인 :math:`G` 의 차를 최소화하는, 즉 :math:`d` 와 :math:`t` 의 차를 최소화시키는 :math:`d` 들을 찾아내는 것이 Bounding box regression의 목표다. 여기에서 :math:`d_{\mathbf{*}}(P) = \mathbf{w_*}^T \phi_5(P)`, :math:`where\ \mathbf{*}\ is\ one\ of\ x,\ y,\ w,\ h` 는 :math:`pool_5` 의 Feature를 이용하여 값을 추출하는 함수이다. 그리고 위 식에서도 알 수 있듯이 :math:`x,\ y` 값 보다는 Width와 Height 값이 더 많이 조절될 수 있게 만들었다.
+
+학습할 때 사용하는 Loss function은 아래와 같고, 조금 더 자세한 내용은 추후에 보충할 예정이다.
 
 .. figure:: ../img/od/r-cnn/bbox_regressor_in_r-cnn.png
     :align: center
@@ -143,24 +167,6 @@ Selective search로 찾은 Bounding box는 정확하지 않을 수 있기 때문
 .. rst-class:: centered
 
     출처: Fast campus, 올인원 패키지: 딥러닝/인공지능
-
-위에서는 Ground turth의 Bounding box 정보를 변형해서 :math:`x,\ y` 값 보다는 Width와 Height 값이 더 많이 조절될 수 있게 만들었다. 다른 값들에 대한 자세한 설명은 추후에 할 예정이다.
-
-
-Training
-=========
-
-Object detection을 위한 PASCAL VOC는 ILSVRC에 비해 데이터 수가 적었다. 그래서 R-CNN에서는 ILSVRC로 CNN을 Pre-training 하고, 이를 PASCAL VOC 데이터로 Fine-tunning 하여 모델을 학습시켰다. 그리고 Linear SVM의 성능을 개선하기 위해 Hard negative mining 방법을 적용시켰다. 이 과정을 그림으로 표현하면 아래와 같다.
-
-.. figure:: ../img/od/r-cnn/r-cnn_training_process.png
-    :align: center
-    :scale: 80%
-
-.. rst-class:: centered
-
-    출처: `라온피플 (Laon People), GoogLeNet [6] <https://blog.naver.com/laonple/220731472214>`_
-
-(추후 보충 예정)
 
 
 Results
@@ -251,6 +257,7 @@ Q&A
 * 실제 Object와 매칭되지 않는 RoI가 많은 경우 문제 여부
 
     * Background class가 따로 있고, 이를 이용하여 RoI가 Object가 아니라고 예측함
+    * Regression 할 때 Background class의 경우 Penalty를 준다고 함
     * 관련 내용 보충 필요
 
 

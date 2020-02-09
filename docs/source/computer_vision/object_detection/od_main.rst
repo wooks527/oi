@@ -27,6 +27,8 @@ Classification과 관련된 내용은 :doc:`../cnn/cnn` 부분에서 많이 다�
     od_eval
     yolo
     r-cnn
+    sppnet
+    fast_r-cnn
 
 * :doc:`sift`
 * R-CNN (Regions with CNN features)

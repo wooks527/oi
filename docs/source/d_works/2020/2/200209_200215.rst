@@ -4,9 +4,10 @@
 
 * Sunday, Feburary 9
 
-    * Fast R-CNN 이해 및 정리
-    
-    * Faster R-CNN 이해
+    * Object detection
+
+        * Fast R-CNN 이해 및 정리
+        * Faster R-CNN 이해
     
     * English
 
@@ -15,3 +16,13 @@
     * 프로그래밍
 
         * 백준 문제 풀기 (동전 1)
+
+* Monday, Feburary 10
+
+    * Object detection
+
+        * Faster R-CNN 이해 및 정리
+
+    * English
+
+        * 강성태 영단어 Day 2

@@ -1,0 +1,17 @@
+======
+3주차
+======
+
+* Sunday, Feburary 9
+
+    * Fast R-CNN 이해 및 정리
+    
+    * Faster R-CNN 이해
+    
+    * English
+
+        * Speaking: "그럴 의도는 아니었어..." 관련 표현들
+
+    * 프로그래밍
+
+        * 백준 문제 풀기 (동전 1)

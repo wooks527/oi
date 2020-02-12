@@ -26,3 +26,9 @@
     * English
 
         * 강성태 영단어 Day 2
+
+* Tuesday, Feburary 11
+
+    * Object detection
+
+        * Faster R-CNN 이해 및 정리

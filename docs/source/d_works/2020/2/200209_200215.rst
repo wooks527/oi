@@ -32,3 +32,11 @@
     * Object detection
 
         * Faster R-CNN 이해 및 정리
+
+* Wednesday, Feburary 12
+
+    * Object detection
+
+        * Faster R-CNN 이해 및 정리
+
+    * GPU 환경 설정 및 정리 (`Link <https://oi.readthedocs.io/en/latest/packages/gpu_env.html>`_)

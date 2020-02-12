@@ -19,9 +19,9 @@ This is a table of contents in AI:
     deep_learning/dl
     tensorflow/tf
     pytorch/pytorch
+    ../packages/gpu_env
 
 
-Reference
-==========
+:h2:`Reference`
 
 * `Wikipedia <https://en.wikipedia.org/wiki/Artificial_intelligence>`_

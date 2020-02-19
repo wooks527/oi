@@ -35,6 +35,7 @@ Below lists are the contents I organized.
     trend/trend
     ai/references
     research/paper_reading
+    research/googling
 
 .. toctree::
     :maxdepth: 1
@@ -47,17 +48,24 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: Packages
 
+    packages/python
+    packages/pandas
+    packages/jupyter
+    packages/colab/colab
+    packages/git/git
     packages/docker
     packages/django
-    packages/jupyter
-    packages/lxml
-    packages/pandas
-    packages/python
+    packages/snakemake
     packages/sphinx
     packages/rdkit
-    packages/snakemake
-    packages/ubuntu
+    packages/lxml
     packages/powershell
+
+.. toctree::
+    :maxdepth: 1
+    :caption: OS
+
+    packages/ubuntu
 
 .. toctree::
     :maxdepth: 1

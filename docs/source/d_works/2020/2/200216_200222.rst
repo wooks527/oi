@@ -8,6 +8,11 @@
 
 * Tuesday, Feburary 18
 
-    * GitHub tutorial 작성 완료
     * ALPR 관련 논문 읽기 (License Plate Detection and Recognition in Unconstrained Scenarios)
     * 랩 세미나
+    * GitHub tutorial 작성 완료
+
+* Wendesday, Feburary 19
+
+    * ALPR 관련 논문 읽기 (License Plate Detection and Recognition in Unconstrained Scenarios)
+    * 토익 스피킹 이해 (각 보기 |:+1:|)

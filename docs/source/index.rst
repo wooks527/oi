@@ -32,6 +32,7 @@ Below lists are the contents I organized.
     :caption: Research
 
     deepcombdti/deepcombdti
+    computer_vision/cv_papers
     trend/trend
     ai/references
     research/paper_reading

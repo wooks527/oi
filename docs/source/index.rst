@@ -68,7 +68,8 @@ Below lists are the contents I organized.
     :maxdepth: 1
     :caption: OS
 
-    packages/ubuntu
+    os/ubuntu/ubuntu
+    os/windows/windows
 
 .. toctree::
     :maxdepth: 1

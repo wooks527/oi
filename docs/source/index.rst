@@ -53,10 +53,12 @@ Below lists are the contents I organized.
     packages/pandas
     packages/jupyter
     packages/colab/colab
+    packages/anaconda
     packages/git/git
     packages/docker
     packages/django
     packages/snakemake
+    packages/vscode
     packages/sphinx
     packages/rdkit
     packages/lxml
@@ -75,6 +77,7 @@ Below lists are the contents I organized.
     english/words/words
     english/grammar/grammar
     english/speaking/speaking
+    english/test/test
 
 .. toctree::
     :maxdepth: 1

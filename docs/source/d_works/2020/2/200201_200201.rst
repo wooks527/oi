@@ -2,6 +2,6 @@
 1주차
 ======
 
-* Saturday, Feburary 1
+* Saturday, February 1
 
     * ResNet 이해 및 정리

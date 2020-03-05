@@ -2,7 +2,7 @@
 3주차
 ======
 
-* Sunday, Feburary 9
+* Sunday, February 9
 
     * Object detection
 
@@ -17,7 +17,7 @@
 
         * 백준 문제 풀기 (동전 1)
 
-* Monday, Feburary 10
+* Monday, February 10
 
     * Object detection
 
@@ -27,13 +27,13 @@
 
         * 강성태 영단어 Day 2
 
-* Tuesday, Feburary 11
+* Tuesday, February 11
 
     * Object detection
 
         * Faster R-CNN 이해 및 정리
 
-* Wednesday, Feburary 12
+* Wednesday, February 12
 
     * Object detection
 
@@ -41,10 +41,10 @@
 
     * GPU 환경 설정 및 정리 (`Link <https://oi.readthedocs.io/en/latest/packages/gpu_env.html>`_)
 
-* Thursday, Feburary 13
+* Thursday, February 13
 
     * Colab tutorial 작성
 
-* Friday, Feburary 14
+* Friday, February 14
 
     * GitHub tutorial 작성

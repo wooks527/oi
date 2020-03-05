@@ -2,7 +2,7 @@
 2주차
 ======
 
-* Sunday, Feburary 2
+* Sunday, February 2
 
     * GPU 환경 설정 관련 조사
 
@@ -10,23 +10,23 @@
 
         * 백준 문제 풀기 (Dynamic programming)
 
-* Monday, Feburary 3
+* Monday, February 3
 
     * Object detection 이해 및 정리
 
-* Tuesday, Feburary 4
+* Tuesday, February 4
 
     * YOLO 이해 및 정리
 
-* Wednesday, Feburary 5
+* Wednesday, February 5
 
     * YOLO 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/object_detection/yolo.html>`_)
 
-* Thursday, Feburary 6
+* Thursday, February 6
 
     * R-CNN 이해 및 정리
 
-* Friday, Feburary 7
+* Friday, February 7
 
     * R-CNN 이해 및 정리 (`Link <https://oi.readthedocs.io/en/latest/computer_vision/object_detection/r-cnn.html>`_)
 
@@ -37,7 +37,7 @@
         * Speaking: "잘 알아, 빠삭해" 관련 표현들
         * Words: Day 01 → cap (1)
 
-* Saturday, Feburary 8
+* Saturday, February 8
 
     * Fast R-CNN 이해 및 정리
     

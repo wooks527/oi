@@ -16,10 +16,11 @@
 논문 읽기 6단계
 ===============
 
-* Abstract 읽기
+* Abstract 읽기 + 전체 소제목 확인하기
 
     * Abstract는 논문의 개략적인 내용을 담고 있다.
     * 그래서 Abstract를 통해 논문의 흐름을 대략적으로 파악할 수 있어 먼저 읽는게 좋다.
+    * 그러고 나서 처음부터 순서대로 소제목들도 살펴본다.
 
 * Figure/Table과 Description 읽기
 
@@ -35,6 +36,7 @@
 * 전체 훑기 (Method X)
 
     * Introduction, Materials, Discussion (or Analysis), Conclusion을 빠르게 훑으면서 필요한 배경지식과 저자의 연구 목적 및 기여도, 실험 결과, 저자가 생각하는 논의점, 그리고 최종 결론의 흐름을 이해한다.
+    * Introduction에서 Related works와 관련된 내용들은 논문의 제목과 연도를 확인하여 관련 분야 히스토리를 이해한다.
     * 너무 하나하나의 단어를 보는데 집중하지 말고, 이전까지 읽은 내용과 충돌되는 부분이나 이해가 가지 않는 부분만 간단히 표시한다.
 
 * Method 훑기

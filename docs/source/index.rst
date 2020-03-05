@@ -35,8 +35,7 @@ Below lists are the contents I organized.
     computer_vision/cv_papers
     trend/trend
     ai/references
-    research/paper_reading
-    research/googling
+    research/research_method
 
 .. toctree::
     :maxdepth: 1

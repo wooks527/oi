@@ -9,3 +9,4 @@ GPU 환경 구축
 
     ubuntu
     windows
+    q&a

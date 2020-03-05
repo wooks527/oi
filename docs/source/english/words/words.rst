@@ -37,7 +37,6 @@ Words in paper
     words_in_paper
 
 
-Reference
-==========
+:h2:`Reference`
 
 * 강성태 영단어 어원편, 강성태, 2017

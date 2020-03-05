@@ -35,3 +35,12 @@ Cake 앱에서 생활 영어 표현들을 매일 정리하려고 한다.
     * Another visit from Mr. Worrywart 걱정쟁이가 또 납셨구먼. (`Link <https://mycake.me/share/30819ca4>`_)
     * He's a man of his word. 그는 약속을 지키는 사람이에요. (`Link <https://mycake.me/share/51adc215>`_)
     * He is a scaredy cat. 그는 순 겁쟁이에요. (`Link <https://mycake.me/share/d9fb204c>`_)
+
+* 그럴 의도는 아니었어...
+
+    * I didn't mean to interrupt. 끼어들려고 한 건 아니었어. (`Link <https://mycake.me/share/1b5c36c6>`_)
+    * I didn't mean to hurt you. 아프게 하려고 그런 건 아니었어요. (`Link <https://mycake.me/share/9b258875>`_)
+    * I didn't mean to sacre you. 널 놀라게 하려던 건 아니었어. (`Link <https://mycake.me/share/de5940b6>`_)
+    * I didn't mean to make you laugh. 너를 웃기려고 한 건 아니었어. (`Link <https://mycake.me/share/a5566dc9>`_)
+    * I didn't mean to be nosy. 참견할 생각은 없었어요. (`Link <https://mycake.me/share/bddc5bec>`_)
+    * I didn't mean to say that. 그 뜻이 아니었어요. (`Link <https://mycake.me/share/4324f929>`_)

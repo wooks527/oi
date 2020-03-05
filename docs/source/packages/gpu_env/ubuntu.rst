@@ -148,7 +148,7 @@ Tensorflow와 PyTorch 설치
     conda create -n gpu-env python=3.7
     conda activate gpu-env
 
-* Tensorflow 설치
+* Tensorflow 설치 (`Link <https://www.tensorflow.org/install/pip>`_)
 
     * 설치
 
@@ -175,7 +175,7 @@ Tensorflow와 PyTorch 설치
 
             tf.test.is_gpu_available()
 
-* PyTorch 설치
+* PyTorch 설치 (`Link <https://pytorch.org/get-started>`_)
 
     * PyTorch는 conda를 이용해 설치할 수 있다.
 

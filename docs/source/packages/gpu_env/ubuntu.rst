@@ -106,28 +106,6 @@ nvidia-docker 설치 후 Container 생성
 
     apt-get install -y wget vim git gcc  build-essential
 
-* libcudnn7 설치 (`Link <https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_10>`_)
-
-    * 명령어
-
-    ::
-
-        apt-get install --no-install-recommends \
-                libcudnn7=7.6.4.38-1+cuda10.1  \
-                libcudnn7-dev=7.6.4.38-1+cuda10.1
-
-    * 주의사항
-
-        * 호스트 Driver와 호환되지 않는 경우 에러 발생 (예: Failed to initialize NVML: Driver/library version mismatch)
-
-* libnvinfer6 설치 (`Link <https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101>`_)
-
-::
-
-    apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 \
-            libnvinfer-dev=6.0.1-1+cuda10.1 \
-            libnvinfer-plugin6=6.0.1-1+cuda10.1
-
 * Anaconda 설치 (`Link <https://docs.anaconda.com/anaconda/install/linux/>`_)
 
 ::
@@ -139,6 +117,32 @@ nvidia-docker 설치 후 Container 생성
 
     source ~/.bashrc
     conda update -n base conda
+
+* Tensorflow에서 GPU 사용을 위한 추가 패키지 설치 (PyTorch만 사용하는 경우 설치할 필요 X)
+
+    * libcudnn7 설치 (`Link <https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_10>`_)
+
+        * 명령어
+
+        ::
+
+            apt-get install --no-install-recommends \
+                    libcudnn7=7.6.4.38-1+cuda10.1  \
+                    libcudnn7-dev=7.6.4.38-1+cuda10.1
+
+        * 주의사항
+
+            * 호스트 Driver와 호환되지 않는 경우 에러 발생 (예: Failed to initialize NVML: Driver/library version mismatch)
+
+    * libnvinfer6 설치 (`Link <https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101>`_)
+
+    ::
+
+        apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 \
+                libnvinfer-dev=6.0.1-1+cuda10.1 \
+                libnvinfer-plugin6=6.0.1-1+cuda10.1
+
+
 
 
 Tensorflow와 PyTorch 설치

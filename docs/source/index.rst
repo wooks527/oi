@@ -61,6 +61,7 @@ Below lists are the contents I organized.
     packages/sphinx
     packages/rdkit
     packages/lxml
+    packages/bios
     packages/powershell
 
 .. toctree::

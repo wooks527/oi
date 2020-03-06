@@ -20,3 +20,9 @@
     * U-ALPR 테스트
     * U-ALPR 발표 자료 수정
     * 진행 상황 보고
+
+* Thursday, March 5
+
+    * 채용 조사
+    * GPU 환경 설정 Tutorial 수정
+    * BIOS 업데이트 후 방법 정리

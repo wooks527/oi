@@ -80,11 +80,15 @@ nvidia-docker 설치 후 Container 생성
 
     ::
 
-        docker run -itd --name nvidia-docker -v /home/wooks/share:/root/share -p 8081:8081 --gpus all nvidia/cuda:10.1-devel /bin/bash
+        docker run -itd --name nvidia-docker -v [호스트 경로]:/root/share -p 8081:8081 --gpus all nvidia/cuda:10.1-devel /bin/bash
 
     * 부가 설명
 
-        * -v 옵션은 호스트와 컨테이너 사이의 공유 폴더를 설정하는 옵션임 (예: 호스트 경로:컨테이너 경로)
+        * -v 옵션은 호스트와 컨테이너 사이의 공유 폴더를 설정하는 옵션임 ￫ -v 호스트 경로:컨테이너 경로
+
+            * 호스트 경로는 원하는 경로로 설정하면 됨
+            * 예: -v /home/wooks/share:/root/share
+
         * -p 옵션은 호스트와 컨테이너 상이에 연결할 포트 번호 (예: 호스트 포트:컨테이너 포트)
 
 설치되지 않은 패키지 설치
@@ -114,7 +118,6 @@ nvidia-docker 설치 후 Container 생성
 
     * 주의사항
 
-        * cuda는 제외하고 설치
         * 호스트 Driver와 호환되지 않는 경우 에러 발생 (예: Failed to initialize NVML: Driver/library version mismatch)
 
 * libnvinfer6 설치 (`Link <https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101>`_)

@@ -79,7 +79,7 @@ Below lists are the contents I organized.
     english/grammar/grammar
     english/speaking/speaking
     english/test/test
-    english/business/business
+    english/business/writing_email
 
 .. toctree::
     :maxdepth: 1

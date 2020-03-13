@@ -37,9 +37,11 @@ WSGI
 웹 서버 게이트웨이 인터페이스(WSGI, Web Server Gateway Interface)는 웹서버와 웹 애플리케이션의 인터페이스를 위한 파이선 프레임워크다.
 uWSGI는 웹 클라이언트가 웹 서버에게 요청한 HTTP 프로토콜 요청을 Python Call로 변환하기 위한 매핑관계를 WSGI 표준으로 구현한 것이다.
 
+Port 관련 처리
+===============
 
 Docker 포트 추가 및 변경
-=======================
+************************
 
 **Step 1:** Stop the docker container
 
@@ -80,17 +82,99 @@ Docker 포트 추가 및 변경
      },
     .....
 
+Multiple ports
+***************
+
+::
+
+    docker run -p <host_port1>:<container_port1> -p <host_port2>:<container_port2>
+
+
+::
+
+    docker run -p <host_port1>-<host_port2>:<container_port1>-container_port2>
+
+:h4:`참조`
+
+* `IntelliPoat <https://intellipaat.com/community/240/how-do-i-expose-multiple-port-with-docker>`_
+* `Stack Overflow <https://stackoverflow.com/a/32806333>`_
+
+실행중인 Container에 Port 또는 Volume 추가
+******************************************
+
+::
+
+    docker stop [현재 컨테이너명]
+    docker commit [현재 컨테이너명] [현재 컨테이너로 만들 이미지명]
+    docker run -v [호스트 경로]:[컨테이너 경로] -p [호스트 포트]:[컨테이너 포트] -d [위에서 만든 이미지명] --name [새로운 컨테이너명]
+
 
 Commands
 =========
 
-**Host -> Container**
+* 복사
 
-docker cp [container name]:[container 내부 경로] [host 파일경로]
+    * Host -> Container
 
-**Container -> Host**
+    ::
 
-docker cp [host 파일경로] [container name]:[container 내부 경로]
+        docker cp [container name]:[container 내부 경로] [host 파일경로]
+
+    * Container -> Host
+
+    ::
+
+        docker cp [host 파일경로] [container name]:[container 내부 경로]
+
+* Container 이름 변경
+
+::
+
+    docker rename [원래 컨테이너명]:[새로운 컨테이너명]
+
+
+Commit and push
+================
+
+* Commit
+
+::
+
+    docker commit -a "[작성자명] <[이메일주소]>" -m "Commit 메시지" [컨테이너명] [이미지명:태그]
+
+(작성 예정)
+
+* `Cloudkul, Docker Images and Containers: Points to Remember <https://cloudkul.com/blog/understanding-docker-images-and-containers/>`_
+* `pyrasis.com, Docker 기본 사용법 <http://pyrasis.com/Docker/Docker-HOWTO>`_
+* `SCALYR, HOW TO CREATE A DOCKER IMAGE FROM A CONTAINER <https://www.scalyr.com/blog/create-docker-image/>`_
+
+
+Jupyter notebook 사용하기
+=========================
+
+* Container 내부에서 아래 명령어를 실행하면 됨
+
+    * 명령어
+
+    ::
+
+        jupyter notebook --ip 0.0.0.0 --port 8082 --no-browser --allow-root
+
+    * 주의 사항
+
+        * 포트 번호는 Container 생성 시 연결한 포트 중 하나를 선택하면 됨
+
+:h3:`참조`
+
+* `Eungbean Lee, 랩탑에서 딥러닝 서버에 접속하여 DOCKER/JUPYTER 사용하기 <https://eungbean.github.io/2019/03/22/jupyter-ssh/>`_
+
+
+Q&A
+====
+
+* 여러 개의 Image들로 하나의 Container를 만들 수 없는지 여부
+
+    * (조사 필요)
 
 
 :h2:`출처`

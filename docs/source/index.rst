@@ -50,6 +50,7 @@ Below lists are the contents I organized.
 
     packages/python
     packages/pandas
+    packages/numpy
     packages/jupyter
     packages/colab/colab
     packages/anaconda

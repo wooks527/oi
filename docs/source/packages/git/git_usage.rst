@@ -70,6 +70,22 @@ commit
 
 위 예시에서는 먼저 :code:`add` 로 추가한 f1.txt을 :code:`commit` 하여 새로운 버전 만든다. 그리고 한번 더 파일을 수정한 후에 :code:`add` → :code:`commit` 을 실행하면 또 새로운 버전이 만들어진다. Git의 현재 상태는 :code:`git status` 로 확인할 수 있고, 지금까지 만든 버전에 대한 기록은 :code:`git log` 로 확인할 수 있다.
 
+-------
+ammend
+-------
+
+원격 저장소에 Push 하지 않은 경우, ``--amend`` 옵션으로 Commit 한 Message를 수정할 수 있다.
+
+* 명령어
+
+::
+
+    git commit --amend
+
+* 참조
+
+    * `GitHub.com > Changing a commit message <https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message>`_
+
 log and diff
 *************
 

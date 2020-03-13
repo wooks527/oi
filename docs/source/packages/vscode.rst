@@ -27,3 +27,37 @@ VSCode로 Docker container 코드 수정하기
 ***********************************
 
 * `생각의 자취, 원격서버 vscode로 연결해서 작업하기 <https://evols-atirev.tistory.com/28>`_
+
+
+Troubleshooting
+================
+
+* Docker container 코드 실행 시 Locale 문제
+
+    * 코드
+
+    ::
+
+        apt-get install locales
+        vi /etc/default/locale
+
+    ::
+
+        # 아래 내용 추가하기
+        LANG=en_US.UTF-8
+        LC_ALL=en_US.UTF-8
+
+    ::
+
+        # 위 작업으로 안되면 아래 명령어 실행 (158 ￫ 3)
+        sudo dpkg-reconfigure locales
+
+    * 참조
+
+        * `I.K.Picture & IT Info., pip를 통한 설치 시 unsupported locale setting 에러 <http://blog.engintruder.com/176>`_
+        * `StackExchange, Can't install locales [closed] <https://unix.stackexchange.com/questions/223533/cant-install-locales>`_
+
+* 원하는 Python interpreter로 컴파일되지 않을 때
+
+    * ``Ctrl`` + ``Shift`` + ``P`` 로 Python: Select Interpreter를 선택한 후 원하는 Python을 선택할 수 있음
+    * 참조: `Visual Studio Code > Docs, Using Python environments in VS Code <https://code.visualstudio.com/docs/python/environments>`_

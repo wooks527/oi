@@ -43,3 +43,18 @@ win-bash를 `다운 <https://sourceforge.net/projects/win-bash/>`_ 받아 압축
 :h4:`참조`
 
 * `WhaReview, Windows 윈도우 10 에서 .sh bash 파일 실행하기 <https://whareview.tistory.com/13>`_
+
+
+Troubleshooting
+================
+
+* Windows 로컬 사용자의 비밀번호를 잊어버렸을 때 (로그인이 되어 있는 경우)
+
+    * 방법
+
+        * 로그인 되어 있다면 cmd.exe 를 관리자 권한으로 실행한 후, net user [사용자이름] [비밀번호] 의 형식으로 입력하면 된다.
+        * 여기서 [사용자이름]과 [비밀번호]는 각각 비밀번호를 변경할 사용자 이름이고 변경할 비밀번호이다.
+
+    * 참조
+
+        * `Microsoft > Community, Remember PIN but forgot password <https://answers.microsoft.com/en-us/windows/forum/all/remember-pin-but-forgot-password/c2b223cf-23c3-4eaf-b3f9-80eeaec6018a>`_

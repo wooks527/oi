@@ -9,7 +9,7 @@ There are many kinds of languages:
 .. toctree::
     :maxdepth: 1
 
-    python
+    python/python
     android
     java
     c

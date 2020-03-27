@@ -1,0 +1,30 @@
+================================================================
+PEP 465 -- A dedicated infix operator for matrix multiplication
+================================================================
+
+Abstract
+=========
+
+This PEP proposes a new binary operator to be used for matrix multiplication, called @. (Mnemonic: @ is * for mATrices.)
+
+
+Specification
+==============
+
+A new binary operator is added to the Python language, together with the corresponding in-place version:
+
+===  =========================  ========================
+Op   Precedence/associativity	Methods
+===  =========================  ========================
+@    Same as *                  __matmul__, __rmatmul__
+@=   n/a                        __imatmul__
+===  =========================  ========================
+
+No implementations of these methods are added to the builtin or standard library types. However, a number of projects have reached consensus on the recommended semantics for these operations; see `Intended usage details <https://www.python.org/dev/peps/pep-0465/#intended-usage-details>`_ below for details.
+
+For details on how this operator will be implemented in CPython, see `Implementation details <https://www.python.org/dev/peps/pep-0465/#implementation-details>`_.
+
+
+:h2:`Reference`
+
+* `Python, PEP 465 -- A dedicated infix operator for matrix multiplication <https://www.python.org/dev/peps/pep-0465/>`_

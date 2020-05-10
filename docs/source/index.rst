@@ -36,6 +36,7 @@ Below lists are the contents I organized.
     trend/trend
     ai/references
     research/research_method
+    research/conference/conference
 
 .. toctree::
     :maxdepth: 1

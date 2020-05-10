@@ -1,0 +1,8 @@
+==========
+ICLR 2020
+==========
+
+.. toctree::
+    :caption: Papers
+
+    auto_augment

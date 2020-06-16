@@ -23,6 +23,7 @@ Below lists are the contents I organized.
     ds&algo/ds&algo
 
     ai/ai
+    ai/dl/dl
     computer_vision/computer_vision
 
     bioinfo/bioinfo

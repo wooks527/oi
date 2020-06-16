@@ -11,12 +11,6 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Life
-
-    d_works/d_works
-
-.. toctree::
-    :maxdepth: 1
     :caption: Computer science
 
     language/language

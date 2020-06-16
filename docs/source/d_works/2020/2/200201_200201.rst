@@ -1,7 +1,0 @@
-======
-1주차
-======
-
-* Saturday, February 1
-
-    * ResNet 이해 및 정리

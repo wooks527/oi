@@ -71,3 +71,13 @@ top
     stack = [1, 2, 3]
     top = stack[-1]
 
+
+관련 문제들
+===========
+
+* `Lv2_사전순 부분문자열 <https://github.com/hwkim89/programming/blob/master/programmers/ds/stack/alphabetical_part_string.ipynb>`_
+
+
+:h2:`참조`
+
+* `프로그래머스가 직접 이끌어주는 코딩테스트 대비반(Python) 4기 <https://programmers.co.kr/learn/courses/10349>`_

@@ -80,11 +80,17 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Career
+
+    h&a_test/h&a_test
+    coding_test/coding_test
+    interview/interview
+
+.. toctree::
+    :maxdepth: 1
     :caption: Etc.
 
     language/uml
     tcc/tcc
-    h&a_test/h&a_test
-    interview/interview
     history/kor_hist
     common_sense/common_sense

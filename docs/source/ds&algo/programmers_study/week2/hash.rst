@@ -27,7 +27,7 @@ Python은 dict 클래스로 구성된 Dictionary로 해시 자료구조를 제�
 
 * Dictionary의 탐색이 상수 시간 걸리는 이유
 
-    .. figure:: img/hash/hash_ex.png
+    .. figure:: ../img/week2/hash_ex.png
         :align: center
         :scale: 40%
 

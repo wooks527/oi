@@ -61,3 +61,15 @@ Troubleshooting
 
     * ``Ctrl`` + ``Shift`` + ``P`` 로 Python: Select Interpreter를 선택한 후 원하는 Python을 선택할 수 있음
     * 참조: `Visual Studio Code > Docs, Using Python environments in VS Code <https://code.visualstudio.com/docs/python/environments>`_
+
+
+Python interpreter 설정
+========================
+
+``Ctrl`` + ``Shift`` + ``P`` 를 이용하여 Python: Select Interpreter 를 선택한 후 원하는 Interpreter으로 설정할 수 있다.
+
+
+Jupyter notebook 설정
+======================
+
+우선, ipykernel이 설치되어 있어야 Jupyter notebook을 VSCode에서 실행할 수 있다. Jupyter notebook 오른쪽 상단에 현재 활성화되어 있는 Python을 변경할 수 있다.

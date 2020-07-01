@@ -2,7 +2,11 @@
 Coding convention
 ==================
 
-다양한 Coding convetion이 존재하는데 한 번에 다 정리하기 어렵기 때문에 여기에 하나씩 정리하고자 한다.
+Coding convention에는 여러가지 방법이 있다. 여기에서는 대표적인 Guide인 Python Developer's Guide와 Google Python Style Guide를 살펴보려고 한다.
+
+
+Python Developer's Guide
+=========================
 
 * Public 하지 않은 메소드나 인스턴스 변수의 이름 앞에는 언더스코어를 하나 붙인다 (`PEP8 <https://www.python.org/dev/peps/pep-0008/#id47>`_).
 
@@ -37,3 +41,19 @@ Coding convention
 * `PEP8 <https://www.python.org/dev/peps/pep-0008/#id47>`_ 기준으로 시퀀스가 비어있는지 여부를 판단할 경우, 리스트명만 사용하기를 권장한다.
 
 * 2차원 행렬에서 행과 열을 가져올 때, 단순히 i와 j를 사용하는 것보다 r과 c를 활용하는 것이 더 가독성이 좋다.
+
+
+Google Python Style Guide
+==========================
+
+* Comments and Docstrings
+
+    * `GitHub, Google Python Style Guide <https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings>`_
+    * `Google Python Style Guide <http://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings>`_
+
+
+Others
+=======
+
+* `Real Python, Documenting Python Code: A Complete Guide <https://realpython.com/documenting-python-code/>`_
+* 

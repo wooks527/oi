@@ -63,6 +63,15 @@
 * 관련 강의나 영상 또는 블로그가 있다면 그 내용을 보고 나서 논문을 읽는 게 효율을 높임
 
 
+다른 자료들
+===========
+
+* `일상생활, 나의 논문리뷰방법: 첫 논문 리뷰 준비 <https://m.blog.naver.com/wnduddl2333/221439225582>`_
+* `ESSAYREVIEW, 논문 리뷰 유형 4가지: 나에게 도움이 되는 리뷰 유형은 무엇일까? <https://essayreview.co.kr/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0%EC%9C%A0%ED%98%95-4%EA%B0%80%EC%A7%80-%EB%82%98%EC%97%90%EA%B2%8C-%EB%8F%84%EC%9B%80%EC%9D%B4-%EB%90%98%EB%8A%94-%EB%A6%AC%EB%B7%B0-%EC%9C%A0%ED%98%95%EC%9D%80/>`_
+* `성민s의 과학, 그리고 삶 :), 리뷰어 reviewer는 어떤 관점으로 논문심사를 할까? (1) <https://m.blog.naver.com/mozzila/220944794248>`_
+* `성민s의 과학, 그리고 삶 :), 리뷰어 reviewer는 어떤 관점으로 논문심사를 할까? (2) <https://m.blog.naver.com/mozzila/220947019835>`_
+
+
 :h2:`출처`
 
 * `YouTube, 논문을 효율적으로 읽는 법 <https://youtu.be/7fTHT_JIgSw>`_

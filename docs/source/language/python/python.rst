@@ -12,8 +12,8 @@ Python is an interpreted, high-level, general-purpose programming language. Crea
     time_complexity
     parallel_processing
     packages
-    pandas
-    numpy
+    pandas/pandas
+    numpy/numpy
     special_tips
     peps/peps
 

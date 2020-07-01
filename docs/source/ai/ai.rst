@@ -16,10 +16,8 @@ This is a table of contents in AI:
     :maxdepth: 1
 
     ml/ml
-    deep_learning/dl
     tensorflow/tf
     pytorch/pytorch
-    /packages/gpu_env/gpu_env
 
 
 :h2:`Reference`

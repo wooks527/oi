@@ -5,4 +5,5 @@ Computer vision
 .. toctree::
     :maxdepth: 1
 
-    alpr/u-alpr/u-alpr
+    alpr/alpr
+    research_area

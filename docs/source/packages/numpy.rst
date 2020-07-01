@@ -55,4 +55,30 @@ Numpy
         * 참조
 
             * `SciPy.org, numpy.ndarray.tolist <https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tolist.html>`_
-        
+
+* Copy numpy array into higher dimensions
+
+    * np.expand_dims and np.concatenate
+
+        * 코드
+
+        ::
+
+            arr = np.expand_dims(arr, axis=2)
+            arr = np.concatenate((arr,arr,arr), axis=2)
+
+        * 참조
+
+            * `StackOverflow, how to copy numpy array value into higher dimensions <https://stackoverflow.com/a/39463055>`_
+
+    * np.repeat
+
+        * 코드
+            
+        ::
+
+            arr3D = np.repeat(arr[...,None], 3, axis=2)
+
+        * 참조
+
+            * `StackOverflow, how to copy numpy array value into higher dimensions <https://stackoverflow.com/a/39463055>`_

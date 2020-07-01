@@ -15,12 +15,17 @@ Below lists are the contents I organized.
 
     language/language
     ds&algo/ds&algo
-
-    ai/ai
-    ai/dl/dl
-    computer_vision/computer_vision
-
     bioinfo/bioinfo
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Artificial intelligence
+
+    ml/ml
+    dl/dl
+    computer_vision/computer_vision
+    pytorch&tf/pytorch&tf
+    ai/references
 
 .. toctree::
     :maxdepth: 1
@@ -29,7 +34,6 @@ Below lists are the contents I organized.
     deepcombdti/deepcombdti
     computer_vision/cv_papers
     trend/trend
-    ai/references
     research/research_method
     research/conference/conference
 
@@ -94,3 +98,4 @@ Below lists are the contents I organized.
     tcc/tcc
     history/kor_hist
     common_sense/common_sense
+    cook/cook

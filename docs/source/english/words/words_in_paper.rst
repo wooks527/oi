@@ -9,6 +9,7 @@ A
 * accommodate (환경 등에) 맞추다
 * acquisition 습득
 * ad hoc 특정한 문제나 일을 위해 만들어진 관습적인 해결책, 일반화할 수 없는 해결책, 어떤 다른 목적에 적응시킬 수 없는 해결책
+* ad-hoc 즉석(에서 마련된)
 * address (문제·상황 등에 대해) 고심하다[다루다]
 * adjacency 인접, 이웃 ((of))
 * advocate (공개적으로) 지지하다[옹호하다]
@@ -18,9 +19,13 @@ A
 * aggregation 집단, 집합[집성]체
 * agnostic 관용적인, 독단적 의견에 사로잡히지[얽매이지] 않는
 * alleviate 완화하다 (=ease)
+* ambient 주위[주변]의, 잔잔한, 은은한
 * amend (법 등을) 개정[수정]하다
 * amortize〔자산·비용 따위〕를 점진 상각하다
+* analogous 유사한
+* appealing 매력적인, 흥미로운 (↔unappealing)
 * approximate (성격양자질 등이) 비슷하다[가깝다]
+* approximation 근사치
 * aspect ratio [TV·영화] 화상(晝像)[영상]의 가로 세로의 비(比), 영상비, [항공] 날개의 가로 세로의 비
 * assistive 돕는, 도움이 되는(helpful)
 * astound 경악시키다, 큰 충격을 주다 (=astonish)
@@ -50,6 +55,7 @@ C
 * commodity (유용한) 것
 * comparable 비슷한, 비교할 만한
 * complementarity 상보적 상태, [물리] 상보성(相補性)
+* composition 구성 요소들; 구성
 * comprehensive 포괄적인, 종합적인 (=complete, full)
 * comprehensively 완전히, 철저히
 * compromise 타협[절충](내용), 타협하다, (특히 무분별한 행동으로) ~을 위태롭게 하다
@@ -59,6 +65,7 @@ C
 * conscious (행동·감정 등이) 의식적인, 의도적인 
 * constitute …이 되는 것으로 여겨지다, …이 되다
 * consular 영사(관)의
+* containment (좋지 않은 일의) 방지[억제]
 * contemporaneous 동시에 발생[존재]하는 (=contemporary)
 * contrast normalization 대비 표준화
 * convey (생각·감정 등을) 전달하다[전하다] (=communicate)
@@ -69,6 +76,7 @@ C
 D
 ===
 
+* daunting 벅찬, 주눅이 들게 하는
 * decent (수준·질이) 괜찮은[제대로 된]
 * deformable 변형할 수 있는
 * degrade (특히 질적으로) 저하시키다
@@ -80,6 +88,7 @@ D
 * derivative [수학] 미분 계수; 도함수
 * dictate (권위를 갖고) …을 명령하다, 지시하다((to))
 * dimension (공간의) 크기, (높이·너비·길이의) 치수 (→the fourth dimension), (상황의) 규모[범위], 차원, 관점
+* discretization 이산
 * discriminative 식별하는; 식별[판별]력이 있는; 예민한.
 * discrepancy (같아야 할 것들 사이의) 차이[불일치]
 * disentangle (혼란스러운 주장·생각 등을) 구분하다
@@ -94,6 +103,7 @@ E
 ===
 
 * ebullient [격식]패기만만한, 사기가 충천한
+* elaborate 정교한, 정성[공]을 들인
 * elongate 길어지다, 길게 늘이다 (=lengthen)
 * elucidate (더 자세히) 설명하다 (=explain)
 * empirically 경험(주의)적으로
@@ -101,13 +111,16 @@ E
 * enforcement (법률의) 시행, 집행
 * engage (작동될 수 있도록 기계 부품이[을]) 맞물리다[맞물리게 하다]
 * enlarge 확대[확장]하다, 확대[확장]되다
+* enlighten (설명하여) 이해시키다[깨우치다], 	<뜻 등을> 밝히다, 설명하다; 가르치다
 * essentially 근본[기본/본질]적으로(=basically, fundamentally)
 * estimative 평가할 수 있는; 평가의, 평가에 의거한, 추정의
 * exclusively 배타적으로; 독점적으로; 오로지, 오직 …뿐(solely)
+* exemplary 모범적인
 * exhaustively 철저하게, 남김없이, 속속들이
 * exhibit 보이다, 드러내다(=display)
 * explicitly 명백하게
 * exploit (최대한 잘) 활용하다, (사업산업용으로) 개발하다
+* expressive (생각·감정을) 나타내는, 표정[표현력]이 있는 (→expressionless)
 * extant 현존[잔존]하는
 * extent (크기·중요성·심각성 등의) 정도[규모]
 
@@ -157,13 +170,14 @@ I
 * infero-temporal pathway 하측두 경로
 * inherent 내재하는(=intrinsic)
 * inhibition (행동·과정의) 억제[방해]
+* instability 불안정
 * intensity (빛 등의) 강도[세기]
 * interchangeably 교대로, 구별없이
 * interdependent 상호의존적인
 * intervene (두 가지 사건·장소) 사이에 있다[존재하다]
+* intractable 아주 다루기 힘든 (↔tractable)
 * intrinsically 본질적으로
 * intuitive 직감[직관]에 의한, 직감하는, 직관력 있는, 직관적인
-* instability 불안정
 * isotropic 등방성의
 * isotropy 등방성 (공간이 방향에 따라 다르지 아니하고 같은 성질)
 
@@ -185,6 +199,7 @@ M
 ===
 
 * magnitude 정도
+* meager 메마른.빈약한, 결핍한, 야윈, 불충분한, 풍부하지 못한, 부적격한
 * meanwhile (다른 일이 일어나고 있는) 그 동안에, (두 가지 시점사건들) 그 동안[사이]에, 한편
 * merely 한낱, 그저, 단지
 * mite 진드기
@@ -218,6 +233,7 @@ P
 
 * paste (텍스트를 오리거나 복사하여 다른 곳에 갖다) 붙이다
 * pathway [생화학] 경로
++ pervasive 만연하는, (구석구석) 스며[배어]드는
 * planar 평면의
 * plateau 안정 수준[상태]에 달하다; ((특히)) 상승[진보]이 멈추다
 * plausible 그럴듯한(↔implausible)
@@ -229,6 +245,7 @@ P
 * prevalent 특정 시기·장소에) 일반적인[널리 퍼져 있는] (=common, widespread)
 * prior-art prior art 선행 기술
 * prohibitively 엄청나게
+* province (행정 단위인) 주(州)[도(道)]
 
 Q
 ===
@@ -251,6 +268,7 @@ R
 * responsibility 책임진 일, 임무, 할 일, 짐(duty, charge)
 * resultant (앞에 언급한) 그 결과로 생긴[그에 따른]
 * retrieve 검색하다
+* revisit (어떤 아이디어·주제를) 다시 논의하다
 * roughly 대략, 거의
 
 S
@@ -259,6 +277,7 @@ S
 * saturate 포화시키다, 포화 상태를 만들다
 * scarce 부족한, 드문
 * secure (특히 힘들게) 얻어 내다, 획득[확보]하다
+* self-containment 자기 충족
 * shallow 얕은 (↔deep)
 * shrink (규모양이[을]) 줄어들다[줄어들게 하다]
 * so that ~하도록, ~할 수 있도록
@@ -282,6 +301,7 @@ S
 T
 ===
 
+* tailored (특정한 개인·목적을 위한) 맞춤의
 * temporal 시간의; 시간의 경과 순서의; 특정 시기의; 잠시(동안)의; [해부] 관자놀이께의, 측두의
 * testbed, test bed (새로운 기계, 특히 비행기 엔진의) 시험대
 * thorough 빈틈없는, 철두철미한, 철저한

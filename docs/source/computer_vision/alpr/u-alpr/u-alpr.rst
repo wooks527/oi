@@ -11,6 +11,6 @@ Codes
 .. toctree::
     :maxdepth: 1
 
-    tutorial
+    tutorial/tutorial
     Modules: alpr-unconstrained <modules/modules>
     troubleshooting

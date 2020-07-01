@@ -12,6 +12,7 @@ Git은 무료로 사용할 수 있고 다양한 프로젝트에서 빠르고 효
     intro
     git_usage
     remote_repo
+    markdown
 
 
 :h2:`참조`

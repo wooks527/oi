@@ -1,0 +1,8 @@
+==========
+ICCV 2019
+==========
+
+:h2:`Reference`
+
+* `ICCV <http://iccv2019.thecvf.com/>`_
+* `YouTube, ICCV 2019 Oral sessions <https://www.youtube.com/playlist?list=PLBAFw2oKatLJ7Mb8Xat6fq_oGyD7JdaNU>`_

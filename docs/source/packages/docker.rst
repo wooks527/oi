@@ -169,6 +169,57 @@ Jupyter notebook 사용하기
 * `Eungbean Lee, 랩탑에서 딥러닝 서버에 접속하여 DOCKER/JUPYTER 사용하기 <https://eungbean.github.io/2019/03/22/jupyter-ssh/>`_
 
 
+Docker에 X window 설정
+=======================
+
+* 호스트에서 아래 명령어 실행
+
+::
+
+    xhost local:root
+
+* Container 생성 시 아래 옵션 추가 (옵션은 정리가 필요함, `Link 1 <http://wiki.ros.org/docker/Tutorials/GUI>`_, `Link 2 <https://conservative-vector.tistory.com/entry/docker%EC%97%90%EC%84%9C-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-gui-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0>`_, )
+
+::
+
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+
+:h3:`참조`
+
+* `EUNGBEAN, [EOD]CANNOT CONNECT TO X SERVER :0.0 <https://eungbean.github.io/2018/12/04/EOD-cannot-connect-to-X-server-0.0/>`_
+
+
+nvidia-docker
+==============
+
+GPU 선택 방법
+*************
+
+::
+
+    #### Test nvidia-smi with the latest official CUDA image
+    docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
+
+    # Start a GPU enabled container on two GPUs
+    docker run --gpus 2 nvidia/cuda:10.0-base nvidia-smi
+
+    # Starting a GPU enabled container on specific GPUs
+    docker run --gpus '"device=1,2"' nvidia/cuda:10.0-base nvidia-smi
+    docker run --gpus '"device=UUID-ABCDEF,1"' nvidia/cuda:10.0-base nvidia-smi
+
+    # Specifying a capability (graphics, compute, ...) for my container
+    # Note this is rarely if ever used this way
+    docker run --gpus all,capabilities=utility nvidia/cuda:10.0-base nvidia-smi
+
+위 코드에서 볼 수 있듯이 ``--gpus`` 옵션 뒤에 어떤 값을 입력하느냐에 따라 어떤 GPU를 사용할 것인지 결정할 수 있다.
+
+:h4:`참조`
+
+* `GitHub, NVIDIA/nvidia-docker <https://github.com/NVIDIA/nvidia-docker>`_
+* `GitHub, NVIDIA/nvidia-docker, Wiki <https://github.com/NVIDIA/nvidia-docker/wiki>`_
+
+
 Q&A
 ====
 

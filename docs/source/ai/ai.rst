@@ -10,15 +10,6 @@ Colloquially, the term "artificial intelligence" is often used to describe machi
 
 인공지능은 기계에 의해 만들어진 지능을 뜻하고, 여러 AI 관련 책에서는 지능형 기계를 연구하는 학분 분야라고 말한다.
 
-This is a table of contents in AI:
-
-.. toctree::
-    :maxdepth: 1
-
-    ml/ml
-    tensorflow/tf
-    pytorch/pytorch
-
 
 :h2:`Reference`
 

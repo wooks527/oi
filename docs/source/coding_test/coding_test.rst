@@ -47,7 +47,7 @@
 * 탐욕법
 
     * `큰 수 만들기 <https://github.com/hwkim89/programming/blob/master/programmers/algo/greedy/creating_big_number.ipynb>`_
-    * `단속 카메라 <https://github.com/hwkim89/programming/blob/master/programmers/algo/greedy/speed_camera.ipynb>
+    * `단속 카메라 <https://github.com/hwkim89/programming/blob/master/programmers/algo/greedy/speed_camera.ipynb>`_
 
 * 동적계획법
 

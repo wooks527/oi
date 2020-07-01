@@ -7,3 +7,4 @@ PyTorch and TensorFlow
 
     tensorflow/tf
     pytorch/pytorch
+    colab/colab

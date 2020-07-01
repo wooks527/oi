@@ -16,11 +16,13 @@ Below lists are the contents I organized.
     language/language
     ds&algo/ds&algo
     bioinfo/bioinfo
+    os/os
 
 .. toctree::
     :maxdepth: 1
     :caption: Artificial intelligence
 
+    ai/ai
     ml/ml
     dl/dl
     computer_vision/computer_vision
@@ -35,25 +37,13 @@ Below lists are the contents I organized.
     computer_vision/cv_papers
     trend/trend
     research/research_method
+    research/journal/journal
     research/conference/conference
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Mathematics
-
-    math_highschool/math_highschool
-    math/math
 
 .. toctree::
     :maxdepth: 1
     :caption: Packages
 
-    packages/python
-    packages/pandas
-    packages/numpy
-    packages/jupyter
-    packages/colab/colab
-    packages/anaconda
     packages/git/git
     packages/docker
     packages/django
@@ -67,10 +57,10 @@ Below lists are the contents I organized.
 
 .. toctree::
     :maxdepth: 1
-    :caption: OS
+    :caption: Mathematics
 
-    os/ubuntu/ubuntu
-    os/windows/windows
+    math_highschool/math_highschool
+    math/math
 
 .. toctree::
     :maxdepth: 1

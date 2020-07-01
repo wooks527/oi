@@ -11,11 +11,12 @@ Python is an interpreted, high-level, general-purpose programming language. Crea
     coding_convention
     time_complexity
     parallel_processing
-    packages
     pandas/pandas
     numpy/numpy
     special_tips
     peps/peps
+    jupyter
+    anaconda
 
 
 Others
@@ -102,4 +103,3 @@ File I/O
 :h2:`Reference`
 
 * `Wikipedia <https://en.wikipedia.org/wiki/Python_(programming_language)>`_
-

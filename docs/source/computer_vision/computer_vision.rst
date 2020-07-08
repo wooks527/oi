@@ -11,6 +11,6 @@ Computer vision
     cnn/cnn
     object_detection/od_main
     segmentation/segmentation
-    data_aug
     opencv/opencv
+    tools/tools
     terms
